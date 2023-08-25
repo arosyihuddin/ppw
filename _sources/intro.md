@@ -10,8 +10,6 @@ Kami mengundang Anda untuk menjelajahi konten yang telah kami persiapkan dengan 
 
 Terima kasih telah bergabung dengan kami dalam perjalanan ini. Jika Anda memiliki pertanyaan, saran, atau umpan balik, jangan ragu untuk menghubungi kami. Selamat belajar dan semoga kesuksesan selalu menyertai langkah-langkah Anda di mata kuliah ini!
 
-
-
 Salam hangat,
 
 Ahmad Rosyihuddin

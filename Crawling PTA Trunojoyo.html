@@ -151,7 +151,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Welcome to your Jupyter Book
+                    Home Page
                 </a>
             </li>
         </ul>
@@ -387,12 +387,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-library-beautifulsoup">Install Library BeautifulSoup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">Create Crawling Function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-get-data">Fungsi get_data()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-pta">Fungsi crawling_pta()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-main">Fungsi main()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-library-beautifulsoup">1. Install Library BeautifulSoup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">2. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">3. Create Crawling Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-get-data">3.1. Fungsi get_data()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-pta">3.2. Fungsi crawling_pta()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-main">3.3. Fungsi main()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memanggil-fungsi-main">Memanggil Fungsi main()</a></li>
 </ul>
 </li>
@@ -412,7 +412,7 @@ document.write(`
 <p>Crawling (atau web crawling) adalah proses otomatis untuk mengambil informasi dari berbagai halaman web dengan cara mengakses dan mengekstrak data dari berbagai situs secara sistematis. Tujuan dari crawling adalah untuk mengumpulkan informasi yang dapat digunakan untuk berbagai keperluan, seperti analisis data, pemantauan, pengindeksan, dan lain-lain.</p>
 <p>Crawling dilakukan oleh program komputer yang disebut “crawler” atau “spider”. Crawler ini mengunjungi halaman-halaman web, mengambil konten, mengikuti tautan, dan terus bergerak di seluruh situs web untuk mengumpulkan data. Proses crawling sering digunakan dalam pengembangan mesin pencari seperti Google, analisis data web, riset pasar, dan banyak aplikasi lainnya.</p>
 <section id="install-library-beautifulsoup">
-<h2>Install Library BeautifulSoup<a class="headerlink" href="#install-library-beautifulsoup" title="Permalink to this heading">#</a></h2>
+<h2>1. Install Library BeautifulSoup<a class="headerlink" href="#install-library-beautifulsoup" title="Permalink to this heading">#</a></h2>
 <p>Library Beautiful Soup adalah salah satu alat yang sering digunakan untuk melakukan crawling dan ekstraksi data dari dokumen HTML dan XML. Beautiful Soup menyediakan cara yang mudah untuk menavigasi dan memanipulasi struktur dokumen HTML. Ini memungkinkan Anda melakukan pencarian elemen berdasarkan tag, atribut, dan teks yang ada di dalam elemen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -429,7 +429,7 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 </section>
 <section id="import-library">
-<h2>Import Library<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h2>
+<h2>2. Import Library<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -441,9 +441,9 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 </section>
 <section id="create-crawling-function">
-<h2>Create Crawling Function<a class="headerlink" href="#create-crawling-function" title="Permalink to this heading">#</a></h2>
+<h2>3. Create Crawling Function<a class="headerlink" href="#create-crawling-function" title="Permalink to this heading">#</a></h2>
 <section id="fungsi-get-data">
-<h3>Fungsi get_data()<a class="headerlink" href="#fungsi-get-data" title="Permalink to this heading">#</a></h3>
+<h3>3.1. Fungsi get_data()<a class="headerlink" href="#fungsi-get-data" title="Permalink to this heading">#</a></h3>
 <p>Fungsi ini mengambil data dari halaman tugas akhir yang diberikan URL-nya. Ia mengekstrak judul tugas akhir, nama penulis, nama dosen pembimbing, dan abstrak dari halaman tersebut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -483,8 +483,8 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 </section>
 <section id="fungsi-crawling-pta">
-<h3>Fungsi crawling_pta()<a class="headerlink" href="#fungsi-crawling-pta" title="Permalink to this heading">#</a></h3>
-<p>Fungsi ini melakukan crawling atau pengambilan data dari halaman daftar tugas akhir. Ia mengambil URL halaman, mencari setiap elemen daftar tugas akhir, mengekstrak URL untuk halaman detail setiap tugas akhir, dan menggunakan fungsi get_data untuk mendapatkan informasi lebih lanjut.</p>
+<h3>3.2. Fungsi crawling_pta()<a class="headerlink" href="#fungsi-crawling-pta" title="Permalink to this heading">#</a></h3>
+<p>Fungsi ini melakukan crawling atau pengambilan data dari halaman daftar tugas akhir. Ia mengambil URL halaman, mencari setiap elemen daftar tugas akhir, mengekstrak URL untuk halaman detail setiap tugas akhir, dan menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">get_data()</span></code> untuk mendapatkan informasi lebih lanjut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crawling_pta</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
@@ -509,7 +509,7 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 </section>
 <section id="fungsi-main">
-<h3>Fungsi main()<a class="headerlink" href="#fungsi-main" title="Permalink to this heading">#</a></h3>
+<h3>3.3. Fungsi main()<a class="headerlink" href="#fungsi-main" title="Permalink to this heading">#</a></h3>
 <p>Fungsi utama yang mengatur alur scraping. Ia memulai proses crawling dari URL yang diberikan sebanyak <code class="docutils literal notranslate"><span class="pre">num_page</span></code> halaman. Kemudian, ia menyimpan hasil crawling ke dalam file CSV.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -609,12 +609,12 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-library-beautifulsoup">Install Library BeautifulSoup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">Create Crawling Function</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-get-data">Fungsi get_data()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-pta">Fungsi crawling_pta()</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-main">Fungsi main()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-library-beautifulsoup">1. Install Library BeautifulSoup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">2. Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">3. Create Crawling Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-get-data">3.1. Fungsi get_data()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-pta">3.2. Fungsi crawling_pta()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-main">3.3. Fungsi main()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memanggil-fungsi-main">Memanggil Fungsi main()</a></li>
 </ul>
 </li>
