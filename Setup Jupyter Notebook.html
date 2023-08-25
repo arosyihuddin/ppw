@@ -64,6 +64,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Setup Jupyter Notebook';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Crawling Website PTA Trunojoyo" href="Crawling%20PTA%20Trunojoyo.html" />
+    <link rel="prev" title="Welcome to your Jupyter Book" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -154,10 +156,14 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown Files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks.html">Content with notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Create Jupyter Notebook</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Setup Jupyter Notebook</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20Trunojoyo.html">Crawling Website PTA Trunojoyo</a></li>
 </ul>
 
     </div>
@@ -378,633 +384,53 @@ document.write(`
 <section id="install-requirements">
 <h2>1. Install Requirements<a class="headerlink" href="#install-requirements" title="Permalink to this heading">#</a></h2>
 <p>Requirements yang di install adalah Jupyter Notebook dan juga ghp-import untuk push data ke dalam github</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ghp-import
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install jupyter-book
+!pip install ghp-import
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyter-book in /usr/local/lib/python3.10/dist-packages (0.15.1)
-Requirement already satisfied: click&lt;9,&gt;=7.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (8.1.7)
-Requirement already satisfied: docutils&lt;0.19,&gt;=0.15 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.18.1)
-Requirement already satisfied: Jinja2 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (3.1.2)
-Requirement already satisfied: jsonschema&lt;5 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (4.19.0)
-Requirement already satisfied: linkify-it-py~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (2.0.2)
-Requirement already satisfied: myst-nb~=0.17.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.17.2)
-Requirement already satisfied: pyyaml in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (6.0.1)
-Requirement already satisfied: sphinx&lt;6,&gt;=4 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (5.0.2)
-Requirement already satisfied: sphinx-comments in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.0.3)
-Requirement already satisfied: sphinx-copybutton in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.5.2)
-Requirement already satisfied: sphinx-external-toc~=0.3.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.3.1)
-Requirement already satisfied: sphinx-jupyterbook-latex~=0.5.2 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.5.2)
-Requirement already satisfied: sphinx-design~=0.3.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.3.0)
-Requirement already satisfied: sphinx-thebe~=0.2.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.2.1)
-Requirement already satisfied: sphinx-book-theme~=1.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (1.0.1)
-Requirement already satisfied: sphinx_togglebutton in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.3.2)
-Requirement already satisfied: sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (2.5.0)
-Requirement already satisfied: sphinx-multitoc-numbering~=0.1.3 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.1.3)
-Requirement already satisfied: attrs&gt;=22.2.0 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (23.1.0)
-Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (2023.7.1)
-Requirement already satisfied: referencing&gt;=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (0.30.2)
-Requirement already satisfied: rpds-py&gt;=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (0.9.2)
-Requirement already satisfied: uc-micro-py in /usr/local/lib/python3.10/dist-packages (from linkify-it-py~=2.0.0-&gt;jupyter-book) (1.0.2)
-Requirement already satisfied: importlib_metadata in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (6.8.0)
-Requirement already satisfied: ipython in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (7.34.0)
-Requirement already satisfied: jupyter-cache&lt;0.7,&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.6.1)
-Requirement already satisfied: nbclient in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.7.4)
-Requirement already satisfied: myst-parser~=0.18.0 in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.18.1)
-Requirement already satisfied: nbformat~=5.0 in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (5.9.2)
-Requirement already satisfied: typing-extensions in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (4.7.1)
-Requirement already satisfied: ipykernel in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (5.5.6)
-Requirement already satisfied: sphinxcontrib-applehelp in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.7)
-Requirement already satisfied: sphinxcontrib-devhelp in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.5)
-Requirement already satisfied: sphinxcontrib-jsmath in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.1)
-Requirement already satisfied: sphinxcontrib-htmlhelp&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.0.4)
-Requirement already satisfied: sphinxcontrib-serializinghtml&gt;=1.1.5 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.1.8)
-Requirement already satisfied: sphinxcontrib-qthelp in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.6)
-Requirement already satisfied: Pygments&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.16.1)
-Requirement already satisfied: snowballstemmer&gt;=1.1 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.2.0)
-Requirement already satisfied: babel&gt;=1.3 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.12.1)
-Requirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (0.7.13)
-Requirement already satisfied: imagesize in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.4.1)
-Requirement already satisfied: requests&gt;=2.5.0 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.31.0)
-Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (23.1)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from Jinja2-&gt;jupyter-book) (2.1.3)
-Requirement already satisfied: pydata-sphinx-theme&gt;=0.13.3 in /usr/local/lib/python3.10/dist-packages (from sphinx-book-theme~=1.0.0-&gt;jupyter-book) (0.13.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pybtex&gt;=0.24 in /usr/local/lib/python3.10/dist-packages (from sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (0.24.0)
-Requirement already satisfied: pybtex-docutils&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (1.0.3)
-Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from sphinx_togglebutton-&gt;jupyter-book) (67.7.2)
-Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from sphinx_togglebutton-&gt;jupyter-book) (0.41.1)
-Requirement already satisfied: sqlalchemy&lt;3,&gt;=1.3.12 in /usr/local/lib/python3.10/dist-packages (from jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.20)
-Requirement already satisfied: tabulate in /usr/local/lib/python3.10/dist-packages (from jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.9.0)
-Requirement already satisfied: markdown-it-py&lt;3.0.0,&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.2.0)
-Requirement already satisfied: mdit-py-plugins~=0.3.1 in /usr/local/lib/python3.10/dist-packages (from myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.3.5)
-Requirement already satisfied: jupyter-client&gt;=6.1.12 in /usr/local/lib/python3.10/dist-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (6.1.12)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /usr/local/lib/python3.10/dist-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.3.1)
-Requirement already satisfied: traitlets&gt;=5.3 in /usr/local/lib/python3.10/dist-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.7.1)
-Requirement already satisfied: fastjsonschema in /usr/local/lib/python3.10/dist-packages (from nbformat~=5.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.18.0)
-Requirement already satisfied: latexcodec&gt;=1.0.4 in /usr/local/lib/python3.10/dist-packages (from pybtex&gt;=0.24-&gt;sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (2.0.1)
-Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from pybtex&gt;=0.24-&gt;sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (1.16.0)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (4.11.2)
-Requirement already satisfied: accessible-pygments in /usr/local/lib/python3.10/dist-packages (from pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (0.0.4)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (3.2.0)
-Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (3.4)
-Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.0.4)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2023.7.22)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from importlib_metadata-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.16.2)
-Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.10/dist-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.0)
-Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.10/dist-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (6.3.2)
-Requirement already satisfied: jedi&gt;=0.16 in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.19.0)
-Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (4.4.2)
-Requirement already satisfied: pickleshare in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.7.5)
-Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.0.39)
-Requirement already satisfied: backcall in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.0)
-Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.6)
-Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (4.8.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /usr/local/lib/python3.10/dist-packages (from jedi&gt;=0.16-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.8.3)
-Requirement already satisfied: pyzmq&gt;=13 in /usr/local/lib/python3.10/dist-packages (from jupyter-client&gt;=6.1.12-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (23.2.1)
-Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-client&gt;=6.1.12-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.8.2)
-Requirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.10.0)
-Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.10/dist-packages (from markdown-it-py&lt;3.0.0,&gt;=1.0.0-&gt;myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.2)
-Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from pexpect&gt;4.3-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.7.0)
-Requirement already satisfied: wcwidth in /usr/local/lib/python3.10/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.6)
-Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.10/dist-packages (from sqlalchemy&lt;3,&gt;=1.3.12-&gt;jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4-&gt;pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (2.4.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ghp-import in /usr/local/lib/python3.10/dist-packages (2.1.0)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from ghp-import) (2.8.2)
-Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.1-&gt;ghp-import) (1.16.0)
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="masuk-ke-dalam-direktori-penyimpanan-tugas">
 <h2>2. Masuk ke dalam direktori penyimpanan tugas<a class="headerlink" href="#masuk-ke-dalam-direktori-penyimpanan-tugas" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">Kuliah</span> <span class="o">/</span><span class="n">Semester</span> <span class="mi">7</span><span class="o">/</span><span class="n">Pencarian</span> <span class="n">Dan</span> <span class="n">Penambangan</span> <span class="n">Web</span><span class="o">/</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="khusus-pembuatan-pertama">
 <h2>3. Khusus Pembuatan Pertama<a class="headerlink" href="#khusus-pembuatan-pertama" title="Permalink to this heading">#</a></h2>
 <p>sebelum itu buat dulu repositori github nya buat menyimpan data, dan git clone dengan cara copy link github nya serta masukkan private key nya seperti contoh di bawah.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>https://<span class="o">{</span>Private<span class="w"> </span>Key<span class="o">}</span>@github.com/arosyihuddin/ppw.git
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git clone https://{Private Key}@github.com/arosyihuddin/ppw.git
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;Key}@github.com/arosyihuddin/ppw.git&#39;...
+<p>setelah di clone selanjutnya buat jupyterbook nya dengan menggunakan code berikut:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!jupyter-book create ppw1/
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: unable to access &#39;https://{Private/&#39;: Could not resolve host: {Private
+<p>setelah itu pindah semua file maupun folder dari ppw1 tadi ke folder github yang telah di clone dengan menggunakan code berikut:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!mv /content/drive/MyDrive/Kuliah\ /Semester\ 7/Pencarian\ Dan\ Penambangan\ Web/ppw1/* /content/drive/MyDrive/Kuliah\ /Semester\ 7/Pencarian\ Dan\ Penambangan\ Web/ppw
 </pre></div>
 </div>
-</div>
-</div>
-<p>setelah di clone selanjutnya buat jupyterbook nya dengan menggunakan code berikut</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>create<span class="w"> </span>ppw1/
+<p>hapus folder ppw1 karena sudah tidak di butuhkan dengan menggunakan code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!rm -rf ppw1/
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
-
-Your book template can be found at
-
-    ppw1/
-
-===============================================================================
-</pre></div>
-</div>
-</div>
-</div>
-<p>setelah itu pindah semua file maupun folder dari ppw1 tadi ke folder github yang telah di clone dengan menggunakan code berikut</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mv<span class="w"> </span>/content/drive/MyDrive/Kuliah<span class="se">\ </span>/Semester<span class="se">\ </span><span class="m">7</span>/Pencarian<span class="se">\ </span>Dan<span class="se">\ </span>Penambangan<span class="se">\ </span>Web/ppw1/*<span class="w"> </span>/content/drive/MyDrive/Kuliah<span class="se">\ </span>/Semester<span class="se">\ </span><span class="m">7</span>/Pencarian<span class="se">\ </span>Dan<span class="se">\ </span>Penambangan<span class="se">\ </span>Web/ppw
-</pre></div>
-</div>
-</div>
-</div>
-<p>hapus folder ppw1 karena sudah tidak di butuhkan</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>rm<span class="w"> </span>-rf<span class="w"> </span>ppw1/
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="build-jupyterbook">
 <h2>4. Build Jupyterbook<a class="headerlink" href="#build-jupyterbook" title="Permalink to this heading">#</a></h2>
 <p>pada proses nomor 3 itu khusus untuk saat pembuatan nya saja untuk melakukan update langkah nomor 3 dapat di hapus. dan selanjutnya langkah ke 4 adalah membuild atau membangun jupyterbooknya</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>ppw/
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!jupyter-book build ppw/
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Running Jupyter-Book v0.15.1</span>
-<span class=" -Color -Color-Bold -Color-Bold-Blue">Source Folder: </span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw
-<span class=" -Color -Color-Bold -Color-Bold-Blue">Config Path: </span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/_config.yml
-<span class=" -Color -Color-Bold -Color-Bold-Blue">Output Path: </span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/_build/html
-[sphinxcontrib-bibtex] Beware that docutils versions 0.18 and 0.19 (you are running 0.18.1) are known to generate invalid html for citations. If this issue affects you, please use docutils&lt;0.18 (or &gt;=0.20 once released) instead. For more details, see https://sourceforge.net/p/docutils/patches/195/
-<span class=" -Color -Color-Bold">Running Sphinx v5.0.2</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[etoc] Changing master_doc to &#39;intro&#39;
-<span class=" -Color -Color-Bold">loading pickled environment... </span>checking bibtex cache... out of date
-parsing bibtex file /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/references.bib... parsed 5 entries
-done
-<span class=" -Color -Color-Bold">myst v0.18.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=[&#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;linkify&#39;, &#39;substitution&#39;, &#39;tasklist&#39;], disable_syntax=[], all_links_external=False, url_schemes=[&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;], ref_domains=None, highlight_code_blocks=True, number_code_blocks=[], title_to_header=False, heading_anchors=None, heading_slug_func=None, footnote_transition=True, words_per_minute=200, sub_delimiters=(&#39;{&#39;, &#39;}&#39;), linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;)
-<span class=" -Color -Color-Bold">myst-nb v0.17.2:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, execution_mode=&#39;force&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
-Using jupyter-cache at: /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/_build/.jupyter_cache
-<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
-<span class=" -Color -Color-Bold">building [html]: </span>targets for 3 source files that are out of date
-<span class=" -Color -Color-Bold">updating environment: </span>[config changed (&#39;author&#39;)] 6 added, 4 changed, 0 removed
-<span class=" -Color -Color-Bold">reading sources... </span>[ 16%] <span class=" -Color -Color-Magenta">Crawling PTA Trunojoyo</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Crawling PTA Trunojoyo.ipynb: Executing notebook using local CWD [mystnb]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception occurred:
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 512, in _async_cleanup_kernel
-    await ensure_async(self.km.cleanup_resources())
-AttributeError: &#39;NoneType&#39; object has no attribute &#39;cleanup_resources&#39;
-The full traceback has been saved in /tmp/sphinx-err-iiw23xnr.log, if you want to report the issue to the developers.
-Please also report this if it was a user error, so that a better error message can be provided next time.
-A bug report can be filed in the tracker at &lt;https://github.com/sphinx-doc/sphinx/issues&gt;. Thanks!
-Traceback (most recent call last):
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 650, in async_setup_kernel
-    yield
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 705, in async_execute
-    await self.async_execute_cell(
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 1058, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 914, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-def get_data(url):
-  data_page = []
-  response = requests.get(url)
-  if response.status_code == 200:
-    page = BeautifulSoup(response.content)
-    container_content = page.find(&#39;li&#39;, {&quot;data-id&quot; : &quot;id-1&quot;})
-    header_page = container_content.find(&#39;div&#39;, {&quot;style&quot; : &quot;float:left; width:540px;&quot;})
-
-    #  Mengambil judul TA
-    get_title = header_page.find(&#39;a&#39;, class_ = &#39;title&#39;).text.strip().split(&#39;\r\n&#39;)
-    title = &quot; &quot;.join(get_title)
-    data_page.append(title)
-
-    # Mengambil Penulis dan juga Dospem
-    creator = header_page.find_all(&#39;span&#39;)
-    for i in creator:
-      splitting_text = i.text.strip().split(&#39;:&#39;)
-      if splitting_text[0].strip() == &#39;Penulis&#39;:
-        data_page.append(splitting_text[1].strip())
-      elif splitting_text[0].strip() == &#39;Dosen Pembimbing I&#39;:
-        data_page.append(splitting_text[1].strip())
-      else:
-        data_page.append(splitting_text[1].strip())
-
-    # Mengambil Abstrak
-    get_abstrak = container_content.find(&#39;p&#39;, {&quot;align&quot; : &quot;justify&quot;}).text.strip().split(&#39;\r\n&#39;)
-    abstrak = &quot; &quot;.join(get_abstrak)
-    data_page.append(abstrak)
-
-  return data_page
-
-
-def crawling_pta(url):
-  hasil_crawling = []
-  response = requests.get(url)
-  if response.status_code == 200:
-    page = BeautifulSoup(response.content)
-    container_content = page.find(&#39;ul&#39;, class_= &#39;items&#39;)
-    list_content = container_content.find_all(&#39;li&#39;)
-
-    for content in list_content:
-      view_button = content.find(&#39;a&#39;, class_ = &#39;gray button&#39;).get(&#39;href&#39;)
-      hasil_crawling.append(get_data(view_button))
-
-    next_page = page.find_all(&#39;a&#39;, class_=&#39;pag_button&#39;)
-    for i in next_page:
-      if i.text.strip() == &#39;&gt;&#39;:
-        return (hasil_crawling, i.get(&#39;href&#39;))
-
-def main(url, num_page):
-  content, next_page = crawling_pta(url)
-
-  for i in range(num_page-1):
-    more_content, next_page = crawling_pta(next_page)
-    content += more_content
-
-  with open(&#39;crawling_pta.csv&#39;, mode=&#39;w&#39;, newline=&#39;&#39;) as file:
-    writer = csv.writer(file)
-    writer.writerow([&#39;Judul&#39;, &#39;Penulis&#39;, &#39;Dosen Pembimbing I&#39;, &#39;Dosen Pembimbing II&#39;, &#39;Abstrak&#39;])
-    writer.writerows(content)
-
-  print(f&#39;Data Berhasil Di Simpan Kedalam File crawling_pta.csv Dengan Jumlah : {len(content)} Data&#39;)
-
-main(&#39;https://pta.trunojoyo.ac.id/c_search/byprod/10&#39;, 4)
-------------------
-
------ stderr -----
-ERROR:root:Internal Python error in the inspect module.
-Below is the traceback from this internal error.
------ stdout -----
-Traceback (most recent call last):
-  File &quot;/usr/local/lib/python3.10/dist-packages/IPython/core/interactiveshell.py&quot;, line 3553, in run_code
-    exec(code_obj, self.user_global_ns, self.user_ns)
-  File &quot;&lt;ipython-input-3-1b9df832d1c0&gt;&quot;, line 64, in &lt;cell line: 64&gt;
-    main(&#39;https://pta.trunojoyo.ac.id/c_search/byprod/10&#39;, 4)
-  File &quot;&lt;ipython-input-3-1b9df832d1c0&gt;&quot;, line 54, in main
-    more_content, next_page = crawling_pta(next_page)
-  File &quot;&lt;ipython-input-3-1b9df832d1c0&gt;&quot;, line 43, in crawling_pta
-    hasil_crawling.append(get_data(view_button))
-  File &quot;&lt;ipython-input-3-1b9df832d1c0&gt;&quot;, line 3, in get_data
-    response = requests.get(url)
-  File &quot;/usr/local/lib/python3.10/dist-packages/requests/api.py&quot;, line 73, in get
-    return request(&quot;get&quot;, url, params=params, **kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/requests/api.py&quot;, line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/requests/sessions.py&quot;, line 589, in request
-    resp = self.send(prep, **send_kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/requests/sessions.py&quot;, line 703, in send
-    r = adapter.send(request, **kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/requests/adapters.py&quot;, line 486, in send
-    resp = conn.urlopen(
-  File &quot;/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py&quot;, line 790, in urlopen
-    response = self._make_request(
-  File &quot;/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py&quot;, line 536, in _make_request
-    response = conn.getresponse()
-  File &quot;/usr/local/lib/python3.10/dist-packages/urllib3/connection.py&quot;, line 461, in getresponse
-    httplib_response = super().getresponse()
-  File &quot;/usr/lib/python3.10/http/client.py&quot;, line 1375, in getresponse
-    response.begin()
-  File &quot;/usr/lib/python3.10/http/client.py&quot;, line 318, in begin
-    version, status, reason = self._read_status()
-  File &quot;/usr/lib/python3.10/http/client.py&quot;, line 279, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)
-  File &quot;/usr/lib/python3.10/socket.py&quot;, line 705, in readinto
-    return self._sock.recv_into(b)
-  File &quot;/usr/lib/python3.10/ssl.py&quot;, line 1274, in recv_into
-    return self.read(nbytes, buffer)
-  File &quot;/usr/lib/python3.10/ssl.py&quot;, line 1130, in read
-    return self._sslobj.read(len, buffer)
-KeyboardInterrupt
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/local/lib/python3.10/dist-packages/IPython/core/interactiveshell.py&quot;, line 2099, in showtraceback
-    stb = value._render_traceback_()
-AttributeError: &#39;KeyboardInterrupt&#39; object has no attribute &#39;_render_traceback_&#39;
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py&quot;, line 1101, in get_records
-    return _fixed_getinnerframes(etb, number_of_lines_of_context, tb_offset)
-  File &quot;/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py&quot;, line 248, in wrapped
-    return f(*args, **kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py&quot;, line 281, in _fixed_getinnerframes
-    records = fix_frame_records_filenames(inspect.getinnerframes(etb, context))
-  File &quot;/usr/lib/python3.10/inspect.py&quot;, line 1662, in getinnerframes
-    frameinfo = (tb.tb_frame,) + getframeinfo(tb, context)
-  File &quot;/usr/lib/python3.10/inspect.py&quot;, line 1624, in getframeinfo
-    lines, lnum = findsource(frame)
-  File &quot;/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py&quot;, line 182, in findsource
-    lines = linecache.getlines(file, globals_dict)
-  File &quot;/usr/lib/python3.10/linecache.py&quot;, line 46, in getlines
-    return updatecache(filename, module_globals)
-  File &quot;/usr/lib/python3.10/linecache.py&quot;, line 137, in updatecache
-    lines = fp.readlines()
-  File &quot;/usr/lib/python3.10/codecs.py&quot;, line 319, in decode
-    def decode(self, input, final=False):
-KeyboardInterrupt
-------------------
-
-
-<span class=" -Color -Color-Red">KeyboardInterrupt</span>Traceback (most recent call last)
-    <span class=" -Color -Color-Red">[... skipping hidden 1 frame]</span>
-
-<span class=" -Color -Color-Green">&lt;ipython-input-3-1b9df832d1c0&gt;</span> in <span class=" -Color -Color-Cyan">&lt;cell line: 64&gt;</span><span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     63</span> 
-<span class=" -Color -Color-Green">---&gt; 64</span><span class=" -Color -Color-Red"> </span>main<span class=" -Color -Color-Blue">(&#39;https://pta.trunojoyo.ac.id/c_search/byprod/10&#39;,</span> <span class=" -Color -Color-Cyan">4</span><span class=" -Color -Color-Blue">)</span>
-
-<span class=" -Color -Color-Green">&lt;ipython-input-3-1b9df832d1c0&gt;</span> in <span class=" -Color -Color-Cyan">main</span><span class=" -Color -Color-Blue">(url, num_page)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     53</span>   <span class=" -Color -Color-Green">for</span> i <span class=" -Color -Color-Green">in</span> range<span class=" -Color -Color-Blue">(</span>num_page<span class=" -Color -Color-Blue">-</span><span class=" -Color -Color-Cyan">1</span><span class=" -Color -Color-Blue">):</span>
-<span class=" -Color -Color-Green">---&gt; 54</span><span class=" -Color -Color-Red">     </span>more_content<span class=" -Color -Color-Blue">,</span> next_page <span class=" -Color -Color-Blue">=</span> crawling_pta<span class=" -Color -Color-Blue">(</span>next_page<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     55</span>     content <span class=" -Color -Color-Blue">+=</span> more_content
-
-<span class=" -Color -Color-Green">&lt;ipython-input-3-1b9df832d1c0&gt;</span> in <span class=" -Color -Color-Cyan">crawling_pta</span><span class=" -Color -Color-Blue">(url)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     42</span>       view_button <span class=" -Color -Color-Blue">=</span> content<span class=" -Color -Color-Blue">.</span>find<span class=" -Color -Color-Blue">(&#39;a&#39;,</span> class_ <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;gray button&#39;).</span>get<span class=" -Color -Color-Blue">(&#39;href&#39;)</span>
-<span class=" -Color -Color-Green">---&gt; 43</span><span class=" -Color -Color-Red">       </span>hasil_crawling<span class=" -Color -Color-Blue">.</span>append<span class=" -Color -Color-Blue">(</span>get_data<span class=" -Color -Color-Blue">(</span>view_button<span class=" -Color -Color-Blue">))</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     44</span> 
-
-<span class=" -Color -Color-Green">&lt;ipython-input-3-1b9df832d1c0&gt;</span> in <span class=" -Color -Color-Cyan">get_data</span><span class=" -Color -Color-Blue">(url)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">      2</span>   data_page <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">[]</span>
-<span class=" -Color -Color-Green">----&gt; 3</span><span class=" -Color -Color-Red">   </span>response <span class=" -Color -Color-Blue">=</span> requests<span class=" -Color -Color-Blue">.</span>get<span class=" -Color -Color-Blue">(</span>url<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">      4</span>   <span class=" -Color -Color-Green">if</span> response<span class=" -Color -Color-Blue">.</span>status_code <span class=" -Color -Color-Blue">==</span> <span class=" -Color -Color-Cyan">200</span><span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class=" -Color -Color-Cyan">get</span><span class=" -Color -Color-Blue">(url, params, **kwargs)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     72</span> 
-<span class=" -Color -Color-Green">---&gt; 73</span><span class=" -Color -Color-Red">     </span><span class=" -Color -Color-Green">return</span> request<span class=" -Color -Color-Blue">(&quot;get&quot;,</span> url<span class=" -Color -Color-Blue">,</span> params<span class=" -Color -Color-Blue">=</span>params<span class=" -Color -Color-Blue">,</span> <span class=" -Color -Color-Blue">**</span>kwargs<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     74</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class=" -Color -Color-Cyan">request</span><span class=" -Color -Color-Blue">(method, url, **kwargs)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     58</span>     <span class=" -Color -Color-Green">with</span> sessions<span class=" -Color -Color-Blue">.</span>Session<span class=" -Color -Color-Blue">()</span> <span class=" -Color -Color-Green">as</span> session<span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">---&gt; 59</span><span class=" -Color -Color-Red">         </span><span class=" -Color -Color-Green">return</span> session<span class=" -Color -Color-Blue">.</span>request<span class=" -Color -Color-Blue">(</span>method<span class=" -Color -Color-Blue">=</span>method<span class=" -Color -Color-Blue">,</span> url<span class=" -Color -Color-Blue">=</span>url<span class=" -Color -Color-Blue">,</span> <span class=" -Color -Color-Blue">**</span>kwargs<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">     60</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class=" -Color -Color-Cyan">request</span><span class=" -Color -Color-Blue">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    588</span>         send_kwargs<span class=" -Color -Color-Blue">.</span>update<span class=" -Color -Color-Blue">(</span>settings<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Green">--&gt; 589</span><span class=" -Color -Color-Red">         </span>resp <span class=" -Color -Color-Blue">=</span> self<span class=" -Color -Color-Blue">.</span>send<span class=" -Color -Color-Blue">(</span>prep<span class=" -Color -Color-Blue">,</span> <span class=" -Color -Color-Blue">**</span>send_kwargs<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    590</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class=" -Color -Color-Cyan">send</span><span class=" -Color -Color-Blue">(self, request, **kwargs)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    702</span>         <span class=" -Color -Color-Red"># Send the request</span>
-<span class=" -Color -Color-Green">--&gt; 703</span><span class=" -Color -Color-Red">         </span>r <span class=" -Color -Color-Blue">=</span> adapter<span class=" -Color -Color-Blue">.</span>send<span class=" -Color -Color-Blue">(</span>request<span class=" -Color -Color-Blue">,</span> <span class=" -Color -Color-Blue">**</span>kwargs<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    704</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class=" -Color -Color-Cyan">send</span><span class=" -Color -Color-Blue">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    485</span>         <span class=" -Color -Color-Green">try</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">--&gt; 486</span><span class=" -Color -Color-Red">             resp = conn.urlopen(</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    487</span>                 method<span class=" -Color -Color-Blue">=</span>request<span class=" -Color -Color-Blue">.</span>method<span class=" -Color -Color-Blue">,</span>
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class=" -Color -Color-Cyan">urlopen</span><span class=" -Color -Color-Blue">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    789</span>             <span class=" -Color -Color-Red"># Make the request on the HTTPConnection object</span>
-<span class=" -Color -Color-Green">--&gt; 790</span><span class=" -Color -Color-Red">             response = self._make_request(</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    791</span>                 conn<span class=" -Color -Color-Blue">,</span>
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class=" -Color -Color-Cyan">_make_request</span><span class=" -Color -Color-Blue">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    535</span>         <span class=" -Color -Color-Green">try</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">--&gt; 536</span><span class=" -Color -Color-Red">             </span>response <span class=" -Color -Color-Blue">=</span> conn<span class=" -Color -Color-Blue">.</span>getresponse<span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    537</span>         <span class=" -Color -Color-Green">except</span> <span class=" -Color -Color-Blue">(</span>BaseSSLError<span class=" -Color -Color-Blue">,</span> OSError<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Green">as</span> e<span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class=" -Color -Color-Cyan">getresponse</span><span class=" -Color -Color-Blue">(self)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    460</span>         <span class=" -Color -Color-Red"># Get the response from http.client.HTTPConnection</span>
-<span class=" -Color -Color-Green">--&gt; 461</span><span class=" -Color -Color-Red">         </span>httplib_response <span class=" -Color -Color-Blue">=</span> super<span class=" -Color -Color-Blue">().</span>getresponse<span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    462</span> 
-
-<span class=" -Color -Color-Green">/usr/lib/python3.10/http/client.py</span> in <span class=" -Color -Color-Cyan">getresponse</span><span class=" -Color -Color-Blue">(self)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1374</span>             <span class=" -Color -Color-Green">try</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">-&gt; 1375</span><span class=" -Color -Color-Red">                 </span>response<span class=" -Color -Color-Blue">.</span>begin<span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1376</span>             <span class=" -Color -Color-Green">except</span> ConnectionError<span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/lib/python3.10/http/client.py</span> in <span class=" -Color -Color-Cyan">begin</span><span class=" -Color -Color-Blue">(self)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    317</span>         <span class=" -Color -Color-Green">while</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">--&gt; 318</span><span class=" -Color -Color-Red">             </span>version<span class=" -Color -Color-Blue">,</span> status<span class=" -Color -Color-Blue">,</span> reason <span class=" -Color -Color-Blue">=</span> self<span class=" -Color -Color-Blue">.</span>_read_status<span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    319</span>             <span class=" -Color -Color-Green">if</span> status <span class=" -Color -Color-Blue">!=</span> CONTINUE<span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/lib/python3.10/http/client.py</span> in <span class=" -Color -Color-Cyan">_read_status</span><span class=" -Color -Color-Blue">(self)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    278</span>     <span class=" -Color -Color-Green">def</span> _read_status<span class=" -Color -Color-Blue">(</span>self<span class=" -Color -Color-Blue">):</span>
-<span class=" -Color -Color-Green">--&gt; 279</span><span class=" -Color -Color-Red">         </span>line <span class=" -Color -Color-Blue">=</span> str<span class=" -Color -Color-Blue">(</span>self<span class=" -Color -Color-Blue">.</span>fp<span class=" -Color -Color-Blue">.</span>readline<span class=" -Color -Color-Blue">(</span>_MAXLINE <span class=" -Color -Color-Blue">+</span> <span class=" -Color -Color-Cyan">1</span><span class=" -Color -Color-Blue">),</span> <span class=" -Color -Color-Blue">&quot;iso-8859-1&quot;)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    280</span>         <span class=" -Color -Color-Green">if</span> len<span class=" -Color -Color-Blue">(</span>line<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Blue">&gt;</span> _MAXLINE<span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/lib/python3.10/socket.py</span> in <span class=" -Color -Color-Cyan">readinto</span><span class=" -Color -Color-Blue">(self, b)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    704</span>             <span class=" -Color -Color-Green">try</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">--&gt; 705</span><span class=" -Color -Color-Red">                 </span><span class=" -Color -Color-Green">return</span> self<span class=" -Color -Color-Blue">.</span>_sock<span class=" -Color -Color-Blue">.</span>recv_into<span class=" -Color -Color-Blue">(</span>b<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    706</span>             <span class=" -Color -Color-Green">except</span> timeout<span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/lib/python3.10/ssl.py</span> in <span class=" -Color -Color-Cyan">recv_into</span><span class=" -Color -Color-Blue">(self, buffer, nbytes, flags)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1273</span>                   self.__class__)
-<span class=" -Color -Color-Green">-&gt; 1274</span><span class=" -Color -Color-Red">             </span><span class=" -Color -Color-Green">return</span> self<span class=" -Color -Color-Blue">.</span>read<span class=" -Color -Color-Blue">(</span>nbytes<span class=" -Color -Color-Blue">,</span> buffer<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1275</span>         <span class=" -Color -Color-Green">else</span><span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Green">/usr/lib/python3.10/ssl.py</span> in <span class=" -Color -Color-Cyan">read</span><span class=" -Color -Color-Blue">(self, len, buffer)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1129</span>             <span class=" -Color -Color-Green">if</span> buffer <span class=" -Color -Color-Green">is</span> <span class=" -Color -Color-Green">not</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">-&gt; 1130</span><span class=" -Color -Color-Red">                 </span><span class=" -Color -Color-Green">return</span> self<span class=" -Color -Color-Blue">.</span>_sslobj<span class=" -Color -Color-Blue">.</span>read<span class=" -Color -Color-Blue">(</span>len<span class=" -Color -Color-Blue">,</span> buffer<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1131</span>             <span class=" -Color -Color-Green">else</span><span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Red">KeyboardInterrupt</span>: 
-
-During handling of the above exception, another exception occurred:
-
-<span class=" -Color -Color-Red">AttributeError</span>Traceback (most recent call last)
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/interactiveshell.py</span> in <span class=" -Color -Color-Cyan">showtraceback</span><span class=" -Color -Color-Blue">(self, exc_tuple, filename, tb_offset, exception_only, running_compiled_code)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   2098</span>                         <span class=" -Color -Color-Red"># in the engines. This should return a list of strings.</span>
-<span class=" -Color -Color-Green">-&gt; 2099</span><span class=" -Color -Color-Red">                         </span>stb <span class=" -Color -Color-Blue">=</span> value<span class=" -Color -Color-Blue">.</span>_render_traceback_<span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   2100</span>                     <span class=" -Color -Color-Green">except</span> Exception<span class=" -Color -Color-Blue">:</span>
-
-<span class=" -Color -Color-Red">AttributeError</span>: &#39;KeyboardInterrupt&#39; object has no attribute &#39;_render_traceback_&#39;
-
-During handling of the above exception, another exception occurred:
-
-<span class=" -Color -Color-Red">TypeError</span>Traceback (most recent call last)
-    <span class=" -Color -Color-Red">[... skipping hidden 1 frame]</span>
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/interactiveshell.py</span> in <span class=" -Color -Color-Cyan">showtraceback</span><span class=" -Color -Color-Blue">(self, exc_tuple, filename, tb_offset, exception_only, running_compiled_code)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   2099</span>                         stb <span class=" -Color -Color-Blue">=</span> value<span class=" -Color -Color-Blue">.</span>_render_traceback_<span class=" -Color -Color-Blue">()</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   2100</span>                     <span class=" -Color -Color-Green">except</span> Exception<span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Green">-&gt; 2101</span><span class=" -Color -Color-Red">                         stb = self.InteractiveTB.structured_traceback(etype,</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   2102</span>                                             value, tb, tb_offset=tb_offset)
-<span class=" -Color -Color-Bold -Color-Bold-Green">   2103</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py</span> in <span class=" -Color -Color-Cyan">structured_traceback</span><span class=" -Color -Color-Blue">(self, etype, value, tb, tb_offset, number_of_lines_of_context)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1365</span>         <span class=" -Color -Color-Green">else</span><span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1366</span>             self<span class=" -Color -Color-Blue">.</span>tb <span class=" -Color -Color-Blue">=</span> tb
-<span class=" -Color -Color-Green">-&gt; 1367</span><span class=" -Color -Color-Red">         return FormattedTB.structured_traceback(</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1368</span>             self, etype, value, tb, tb_offset, number_of_lines_of_context)
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1369</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py</span> in <span class=" -Color -Color-Cyan">structured_traceback</span><span class=" -Color -Color-Blue">(self, etype, value, tb, tb_offset, number_of_lines_of_context)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1265</span>         <span class=" -Color -Color-Green">if</span> mode <span class=" -Color -Color-Green">in</span> self<span class=" -Color -Color-Blue">.</span>verbose_modes<span class=" -Color -Color-Blue">:</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1266</span>             <span class=" -Color -Color-Red"># Verbose modes need a full traceback</span>
-<span class=" -Color -Color-Green">-&gt; 1267</span><span class=" -Color -Color-Red">             return VerboseTB.structured_traceback(</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1268</span>                 self<span class=" -Color -Color-Blue">,</span> etype<span class=" -Color -Color-Blue">,</span> value<span class=" -Color -Color-Blue">,</span> tb<span class=" -Color -Color-Blue">,</span> tb_offset<span class=" -Color -Color-Blue">,</span> number_of_lines_of_context
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1269</span>             )
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py</span> in <span class=" -Color -Color-Cyan">structured_traceback</span><span class=" -Color -Color-Blue">(self, etype, evalue, etb, tb_offset, number_of_lines_of_context)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1122</span>         <span class=" -Color -Color-Blue">&quot;&quot;&quot;Return a nice text document describing the traceback.&quot;&quot;&quot;</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1123</span> 
-<span class=" -Color -Color-Green">-&gt; 1124</span><span class=" -Color -Color-Red">         formatted_exception = self.format_exception_as_a_whole(etype, evalue, etb, number_of_lines_of_context,</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1125</span>                                                                tb_offset)
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1126</span> 
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py</span> in <span class=" -Color -Color-Cyan">format_exception_as_a_whole</span><span class=" -Color -Color-Blue">(self, etype, evalue, etb, number_of_lines_of_context, tb_offset)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1080</span> 
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1081</span> 
-<span class=" -Color -Color-Green">-&gt; 1082</span><span class=" -Color -Color-Red">         </span>last_unique<span class=" -Color -Color-Blue">,</span> recursion_repeat <span class=" -Color -Color-Blue">=</span> find_recursion<span class=" -Color -Color-Blue">(</span>orig_etype<span class=" -Color -Color-Blue">,</span> evalue<span class=" -Color -Color-Blue">,</span> records<span class=" -Color -Color-Blue">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1083</span> 
-<span class=" -Color -Color-Bold -Color-Bold-Green">   1084</span>         frames <span class=" -Color -Color-Blue">=</span> self<span class=" -Color -Color-Blue">.</span>format_records<span class=" -Color -Color-Blue">(</span>records<span class=" -Color -Color-Blue">,</span> last_unique<span class=" -Color -Color-Blue">,</span> recursion_repeat<span class=" -Color -Color-Blue">)</span>
-
-<span class=" -Color -Color-Green">/usr/local/lib/python3.10/dist-packages/IPython/core/ultratb.py</span> in <span class=" -Color -Color-Cyan">find_recursion</span><span class=" -Color -Color-Blue">(etype, value, records)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    380</span>     <span class=" -Color -Color-Red"># first frame (from in to out) that looks different.</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    381</span>     <span class=" -Color -Color-Green">if</span> <span class=" -Color -Color-Green">not</span> is_recursion_error<span class=" -Color -Color-Blue">(</span>etype<span class=" -Color -Color-Blue">,</span> value<span class=" -Color -Color-Blue">,</span> records<span class=" -Color -Color-Blue">):</span>
-<span class=" -Color -Color-Green">--&gt; 382</span><span class=" -Color -Color-Red">         </span><span class=" -Color -Color-Green">return</span> len<span class=" -Color -Color-Blue">(</span>records<span class=" -Color -Color-Blue">),</span> <span class=" -Color -Color-Cyan">0</span>
-<span class=" -Color -Color-Bold -Color-Bold-Green">    383</span> 
-<span class=" -Color -Color-Bold -Color-Bold-Green">    384</span>     <span class=" -Color -Color-Red"># Select filename, lineno, func_name to track frames with</span>
-
-<span class=" -Color -Color-Red">TypeError</span>: object of type &#39;NoneType&#39; has no len()
-
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/local/lib/python3.10/dist-packages/jupyter_book/sphinx.py&quot;, line 171, in build_sphinx
-    app.build(force_all, filenames)
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/application.py&quot;, line 329, in build
-    self.builder.build_update()
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/builders/__init__.py&quot;, line 288, in build_update
-    self.build(to_build,
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/builders/__init__.py&quot;, line 302, in build
-    updated_docnames = set(self.read())
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/builders/__init__.py&quot;, line 409, in read
-    self._read_serial(docnames)
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/builders/__init__.py&quot;, line 430, in _read_serial
-    self.read_doc(docname)
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/builders/__init__.py&quot;, line 483, in read_doc
-    publisher.publish()
-  File &quot;/usr/local/lib/python3.10/dist-packages/docutils/core.py&quot;, line 217, in publish
-    self.document = self.reader.read(self.source, self.parser,
-  File &quot;/usr/local/lib/python3.10/dist-packages/sphinx/io.py&quot;, line 103, in read
-    self.parse()
-  File &quot;/usr/local/lib/python3.10/dist-packages/docutils/readers/__init__.py&quot;, line 78, in parse
-    self.parser.parse(self.input, document)
-  File &quot;/usr/local/lib/python3.10/dist-packages/myst_nb/sphinx_.py&quot;, line 150, in parse
-    with create_client(
-  File &quot;/usr/local/lib/python3.10/dist-packages/myst_nb/core/execute/base.py&quot;, line 83, in __enter__
-    self.start_client()
-  File &quot;/usr/local/lib/python3.10/dist-packages/myst_nb/core/execute/direct.py&quot;, line 40, in start_client
-    result = single_nb_execution(
-  File &quot;/usr/local/lib/python3.10/dist-packages/jupyter_cache/executors/utils.py&quot;, line 58, in single_nb_execution
-    executenb(
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 1305, in execute
-    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File &quot;/usr/local/lib/python3.10/dist-packages/jupyter_core/utils/__init__.py&quot;, line 166, in wrapped
-    return loop.run_until_complete(inner)
-  File &quot;/usr/lib/python3.10/asyncio/base_events.py&quot;, line 649, in run_until_complete
-    return future.result()
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 689, in async_execute
-    async with self.async_setup_kernel(**kwargs):
-  File &quot;/usr/lib/python3.10/contextlib.py&quot;, line 217, in __aexit__
-    await self.gen.athrow(typ, value, traceback)
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 656, in async_setup_kernel
-    await self._async_cleanup_kernel()
-  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 512, in _async_cleanup_kernel
-    await ensure_async(self.km.cleanup_resources())
-AttributeError: &#39;NoneType&#39; object has no attribute &#39;cleanup_resources&#39;
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File &quot;/usr/local/bin/jupyter-book&quot;, line 8, in &lt;module&gt;
-    sys.exit(main())
-  File &quot;/usr/local/lib/python3.10/dist-packages/click/core.py&quot;, line 1157, in __call__
-    return self.main(*args, **kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/click/core.py&quot;, line 1078, in main
-    rv = self.invoke(ctx)
-  File &quot;/usr/local/lib/python3.10/dist-packages/click/core.py&quot;, line 1688, in invoke
-    return _process_result(sub_ctx.command.invoke(sub_ctx))
-  File &quot;/usr/local/lib/python3.10/dist-packages/click/core.py&quot;, line 1434, in invoke
-    return ctx.invoke(self.callback, **ctx.params)
-  File &quot;/usr/local/lib/python3.10/dist-packages/click/core.py&quot;, line 783, in invoke
-    return __callback(*args, **kwargs)
-  File &quot;/usr/local/lib/python3.10/dist-packages/jupyter_book/cli/main.py&quot;, line 317, in build
-    builder_specific_actions(
-  File &quot;/usr/local/lib/python3.10/dist-packages/jupyter_book/cli/main.py&quot;, line 525, in builder_specific_actions
-    raise RuntimeError(_message_box(msg, color=&quot;red&quot;, doprint=False)) from result
-RuntimeError: 
-===============================================================================
-
-There was an error in building your book. Look above for the cause.
-
-===============================================================================
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="masuk-ke-dalam-direktori-ppw">
 <h2>5. Masuk ke dalam direktori ppw<a class="headerlink" href="#masuk-ke-dalam-direktori-ppw" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">cd</span> <span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="n">drive</span><span class="o">/</span><span class="n">MyDrive</span><span class="o">/</span><span class="n">Kuliah</span> <span class="o">/</span><span class="n">Semester</span> <span class="mi">7</span><span class="o">/</span><span class="n">Pencarian</span> <span class="n">Dan</span> <span class="n">Penambangan</span> <span class="n">Web</span><span class="o">/</span><span class="n">ppw</span>
 </pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="push-data-ke-dalam-github">
 <h2>6. Push data ke dalam github<a class="headerlink" href="#push-data-ke-dalam-github" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!ghp-import -n -p -f _build/html
 </pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -1046,6 +472,24 @@ There was an error in building your book. Look above for the cause.
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Crawling%20PTA%20Trunojoyo.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Crawling Website PTA Trunojoyo</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div></div>
   
 </div>
