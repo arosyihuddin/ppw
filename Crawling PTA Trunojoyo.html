@@ -389,7 +389,13 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-library-beautifulsoup">Install Library BeautifulSoup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">Create Crawling Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">Create Crawling Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-get-data">Fungsi get_data()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-pta">Fungsi crawling_pta()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-main">Fungsi main()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memanggil-fungsi-main">Memanggil Fungsi main()</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -403,8 +409,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="crawling-website-pta-trunojoyo">
 <h1>Crawling Website PTA Trunojoyo<a class="headerlink" href="#crawling-website-pta-trunojoyo" title="Permalink to this heading">#</a></h1>
+<p>Crawling (atau web crawling) adalah proses otomatis untuk mengambil informasi dari berbagai halaman web dengan cara mengakses dan mengekstrak data dari berbagai situs secara sistematis. Tujuan dari crawling adalah untuk mengumpulkan informasi yang dapat digunakan untuk berbagai keperluan, seperti analisis data, pemantauan, pengindeksan, dan lain-lain.</p>
+<p>Crawling dilakukan oleh program komputer yang disebut “crawler” atau “spider”. Crawler ini mengunjungi halaman-halaman web, mengambil konten, mengikuti tautan, dan terus bergerak di seluruh situs web untuk mengumpulkan data. Proses crawling sering digunakan dalam pengembangan mesin pencari seperti Google, analisis data web, riset pasar, dan banyak aplikasi lainnya.</p>
 <section id="install-library-beautifulsoup">
 <h2>Install Library BeautifulSoup<a class="headerlink" href="#install-library-beautifulsoup" title="Permalink to this heading">#</a></h2>
+<p>Library Beautiful Soup adalah salah satu alat yang sering digunakan untuk melakukan crawling dan ekstraksi data dari dokumen HTML dan XML. Beautiful Soup menyediakan cara yang mudah untuk menavigasi dan memanipulasi struktur dokumen HTML. Ini memungkinkan Anda melakukan pencarian elemen berdasarkan tag, atribut, dan teks yang ada di dalam elemen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>beautifulsoup4
@@ -433,6 +442,9 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </section>
 <section id="create-crawling-function">
 <h2>Create Crawling Function<a class="headerlink" href="#create-crawling-function" title="Permalink to this heading">#</a></h2>
+<section id="fungsi-get-data">
+<h3>Fungsi get_data()<a class="headerlink" href="#fungsi-get-data" title="Permalink to this heading">#</a></h3>
+<p>Fungsi ini mengambil data dari halaman tugas akhir yang diberikan URL-nya. Ia mengekstrak judul tugas akhir, nama penulis, nama dosen pembimbing, dan abstrak dari halaman tersebut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
@@ -465,9 +477,17 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
     <span class="n">data_page</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">abstrak</span><span class="p">)</span>
 
   <span class="k">return</span> <span class="n">data_page</span>
-
-
-<span class="k">def</span> <span class="nf">crawling_pta</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-crawling-pta">
+<h3>Fungsi crawling_pta()<a class="headerlink" href="#fungsi-crawling-pta" title="Permalink to this heading">#</a></h3>
+<p>Fungsi ini melakukan crawling atau pengambilan data dari halaman daftar tugas akhir. Ia mengambil URL halaman, mencari setiap elemen daftar tugas akhir, mengekstrak URL untuk halaman detail setiap tugas akhir, dan menggunakan fungsi get_data untuk mendapatkan informasi lebih lanjut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">crawling_pta</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
   <span class="n">hasil_crawling</span> <span class="o">=</span> <span class="p">[]</span>
   <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
   <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
@@ -483,8 +503,17 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">next_page</span><span class="p">:</span>
       <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">hasil_crawling</span><span class="p">,</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">num_page</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="fungsi-main">
+<h3>Fungsi main()<a class="headerlink" href="#fungsi-main" title="Permalink to this heading">#</a></h3>
+<p>Fungsi utama yang mengatur alur scraping. Ia memulai proses crawling dari URL yang diberikan sebanyak <code class="docutils literal notranslate"><span class="pre">num_page</span></code> halaman. Kemudian, ia menyimpan hasil crawling ke dalam file CSV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">num_page</span><span class="p">):</span>
   <span class="n">content</span><span class="p">,</span> <span class="n">next_page</span> <span class="o">=</span> <span class="n">crawling_pta</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_page</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
@@ -497,8 +526,17 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
     <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
   <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Data Berhasil Di Simpan Kedalam File crawling_pta.csv Dengan Jumlah : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="si">}</span><span class="s1"> Data&#39;</span><span class="p">)</span>
-
-<span class="n">main</span><span class="p">(</span><span class="s1">&#39;https://pta.trunojoyo.ac.id/c_search/byprod/10&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="memanggil-fungsi-main">
+<h3>Memanggil Fungsi main()<a class="headerlink" href="#memanggil-fungsi-main" title="Permalink to this heading">#</a></h3>
+<p>Bagian ini menjalankan fungsi <code class="docutils literal notranslate"><span class="pre">main</span></code> dengan memberikan URL halaman pertama dan jumlah halaman yang ingin diambil.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">main</span><span class="p">(</span><span class="s1">&#39;https://pta.trunojoyo.ac.id/c_search/byprod/10&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -508,6 +546,8 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
 </div>
 </div>
 </div>
+<p>Hasil crawling (judul, penulis, dosen pembimbing, abstrak) disimpan dalam file CSV dengan nama “crawling_pta.csv”. Setiap baris mewakili satu tugas akhir.</p>
+</section>
 </section>
 </section>
 
@@ -571,7 +611,13 @@ Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dis
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-library-beautifulsoup">Install Library BeautifulSoup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">Create Crawling Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-crawling-function">Create Crawling Function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-get-data">Fungsi get_data()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-crawling-pta">Fungsi crawling_pta()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-main">Fungsi main()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#memanggil-fungsi-main">Memanggil Fungsi main()</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
