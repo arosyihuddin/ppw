@@ -417,8 +417,115 @@ document.write(`
 <p>Requirements yang di install adalah Jupyter Notebook dan juga ghp-import untuk push data ke dalam github</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install jupyter-book</span>
-<span class="c1"># !pip install ghp-import</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>jupyter-book
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>ghp-import
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jupyter-book in /usr/local/lib/python3.10/dist-packages (0.15.1)
+Requirement already satisfied: click&lt;9,&gt;=7.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (8.1.7)
+Requirement already satisfied: docutils&lt;0.19,&gt;=0.15 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.18.1)
+Requirement already satisfied: Jinja2 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (3.1.2)
+Requirement already satisfied: jsonschema&lt;5 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (4.19.0)
+Requirement already satisfied: linkify-it-py~=2.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (2.0.2)
+Requirement already satisfied: myst-nb~=0.17.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.17.2)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (6.0.1)
+Requirement already satisfied: sphinx&lt;6,&gt;=4 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (5.0.2)
+Requirement already satisfied: sphinx-comments in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.0.3)
+Requirement already satisfied: sphinx-copybutton in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.5.2)
+Requirement already satisfied: sphinx-external-toc~=0.3.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.3.1)
+Requirement already satisfied: sphinx-jupyterbook-latex~=0.5.2 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.5.2)
+Requirement already satisfied: sphinx-design~=0.3.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.3.0)
+Requirement already satisfied: sphinx-thebe~=0.2.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.2.1)
+Requirement already satisfied: sphinx-book-theme~=1.0.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (1.0.1)
+Requirement already satisfied: sphinx_togglebutton in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.3.2)
+Requirement already satisfied: sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (2.5.0)
+Requirement already satisfied: sphinx-multitoc-numbering~=0.1.3 in /usr/local/lib/python3.10/dist-packages (from jupyter-book) (0.1.3)
+Requirement already satisfied: attrs&gt;=22.2.0 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (23.1.0)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (2023.7.1)
+Requirement already satisfied: referencing&gt;=0.28.4 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (0.30.2)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /usr/local/lib/python3.10/dist-packages (from jsonschema&lt;5-&gt;jupyter-book) (0.9.2)
+Requirement already satisfied: uc-micro-py in /usr/local/lib/python3.10/dist-packages (from linkify-it-py~=2.0.0-&gt;jupyter-book) (1.0.2)
+Requirement already satisfied: importlib_metadata in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (6.8.0)
+Requirement already satisfied: ipython in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (7.34.0)
+Requirement already satisfied: jupyter-cache&lt;0.7,&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.6.1)
+Requirement already satisfied: nbclient in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.7.4)
+Requirement already satisfied: myst-parser~=0.18.0 in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (0.18.1)
+Requirement already satisfied: nbformat~=5.0 in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (5.9.2)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (4.7.1)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.10/dist-packages (from myst-nb~=0.17.1-&gt;jupyter-book) (5.5.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sphinxcontrib-applehelp in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.7)
+Requirement already satisfied: sphinxcontrib-devhelp in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.5)
+Requirement already satisfied: sphinxcontrib-jsmath in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.1)
+Requirement already satisfied: sphinxcontrib-htmlhelp&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.0.4)
+Requirement already satisfied: sphinxcontrib-serializinghtml&gt;=1.1.5 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.1.8)
+Requirement already satisfied: sphinxcontrib-qthelp in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.0.6)
+Requirement already satisfied: Pygments&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.16.1)
+Requirement already satisfied: snowballstemmer&gt;=1.1 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.2.0)
+Requirement already satisfied: babel&gt;=1.3 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.12.1)
+Requirement already satisfied: alabaster&lt;0.8,&gt;=0.7 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (0.7.13)
+Requirement already satisfied: imagesize in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (1.4.1)
+Requirement already satisfied: requests&gt;=2.5.0 in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.31.0)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from sphinx&lt;6,&gt;=4-&gt;jupyter-book) (23.1)
+Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.10/dist-packages (from Jinja2-&gt;jupyter-book) (2.1.3)
+Requirement already satisfied: pydata-sphinx-theme&gt;=0.13.3 in /usr/local/lib/python3.10/dist-packages (from sphinx-book-theme~=1.0.0-&gt;jupyter-book) (0.13.3)
+Requirement already satisfied: pybtex&gt;=0.24 in /usr/local/lib/python3.10/dist-packages (from sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (0.24.0)
+Requirement already satisfied: pybtex-docutils&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (1.0.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools in /usr/local/lib/python3.10/dist-packages (from sphinx_togglebutton-&gt;jupyter-book) (67.7.2)
+Requirement already satisfied: wheel in /usr/local/lib/python3.10/dist-packages (from sphinx_togglebutton-&gt;jupyter-book) (0.41.1)
+Requirement already satisfied: sqlalchemy&lt;3,&gt;=1.3.12 in /usr/local/lib/python3.10/dist-packages (from jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.20)
+Requirement already satisfied: tabulate in /usr/local/lib/python3.10/dist-packages (from jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.9.0)
+Requirement already satisfied: markdown-it-py&lt;3.0.0,&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.2.0)
+Requirement already satisfied: mdit-py-plugins~=0.3.1 in /usr/local/lib/python3.10/dist-packages (from myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.3.5)
+Requirement already satisfied: jupyter-client&gt;=6.1.12 in /usr/local/lib/python3.10/dist-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (6.1.12)
+Requirement already satisfied: jupyter-core!=5.0.*,&gt;=4.12 in /usr/local/lib/python3.10/dist-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.3.1)
+Requirement already satisfied: traitlets&gt;=5.3 in /usr/local/lib/python3.10/dist-packages (from nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (5.7.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: fastjsonschema in /usr/local/lib/python3.10/dist-packages (from nbformat~=5.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.18.0)
+Requirement already satisfied: latexcodec&gt;=1.0.4 in /usr/local/lib/python3.10/dist-packages (from pybtex&gt;=0.24-&gt;sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (2.0.1)
+Requirement already satisfied: six in /usr/local/lib/python3.10/dist-packages (from pybtex&gt;=0.24-&gt;sphinxcontrib-bibtex&lt;=2.5.0,&gt;=2.2.0-&gt;jupyter-book) (1.16.0)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.10/dist-packages (from pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (4.11.2)
+Requirement already satisfied: accessible-pygments in /usr/local/lib/python3.10/dist-packages (from pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (0.0.4)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (3.2.0)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (3.4)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2.0.4)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.10/dist-packages (from requests&gt;=2.5.0-&gt;sphinx&lt;6,&gt;=4-&gt;jupyter-book) (2023.7.22)
+Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from importlib_metadata-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.16.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.10/dist-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.0)
+Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.10/dist-packages (from ipykernel-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (6.3.2)
+Requirement already satisfied: jedi&gt;=0.16 in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.19.0)
+Requirement already satisfied: decorator in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (4.4.2)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.7.5)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.0.39)
+Requirement already satisfied: backcall in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.0)
+Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.6)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.10/dist-packages (from ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (4.8.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /usr/local/lib/python3.10/dist-packages (from jedi&gt;=0.16-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.8.3)
+Requirement already satisfied: pyzmq&gt;=13 in /usr/local/lib/python3.10/dist-packages (from jupyter-client&gt;=6.1.12-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (23.2.1)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.10/dist-packages (from jupyter-client&gt;=6.1.12-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.8.2)
+Requirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.10/dist-packages (from jupyter-core!=5.0.*,&gt;=4.12-&gt;nbclient-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (3.10.0)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.10/dist-packages (from markdown-it-py&lt;3.0.0,&gt;=1.0.0-&gt;myst-parser~=0.18.0-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.1.2)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from pexpect&gt;4.3-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.7.0)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.10/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (0.2.6)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.10/dist-packages (from sqlalchemy&lt;3,&gt;=1.3.12-&gt;jupyter-cache&lt;0.7,&gt;=0.5-&gt;myst-nb~=0.17.1-&gt;jupyter-book) (2.0.2)
+Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.10/dist-packages (from beautifulsoup4-&gt;pydata-sphinx-theme&gt;=0.13.3-&gt;sphinx-book-theme~=1.0.0-&gt;jupyter-book) (2.4.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ghp-import in /usr/local/lib/python3.10/dist-packages (2.1.0)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from ghp-import) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.1-&gt;ghp-import) (1.16.0)
 </pre></div>
 </div>
 </div>
@@ -428,7 +535,12 @@ document.write(`
 <h2>2. Masuk ke dalam direktori penyimpanan tugas<a class="headerlink" href="#masuk-ke-dalam-direktori-penyimpanan-tugas" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %cd /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web
 </pre></div>
 </div>
 </div>
@@ -439,7 +551,15 @@ document.write(`
 <p>sebelum itu buat dulu repositori github nya buat menyimpan data, dan git clone dengan cara copy link github nya serta masukkan private key nya seperti contoh di bawah.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !git clone https://{Private Key}@github.com/arosyihuddin/ppw.git</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>https://<span class="o">{</span>Private<span class="w"> </span>Key<span class="o">}</span>@github.com/arosyihuddin/ppw.git
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cloning into &#39;Key}@github.com/arosyihuddin/ppw.git&#39;...
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: unable to access &#39;https://{Private/&#39;: Could not resolve host: {Private
 </pre></div>
 </div>
 </div>
@@ -447,7 +567,18 @@ document.write(`
 <p>setelah di clone selanjutnya buat jupyterbook nya dengan menggunakan code berikut</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !jupyter-book create ppw1/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>create<span class="w"> </span>ppw1/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===============================================================================
+
+Your book template can be found at
+
+    ppw1/
+
+===============================================================================
 </pre></div>
 </div>
 </div>
@@ -455,7 +586,7 @@ document.write(`
 <p>setelah itu pindah semua file maupun folder dari ppw1 tadi ke folder github yang telah di clone dengan menggunakan code berikut</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !mv /content/drive/MyDrive/Kuliah\ /Semester\ 7/Pencarian\ Dan\ Penambangan\ Web/ppw1/* /content/drive/MyDrive/Kuliah\ /Semester\ 7/Pencarian\ Dan\ Penambangan\ Web/ppw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mv<span class="w"> </span>/content/drive/MyDrive/Kuliah<span class="se">\ </span>/Semester<span class="se">\ </span><span class="m">7</span>/Pencarian<span class="se">\ </span>Dan<span class="se">\ </span>Penambangan<span class="se">\ </span>Web/ppw1/*<span class="w"> </span>/content/drive/MyDrive/Kuliah<span class="se">\ </span>/Semester<span class="se">\ </span><span class="m">7</span>/Pencarian<span class="se">\ </span>Dan<span class="se">\ </span>Penambangan<span class="se">\ </span>Web/ppw
 </pre></div>
 </div>
 </div>
@@ -463,7 +594,7 @@ document.write(`
 <p>hapus folder ppw1 karena sudah tidak di butuhkan</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !rm -rf ppw1/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>rm<span class="w"> </span>-rf<span class="w"> </span>ppw1/
 </pre></div>
 </div>
 </div>
@@ -474,7 +605,46 @@ document.write(`
 <p>pada proses nomor 3 itu khusus untuk saat pembuatan nya saja untuk melakukan update langkah nomor 3 dapat di hapus. dan selanjutnya langkah ke 4 adalah membuild atau membangun jupyterbooknya</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !jupyter-book build ppw/</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>jupyter-book<span class="w"> </span>build<span class="w"> </span>ppw/
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Green">Running Jupyter-Book v0.15.1</span>
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Source Folder: </span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Config Path: </span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/_config.yml
+<span class=" -Color -Color-Bold -Color-Bold-Blue">Output Path: </span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/_build/html
+[sphinxcontrib-bibtex] Beware that docutils versions 0.18 and 0.19 (you are running 0.18.1) are known to generate invalid html for citations. If this issue affects you, please use docutils&lt;0.18 (or &gt;=0.20 once released) instead. For more details, see https://sourceforge.net/p/docutils/patches/195/
+<span class=" -Color -Color-Bold">Running Sphinx v5.0.2</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[etoc] Changing master_doc to &#39;intro&#39;
+<span class=" -Color -Color-Bold">loading pickled environment... </span>checking bibtex cache... out of date
+parsing bibtex file /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/references.bib... parsed 5 entries
+done
+<span class=" -Color -Color-Bold">myst v0.18.1:</span> MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=[&#39;colon_fence&#39;, &#39;dollarmath&#39;, &#39;linkify&#39;, &#39;substitution&#39;, &#39;tasklist&#39;], disable_syntax=[], all_links_external=False, url_schemes=[&#39;mailto&#39;, &#39;http&#39;, &#39;https&#39;], ref_domains=None, highlight_code_blocks=True, number_code_blocks=[], title_to_header=False, heading_anchors=None, heading_slug_func=None, footnote_transition=True, words_per_minute=200, sub_delimiters=(&#39;{&#39;, &#39;}&#39;), linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes=&#39;tex2jax_process|mathjax_process|math|output_area&#39;)
+<span class=" -Color -Color-Bold">myst-nb v0.17.2:</span> NbParserConfig(custom_formats={}, metadata_key=&#39;mystnb&#39;, cell_metadata_key=&#39;mystnb&#39;, kernel_rgx_aliases={}, execution_mode=&#39;force&#39;, execution_cache_path=&#39;&#39;, execution_excludepatterns=[], execution_timeout=30, execution_in_temp=False, execution_allow_errors=False, execution_raise_on_error=False, execution_show_tb=False, merge_streams=False, render_plugin=&#39;default&#39;, remove_code_source=False, remove_code_outputs=False, code_prompt_show=&#39;Show code cell {type}&#39;, code_prompt_hide=&#39;Hide code cell {type}&#39;, number_source_lines=False, output_stderr=&#39;show&#39;, render_text_lexer=&#39;myst-ansi&#39;, render_error_lexer=&#39;ipythontb&#39;, render_image_options={}, render_figure_options={}, render_markdown_format=&#39;commonmark&#39;, output_folder=&#39;build&#39;, append_css=True, metadata_to_fm=False)
+Using jupyter-cache at: /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/_build/.jupyter_cache
+<span class=" -Color -Color-Bold">building [mo]: </span>targets for 0 po files that are out of date
+<span class=" -Color -Color-Bold">building [html]: </span>targets for 3 source files that are out of date
+<span class=" -Color -Color-Bold">updating environment: </span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[config changed (&#39;author&#39;)] 6 added, 4 changed, 0 removed
+<span class=" -Color -Color-Bold">reading sources... </span>[ 16%] <span class=" -Color -Color-Magenta">Crawling PTA Trunojoyo</span>
+/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Crawling PTA Trunojoyo.ipynb: Executing notebook using local CWD [mystnb]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">reading sources... </span>[ 33%] <span class=" -Color -Color-Magenta">Setup Jupyter Notebook</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Setup Jupyter Notebook.ipynb: Executing notebook using local CWD [mystnb]
+Task exception was never retrieved
+future: &lt;Task finished name=&#39;Task-11&#39; coro=&lt;NotebookClient._async_cleanup_kernel() done, defined at /usr/local/lib/python3.10/dist-packages/nbclient/client.py:499&gt; exception=AttributeError(&quot;&#39;NoneType&#39; object has no attribute &#39;cleanup_resources&#39;&quot;)&gt;
+Traceback (most recent call last):
+  File &quot;/usr/local/lib/python3.10/dist-packages/nbclient/client.py&quot;, line 512, in _async_cleanup_kernel
+    await ensure_async(self.km.cleanup_resources())
+AttributeError: &#39;NoneType&#39; object has no attribute &#39;cleanup_resources&#39;
 </pre></div>
 </div>
 </div>
@@ -484,7 +654,7 @@ document.write(`
 <h2>5. Masuk ke dalam direktori ppw<a class="headerlink" href="#masuk-ke-dalam-direktori-ppw" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %cd /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw
 </pre></div>
 </div>
 </div>
@@ -494,7 +664,7 @@ document.write(`
 <h2>6. Push data ke dalam github<a class="headerlink" href="#push-data-ke-dalam-github" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !ghp-import -n -p -f _build/html</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ghp-import<span class="w"> </span>-n<span class="w"> </span>-p<span class="w"> </span>-f<span class="w"> </span>_build/html
 </pre></div>
 </div>
 </div>
