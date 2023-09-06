@@ -496,13 +496,15 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting Sastrawi
   Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">81.9/209.7 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.2/209.7 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">3.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: Sastrawi
-Successfully installed Sastrawi-1.0.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed Sastrawi-1.0.1
 </pre></div>
 </div>
 </div>
@@ -553,7 +555,7 @@ Successfully installed Sastrawi-1.0.1
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9b00da46-7ccd-4cc5-82b6-0e5b075bb2c3" class="colab-df-container">
+  <div id="df-0a8b231f-7277-46b8-b3ba-b491e729fbc3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -675,7 +677,7 @@ Successfully installed Sastrawi-1.0.1
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9b00da46-7ccd-4cc5-82b6-0e5b075bb2c3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0a8b231f-7277-46b8-b3ba-b491e729fbc3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -727,12 +729,12 @@ Successfully installed Sastrawi-1.0.1
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9b00da46-7ccd-4cc5-82b6-0e5b075bb2c3 button.colab-df-convert');
+        document.querySelector('#df-0a8b231f-7277-46b8-b3ba-b491e729fbc3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9b00da46-7ccd-4cc5-82b6-0e5b075bb2c3');
+        const element = document.querySelector('#df-0a8b231f-7277-46b8-b3ba-b491e729fbc3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -890,6 +892,257 @@ Name: Tokenizing, Length: 494, dtype: object
 </div>
 </div>
 </div>
+<p>Menghitung jumlah kata dalam tiap abstrak</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">count_word</span><span class="p">(</span><span class="n">dokumens</span><span class="p">):</span>
+  <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">dokumens</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Count Word&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tokenizing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">count_word</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-beba0428-17c3-4bf0-b4d0-bb534d438b77" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Judul</th>
+      <th>Penulis</th>
+      <th>Dosen Pembimbing I</th>
+      <th>Dosen Pembimbing II</th>
+      <th>Abstrak</th>
+      <th>Cleaning</th>
+      <th>Tokenizing</th>
+      <th>Count Word</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PERANCANGAN DAN IMPLEMENTASI SISTEM DATABASE  ...</td>
+      <td>A.Ubaidillah S.Kom</td>
+      <td>Budi Setyono M.T</td>
+      <td>Hermawan S.T</td>
+      <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>Sistem  informasi  akademik  SIAKAD merupakan ...</td>
+      <td>[sistem, informasi, akademik, siakad, merupaka...</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>APLIKASI KONTROL DAN MONITORING JARINGAN KOMPU...</td>
+      <td>M. Basith Ardianto,</td>
+      <td>Drs. Budi Soesilo, MT</td>
+      <td>Koko Joni, ST</td>
+      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>[berjalannya, koneksi, jaringan, komputer, den...</td>
+      <td>204</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RANCANG BANGUN APLIKASI PROXY SERVER UNTUK ENK...</td>
+      <td>Akhmad Suyandi, S.Kom</td>
+      <td>Drs. Budi Soesilo, M.T</td>
+      <td>Hermawan, ST, MT</td>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>[web, server, adalah, sebuah, perangkat, lunak...</td>
+      <td>182</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SISTEM PENDUKUNG KEPUTUSAN OPTIMASI PENJADWALA...</td>
+      <td>Heri Supriyanto</td>
+      <td>Mulaab, S.Si., M.Kom</td>
+      <td>Firli Irhamni, ST., M.Kom</td>
+      <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>[penjadwalan, kuliah, di, perguruan, tinggi, m...</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SISTEM AUGMENTED REALITY ANIMASI BENDA BERGERA...</td>
+      <td>Septian Rahman Hakim</td>
+      <td>Arik Kurniawati, S.Kom., M.T.</td>
+      <td>Haryanto, S.T., M.T.</td>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>[seiring, perkembangan, teknologi, yang, ada, ...</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>495</th>
+      <td>SISTEM INFORMASI REKOMENDASI CUSTOMER BATIK ME...</td>
+      <td>ANDIKA PRASETYA PUTRA</td>
+      <td>BAIN KHUSNUL KHOTIMAH,S.T.,M.Kom</td>
+      <td>RIKA YUNITARINI,S.T.,M.T</td>
+      <td>Ukm Batik Tresna Art Bangkalan memiliki Sistem...</td>
+      <td>Ukm Batik Tresna Art Bangkalan memiliki Sistem...</td>
+      <td>[ukm, batik, tresna, art, bangkalan, memiliki,...</td>
+      <td>122</td>
+    </tr>
+    <tr>
+      <th>496</th>
+      <td>PEMODELAN SISTEM DINAMIK UNTUK MENINGKATKAN PR...</td>
+      <td>Rasminawati</td>
+      <td>Sigit Susanto Putro, S.Kom., M.Kom</td>
+      <td>Achmad Jauhari, S.T., M.Kom</td>
+      <td>Keuntungan  pada sebuah industri merupakan sal...</td>
+      <td>Keuntungan  pada sebuah industri merupakan sal...</td>
+      <td>[keuntungan, pada, sebuah, industri, merupakan...</td>
+      <td>143</td>
+    </tr>
+    <tr>
+      <th>497</th>
+      <td>CUSTOMER PROFILING MENGGUNAKAN ALGORITMA K-MEA...</td>
+      <td>Eka Fitriadi</td>
+      <td>Bain Khusnun Khotimah, S.T., M.Kom.</td>
+      <td>Rika Yunitarini, S.T., M.T.</td>
+      <td>Customer Profiling adalah profil pelanggan. Pr...</td>
+      <td>Customer Profiling adalah profil pelanggan Pro...</td>
+      <td>[customer, profiling, adalah, profil, pelangga...</td>
+      <td>175</td>
+    </tr>
+    <tr>
+      <th>498</th>
+      <td>Analytical Hierarchy Process (AHP) Untuk Evalu...</td>
+      <td>Sulaiman Wakhid</td>
+      <td>Dr. Arif Muntasa, S.Si., M.T.</td>
+      <td>Moh. Kautsar Sophan, S.Kom., M.MT.</td>
+      <td>IT Master Plan adalah sebuah perencanaan strat...</td>
+      <td>IT Master Plan adalah sebuah perencanaan strat...</td>
+      <td>[it, master, plan, adalah, sebuah, perencanaan...</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <th>499</th>
+      <td>VIRTUAL REALITY UNTUK PENGENALAN LINGKUNGAN LA...</td>
+      <td>Muzammil</td>
+      <td>Cucun Very Angkoso, ST., MT.</td>
+      <td>Ari Kusumaningsih, ST., MT.</td>
+      <td>Dewasa ini perkembangan teknologi semakin maju...</td>
+      <td>Dewasa ini perkembangan teknologi semakin maju...</td>
+      <td>[dewasa, ini, perkembangan, teknologi, semakin...</td>
+      <td>168</td>
+    </tr>
+  </tbody>
+</table>
+<p>494 rows × 8 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-beba0428-17c3-4bf0-b4d0-bb534d438b77')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-beba0428-17c3-4bf0-b4d0-bb534d438b77 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-beba0428-17c3-4bf0-b4d0-bb534d438b77');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
 </section>
 <section id="stopword">
 <h2>3. Stopword<a class="headerlink" href="#stopword" title="Permalink to this heading">#</a></h2>
@@ -964,7 +1217,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ac68a3fa-01a6-4e18-ab21-1bf4f2c52ace" class="colab-df-container">
+  <div id="df-33468436-0b0b-4019-9915-10204c9f774e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1278,7 +1531,7 @@ Name: Full Text, Length: 494, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ac68a3fa-01a6-4e18-ab21-1bf4f2c52ace')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-33468436-0b0b-4019-9915-10204c9f774e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1330,12 +1583,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ac68a3fa-01a6-4e18-ab21-1bf4f2c52ace button.colab-df-convert');
+        document.querySelector('#df-33468436-0b0b-4019-9915-10204c9f774e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ac68a3fa-01a6-4e18-ab21-1bf4f2c52ace');
+        const element = document.querySelector('#df-33468436-0b0b-4019-9915-10204c9f774e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1394,7 +1647,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2ac74db8-42a2-4dca-9a5c-8dbd4591bd9a" class="colab-df-container">
+  <div id="df-e7465f7d-62f1-4534-82f3-37ae0624ca31" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1708,7 +1961,7 @@ Name: Full Text, Length: 494, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2ac74db8-42a2-4dca-9a5c-8dbd4591bd9a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e7465f7d-62f1-4534-82f3-37ae0624ca31')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1760,12 +2013,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2ac74db8-42a2-4dca-9a5c-8dbd4591bd9a button.colab-df-convert');
+        document.querySelector('#df-e7465f7d-62f1-4534-82f3-37ae0624ca31 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2ac74db8-42a2-4dca-9a5c-8dbd4591bd9a');
+        const element = document.querySelector('#df-e7465f7d-62f1-4534-82f3-37ae0624ca31');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1825,7 +2078,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8629fa57-83fc-4c06-8acf-cbe9cc555370" class="colab-df-container">
+  <div id="df-7c988484-fefa-4a58-bb6e-7ff6c527db1d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2139,7 +2392,7 @@ Name: Full Text, Length: 494, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8629fa57-83fc-4c06-8acf-cbe9cc555370')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7c988484-fefa-4a58-bb6e-7ff6c527db1d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2191,12 +2444,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8629fa57-83fc-4c06-8acf-cbe9cc555370 button.colab-df-convert');
+        document.querySelector('#df-7c988484-fefa-4a58-bb6e-7ff6c527db1d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8629fa57-83fc-4c06-8acf-cbe9cc555370');
+        const element = document.querySelector('#df-7c988484-fefa-4a58-bb6e-7ff6c527db1d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2249,7 +2502,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1ff1092c-b01b-4abc-8066-824da361c487" class="colab-df-container">
+  <div id="df-0073a032-f9c3-40b7-ad84-d5d8f991b116" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2563,7 +2816,7 @@ Name: Full Text, Length: 494, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1ff1092c-b01b-4abc-8066-824da361c487')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0073a032-f9c3-40b7-ad84-d5d8f991b116')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2615,12 +2868,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1ff1092c-b01b-4abc-8066-824da361c487 button.colab-df-convert');
+        document.querySelector('#df-0073a032-f9c3-40b7-ad84-d5d8f991b116 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1ff1092c-b01b-4abc-8066-824da361c487');
+        const element = document.querySelector('#df-0073a032-f9c3-40b7-ad84-d5d8f991b116');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
