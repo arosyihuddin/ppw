@@ -496,15 +496,15 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting Sastrawi
   Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/209.7 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.2/209.7 kB</span> <span class=" -Color -Color-Red">2.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">3.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">81.9/209.7 kB</span> <span class=" -Color -Color-Red">2.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 kB</span> <span class=" -Color -Color-Red">3.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: Sastrawi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed Sastrawi-1.0.1
+Successfully installed Sastrawi-1.0.1
 </pre></div>
 </div>
 </div>
@@ -548,14 +548,14 @@ document.write(`
 <p>Ini adalah langkah untuk membaca data dari file CSV menggunakan Pandas. Data tersebut dimuat ke dalam DataFrame dengan nama <code class="docutils literal notranslate"><span class="pre">df</span></code>. DataFrame ini digunakan sebagai basis untuk analisis teks yang akan dilakukan.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Dataset/crawling_pta.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Dataset/crawling_pta_labeled.csv&#39;</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0a8b231f-7277-46b8-b3ba-b491e729fbc3" class="colab-df-container">
+  <div id="df-279bc82e-7899-472a-a9c6-ac2035b17eea" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -579,6 +579,7 @@ document.write(`
       <th>Dosen Pembimbing I</th>
       <th>Dosen Pembimbing II</th>
       <th>Abstrak</th>
+      <th>Label</th>
     </tr>
   </thead>
   <tbody>
@@ -589,6 +590,7 @@ document.write(`
       <td>Budi Setyono M.T</td>
       <td>Hermawan S.T</td>
       <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>1</th>
@@ -597,6 +599,7 @@ document.write(`
       <td>Drs. Budi Soesilo, MT</td>
       <td>Koko Joni, ST</td>
       <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>2</th>
@@ -605,6 +608,7 @@ document.write(`
       <td>Drs. Budi Soesilo, M.T</td>
       <td>Hermawan, ST, MT</td>
       <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>3</th>
@@ -613,6 +617,7 @@ document.write(`
       <td>Mulaab, S.Si., M.Kom</td>
       <td>Firli Irhamni, ST., M.Kom</td>
       <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>4</th>
@@ -621,6 +626,7 @@ document.write(`
       <td>Arik Kurniawati, S.Kom., M.T.</td>
       <td>Haryanto, S.T., M.T.</td>
       <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>...</th>
@@ -629,55 +635,61 @@ document.write(`
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>495</th>
-      <td>SISTEM INFORMASI REKOMENDASI CUSTOMER BATIK ME...</td>
-      <td>ANDIKA PRASETYA PUTRA</td>
-      <td>BAIN KHUSNUL KHOTIMAH,S.T.,M.Kom</td>
-      <td>RIKA YUNITARINI,S.T.,M.T</td>
-      <td>Ukm Batik Tresna Art Bangkalan memiliki Sistem...</td>
+      <th>853</th>
+      <td>PENERAPAN ALGORITMA LONG-SHORT TERM MEMORY UNT...</td>
+      <td>Rachmad Agung Pambudi</td>
+      <td>Eka Mala Sari Rochman, S.Kom., M.Kom</td>
+      <td>Sri Herawati, S.Kom., M.Kom</td>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>496</th>
-      <td>PEMODELAN SISTEM DINAMIK UNTUK MENINGKATKAN PR...</td>
-      <td>Rasminawati</td>
-      <td>Sigit Susanto Putro, S.Kom., M.Kom</td>
+      <th>854</th>
+      <td>SISTEM PENCARIAN TEKS AL-QURAN TERJEMAHAN BERB...</td>
+      <td>Nadila Hidayanti</td>
       <td>Achmad Jauhari, S.T., M.Kom</td>
-      <td>Keuntungan  pada sebuah industri merupakan sal...</td>
+      <td>Ika Oktavia Suzanti, S.Kom., M.Cs</td>
+      <td>Information Retrieval (IR) merupakan pengambil...</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>497</th>
-      <td>CUSTOMER PROFILING MENGGUNAKAN ALGORITMA K-MEA...</td>
-      <td>Eka Fitriadi</td>
-      <td>Bain Khusnun Khotimah, S.T., M.Kom.</td>
-      <td>Rika Yunitarini, S.T., M.T.</td>
-      <td>Customer Profiling adalah profil pelanggan. Pr...</td>
+      <th>855</th>
+      <td>KLASIFIKASI KOMPLEKSITAS VISUAL CITRA SAMPAH M...</td>
+      <td>Afni Sakinah</td>
+      <td>Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom.</td>
+      <td>Moch. Kautsar Sophan, S.Kom., M.MT.</td>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>498</th>
-      <td>Analytical Hierarchy Process (AHP) Untuk Evalu...</td>
-      <td>Sulaiman Wakhid</td>
-      <td>Dr. Arif Muntasa, S.Si., M.T.</td>
-      <td>Moh. Kautsar Sophan, S.Kom., M.MT.</td>
-      <td>IT Master Plan adalah sebuah perencanaan strat...</td>
+      <th>856</th>
+      <td>IDENTIFIKASI BINER ATRIBUT PEJALAN KAKI MENGGU...</td>
+      <td>Friska Fatmawatiningrum</td>
+      <td>Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom.</td>
+      <td>Prof. Dr. Arief Muntasa, S.Si., M.MT.</td>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>499</th>
-      <td>VIRTUAL REALITY UNTUK PENGENALAN LINGKUNGAN LA...</td>
-      <td>Muzammil</td>
-      <td>Cucun Very Angkoso, ST., MT.</td>
-      <td>Ari Kusumaningsih, ST., MT.</td>
-      <td>Dewasa ini perkembangan teknologi semakin maju...</td>
+      <th>857</th>
+      <td>DETEKSI OBJEK MANUSIA BERBASIS ONE STAGE DETEC...</td>
+      <td>Dian Wibowo</td>
+      <td>Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom.</td>
+      <td>Moch. Kautsar Sophan, S.Kom., M.MT.</td>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
+      <td>KK</td>
     </tr>
   </tbody>
 </table>
-<p>500 rows × 5 columns</p>
+<p>858 rows × 6 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0a8b231f-7277-46b8-b3ba-b491e729fbc3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-279bc82e-7899-472a-a9c6-ac2035b17eea')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -729,12 +741,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0a8b231f-7277-46b8-b3ba-b491e729fbc3 button.colab-df-convert');
+        document.querySelector('#df-279bc82e-7899-472a-a9c6-ac2035b17eea button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0a8b231f-7277-46b8-b3ba-b491e729fbc3');
+        const element = document.querySelector('#df-279bc82e-7899-472a-a9c6-ac2035b17eea');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -770,11 +782,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Judul                  0
-Penulis                0
-Dosen Pembimbing I     0
-Dosen Pembimbing II    1
-Abstrak                5
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Judul                   6
+Penulis                10
+Dosen Pembimbing I     10
+Dosen Pembimbing II    11
+Abstrak                29
+Label                   0
 dtype: int64
 </pre></div>
 </div>
@@ -793,6 +806,7 @@ Penulis                0
 Dosen Pembimbing I     0
 Dosen Pembimbing II    0
 Abstrak                0
+Label                  0
 dtype: int64
 </pre></div>
 </div>
@@ -820,12 +834,12 @@ dtype: int64
 3      Penjadwalan  kuliah  di  Perguruan  Tinggi  me...
 4      Seiring perkembangan teknologi yang ada diduni...
                              ...                        
-495    Ukm Batik Tresna Art Bangkalan memiliki Sistem...
-496    Keuntungan  pada sebuah industri merupakan sal...
-497    Customer Profiling adalah profil pelanggan Pro...
-498    IT Master Plan adalah sebuah perencanaan strat...
-499    Dewasa ini perkembangan teknologi semakin maju...
-Name: Cleaning, Length: 494, dtype: object
+853    Investasi saham selama ini memiliki resiko ker...
+854    Information Retrieval IR merupakan pengambilan...
+855    Klasifikasi citra merupakan proses pengelompok...
+856    Identifikasi atribut pejalan kaki merupakan sa...
+857    Topik deteksi objek telah menarik perhatian ya...
+Name: Cleaning, Length: 828, dtype: object
 </pre></div>
 </div>
 </div>
@@ -849,12 +863,12 @@ Name: Cleaning, Length: 494, dtype: object
 3      None
 4      None
        ... 
-495    None
-496    None
-497    None
-498    None
-499    None
-Name: Cleaning, Length: 494, dtype: object
+853    None
+854    None
+855    None
+856    None
+857    None
+Name: Cleaning, Length: 828, dtype: object
 </pre></div>
 </div>
 </div>
@@ -882,12 +896,12 @@ Name: Cleaning, Length: 494, dtype: object
 3      [penjadwalan, kuliah, di, perguruan, tinggi, m...
 4      [seiring, perkembangan, teknologi, yang, ada, ...
                              ...                        
-495    [ukm, batik, tresna, art, bangkalan, memiliki,...
-496    [keuntungan, pada, sebuah, industri, merupakan...
-497    [customer, profiling, adalah, profil, pelangga...
-498    [it, master, plan, adalah, sebuah, perencanaan...
-499    [dewasa, ini, perkembangan, teknologi, semakin...
-Name: Tokenizing, Length: 494, dtype: object
+853    [investasi, saham, selama, ini, memiliki, resi...
+854    [information, retrieval, ir, merupakan, pengam...
+855    [klasifikasi, citra, merupakan, proses, pengel...
+856    [identifikasi, atribut, pejalan, kaki, merupak...
+857    [topik, deteksi, objek, telah, menarik, perhat...
+Name: Tokenizing, Length: 828, dtype: object
 </pre></div>
 </div>
 </div>
@@ -905,7 +919,7 @@ Name: Tokenizing, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-beba0428-17c3-4bf0-b4d0-bb534d438b77" class="colab-df-container">
+  <div id="df-f369fe80-1724-45d5-b67a-1942133c4866" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -929,6 +943,7 @@ Name: Tokenizing, Length: 494, dtype: object
       <th>Dosen Pembimbing I</th>
       <th>Dosen Pembimbing II</th>
       <th>Abstrak</th>
+      <th>Label</th>
       <th>Cleaning</th>
       <th>Tokenizing</th>
       <th>Count Word</th>
@@ -942,6 +957,7 @@ Name: Tokenizing, Length: 494, dtype: object
       <td>Budi Setyono M.T</td>
       <td>Hermawan S.T</td>
       <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>RPL</td>
       <td>Sistem  informasi  akademik  SIAKAD merupakan ...</td>
       <td>[sistem, informasi, akademik, siakad, merupaka...</td>
       <td>150</td>
@@ -953,6 +969,7 @@ Name: Tokenizing, Length: 494, dtype: object
       <td>Drs. Budi Soesilo, MT</td>
       <td>Koko Joni, ST</td>
       <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>RPL</td>
       <td>Berjalannya koneksi jaringan komputer dengan l...</td>
       <td>[berjalannya, koneksi, jaringan, komputer, den...</td>
       <td>204</td>
@@ -964,6 +981,7 @@ Name: Tokenizing, Length: 494, dtype: object
       <td>Drs. Budi Soesilo, M.T</td>
       <td>Hermawan, ST, MT</td>
       <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>RPL</td>
       <td>Web server adalah sebuah perangkat lunak serve...</td>
       <td>[web, server, adalah, sebuah, perangkat, lunak...</td>
       <td>182</td>
@@ -975,6 +993,7 @@ Name: Tokenizing, Length: 494, dtype: object
       <td>Mulaab, S.Si., M.Kom</td>
       <td>Firli Irhamni, ST., M.Kom</td>
       <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>KK</td>
       <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
       <td>[penjadwalan, kuliah, di, perguruan, tinggi, m...</td>
       <td>134</td>
@@ -986,6 +1005,7 @@ Name: Tokenizing, Length: 494, dtype: object
       <td>Arik Kurniawati, S.Kom., M.T.</td>
       <td>Haryanto, S.T., M.T.</td>
       <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>KK</td>
       <td>Seiring perkembangan teknologi yang ada diduni...</td>
       <td>[seiring, perkembangan, teknologi, yang, ada, ...</td>
       <td>137</td>
@@ -1000,70 +1020,76 @@ Name: Tokenizing, Length: 494, dtype: object
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>495</th>
-      <td>SISTEM INFORMASI REKOMENDASI CUSTOMER BATIK ME...</td>
-      <td>ANDIKA PRASETYA PUTRA</td>
-      <td>BAIN KHUSNUL KHOTIMAH,S.T.,M.Kom</td>
-      <td>RIKA YUNITARINI,S.T.,M.T</td>
-      <td>Ukm Batik Tresna Art Bangkalan memiliki Sistem...</td>
-      <td>Ukm Batik Tresna Art Bangkalan memiliki Sistem...</td>
-      <td>[ukm, batik, tresna, art, bangkalan, memiliki,...</td>
-      <td>122</td>
+      <th>853</th>
+      <td>PENERAPAN ALGORITMA LONG-SHORT TERM MEMORY UNT...</td>
+      <td>Rachmad Agung Pambudi</td>
+      <td>Eka Mala Sari Rochman, S.Kom., M.Kom</td>
+      <td>Sri Herawati, S.Kom., M.Kom</td>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
+      <td>KK</td>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
+      <td>[investasi, saham, selama, ini, memiliki, resi...</td>
+      <td>173</td>
     </tr>
     <tr>
-      <th>496</th>
-      <td>PEMODELAN SISTEM DINAMIK UNTUK MENINGKATKAN PR...</td>
-      <td>Rasminawati</td>
-      <td>Sigit Susanto Putro, S.Kom., M.Kom</td>
+      <th>854</th>
+      <td>SISTEM PENCARIAN TEKS AL-QURAN TERJEMAHAN BERB...</td>
+      <td>Nadila Hidayanti</td>
       <td>Achmad Jauhari, S.T., M.Kom</td>
-      <td>Keuntungan  pada sebuah industri merupakan sal...</td>
-      <td>Keuntungan  pada sebuah industri merupakan sal...</td>
-      <td>[keuntungan, pada, sebuah, industri, merupakan...</td>
-      <td>143</td>
+      <td>Ika Oktavia Suzanti, S.Kom., M.Cs</td>
+      <td>Information Retrieval (IR) merupakan pengambil...</td>
+      <td>KK</td>
+      <td>Information Retrieval IR merupakan pengambilan...</td>
+      <td>[information, retrieval, ir, merupakan, pengam...</td>
+      <td>134</td>
     </tr>
     <tr>
-      <th>497</th>
-      <td>CUSTOMER PROFILING MENGGUNAKAN ALGORITMA K-MEA...</td>
-      <td>Eka Fitriadi</td>
-      <td>Bain Khusnun Khotimah, S.T., M.Kom.</td>
-      <td>Rika Yunitarini, S.T., M.T.</td>
-      <td>Customer Profiling adalah profil pelanggan. Pr...</td>
-      <td>Customer Profiling adalah profil pelanggan Pro...</td>
-      <td>[customer, profiling, adalah, profil, pelangga...</td>
-      <td>175</td>
+      <th>855</th>
+      <td>KLASIFIKASI KOMPLEKSITAS VISUAL CITRA SAMPAH M...</td>
+      <td>Afni Sakinah</td>
+      <td>Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom.</td>
+      <td>Moch. Kautsar Sophan, S.Kom., M.MT.</td>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
+      <td>KK</td>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
+      <td>[klasifikasi, citra, merupakan, proses, pengel...</td>
+      <td>259</td>
     </tr>
     <tr>
-      <th>498</th>
-      <td>Analytical Hierarchy Process (AHP) Untuk Evalu...</td>
-      <td>Sulaiman Wakhid</td>
-      <td>Dr. Arif Muntasa, S.Si., M.T.</td>
-      <td>Moh. Kautsar Sophan, S.Kom., M.MT.</td>
-      <td>IT Master Plan adalah sebuah perencanaan strat...</td>
-      <td>IT Master Plan adalah sebuah perencanaan strat...</td>
-      <td>[it, master, plan, adalah, sebuah, perencanaan...</td>
-      <td>180</td>
+      <th>856</th>
+      <td>IDENTIFIKASI BINER ATRIBUT PEJALAN KAKI MENGGU...</td>
+      <td>Friska Fatmawatiningrum</td>
+      <td>Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom.</td>
+      <td>Prof. Dr. Arief Muntasa, S.Si., M.MT.</td>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
+      <td>KK</td>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
+      <td>[identifikasi, atribut, pejalan, kaki, merupak...</td>
+      <td>211</td>
     </tr>
     <tr>
-      <th>499</th>
-      <td>VIRTUAL REALITY UNTUK PENGENALAN LINGKUNGAN LA...</td>
-      <td>Muzammil</td>
-      <td>Cucun Very Angkoso, ST., MT.</td>
-      <td>Ari Kusumaningsih, ST., MT.</td>
-      <td>Dewasa ini perkembangan teknologi semakin maju...</td>
-      <td>Dewasa ini perkembangan teknologi semakin maju...</td>
-      <td>[dewasa, ini, perkembangan, teknologi, semakin...</td>
-      <td>168</td>
+      <th>857</th>
+      <td>DETEKSI OBJEK MANUSIA BERBASIS ONE STAGE DETEC...</td>
+      <td>Dian Wibowo</td>
+      <td>Dr. Indah Agustien Siradjuddin, S.Kom., M.Kom.</td>
+      <td>Moch. Kautsar Sophan, S.Kom., M.MT.</td>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
+      <td>KK</td>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
+      <td>[topik, deteksi, objek, telah, menarik, perhat...</td>
+      <td>155</td>
     </tr>
   </tbody>
 </table>
-<p>494 rows × 8 columns</p>
+<p>828 rows × 9 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-beba0428-17c3-4bf0-b4d0-bb534d438b77')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f369fe80-1724-45d5-b67a-1942133c4866')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1115,12 +1141,12 @@ Name: Tokenizing, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-beba0428-17c3-4bf0-b4d0-bb534d438b77 button.colab-df-convert');
+        document.querySelector('#df-f369fe80-1724-45d5-b67a-1942133c4866 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-beba0428-17c3-4bf0-b4d0-bb534d438b77');
+        const element = document.querySelector('#df-f369fe80-1724-45d5-b67a-1942133c4866');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1170,12 +1196,12 @@ Name: Tokenizing, Length: 494, dtype: object
 3      penjadwalan kuliah perguruan kompleks permasal...
 4      seiring perkembangan teknologi didunia muncul ...
                              ...                        
-495    ukm batik tresna art bangkalan memiliki sistem...
-496    keuntungan industri salah kemajuan industri te...
-497    customer profiling profil pelanggan profiling ...
-498    it master plan perencanaan strategis terkait p...
-499    dewasa perkembangan teknologi maju salah tekno...
-Name: Full Text, Length: 494, dtype: object
+853    investasi saham memiliki resiko kerugian dikar...
+854    information retrieval ir pengambilan informasi...
+855    klasifikasi citra proses pengelompokan piksel ...
+856    identifikasi atribut pejalan kaki salah peneli...
+857    topik deteksi objek menarik perhatian perkemba...
+Name: Full Text, Length: 828, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1217,7 +1243,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-33468436-0b0b-4019-9915-10204c9f774e" class="colab-df-container">
+  <div id="df-0fb817b0-2b69-40ff-9aff-639eda73d638" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1238,23 +1264,23 @@ Name: Full Text, Length: 494, dtype: object
       <th></th>
       <th>Stopword Removal</th>
       <th>a</th>
+      <th>aalysis</th>
       <th>aam</th>
+      <th>ab</th>
+      <th>abad</th>
+      <th>abadi</th>
       <th>ability</th>
       <th>abjad</th>
       <th>absensi</th>
-      <th>absolut</th>
-      <th>absolute</th>
-      <th>abstract</th>
-      <th>abstractpada</th>
       <th>...</th>
-      <th>yogyakarta</th>
-      <th>yunitarini</th>
-      <th>z</th>
-      <th>zachman</th>
-      <th>zaman</th>
+      <th>zara</th>
       <th>zat</th>
+      <th>zcz</th>
       <th>zf</th>
       <th>zona</th>
+      <th>zone</th>
+      <th>zoning</th>
+      <th>zoom</th>
       <th>zucara</th>
       <th>zungu</th>
     </tr>
@@ -1263,122 +1289,122 @@ Name: Full Text, Length: 494, dtype: object
     <tr>
       <th>0</th>
       <td>[sistem, informasi, akademik, siakad, sistem, ...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>[berjalannya, koneksi, jaringan, komputer, lan...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>[web, server, perangkat, lunak, server, berfun...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>[penjadwalan, kuliah, perguruan, kompleks, per...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>[seiring, perkembangan, teknologi, didunia, mu...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1405,133 +1431,133 @@ Name: Full Text, Length: 494, dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>495</th>
-      <td>[ukm, batik, tresna, art, bangkalan, memiliki,...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>853</th>
+      <td>[investasi, saham, memiliki, resiko, kerugian,...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>496</th>
-      <td>[keuntungan, industri, salah, kemajuan, indust...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>854</th>
+      <td>[information, retrieval, ir, pengambilan, info...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>497</th>
-      <td>[customer, profiling, profil, pelanggan, profi...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>855</th>
+      <td>[klasifikasi, citra, proses, pengelompokan, pi...</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>498</th>
-      <td>[it, master, plan, perencanaan, strategis, ter...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>856</th>
+      <td>[identifikasi, atribut, pejalan, kaki, salah, ...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
     <tr>
-      <th>499</th>
-      <td>[dewasa, perkembangan, teknologi, maju, salah,...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>857</th>
+      <td>[topik, deteksi, objek, menarik, perhatian, pe...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>494 rows × 6659 columns</p>
+<p>828 rows × 9074 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-33468436-0b0b-4019-9915-10204c9f774e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0fb817b0-2b69-40ff-9aff-639eda73d638')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1583,12 +1609,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-33468436-0b0b-4019-9915-10204c9f774e button.colab-df-convert');
+        document.querySelector('#df-0fb817b0-2b69-40ff-9aff-639eda73d638 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-33468436-0b0b-4019-9915-10204c9f774e');
+        const element = document.querySelector('#df-0fb817b0-2b69-40ff-9aff-639eda73d638');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1647,7 +1673,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e7465f7d-62f1-4534-82f3-37ae0624ca31" class="colab-df-container">
+  <div id="df-5953a30e-24ff-422d-9ebe-40718a7f4374" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1667,24 +1693,24 @@ Name: Full Text, Length: 494, dtype: object
     <tr style="text-align: right;">
       <th></th>
       <th>Dokumen</th>
+      <th>aalysis</th>
       <th>aam</th>
+      <th>ab</th>
+      <th>abad</th>
+      <th>abadi</th>
       <th>ability</th>
       <th>abjad</th>
       <th>absensi</th>
       <th>absolut</th>
-      <th>absolute</th>
-      <th>abstract</th>
-      <th>abstractpada</th>
-      <th>abstrak</th>
       <th>...</th>
-      <th>yl</th>
-      <th>yogyakarta</th>
-      <th>yunitarini</th>
-      <th>zachman</th>
-      <th>zaman</th>
+      <th>zara</th>
       <th>zat</th>
+      <th>zcz</th>
       <th>zf</th>
       <th>zona</th>
+      <th>zone</th>
+      <th>zoning</th>
+      <th>zoom</th>
       <th>zucara</th>
       <th>zungu</th>
     </tr>
@@ -1835,8 +1861,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>489</th>
-      <td>perkembangan internet pesat didukungnya media ...</td>
+      <th>823</th>
+      <td>kurangnya pemahaman gejala penyakit saluran pe...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1859,8 +1885,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>490</th>
-      <td>kemajuan teknologi sebanding kebutuhan pelayan...</td>
+      <th>824</th>
+      <td>data set hilang utama studi bersifat substansi...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1883,8 +1909,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>491</th>
-      <td>media pembelajaran interaktif salah satunya pe...</td>
+      <th>825</th>
+      <td>proses seleksi penerimaan tenaga kerja faktor ...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1907,8 +1933,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>492</th>
-      <td>perkembangan teknologi menyebabkan mudahnya me...</td>
+      <th>826</th>
+      <td>sapi salah hewan ternak komoditi utama bahan p...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1931,8 +1957,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>493</th>
-      <td>kpri karya husada koperasi bergerak usaha peng...</td>
+      <th>827</th>
+      <td>sistem temu informasi alternatif metode simila...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1956,12 +1982,12 @@ Name: Full Text, Length: 494, dtype: object
     </tr>
   </tbody>
 </table>
-<p>494 rows × 6636 columns</p>
+<p>828 rows × 9049 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e7465f7d-62f1-4534-82f3-37ae0624ca31')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5953a30e-24ff-422d-9ebe-40718a7f4374')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2013,12 +2039,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e7465f7d-62f1-4534-82f3-37ae0624ca31 button.colab-df-convert');
+        document.querySelector('#df-5953a30e-24ff-422d-9ebe-40718a7f4374 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e7465f7d-62f1-4534-82f3-37ae0624ca31');
+        const element = document.querySelector('#df-5953a30e-24ff-422d-9ebe-40718a7f4374');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2078,7 +2104,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7c988484-fefa-4a58-bb6e-7ff6c527db1d" class="colab-df-container">
+  <div id="df-4038e76f-abe1-42fd-93b8-6c1bcaf0a7d2" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2098,24 +2124,24 @@ Name: Full Text, Length: 494, dtype: object
     <tr style="text-align: right;">
       <th></th>
       <th>Dokumen</th>
+      <th>aalysis</th>
       <th>aam</th>
+      <th>ab</th>
+      <th>abad</th>
+      <th>abadi</th>
       <th>ability</th>
       <th>abjad</th>
       <th>absensi</th>
       <th>absolut</th>
-      <th>absolute</th>
-      <th>abstract</th>
-      <th>abstractpada</th>
-      <th>abstrak</th>
       <th>...</th>
-      <th>yl</th>
-      <th>yogyakarta</th>
-      <th>yunitarini</th>
-      <th>zachman</th>
-      <th>zaman</th>
+      <th>zara</th>
       <th>zat</th>
+      <th>zcz</th>
       <th>zf</th>
       <th>zona</th>
+      <th>zone</th>
+      <th>zoning</th>
+      <th>zoom</th>
       <th>zucara</th>
       <th>zungu</th>
     </tr>
@@ -2266,8 +2292,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>489</th>
-      <td>perkembangan internet pesat didukungnya media ...</td>
+      <th>823</th>
+      <td>kurangnya pemahaman gejala penyakit saluran pe...</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2290,8 +2316,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0</td>
     </tr>
     <tr>
-      <th>490</th>
-      <td>kemajuan teknologi sebanding kebutuhan pelayan...</td>
+      <th>824</th>
+      <td>data set hilang utama studi bersifat substansi...</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2314,8 +2340,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0</td>
     </tr>
     <tr>
-      <th>491</th>
-      <td>media pembelajaran interaktif salah satunya pe...</td>
+      <th>825</th>
+      <td>proses seleksi penerimaan tenaga kerja faktor ...</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2338,8 +2364,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0</td>
     </tr>
     <tr>
-      <th>492</th>
-      <td>perkembangan teknologi menyebabkan mudahnya me...</td>
+      <th>826</th>
+      <td>sapi salah hewan ternak komoditi utama bahan p...</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2362,8 +2388,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0</td>
     </tr>
     <tr>
-      <th>493</th>
-      <td>kpri karya husada koperasi bergerak usaha peng...</td>
+      <th>827</th>
+      <td>sistem temu informasi alternatif metode simila...</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2387,12 +2413,12 @@ Name: Full Text, Length: 494, dtype: object
     </tr>
   </tbody>
 </table>
-<p>494 rows × 6636 columns</p>
+<p>828 rows × 9049 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7c988484-fefa-4a58-bb6e-7ff6c527db1d')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4038e76f-abe1-42fd-93b8-6c1bcaf0a7d2')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2444,12 +2470,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7c988484-fefa-4a58-bb6e-7ff6c527db1d button.colab-df-convert');
+        document.querySelector('#df-4038e76f-abe1-42fd-93b8-6c1bcaf0a7d2 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7c988484-fefa-4a58-bb6e-7ff6c527db1d');
+        const element = document.querySelector('#df-4038e76f-abe1-42fd-93b8-6c1bcaf0a7d2');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2502,7 +2528,7 @@ Name: Full Text, Length: 494, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0073a032-f9c3-40b7-ad84-d5d8f991b116" class="colab-df-container">
+  <div id="df-e1bd0b6b-082b-4e8a-a06a-4a878ebbc7ea" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2522,24 +2548,24 @@ Name: Full Text, Length: 494, dtype: object
     <tr style="text-align: right;">
       <th></th>
       <th>Dokumen</th>
+      <th>aalysis</th>
       <th>aam</th>
+      <th>ab</th>
+      <th>abad</th>
+      <th>abadi</th>
       <th>ability</th>
       <th>abjad</th>
       <th>absensi</th>
       <th>absolut</th>
-      <th>absolute</th>
-      <th>abstract</th>
-      <th>abstractpada</th>
-      <th>abstrak</th>
       <th>...</th>
-      <th>yl</th>
-      <th>yogyakarta</th>
-      <th>yunitarini</th>
-      <th>zachman</th>
-      <th>zaman</th>
+      <th>zara</th>
       <th>zat</th>
+      <th>zcz</th>
       <th>zf</th>
       <th>zona</th>
+      <th>zone</th>
+      <th>zoning</th>
+      <th>zoom</th>
       <th>zucara</th>
       <th>zungu</th>
     </tr>
@@ -2690,8 +2716,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>...</td>
     </tr>
     <tr>
-      <th>489</th>
-      <td>perkembangan internet pesat didukungnya media ...</td>
+      <th>823</th>
+      <td>kurangnya pemahaman gejala penyakit saluran pe...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2714,8 +2740,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>490</th>
-      <td>kemajuan teknologi sebanding kebutuhan pelayan...</td>
+      <th>824</th>
+      <td>data set hilang utama studi bersifat substansi...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2738,8 +2764,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>491</th>
-      <td>media pembelajaran interaktif salah satunya pe...</td>
+      <th>825</th>
+      <td>proses seleksi penerimaan tenaga kerja faktor ...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2762,8 +2788,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>492</th>
-      <td>perkembangan teknologi menyebabkan mudahnya me...</td>
+      <th>826</th>
+      <td>sapi salah hewan ternak komoditi utama bahan p...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2786,8 +2812,8 @@ Name: Full Text, Length: 494, dtype: object
       <td>0.0</td>
     </tr>
     <tr>
-      <th>493</th>
-      <td>kpri karya husada koperasi bergerak usaha peng...</td>
+      <th>827</th>
+      <td>sistem temu informasi alternatif metode simila...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -2811,12 +2837,12 @@ Name: Full Text, Length: 494, dtype: object
     </tr>
   </tbody>
 </table>
-<p>494 rows × 6636 columns</p>
+<p>828 rows × 9049 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0073a032-f9c3-40b7-ad84-d5d8f991b116')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e1bd0b6b-082b-4e8a-a06a-4a878ebbc7ea')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -2868,12 +2894,12 @@ Name: Full Text, Length: 494, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0073a032-f9c3-40b7-ad84-d5d8f991b116 button.colab-df-convert');
+        document.querySelector('#df-e1bd0b6b-082b-4e8a-a06a-4a878ebbc7ea button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0073a032-f9c3-40b7-ad84-d5d8f991b116');
+        const element = document.querySelector('#df-e1bd0b6b-082b-4e8a-a06a-4a878ebbc7ea');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
