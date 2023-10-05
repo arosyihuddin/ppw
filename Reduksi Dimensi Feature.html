@@ -176,6 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementasi Reduksi Dimensi PTA Dataset</a></li>
+
 </ul>
 
     </div>
@@ -377,7 +378,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -393,6 +396,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Implementasi Reduksi Dimensi PTA Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes-term-frequensi">Modeling Naive Bayes (Term Frequensi)</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -408,6 +421,8 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -421,7 +436,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ee5bd601-73e9-4547-a496-5a28f150f996" class="colab-df-container">
+  <div id="df-2edb3297-a8db-46e1-b2dc-c9f39e4c2aae" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -451,7 +466,6 @@ document.write(`
       <th>absensi</th>
       <th>absolut</th>
       <th>...</th>
-      <th>zara</th>
       <th>zat</th>
       <th>zcz</th>
       <th>zf</th>
@@ -461,6 +475,7 @@ document.write(`
       <th>zoom</th>
       <th>zucara</th>
       <th>zungu</th>
+      <th>Label</th>
     </tr>
   </thead>
   <tbody>
@@ -486,7 +501,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>1</th>
@@ -510,7 +525,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>2</th>
@@ -534,7 +549,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>3</th>
@@ -558,7 +573,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>4</th>
@@ -582,7 +597,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>...</th>
@@ -630,7 +645,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>824</th>
@@ -654,7 +669,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>825</th>
@@ -678,7 +693,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>826</th>
@@ -702,7 +717,7 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>827</th>
@@ -726,16 +741,16 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>KK</td>
     </tr>
   </tbody>
 </table>
-<p>828 rows × 9049 columns</p>
+<p>828 rows × 9050 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ee5bd601-73e9-4547-a496-5a28f150f996')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2edb3297-a8db-46e1-b2dc-c9f39e4c2aae')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -787,12 +802,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ee5bd601-73e9-4547-a496-5a28f150f996 button.colab-df-convert');
+        document.querySelector('#df-2edb3297-a8db-46e1-b2dc-c9f39e4c2aae button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ee5bd601-73e9-4547-a496-5a28f150f996');
+        const element = document.querySelector('#df-2edb3297-a8db-46e1-b2dc-c9f39e4c2aae');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -817,14 +832,44 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dokumen    36
+aalysis     0
+aam         0
+ab          0
+abad        0
+           ..
+zoning      0
+zoom        0
+zucara      0
+zungu       0
+Label      30
+Length: 9050, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">,</span> <span class="s1">&#39;Label&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a11e223c-106d-4c4f-97f2-03bc66eaa6f5" class="colab-df-container">
+  <div id="df-71bf43bb-42dc-45d7-bbcc-1edeac672380" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1133,12 +1178,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>828 rows × 9048 columns</p>
+<p>792 rows × 9048 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a11e223c-106d-4c4f-97f2-03bc66eaa6f5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-71bf43bb-42dc-45d7-bbcc-1edeac672380')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1190,12 +1235,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a11e223c-106d-4c4f-97f2-03bc66eaa6f5 button.colab-df-convert');
+        document.querySelector('#df-71bf43bb-42dc-45d7-bbcc-1edeac672380 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a11e223c-106d-4c4f-97f2-03bc66eaa6f5');
+        const element = document.querySelector('#df-71bf43bb-42dc-45d7-bbcc-1edeac672380');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1235,13 +1280,14 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dokumen</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">]</span>
 <span class="n">output_proporsi_TD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">proporsi_topik_dokumen</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Topik 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 3&#39;</span><span class="p">])</span>
 <span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">,</span> <span class="n">dokumen</span><span class="p">)</span>
+<span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span><span class="s1">&#39;Label&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">])</span>
 <span class="n">output_proporsi_TD</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-80cc8b41-a1bf-475e-99b5-cb9c439412e0" class="colab-df-container">
+  <div id="df-d2148728-c033-45fc-b7b4-e9da7ab37b03" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1264,15 +1310,17 @@ document.write(`
       <th>Topik 1</th>
       <th>Topik 2</th>
       <th>Topik 3</th>
+      <th>Label</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>sistem informasi akademik siakad sistem inform...</td>
-      <td>0.151971</td>
-      <td>0.627671</td>
-      <td>0.220359</td>
+      <td>0.636152</td>
+      <td>0.362633</td>
+      <td>0.001215</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>1</th>
@@ -1280,6 +1328,7 @@ document.write(`
       <td>0.000950</td>
       <td>0.000950</td>
       <td>0.998100</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1287,20 +1336,23 @@ document.write(`
       <td>0.998170</td>
       <td>0.000915</td>
       <td>0.000915</td>
+      <td>RPL</td>
     </tr>
     <tr>
       <th>3</th>
       <td>penjadwalan kuliah perguruan kompleks permasal...</td>
-      <td>0.001486</td>
-      <td>0.997028</td>
-      <td>0.001486</td>
+      <td>0.753557</td>
+      <td>0.124735</td>
+      <td>0.121708</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>4</th>
       <td>seiring perkembangan teknologi didunia muncul ...</td>
+      <td>0.066817</td>
+      <td>0.931982</td>
       <td>0.001201</td>
-      <td>0.001201</td>
-      <td>0.997598</td>
+      <td>KK</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1308,50 +1360,56 @@ document.write(`
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>823</th>
-      <td>kurangnya pemahaman gejala penyakit saluran pe...</td>
+      <th>787</th>
+      <td>teknologi berkembang pesat mendorong meningkat...</td>
       <td>0.000853</td>
-      <td>0.723903</td>
-      <td>0.275245</td>
+      <td>0.852024</td>
+      <td>0.147123</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>824</th>
-      <td>data set hilang utama studi bersifat substansi...</td>
-      <td>0.563960</td>
+      <th>788</th>
+      <td>temu citra image retrieval sistem pencarian ci...</td>
       <td>0.001246</td>
-      <td>0.434794</td>
+      <td>0.997509</td>
+      <td>0.001246</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>825</th>
-      <td>proses seleksi penerimaan tenaga kerja faktor ...</td>
+      <th>789</th>
+      <td>ilmu pengetahuan alam sains salah ilmu dunia p...</td>
       <td>0.000636</td>
       <td>0.998728</td>
       <td>0.000636</td>
+      <td>RPL</td>
     </tr>
     <tr>
-      <th>826</th>
-      <td>sapi salah hewan ternak komoditi utama bahan p...</td>
-      <td>0.000773</td>
+      <th>790</th>
+      <td>jantung salah organ tubuh manusia jantung berp...</td>
+      <td>0.000774</td>
       <td>0.998453</td>
-      <td>0.000773</td>
+      <td>0.000774</td>
+      <td>KK</td>
     </tr>
     <tr>
-      <th>827</th>
-      <td>sistem temu informasi alternatif metode simila...</td>
-      <td>0.439812</td>
-      <td>0.559080</td>
+      <th>791</th>
+      <td>dungeon salah konten game roleplaying game mod...</td>
       <td>0.001108</td>
+      <td>0.997785</td>
+      <td>0.001108</td>
+      <td>RPL</td>
     </tr>
   </tbody>
 </table>
-<p>828 rows × 4 columns</p>
+<p>792 rows × 5 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-80cc8b41-a1bf-475e-99b5-cb9c439412e0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d2148728-c033-45fc-b7b4-e9da7ab37b03')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1403,12 +1461,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-80cc8b41-a1bf-475e-99b5-cb9c439412e0 button.colab-df-convert');
+        document.querySelector('#df-d2148728-c033-45fc-b7b4-e9da7ab37b03 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-80cc8b41-a1bf-475e-99b5-cb9c439412e0');
+        const element = document.querySelector('#df-d2148728-c033-45fc-b7b4-e9da7ab37b03');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1438,7 +1496,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9049,)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(9050,)
 </pre></div>
 </div>
 </div>
@@ -1453,7 +1511,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4fa080d0-fad4-4897-8849-c0eb1601eef8" class="colab-df-container">
+  <div id="df-deeba975-a45d-473e-9517-84327ac0001e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1498,75 +1556,75 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
+      <td>1.194901</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.204377</td>
-      <td>0.212643</td>
+      <td>2.2</td>
+      <td>0.200000</td>
+      <td>1.2</td>
+      <td>0.2</td>
+      <td>0.324874</td>
+      <td>1.2</td>
+      <td>4.199088</td>
+      <td>...</td>
       <td>2.2</td>
       <td>0.2</td>
+      <td>0.200000</td>
+      <td>0.2</td>
+      <td>0.2</td>
       <td>0.20000</td>
-      <td>0.201244</td>
-      <td>0.2</td>
-      <td>0.201757</td>
-      <td>...</td>
-      <td>0.243361</td>
       <td>0.200000</td>
-      <td>0.2</td>
-      <td>0.200000</td>
-      <td>8.199414</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>1.196632</td>
-      <td>1.196632</td>
+      <td>1.194333</td>
+      <td>1.2</td>
+      <td>1.2</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.2</td>
-      <td>0.2</td>
-      <td>0.200000</td>
-      <td>2.097676</td>
+      <td>0.205099</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>3.19931</td>
-      <td>2.933285</td>
-      <td>1.2</td>
-      <td>1.337883</td>
-      <td>...</td>
-      <td>2.142026</td>
-      <td>1.192103</td>
-      <td>1.2</td>
-      <td>0.200009</td>
-      <td>0.200586</td>
+      <td>0.2</td>
+      <td>2.191241</td>
+      <td>0.2</td>
       <td>3.2</td>
-      <td>4.2</td>
+      <td>2.857152</td>
       <td>0.2</td>
-      <td>0.200423</td>
-      <td>0.200423</td>
+      <td>0.200913</td>
+      <td>...</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.204419</td>
+      <td>16.2</td>
+      <td>0.2</td>
+      <td>0.20358</td>
+      <td>0.203484</td>
+      <td>0.205667</td>
+      <td>0.2</td>
+      <td>0.2</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.2</td>
+      <td>0.200000</td>
       <td>2.2</td>
-      <td>1.195623</td>
-      <td>0.289681</td>
+      <td>1.2</td>
+      <td>0.2</td>
+      <td>0.208759</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>3.417974</td>
+      <td>0.2</td>
+      <td>1.199999</td>
+      <td>...</td>
       <td>0.2</td>
       <td>1.2</td>
-      <td>0.20069</td>
-      <td>3.465471</td>
+      <td>1.195581</td>
       <td>0.2</td>
-      <td>4.060360</td>
-      <td>...</td>
-      <td>0.214613</td>
-      <td>0.207897</td>
-      <td>0.2</td>
-      <td>16.199991</td>
+      <td>8.2</td>
+      <td>3.19642</td>
+      <td>4.196516</td>
       <td>0.200000</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>3.2</td>
-      <td>0.202944</td>
-      <td>0.202944</td>
     </tr>
   </tbody>
 </table>
@@ -1575,7 +1633,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4fa080d0-fad4-4897-8849-c0eb1601eef8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-deeba975-a45d-473e-9517-84327ac0001e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1627,12 +1685,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4fa080d0-fad4-4897-8849-c0eb1601eef8 button.colab-df-convert');
+        document.querySelector('#df-deeba975-a45d-473e-9517-84327ac0001e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4fa080d0-fad4-4897-8849-c0eb1601eef8');
+        const element = document.querySelector('#df-deeba975-a45d-473e-9517-84327ac0001e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1654,6 +1712,66 @@ document.write(`
     </div>
   </div>
   </div></div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modeling-naive-bayes-term-frequensi">
+<h1>Modeling Naive Bayes (Term Frequensi)<a class="headerlink" href="#modeling-naive-bayes-term-frequensi" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Impor library yang diperlukan</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+
+<span class="c1"># Memuat dataset Iris</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">proporsi_topik_dokumen</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+
+<span class="c1"># Memisahkan dataset menjadi data pelatihan dan data pengujian</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Membuat model Naive Bayes</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+
+<span class="c1"># Melatih model pada data pelatihan</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data pengujian</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Menghitung akurasi</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan laporan klasifikasi</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Laporan Klasifikasi:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># Menampilkan matriks kebingungan</span>
+<span class="n">confusion</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matriks:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.6512605042016807
+Laporan Klasifikasi:
+              precision    recall  f1-score   support
+
+          KK       0.65      1.00      0.79       155
+         RPL       0.00      0.00      0.00        83
+
+    accuracy                           0.65       238
+   macro avg       0.33      0.50      0.39       238
+weighted avg       0.42      0.65      0.51       238
+
+Confusion Matriks:
+[[155   0]
+ [ 83   0]]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 
@@ -1702,6 +1820,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Implementasi Reduksi Dimensi PTA Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes-term-frequensi">Modeling Naive Bayes (Term Frequensi)</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
