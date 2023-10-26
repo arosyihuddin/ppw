@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Implementasi Reduksi Dimensi PTA Dataset &#8212; Pencarian &amp; Penambangan Web</title>
+    <title>Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi) &#8212; Pencarian &amp; Penambangan Web</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -145,13 +145,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.png" class="logo__image only-light" alt="Pencarian & Penambangan Web - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Pencarian & Penambangan Web - Home"/>`);</script>
   
   
 </a></div>
@@ -175,9 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Implementasi Reduksi Dimensi PTA Dataset</a></li>
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
 </ul>
 
     </div>
@@ -392,7 +391,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Implementasi Reduksi Dimensi PTA Dataset</h1>
+    <h1>Naive Bayes Dengan Reduksi Dimensi & Modeling (Term Frequensi)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,11 +401,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Implementasi Reduksi Dimensi PTA Dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes-term-frequensi">Modeling Naive Bayes (Term Frequensi)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive Bayes (</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset-transform-to-term-frequency">Load Dataset (transform to Term Frequency)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-null-data">Cek NULL Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-null-data">Drop NULL Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label">Deklarasi X dan y dengan drop fitur dokumen dan label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-data">Splitting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-k-alpha-dan-beta">Deklarasi K, Alpha, dan Beta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes">Modeling Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predict">Predict</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -417,11 +423,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="implementasi-reduksi-dimensi-pta-dataset">
-<h1>Implementasi Reduksi Dimensi PTA Dataset<a class="headerlink" href="#implementasi-reduksi-dimensi-pta-dataset" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="naive-bayes-dengan-reduksi-dimensi-modeling-term-frequensi">
+<h1>Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)<a class="headerlink" href="#naive-bayes-dengan-reduksi-dimensi-modeling-term-frequensi" title="Permalink to this heading">#</a></h1>
+<section id="import-library">
+<h2>Import Library<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+
+<span class="kn">import</span> <span class="nn">joblib</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
@@ -429,20 +443,9 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Dataset/crawling_pta_labeled.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="load-dataset-transform-to-term-frequency">
+<h2>Load Dataset (transform to Term Frequency)<a class="headerlink" href="#load-dataset-transform-to-term-frequency" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Term Frequensi.csv&#39;</span><span class="p">)</span>
@@ -452,7 +455,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2867eedc-447a-4add-89be-9ae4575296f3" class="colab-df-container">
+  <div id="df-232f8f95-4084-449c-9b10-f2e530a67abc" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -766,7 +769,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2867eedc-447a-4add-89be-9ae4575296f3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-232f8f95-4084-449c-9b10-f2e530a67abc')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -818,12 +821,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2867eedc-447a-4add-89be-9ae4575296f3 button.colab-df-convert');
+        document.querySelector('#df-232f8f95-4084-449c-9b10-f2e530a67abc button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2867eedc-447a-4add-89be-9ae4575296f3');
+        const element = document.querySelector('#df-232f8f95-4084-449c-9b10-f2e530a67abc');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -846,6 +849,9 @@ document.write(`
   </div>
   </div></div>
 </div>
+</section>
+<section id="cek-null-data">
+<h2>Cek NULL Data<a class="headerlink" href="#cek-null-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -869,6 +875,9 @@ Length: 9050, dtype: int64
 </div>
 </div>
 </div>
+</section>
+<section id="drop-null-data">
+<h2>Drop NULL Data<a class="headerlink" href="#drop-null-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -876,16 +885,26 @@ Length: 9050, dtype: int64
 </div>
 </div>
 </div>
+</section>
+<section id="deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label">
+<h2>Deklarasi X dan y dengan drop fitur dokumen dan label<a class="headerlink" href="#deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">X</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">,</span> <span class="s1">&#39;Label&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d2ad91ed-9f9f-447d-a9a9-2d826289cb75" class="colab-df-container">
+  <div id="df-f8aeecd4-5cfe-47a5-9009-d8594e4e0e31" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -915,6 +934,7 @@ Length: 9050, dtype: int64
       <th>absolut</th>
       <th>absolute</th>
       <th>...</th>
+      <th>zara</th>
       <th>zat</th>
       <th>zcz</th>
       <th>zf</th>
@@ -924,7 +944,6 @@ Length: 9050, dtype: int64
       <th>zoom</th>
       <th>zucara</th>
       <th>zungu</th>
-      <th>Label</th>
     </tr>
   </thead>
   <tbody>
@@ -950,7 +969,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>RPL</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
@@ -974,7 +993,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>RPL</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
@@ -998,7 +1017,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>RPL</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1022,7 +1041,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>4</th>
@@ -1046,7 +1065,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1094,7 +1113,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>824</th>
@@ -1118,7 +1137,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>825</th>
@@ -1142,7 +1161,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>826</th>
@@ -1166,7 +1185,7 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>827</th>
@@ -1190,16 +1209,16 @@ Length: 9050, dtype: int64
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>KK</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>792 rows × 9049 columns</p>
+<p>792 rows × 9048 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d2ad91ed-9f9f-447d-a9a9-2d826289cb75')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f8aeecd4-5cfe-47a5-9009-d8594e4e0e31')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1251,12 +1270,12 @@ Length: 9050, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d2ad91ed-9f9f-447d-a9a9-2d826289cb75 button.colab-df-convert');
+        document.querySelector('#df-f8aeecd4-5cfe-47a5-9009-d8594e4e0e31 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d2ad91ed-9f9f-447d-a9a9-2d826289cb75');
+        const element = document.querySelector('#df-f8aeecd4-5cfe-47a5-9009-d8594e4e0e31');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1281,79 +1300,54 @@ Length: 9050, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
-<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.2</span>
-
-<span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">topic_word_prior</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
-<span class="n">proporsi_topik_dokumen</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">ValueError</span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-8-a4276d7ce45a&gt;</span> in <span class="ni">&lt;cell line: 6&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">topic_word_prior</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">proporsi_topik_dokumen</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/_set_output.py</span> in <span class="ni">wrapped</span><span class="nt">(self, X, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">139</span>     <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">140</span>         <span class="n">data_to_wrap</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data_to_wrap</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>             <span class="c1"># only wrap the first output for cross decomposition</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/base.py</span> in <span class="ni">fit_transform</span><span class="nt">(self, X, y, **fit_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span>         <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="c1"># fit method of arity 1 (unsupervised transformation)</span>
-<span class="ne">--&gt; </span><span class="mi">878</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">**</span><span class="n">fit_params</span><span class="p">)</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span>             <span class="c1"># fit method of arity 2 (supervised transformation)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/decomposition/_lda.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y)</span>
-<span class="g g-Whitespace">    </span><span class="mi">639</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">         self._validate_params()</span>
-<span class="ne">--&gt; </span><span class="mi">641</span><span class="s2">         X = self._check_non_neg_array(</span>
-<span class="g g-Whitespace">    </span><span class="mi">642</span><span class="s2">             X, reset_n_features=True, whom=&quot;LatentDirichletAllocation.fit&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">         )</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/decomposition/_lda.py</span> in <span class="ni">_check_non_neg_array</span><span class="nt">(self, X, reset_n_features, whom)</span>
-<span class="g g-Whitespace">    </span><span class="mi">559</span><span class="s2">         dtype = [np.float64, np.float32] if reset_n_features else self.components_.dtype</span>
-<span class="g g-Whitespace">    </span><span class="mi">560</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">561</span><span class="s2">         X = self._validate_data(</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span><span class="s2">             X,</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span><span class="s2">             reset=reset_n_features,</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/base.py</span> in <span class="ni">_validate_data</span><span class="nt">(self, X, y, reset, validate_separately, **check_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span><span class="s2">             raise ValueError(&quot;Validation should be done on X, y or both.&quot;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">564</span><span class="s2">         elif not no_val_X and no_val_y:</span>
-<span class="ne">--&gt; </span><span class="mi">565</span><span class="s2">             X = check_array(X, input_name=&quot;X&quot;, **check_params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span><span class="s2">             out = X</span>
-<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="s2">         elif no_val_X and not no_val_y:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">check_array</span><span class="nt">(array, accept_sparse, accept_large_sparse, dtype, order, copy, force_all_finite, ensure_2d, allow_nd, ensure_min_samples, ensure_min_features, estimator, input_name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span><span class="s2">                     array = xp.astype(array, dtype, copy=False)</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span><span class="s2">                 else:</span>
-<span class="ne">--&gt; </span><span class="mi">879</span><span class="s2">                     array = _asarray_with_order(array, order=order, dtype=dtype, xp=xp)</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span><span class="s2">             except ComplexWarning as complex_warning:</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span><span class="s2">                 raise ValueError(</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/_array_api.py</span> in <span class="ni">_asarray_with_order</span><span class="nt">(array, dtype, order, copy, xp)</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span><span class="s2">     if xp.__name__ in {&quot;numpy&quot;, &quot;numpy.array_api&quot;}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span><span class="s2">         # Use NumPy API to support order</span>
-<span class="ne">--&gt; </span><span class="mi">185</span><span class="s2">         array = numpy.asarray(array, order=order, dtype=dtype)</span>
-<span class="g g-Whitespace">    </span><span class="mi">186</span><span class="s2">         return xp.asarray(array, copy=copy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">187</span><span class="s2">     else:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/generic.py</span> in <span class="ni">__array__</span><span class="nt">(self, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2068</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">2069</span><span class="s2">     def __array__(self, dtype: npt.DTypeLike | None = None) -&gt; np.ndarray:</span>
-<span class="ne">-&gt; </span><span class="mi">2070</span><span class="s2">         return np.asarray(self._values, dtype=dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2071</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">2072</span><span class="s2">     def __array_wrap__(</span>
-
-<span class="ne">ValueError</span>: could not convert string to float: &#39;RPL&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      RPL
+1      RPL
+2      RPL
+3       KK
+4       KK
+      ... 
+823     KK
+824     KK
+825     KK
+826     KK
+827     KK
+Name: Label, Length: 792, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="splitting-data">
+<h2>Splitting Data<a class="headerlink" href="#splitting-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deklarasi-k-alpha-dan-beta">
+<h2>Deklarasi K, Alpha, dan Beta<a class="headerlink" href="#deklarasi-k-alpha-dan-beta" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">beta</span> <span class="o">=</span> <span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">topic_word_prior</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+<span class="n">lda_x_train</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">lda_x_test</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1361,16 +1355,16 @@ Length: 9050, dtype: int64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dokumen</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">]</span>
-<span class="n">output_proporsi_TD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">proporsi_topik_dokumen</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Topik 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 3&#39;</span><span class="p">])</span>
+<span class="n">output_proporsi_TD</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">lda_x_train</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Topik 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Topik 3&#39;</span><span class="p">])</span>
 <span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">,</span> <span class="n">dokumen</span><span class="p">)</span>
-<span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span><span class="s1">&#39;Label&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">])</span>
+<span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">columns</span><span class="p">),</span><span class="s1">&#39;Label&#39;</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">])</span>
 <span class="n">output_proporsi_TD</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8806163a-1aba-4dd9-9da7-ad02e0fd83a2" class="colab-df-container">
+  <div id="df-a55f07aa-fcf3-4237-b020-888b4c0dadd3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1400,41 +1394,41 @@ Length: 9050, dtype: int64
     <tr>
       <th>0</th>
       <td>sistem informasi akademik siakad sistem inform...</td>
-      <td>0.997569</td>
-      <td>0.001215</td>
-      <td>0.001215</td>
+      <td>0.669970</td>
+      <td>0.328566</td>
+      <td>0.001464</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>1</th>
       <td>berjalannya koneksi jaringan komputer lancar g...</td>
-      <td>0.000950</td>
-      <td>0.000950</td>
-      <td>0.998100</td>
+      <td>0.000875</td>
+      <td>0.476779</td>
+      <td>0.522346</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>2</th>
       <td>web server perangkat lunak server berfungsi me...</td>
-      <td>0.000915</td>
-      <td>0.000915</td>
-      <td>0.998170</td>
+      <td>0.001146</td>
+      <td>0.997708</td>
+      <td>0.001146</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>3</th>
       <td>penjadwalan kuliah perguruan kompleks permasal...</td>
-      <td>0.997028</td>
-      <td>0.001486</td>
-      <td>0.001486</td>
+      <td>0.997655</td>
+      <td>0.001173</td>
+      <td>0.001173</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>4</th>
       <td>seiring perkembangan teknologi didunia muncul ...</td>
-      <td>0.001201</td>
-      <td>0.997599</td>
-      <td>0.001201</td>
+      <td>0.001061</td>
+      <td>0.997879</td>
+      <td>0.001061</td>
       <td>KK</td>
     </tr>
     <tr>
@@ -1446,61 +1440,61 @@ Length: 9050, dtype: int64
       <td>...</td>
     </tr>
     <tr>
-      <th>787</th>
-      <td>teknologi berkembang pesat mendorong meningkat...</td>
-      <td>0.930452</td>
-      <td>0.068695</td>
-      <td>0.000853</td>
-      <td>KK</td>
-    </tr>
-    <tr>
-      <th>788</th>
-      <td>temu citra image retrieval sistem pencarian ci...</td>
-      <td>0.243462</td>
-      <td>0.001246</td>
-      <td>0.755293</td>
-      <td>KK</td>
-    </tr>
-    <tr>
-      <th>789</th>
-      <td>ilmu pengetahuan alam sains salah ilmu dunia p...</td>
-      <td>0.000636</td>
-      <td>0.000636</td>
-      <td>0.998728</td>
-      <td>RPL</td>
-    </tr>
-    <tr>
-      <th>790</th>
-      <td>jantung salah organ tubuh manusia jantung berp...</td>
-      <td>0.000774</td>
-      <td>0.000773</td>
-      <td>0.998453</td>
-      <td>KK</td>
-    </tr>
-    <tr>
-      <th>791</th>
-      <td>dungeon salah konten game roleplaying game mod...</td>
-      <td>0.001108</td>
-      <td>0.001108</td>
+      <th>549</th>
+      <td>audit teknologi informasi proses mengumpulkan ...</td>
       <td>0.997785</td>
+      <td>0.001108</td>
+      <td>0.001108</td>
       <td>RPL</td>
+    </tr>
+    <tr>
+      <th>550</th>
+      <td>tanda tangan bentuk khusus tulisan tangan meng...</td>
+      <td>0.689687</td>
+      <td>0.309354</td>
+      <td>0.000959</td>
+      <td>KK</td>
+    </tr>
+    <tr>
+      <th>551</th>
+      <td>tanda tangan palsu keperluan mengatasi tercipt...</td>
+      <td>0.390042</td>
+      <td>0.608826</td>
+      <td>0.001133</td>
+      <td>KK</td>
+    </tr>
+    <tr>
+      <th>552</th>
+      <td>kesehatan anak memiliki usia dibawah istilahny...</td>
+      <td>0.001039</td>
+      <td>0.155557</td>
+      <td>0.843404</td>
+      <td>KK</td>
+    </tr>
+    <tr>
+      <th>553</th>
+      <td>NaN</td>
+      <td>0.567541</td>
+      <td>0.431606</td>
+      <td>0.000853</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
-<p>792 rows × 5 columns</p>
+<p>554 rows × 5 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8806163a-1aba-4dd9-9da7-ad02e0fd83a2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a55f07aa-fcf3-4237-b020-888b4c0dadd3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -1544,12 +1538,12 @@ Length: 9050, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8806163a-1aba-4dd9-9da7-ad02e0fd83a2 button.colab-df-convert');
+        document.querySelector('#df-a55f07aa-fcf3-4237-b020-888b4c0dadd3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8806163a-1aba-4dd9-9da7-ad02e0fd83a2');
+        const element = document.querySelector('#df-a55f07aa-fcf3-4237-b020-888b4c0dadd3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1567,137 +1561,17 @@ Length: 9050, dtype: int64
       }
     </script>
   </div>
-
-
-<div id="df-623072d7-2089-43cf-8d70-50ce79089eb4">
-  <button class="colab-df-quickchart" onclick="quickchart('df-623072d7-2089-43cf-8d70-50ce79089eb4')"
-            title="Suggest charts."
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-623072d7-2089-43cf-8d70-50ce79089eb4 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;reduksi dimensi.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1716,7 +1590,7 @@ Length: 9050, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9028b501-12f0-4774-9a59-f3cea3e7dc1b" class="colab-df-container">
+  <div id="df-dff973eb-d51a-4435-872a-3c62e7d4c807" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1762,91 +1636,91 @@ Length: 9050, dtype: int64
     <tr>
       <th>0</th>
       <td>0.2</td>
-      <td>0.200000</td>
-      <td>1.190841</td>
-      <td>0.2</td>
-      <td>2.198039</td>
-      <td>0.2</td>
-      <td>3.196384</td>
-      <td>0.200000</td>
-      <td>0.207093</td>
-      <td>4.200002</td>
-      <td>...</td>
-      <td>2.198813</td>
-      <td>0.2</td>
-      <td>1.2</td>
       <td>0.2</td>
       <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>1.196131</td>
       <td>3.2</td>
-      <td>4.2</td>
+      <td>0.373546</td>
       <td>0.2</td>
+      <td>0.201415</td>
+      <td>...</td>
+      <td>0.200912</td>
+      <td>1.2</td>
+      <td>0.212387</td>
+      <td>0.2000</td>
       <td>0.2</td>
+      <td>0.209646</td>
+      <td>0.209347</td>
       <td>0.2</td>
+      <td>1.19694</td>
+      <td>1.19694</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.2</td>
-      <td>2.193708</td>
-      <td>0.209159</td>
+      <td>0.2</td>
       <td>1.2</td>
-      <td>0.201961</td>
-      <td>1.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
       <td>0.200000</td>
-      <td>3.935627</td>
-      <td>1.181895</td>
+      <td>0.2</td>
+      <td>1.026454</td>
+      <td>0.2</td>
       <td>0.200000</td>
       <td>...</td>
       <td>0.200000</td>
-      <td>1.2</td>
       <td>0.2</td>
-      <td>16.2</td>
+      <td>1.187613</td>
+      <td>0.2006</td>
       <td>0.2</td>
+      <td>3.190354</td>
+      <td>4.190653</td>
       <td>0.2</td>
-      <td>0.2</td>
-      <td>1.2</td>
-      <td>1.2</td>
-      <td>1.2</td>
+      <td>0.20306</td>
+      <td>0.20306</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
       <td>1.2</td>
-      <td>0.206292</td>
-      <td>0.200000</td>
-      <td>1.2</td>
+      <td>2.2</td>
+      <td>0.203869</td>
+      <td>0.2</td>
       <td>0.200000</td>
       <td>0.2</td>
-      <td>0.203616</td>
-      <td>2.464373</td>
-      <td>0.211012</td>
-      <td>1.199998</td>
+      <td>3.198585</td>
       <td>...</td>
-      <td>0.201187</td>
+      <td>2.199088</td>
       <td>0.2</td>
+      <td>0.200000</td>
+      <td>9.1994</td>
       <td>0.2</td>
+      <td>0.200000</td>
+      <td>0.200000</td>
       <td>0.2</td>
-      <td>8.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
+      <td>0.20000</td>
+      <td>0.20000</td>
     </tr>
   </tbody>
 </table>
 <p>3 rows × 9048 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9028b501-12f0-4774-9a59-f3cea3e7dc1b')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-dff973eb-d51a-4435-872a-3c62e7d4c807')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -1890,12 +1764,12 @@ Length: 9050, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9028b501-12f0-4774-9a59-f3cea3e7dc1b button.colab-df-convert');
+        document.querySelector('#df-dff973eb-d51a-4435-872a-3c62e7d4c807 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9028b501-12f0-4774-9a59-f3cea3e7dc1b');
+        const element = document.querySelector('#df-dff973eb-d51a-4435-872a-3c62e7d4c807');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1913,163 +1787,24 @@ Length: 9050, dtype: int64
       }
     </script>
   </div>
-
-
-<div id="df-2fc9e1f4-dd31-4ff1-b70e-32029bae60ae">
-  <button class="colab-df-quickchart" onclick="quickchart('df-2fc9e1f4-dd31-4ff1-b70e-32029bae60ae')"
-            title="Suggest charts."
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-2fc9e1f4-dd31-4ff1-b70e-32029bae60ae button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="modeling-naive-bayes-term-frequensi">
-<h1>Modeling Naive Bayes (Term Frequensi)<a class="headerlink" href="#modeling-naive-bayes-term-frequensi" title="Permalink to this heading">#</a></h1>
+<section id="modeling-naive-bayes">
+<h2>Modeling Naive Bayes<a class="headerlink" href="#modeling-naive-bayes" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Impor library yang diperlukan</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span>
-
-<span class="c1"># Memuat dataset Iris</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">proporsi_topik_dokumen</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">output_proporsi_TD</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
-
-<span class="c1"># Memisahkan dataset menjadi data pelatihan dan data pengujian</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-
-<span class="c1"># Membuat model Naive Bayes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat model Naive Bayes</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
 
 <span class="c1"># Melatih model pada data pelatihan</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">lda_x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="c1"># Melakukan prediksi pada data pengujian</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">lda_x_test</span><span class="p">)</span>
 
 <span class="c1"># Menghitung akurasi</span>
 <span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
@@ -2087,58 +1822,66 @@ Length: 9050, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-27-a6aaff73c863&gt;</span> in <span class="ni">&lt;cell line: 11&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> 
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Memisahkan dataset menjadi data pelatihan dan data pengujian</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> 
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Membuat model Naive Bayes</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.6512605042016807
+Laporan Klasifikasi:
+              precision    recall  f1-score   support
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_split.py</span> in <span class="ni">train_test_split</span><span class="nt">(test_size, train_size, random_state, shuffle, stratify, *arrays)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2557</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;At least one array required as input&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2558</span> 
-<span class="ne">-&gt; </span><span class="mi">2559</span>     <span class="n">arrays</span> <span class="o">=</span> <span class="n">indexable</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2560</span> 
-<span class="g g-Whitespace">   </span><span class="mi">2561</span>     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">_num_samples</span><span class="p">(</span><span class="n">arrays</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+          KK       0.65      1.00      0.79       155
+         RPL       0.00      0.00      0.00        83
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">indexable</span><span class="nt">(*iterables)</span>
-<span class="g g-Whitespace">    </span><span class="mi">441</span> 
-<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="n">result</span> <span class="o">=</span> <span class="p">[</span><span class="n">_make_indexable</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">iterables</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">443</span>     <span class="n">check_consistent_length</span><span class="p">(</span><span class="o">*</span><span class="n">result</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span>     <span class="k">return</span> <span class="n">result</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span><span class="w"> </span>
+    accuracy                           0.65       238
+   macro avg       0.33      0.50      0.39       238
+weighted avg       0.42      0.65      0.51       238
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">check_consistent_length</span><span class="nt">(*arrays)</span>
-<span class="g g-Whitespace">    </span><span class="mi">392</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">393</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">394</span><span class="sd">     lengths = [_num_samples(X) for X in arrays if X is not None]</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span><span class="sd">     uniques = np.unique(lengths)</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span><span class="sd">     if len(uniques) &gt; 1:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">392</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">393</span> 
-<span class="ne">--&gt; </span><span class="mi">394</span>     <span class="n">lengths</span> <span class="o">=</span> <span class="p">[</span><span class="n">_num_samples</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">arrays</span> <span class="k">if</span> <span class="n">X</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">395</span>     <span class="n">uniques</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">uniques</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/validation.py</span> in <span class="ni">_num_samples</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span>     <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">334</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">335</span>             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">336</span>                 <span class="s2">&quot;Singleton array </span><span class="si">%r</span><span class="s2"> cannot be considered a valid collection.&quot;</span> <span class="o">%</span> <span class="n">x</span>
-<span class="g g-Whitespace">    </span><span class="mi">337</span>             <span class="p">)</span>
-
-<span class="ne">TypeError</span>: Singleton array 30 cannot be considered a valid collection.
+Confusion Matriks:
+[[155   0]
+ [ 83   0]]
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="naive-bayes">
-<h1>Naive Bayes (<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h1>
+<section id="predict">
+<h2>Predict<a class="headerlink" href="#predict" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Penelitian ini menggabungkan konsep kecerdasan buatan dengan algoritma penjadwalan dalam upaya meningkatkan efisiensi produksi dalam lingkungan manufaktur. Kami memperkenalkan pendekatan yang memanfaatkan kecerdasan komputasional, yaitu algoritma optimasi berbasis swarm intelligence, seperti algoritma PSO (Particle Swarm Optimization) dan algoritma ACO (Ant Colony Optimization). Tujuan utama penelitian ini adalah untuk mengoptimalkan jadwal produksi dengan meminimalkan waktu produksi dan biaya, sambil mempertimbangkan berbagai kendala produksi seperti kapasitas mesin, waktu pemrosesan, dan persyaratan bahan baku. Melalui eksperimen dan simulasi, kami membandingkan hasil dari algoritma swarm intelligence dengan pendekatan konvensional. Hasilnya menunjukkan bahwa algoritma PSO dan ACO dapat menghasilkan jadwal produksi yang lebih efisien, dengan waktu produksi yang lebih pendek dan biaya yang lebih rendah. Selain itu, algoritma ini mampu beradaptasi dengan perubahan dalam lingkungan produksi dan menghasilkan jadwal yang optimal bahkan dalam situasi yang kompleks. Penelitian ini menunjukkan potensi besar dari penggunaan kecerdasan komputasional dalam meningkatkan efisiensi dan produktivitas dalam industri manufaktur. Hasil penelitian ini dapat digunakan sebagai dasar untuk mengembangkan sistem penjadwalan cerdas yang dapat diterapkan dalam berbagai industri.&quot;</span><span class="p">]</span>
+<span class="n">vectorizer</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/Model/tf_vectorizer.pkl&#39;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;KK&#39;], dtype=&#39;&lt;U3&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="save-model">
+<h2>Save Model<a class="headerlink" href="#save-model" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
+
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">lda_x_train</span><span class="p">,</span> <span class="s2">&quot;lda.pkl&quot;</span><span class="p">)</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&quot;naive bayes.pkl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;naive bayes.pkl&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://app-pta-trunojoyo.streamlit.app/">Link Deployment Streamlit</a></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2195,11 +1938,18 @@ Length: 9050, dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Implementasi Reduksi Dimensi PTA Dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes-term-frequensi">Modeling Naive Bayes (Term Frequensi)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive Bayes (</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset-transform-to-term-frequency">Load Dataset (transform to Term Frequency)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-null-data">Cek NULL Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drop-null-data">Drop NULL Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label">Deklarasi X dan y dengan drop fitur dokumen dan label</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-data">Splitting Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-k-alpha-dan-beta">Deklarasi K, Alpha, dan Beta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes">Modeling Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predict">Predict</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
@@ -2246,8 +1996,8 @@ By Ahmad Rosyihuddin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>
