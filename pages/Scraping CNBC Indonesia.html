@@ -1,0 +1,852 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Pencarian &amp; Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNBC Indonesia';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Preprocessing Berita (Detik.com)" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
+    <link rel="prev" title="Scraping Berita Detik.com" href="Scraping%20Detik.com.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Pencarian & Penambangan Web - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Pencarian & Penambangan Web - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Home Page
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Create Jupyter Notebook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Setup%20Jupyter%20Notebook.html">Setup Jupyter Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20Trunojoyo.html">Crawling Website PTA Trunojoyo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scraping%20Detik.com.html"><strong>Scraping Berita Detik.com</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (Detik.com)</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/arosyihuddin/ppw/blob/gh-pages/_sources/pages/Scraping CNBC Indonesia.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw/issues/new?title=Issue%20on%20page%20%2Fpages/Scraping CNBC Indonesia.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pages/Scraping CNBC Indonesia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_nav_link</span><span class="p">():</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.cnbcindonesia.com&#39;</span><span class="p">)</span>
+
+  <span class="c1"># Untuk mengecek respon url dan mencari menu sidebar</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c1"># Get Nav</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">nav</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="n">value</span> <span class="ow">and</span> <span class="s1">&#39;gtm_navbar&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">nav_link</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nav</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">,</span> <span class="s1">&#39;CUAP CUAP CUAN&#39;</span><span class="p">,</span> <span class="s1">&#39;RESEARCH&#39;</span><span class="p">,</span> <span class="s1">&#39;OPINI&#39;</span><span class="p">,</span> <span class="s1">&#39;FOTO&#39;</span><span class="p">,</span> <span class="s1">&#39;VIDEO&#39;</span><span class="p">,</span> <span class="s1">&#39;INFOGRAFIS&#39;</span><span class="p">,</span> <span class="s1">&#39;BERBUATBAIK.ID&#39;</span><span class="p">]}</span>
+
+    <span class="c1"># Update Nav Link</span>
+    <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">nav_link</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="n">nav_content</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+      <span class="n">new_link</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">nav_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;btn btn_inline gtm_button_indeks_newsfeed&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+      <span class="n">nav_link</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_link</span>
+
+    <span class="k">return</span> <span class="n">nav_link</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response https://www.cnbcindonesia.com : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">judul</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">category</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;author&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">article</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail_text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">article</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SCROLL TO RESUME CONTENT&#39;</span><span class="p">,</span> <span class="s1">&#39;ADVERTISEMENT&#39;</span><span class="p">]:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">author</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">len_data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">list_content</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">)</span>
+    <span class="n">next_button</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;paging text_center gtm_paging&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># for content in list_content:</span>
+    <span class="k">while</span> <span class="n">idx</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_content</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">len_data</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">subjudul</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;subjudul&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subjudul</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">subjudul</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;video&quot;</span><span class="p">,</span><span class="s2">&quot;Breaking News&quot;</span><span class="p">,</span><span class="s2">&quot;Techzone&quot;</span><span class="p">,</span> <span class="s2">&quot;Video&quot;</span><span class="p">,</span> <span class="s2">&quot;Editor&#39;s View&quot;</span><span class="p">,</span><span class="s2">&quot;Foto Internasional&quot;</span> <span class="p">,</span> <span class="s2">&quot;FOTO Internasional&quot;</span><span class="p">,</span> <span class="s2">&quot;FOTO&quot;</span><span class="p">,</span> <span class="s2">&quot;Video Breaking News&quot;</span><span class="p">,</span> <span class="s2">&quot;Transmart Full Day Sale&quot;</span><span class="p">,</span> <span class="s2">&quot;Tech A Look&quot;</span><span class="p">]:</span>
+          <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+          <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+          <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">subjudul</span><span class="p">)</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+      <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+  <span class="n">category_link</span> <span class="o">=</span> <span class="n">get_nav_link</span><span class="p">()</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">category</span><span class="p">:</span>
+    <span class="n">len_data_category</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">len_data_category</span> <span class="o">!=</span> <span class="n">num_data</span><span class="p">:</span>
+      <span class="n">new_data</span><span class="p">,</span> <span class="n">next_button</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">len_data_category</span><span class="p">,</span> <span class="n">num_data</span><span class="p">)</span>
+      <span class="n">data</span> <span class="o">+=</span> <span class="n">new_data</span>
+      <span class="n">len_data_category</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+      <span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_button</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Berhasil Mengambil data sebanyak </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> berita dengan </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">)</span><span class="si">}</span><span class="s1"> Category&#39;</span><span class="p">)</span>
+
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Url&#39;</span><span class="p">,</span> <span class="s1">&#39;Judul&#39;</span><span class="p">,</span> <span class="s1">&#39;Tanggal&#39;</span><span class="p">,</span> <span class="s1">&#39;Author&#39;</span><span class="p">,</span> <span class="s1">&#39;Artikel&#39;</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">])</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNBC.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTREPRENEUR&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+[&#39;https://www.cnbcindonesia.com/tech/20231109084246-37-487582/operator-minta-diskon-sewa-frekuensi-segini-bocorannya&#39;, &#39;Operator Minta Diskon Sewa Frekuensi, Segini Bocorannya&#39;, &#39;09 November 2023 10:25&#39;, &#39;Novina Putri Bestari, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Kementerian Kominfoberencana memberikan insentif 5G. Operator seluler telah mengutarakan beberapa permintaannya. Director &amp; Chief Business Officer PT IndosatTbk. (Indosat Ooredoo Hutchison/IOH), Muhammad Danny Buldansyah menjelaskan bentuk insentif bisa bervariasi. Namun ini juga butuh persetujuan dari berbagai pihak dan dipastikan akan ada proses tawar menawar. &quot;Saya yakin nanti ada tawar-menawar pasti, kita maunya begini. Kemarin itu salah satunya kalau spektrum lama PNBP diturunkan 20persen, yang baru kalau ada PNBP itu dikasih grace period misalnya 3-4 tahun,&quot; kata Danny ditemui di Jakarta, Rabu (8/11/2023). Saat ditanya insentif ideal dari operator, Danny mengungkapkan terkait regulatory charges yang seharusnya bisa di bawah 10 persen. Jika industri ingin tetap bertahan bisa berkisar 5-7 persen. Saat ini, beban regulatory charges adalah 11-12 persen. Namun bisa naik jika ada spektrum baru menjadi 15persen. &quot;Sekarangini angkanya secara industri yang disampaikan kepada kementerian itu di 11-12 persen. Kalau ada spektrum baru jadi tambah lagi bisa jadi 14-15 persen, sehingga diperlukan restrukturisasi PNBP supaya sustainindustrinya,&quot; jelasnya. &quot;Agar industri bertahan harusnya di bawah 10 persen. Idealnya 5 persen, apakah mengambil 7 persen, itu bisa dilihat nanti,&quot; imbuh Danny. Minggu lalu, operator seluler dan Menteri Kominfo Budi Arie telah bertemu bersama. Kedua belah pihak setuju membentuk Satgas untuk perumusan insentif tersebut. &quot;Minggu kemarin sama Pak Menteri, keputusannya itu bikin task force dari masing operator siapa. Dari Kominfo ditunjuk dua Wayan (Dirjen PPI) sama Ismail (Dirjen SDPPI) ditambah eselon 1,&quot; ujar Danny. &#39;, &#39;Tech&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+[&#39;https://www.cnbcindonesia.com/news/20231109090458-4-487594/menguak-arti-di-balik-gerak-cepat-ganjar-mahfud&#39;, &quot;Menguak Arti di Balik &#39;Gerak Cepat&#39; Ganjar-Mahfud&quot;, &#39;09 November 2023 10:35&#39;, &#39;Rosseno Aji Nugroho, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Chief Economist CNBC Indonesia Anggito Abimanyu mencatat terdapat frasa yang paling sering disebutkan oleh pasangan capres-cawapres Ganjar Pranowo dan Mahfud Md dalam visi-misinya. Dari 33 halaman visi-misi pasangan itu, Anggito mencatat frasa yang paling sering muncul adalah \&#39;gerak cepat\&#39; dan \&#39;mempercepat\&#39;. &quot;Kalau saya baca visi-misi Ganjar-Mahfud ada 33 halaman dan kata yang paling banyak adalah gerak cepat atau mempercepat,&quot; kata Anggito dalam acara Your Money Your Vote di CNBC Indonesia Rabu (8/11/2023). Anggito merasa tergelitik untuk bertanya apakah Ganjar-Mahfud menilai laju ekonomi di era Presiden Joko Widodo masih lambat. &quot;Apakah Anda atau timnya Pak Ganjar-Mahfud menilai yang sekarang ini kurang cepat? Apakah Anda merasakan yang dilakukan sekarang masih lambat? Mohon disebutkan mana-mana yang kurang cepat dan apa engine yang akan digunakan untuk mempercepat,&quot; tanya Anggito. Sekretaris Eksekutif Tim Pemenangan Nasional (TPN) Ganjar-Mahfud, Heru Dewanto yang hadir sebagai narasumber mengatakan gerak cepat harus dilakukan bukan tanpa alasan. Dia mengatakan Ganjar-Mahfud mengusung gerak cepat menjadi tema visi-misi karena waktu Indonesia untuk keluar dari negara berpenghasilan menengah tidak lama lagi.   Dia mengatakan Indonesia masuk menjadi kelompok negara menengah sejak 1993 dan terus bertahan pada posisi itu hingga hampir 30 tahun. &quot;Memang meningkat dari menengah bawah ke menengah atas, tapi masih di bawah ambang batas,&quot; ujarnya. Heru mengatakan pendapatan per kapita di Indonesia masih di bawah US$ 4.700 per tahun. Artinya, kata dia, Indonesia masih perlu menggenjot pendapatan per kapita warganya hingga US$ 13 ribu untuk bisa menjadi negara maju. Dia bilang cara satu-satunya untuk mencapai target itu adalah memanfaatkan bonus demografi. Sayangnya, kata dia, bonus demografi Indonesia sudah tidak lama lagi. Dia memperkirakan hanya tersisa waktu 13 tahun hingga potensi jumlah penduduk Indonesia bisa dimanfaatkan untuk pembangunan ekonomi. &quot;Tidak ada acara lain, selain kita bergegas. Kenapa bergegas, waktu kita tinggal 13 tahun, peluang kita setelah 30 tahun tertahan di negara berpenghasilan menengah adalah memanfaatkan bonus demografi yang hanya datang sekali dalam siklus banyak negara di dunia ini,&quot; katanya. &#39;, &#39;News&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;subjudul&quot;&gt;Internasional&lt;/span&gt;
+[&#39;https://www.cnbcindonesia.com/entrepreneur/20231109091722-25-487598/pakar-bongkar-kunci-sukses-nomor-1-bisnis-bill-gates&#39;, &#39;Pakar Bongkar &quot;Kunci Sukses&quot; Nomor 1 Bisnis Bill Gates&#39;, &#39;09 November 2023 09:40&#39;, &#39;sef, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Seorang pakar psikologi mencoba menelusuri kunci sukses miliuner dunia. Ia adalah Mourgan Housel. Dalam tulisannya di CNBC International, ia memuat bagaimana crazy rich seperti Bill Gates sukses karena &quot;rahasia khusus&quot;. Itu adalah &quot;keseimbangan antara pesimisme dan optimisme&quot;.   Menurutnya pesimisme sebenarnya sangat penting untuk kelangsungan hidup. Hal itu, membantu seseorang bersiap menghadapi risiko sebelum risiko itu datang. Namun optimisme juga sama pentingnya. Keyakinan bahwa segala sesuatunya akan berlangsung baik, meski buktinya tidak jelas, bisa mendukung kesuksesan bahkan investasi jangka panjang.   &quot;Orang-orang sukses menemukan keseimbangan antara pesimisme dan optimisme,&quot; kata penulis buku &quot;Same as Ever: A Guide to What Never Changes&quot; tersebut, dikutip Kamis (9/11/2023). &quot;Bill Gates adalah contoh yang bagus tentang betapa efektifnya keterampilan tersembunyi ini,&quot; tambahnya. Ia menggambarkan bagaimana Bill Gates saat memulai Microsoft. Di mana pria itu bersikeras untuk selalu memiliki cukup uang tunai di bank untuk menjaga perusahaan tetap hidup selama 12 bulan tanpa ada pendapatan yang masuk. &quot;Pada tahun 1995, dia ditanya oleh Charlie Rose mengapa dia menyimpan begitu banyak uang tunai. Banyak hal berubah begitu cepat dalam teknologi sehingga bisnis di tahun depan tidak terjamin ... termasuk Microsoft,&quot; katanya menceritakan Bill Gates. Ia pun mengutip beberapa pernyataan lain dari Bill Gates yang merujuk kematangan psikologisnya. &quot;Saya selalu khawatir karena orang-orang yang bekerja untuk saya lebih tua dari saya dan mempunyai anak, dan saya selalu berpikir, Bagaimana jika kami tidak dibayar? Apakah saya dapat memenuhi gaji tersebut?,&quot; jelasnya lagi mengungkap wawancara Bill Gates, tahun 2007. Menurutnya, potongan wawancara itu, menunjukan bahwa ada optimisme dan kepercayaan diri bercampur dengan pesimisme yang berat. Secara sederhana, katanya, Bill Gates menyakini &quot;seseorang bisa menjadi optimis dalam jangka panjang jika cukup pesimis untuk bertahan dalam jangka pendek&quot;. &quot;Hal penting yang perlu diperhatikan di sini adalah optimisme dan pesimisme ada dalam satu spektrum,&quot; tambahnya lagi. &quot;Saya sebut optimis rasional,&quot; ujarnya. Dikatakannya jika selalu optimis, menganggap segala sesuatu baik-baik saja dan membuang hal buruk, akan muncul sikap &quot;tidak dapat memahami apa pun yang salah&quot;. Di sisi lain, mika benar-benar pesimis, berpikir segala sesuatunya buruk, akan muncul rasa tak percaya diri sehingga tidak bisa membayangkan segala sesuatunya akan berjalan dengan baik. &quot;Yang berada di tengah-tengah adalah titik manis,&quot; katanya lagi. &quot;Mereka yang mengakui bahwa sejarah adalah rangkaian masalah, kekecewaan, dan kemunduran yang terus-menerus terjadi, namun tetap optimis karena mereka tahu bahwa kemunduran tidak menghalangi kemajuan pada akhirnya,&quot; ujar Housel. &quot;Mereka terdengar seperti orang munafik dan orang yang suka berjungkir balik, namun sering kali mereka hanya melihat lebih jauh ke depan dibandingkan orang lain,&quot; tegasnya.  &#39;, &#39;Entrepreneur&#39;]
+Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNBC.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Url</th>
+      <th>Judul</th>
+      <th>Tanggal</th>
+      <th>Author</th>
+      <th>Artikel</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://www.cnbcindonesia.com/tech/20231109084...</td>
+      <td>Operator Minta Diskon Sewa Frekuensi, Segini B...</td>
+      <td>09 November 2023 10:25</td>
+      <td>Novina Putri Bestari, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Kementerian Kominfob...</td>
+      <td>Tech</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://www.cnbcindonesia.com/news/20231109090...</td>
+      <td>Menguak Arti di Balik 'Gerak Cepat' Ganjar-Mahfud</td>
+      <td>09 November 2023 10:35</td>
+      <td>Rosseno Aji Nugroho, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Chief Economist CNBC...</td>
+      <td>News</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>https://www.cnbcindonesia.com/entrepreneur/202...</td>
+      <td>Pakar Bongkar "Kunci Sukses" Nomor 1 Bisnis Bi...</td>
+      <td>09 November 2023 09:40</td>
+      <td>sef, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Seorang pakar psikol...</td>
+      <td>Entrepreneur</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Url         0
+Judul       0
+Tanggal     0
+Author      0
+Artikel     0
+Category    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Scraping%20Detik.com.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Scraping Berita Detik.com</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Preprocessing Berita (Detik.com)</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Rosyihuddin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,832 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Pencarian &amp; Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNN Indonesia';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Pencarian & Penambangan Web - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Pencarian & Penambangan Web - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Home Page
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Create Jupyter Notebook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Setup%20Jupyter%20Notebook.html">Setup Jupyter Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20Trunojoyo.html">Crawling Website PTA Trunojoyo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scraping%20Detik.com.html"><strong>Scraping Berita Detik.com</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (Detik.com)</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/arosyihuddin/ppw/blob/gh-pages/_sources/pages/Scraping CNN Indonesia.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw/issues/new?title=Issue%20on%20page%20%2Fpages/Scraping CNN Indonesia.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pages/Scraping CNN Indonesia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_nav_link</span><span class="p">():</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.cnnindonesia.com&#39;</span><span class="p">)</span>
+
+  <span class="c1"># Untuk mengecek respon url dan mencari menu sidebar</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c1"># Get Nav</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">nav</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;navbar__item&#39;</span><span class="p">)</span>
+    <span class="n">nav_link</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nav</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Home&#39;</span><span class="p">]}</span>
+
+    <span class="c1"># Update Nav Link</span>
+    <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">nav_link</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="n">nav_content</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+      <span class="n">new_link</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">nav_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;dtr-act&#39;</span> <span class="p">:</span> <span class="s1">&#39;button indeks berita&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+      <span class="n">nav_link</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_link</span>
+
+    <span class="k">return</span> <span class="n">nav_link</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response https://www.cnnindonesia.com : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">judul</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;mb-2 text-[28px] leading-9 text-cnn_black&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;text-cnn_grey text-sm mb-4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;dtr-evt&#39;</span> <span class="p">:</span> <span class="s1">&#39;breadcrumb&#39;</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">article</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail-text text-cnn_black text-sm grow min-w-0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">article</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SCROLL TO RESUME CONTENT&#39;</span><span class="p">,</span> <span class="s1">&#39;ADVERTISEMENT&#39;</span><span class="p">]:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">len_data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">list_content</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;flex flex-col gap-5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;flex-grow&#39;</span><span class="p">)</span>
+    <span class="n">next_button</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;dtr-act&#39;</span> <span class="p">:</span> <span class="s1">&#39;halaman selanjutnya&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">idx</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_content</span><span class="p">):</span>
+      <span class="n">subjudul</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;text-cnn_red block subjudul mb-1&#39;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">subjudul</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">len_data</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+          <span class="n">link_content</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+          <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">link_content</span><span class="p">)</span>
+          <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+          <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="k">break</span>
+          <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+
+      <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scraping_cnn</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nasional&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+  <span class="n">category_link</span> <span class="o">=</span> <span class="n">get_nav_link</span><span class="p">()</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">category</span><span class="p">:</span>
+    <span class="n">len_data_category</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">len_data_category</span> <span class="o">!=</span> <span class="n">num_data</span><span class="p">:</span>
+      <span class="n">new_data</span><span class="p">,</span> <span class="n">next_button</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">len_data_category</span><span class="p">,</span> <span class="n">num_data</span><span class="p">)</span>
+      <span class="n">data</span> <span class="o">+=</span> <span class="n">new_data</span>
+      <span class="n">len_data_category</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+      <span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_button</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Berhasil Mengambil data sebanyak </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> berita dengan </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">)</span><span class="si">}</span><span class="s1"> Category&#39;</span><span class="p">)</span>
+
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Url&#39;</span><span class="p">,</span> <span class="s1">&#39;Judul&#39;</span><span class="p">,</span> <span class="s1">&#39;Tanggal&#39;</span><span class="p">,</span> <span class="s1">&#39;Artikel&#39;</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">])</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNN.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraping_cnn</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Teknologi&#39;</span><span class="p">,</span> <span class="s1">&#39;Ekonomi&#39;</span><span class="p">,</span> <span class="s1">&#39;Olahraga&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.cnnindonesia.com/teknologi/20231108171351-199-1021665/pakar-matematika-pecahkan-misteri-asal-usul-sphinx-mesir
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108171351-199-1021665/pakar-matematika-pecahkan-misteri-asal-usul-sphinx-mesir&#39;, &#39;Pakar Matematika Pecahkan Misteri Asal-usul Sphinx Mesir&#39;, &#39;Kamis, 09 Nov 2023 08:42 WIB&#39;, &#39;Sebuah penelitian baru menyajikan bukti yang menguatkan klaim ilmuwan 40 tahun lalu soal asal-usul Sphinx, monumen berbentukmakhluk mitologisdi Mesir. Lebih dari 40 tahun yang lalu, Farouk El-Baz, ilmuwan antariksa dan ahli geologi memiliki teori bahwa angin berperan besar dalam membentuk Sphinx di Piramida Agung Giza sebelum orang Mesir kuno menambahkan detail permukaan pada patung yang menjadi simbol negara tersebut. Kini, sebuah studi baru memberikan bukti yang menunjukkan bahwa teori tersebut mungkin saja benar. Studi tersebut sudah dipublikasikan di jurnal Physical Review Fluids. SCROLL TO CONTINUE WITH CONTENT Sebuah tim ilmuwan di Laboratorium Matematika Terapan NYU mulai membahas teori tersebut dengan mereplikasi kondisi lanskap sekitar 4.500 tahun yang lalu, ketika patung batu kapur tersebut kemungkinan besar dibangun, dan melakukan tes untuk melihat bagaimana angin memanipulasi formasi batuan. &quot;Temuan kami menawarkan kemungkinan \&#39;cerita asal-usul\&#39; tentang bagaimana formasi mirip Sphinx dapat muncul dari erosi,&quot; kata penulis studi senior Leif Ristroph, seorang profesor di Courant Institute of Mathematical Sciences di New York University, mengutip CNN. &quot;Eksperimen laboratorium kami menunjukkan bahwa secara mengejutkan, bentuk seperti Sphinx ternyata bisa berasal dari material yang terkikis oleh aliran air yang deras.&quot; Tim di balik penelitian ini membuat model tanah liat yardang - bentang alam pasir padat yang terbentuk karena angin di daerah gurun yang terbuka - dan membasuh formasi tersebut dengan aliran air yang deras untuk merepresentasikan angin. Yardang adalah bukit yang berbaris-baris. Bukit ini terletak di daerah kering yang memiliki curah hujan tahunan kurang dari 100 inci. Berdasarkan komposisi Great Sphinx, tim menggunakan inklusi yang lebih keras dan tidak dapat terkikis di dalam yardamg liat lunak yang tidak memiliki fitur, dan dengan aliran dari terowongan air, para peneliti menemukan bentuk singa mulai terbentuk. Di dalam gurun, ada yardang yang secara alami terlihat seperti hewan sedang duduk atau berbaring dengan kepala terangkat. &quot;Beberapa di antaranya terlihat sangat mirip dengan singa yang sedang duduk, atau kucing yang sedang duduk, sehingga kadang disebut Singa Lumpur. Eksperimen kami dapat menambah pemahaman tentang bagaimana bentuk yardang ini,&quot; katanya. Sejak lama banyak pihak meyakini bahwa patung setinggi 20 meter ini diukir dari sepotong batu kapur. Teori awal bahwa angin telah membentuk sebuah yardang ke dalam formasi Sphinx pertama kali ditampilkan dalam artikel Majalah Smithsonian tahun 1981 oleh El-Baz yang berjudul &quot;Desert Builders Knew a Good Thing When They Saw It.&quot; Premis ini didasarkan pada karya terkemuka dari mendiang ahli geologi planet Ronald Greeley, yang telah mensimulasikan terowongan angin untuk mengeksplorasi bagaimana erosi angin dapat membentuk struktur di padang pasir. El-Baz mengaku tidak yakin studi baru ini memberikan dukungan lebih lanjut terhadap teori awalnya.  Salima Ikram, profesor terkemuka di bidang Egyptology di American University di Kairo, mempertanyakan gagasan bahwa Sphinx berawal dari sebuah yardang. &quot;Setelah Sphinx Agung diukir, alam memainkan peran dalam pembentukan selanjutnya, tetapi tidak mungkin bentuk aslinya didasarkan pada sebuah yardang (yang umumnya terbuat dari lumpur - ini adalah batu kapur) karena ada tanda penggalian dan tanda pengerjaan yang signifikan di sekitarnya,&quot; kata Ikram. &quot;Ada terlalu banyak bukti campur tangan manusia dalam pembangunan Great Sphinx untuk membuat teori yardang menjadi layak,&quot; ujar dia.  Para peneliti New York University mengatakan bahwa hasil penelitian mereka menunjukkan bahwa struktur mirip Sphinx dapat terbentuk dalam kondisi yang cukup lumrah, namun temuan mereka tidak memecahkan misterinya. &quot;Ini tidak terlalu jelas. Tidak ada yang mengatakan bahwa ini adalah pahatan manusia sepenuhnya dan tidak ada yang mengatakan bahwa ini adalah pahatan alam sepenuhnya. Pertanyaannya adalah berapa banyak yang secara alamiah sudah ada dan kemudian dimodifikasi lebih lanjut,&quot; kata Ristroph. &quot;Apa yang (penelitian) kami lakukan adalah memberi tahu Anda bahwa sebagian besar pangkal kepala, leher, dan cakar, sebagian besar mungkin diukir oleh alam, oleh erosi.&quot;  [Gambas:Video CNN]  &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231109060019-213-1021794/indosat-tunjukkan-efek-langsung-sinyal-internet-buat-ekonomi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231109060019-213-1021794/indosat-tunjukkan-efek-langsung-sinyal-internet-buat-ekonomi&#39;, &#39;Indosat Tunjukkan Efek Langsung Sinyal Internet Buat Ekonomi&#39;, &#39;Kamis, 09 Nov 2023 07:41 WIB&#39;, &#39;Indosat Digital Ecosystem (IDE) menunjukkan keberadaan sinyal internet bisa berefek pada perekonomian warga. ProgramIndosat Ooredoo Hutchisoninipada intinya memberipendampingan digital hingga pembelajaran praktis buat Usaha Mikro, Kecil, dan Menengah (UMKM). Berulang tahun yang kesatu, Rabu (8/11), IDE sudahmenggarap lebih dari 30 ribu penggunaUMKM dan pengusaha. Di tahun pertama, program ini masih fokus di Jakarta, Semarang, dan Surabaya. SCROLL TO CONTINUE WITH CONTENT  Muhammad Buldansyah, Director and Chief Business Officer Indosat Ooredoo Hutchison, mengatakan pihaknya masih fokus di daerah yangsinyalnyakuat. &quot;Kita akan cover daerah situ yang sudah punya sinyal, jadi kita bisa kasihIDE juga, organiknya ke arah situ,&quot; ucap dia, saat ditemui di Jakarta, kemarin. Pasalnya,data IDE, yang bisajadi bahan untuk meningkatkan pemasaran dan penjualan, salah satunya berbasis kebiasaan pencarian di internet. Ia mengungkap para peserta ini merupakanUMKMyang &quot;pengen levelup,&quot;lewat jalur, &quot;pendampingan solusi digital.&quot;  &quot;Kelemahan UMKMitu belum pakai data, makanya misi kita mengajarkan ini,&quot; imbuh pria yang akrab dipanggil Danny itu. Sejumlah studi sebelumnya mengungkap hubungan sinyal internet dan perekonomian. Penelitian lembaga Penelitian dan Pelatihan Ekonomi dan Bisnis (P2EB) Fakultas Ekonomika dan Bisnis Universitas Gadjah Mada (UGM), yang dirilis 2019, mengungkap penambahanpengguna ponsel atau mobile internet sebesar 10 persen akan berpengaruh terhadap 0,4 persen pertumbuhan Produk Domestik Bruto (PDB). Sementara, angka yang sama di Malaysia, pemakaianponsel memberi dampak 0,43 persen. Kok lebih besar?  Deputi Direktur P2EB Artidiatun Adji menduga hal itu disebabkan infrastruktur teknologi informasi di Malaysia lebih baik, sehingga penetrasi digital ke beberapa sektor perekonomian menjadi lumrah. &quot;Namun kami baru sebut ini dugaan sementara, karena kami masih perlu melihat penyebab utama dari lebih tingginya dampak mobile internet di Malaysia ketimbang Indonesia,&quot; jelasnya, Kamis (9/11/2019). Konsultan PT. Lembaga Afiliasi Penelitian Indonesia (LAPI) ITB Ivan Samuelsjuga mengungkap penerapan jaringan 5G di Indonesia berpotensi meningkatkan PDB secara kumulatif dari 2021-2030 hingga 9,5 persen atau Rp2.874 triliun.  Hingga tahun depan,IOG masih fokus di Jawa untuk program IDE lantaran faktor sinyal dankonsentrasiUMKM. &quot;Tahun depan mau padetin lagi di Jawa. Masih banyak kota, Bandung,Jogja,Malang, itu UMKMsemua isinya. Jadi target pertama saya habisinJawa,&quot; kata Danny.  Untuk tahun berikutnya, IOHmenargetkanSumatradanKalimantan. Khusus kawasan timur RI, pihaknya menyasar daerah Nusa Tenggara, terutama Labuan Bajo, dan Sulawesi. Dengan penambahan wilayah cakupan itu, IOH menargetkan peserta IDE setidaknyabertambah jadi 60 ribuan, dengan potensi 100 ribu, &quot;Kalaumemang sesuai rencana kita.&quot;  [Gambas:Video CNN]  &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231109045743-206-1021791/leadership-forum-digelar-hari-ini-bahas-industri-digital-hingga-ai
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231109045743-206-1021791/leadership-forum-digelar-hari-ini-bahas-industri-digital-hingga-ai&#39;, &#39;Leadership Forum Digelar Hari ini, Bahas Industri Digital Hingga AI&#39;, &#39;Kamis, 09 Nov 2023 06:41 WIB&#39;, &#39;Leadership Forum Digital Creative, ajang berbagi pengalamanparapimpinan lembaga negaradan perusahaan, bakal digelar hari ini, Kamis (9/11). Topiknya terentang mulai soal peranteknologiindustri hingga kecerdasan buatan (AI). Event yang digelar CNNIndonesia ini dihelat diKempinski Grand Ballroom, Jakarta, Kamis (9/11) pukul 10.00 hingga 18.00 WIB, dan terbuka untuk umum. &quot;Leadership Forum Digital Creative adalah sebuah Event yang akan menghadirkan para tokoh-tokoh kunci dalam perkembangan dan pertumbuhan industri kreativitas digital, baik di dunia dan tak terkecuali di Indonesia,&quot; demikian keterangan resminya. SCROLL TO CONTINUE WITH CONTENT  &quot;Sektor industri kreatif dan digital bahkan bisa menjadi tulang punggung perekonomian negara.&quot; Digital Creative Leadership Forum juga akan membahas &quot;aneka peluang, manfaat serta tantangan-tantangan dalam penyelenggaraan industri kreatif digital.&quot; Parapembicara akan memaparkan kebangkitan industri digital creative serta kesiapan masyarakat Indonesia dalam menghadapi tantangannya di masa depan. Diskusi terbagi dalam empat sesi, yang didahului dua pembicara kunci, yakni Menteri Komunikasi dan Informatika Budi Arie Setiadi dan Kepala Otorita Ibu Kota Negara(IKN) Nusantara Bambang Susantono.  Untuk lebih lengkapnya, berikut rincian tema empat sesi dan para pembicaranya: Sesi I: Indonesia Digital Roadmap Sesi II: Promises of Digital in Indonesia Industry Sesi III: Transforming Industry into Digital Era Sesi IV: Shaping and Revolutionizing Indonesia Creative Industry   [Gambas:Video CNN]  &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108195558-192-1021741/viral-jess-no-limit-konten-gendong-anak-buat-adsense-cek-faktanya
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108195558-192-1021741/viral-jess-no-limit-konten-gendong-anak-buat-adsense-cek-faktanya&#39;, &#39;Viral Jess No Limit Konten Gendong Anak Buat Adsense, Cek Faktanya&#39;, &#39;Rabu, 08 Nov 2023 21:05 WIB&#39;, &#39;Sebuah postingan yang menyebut YouTuber dan gamerJess No Limit hanya bikin konten mengenai anaknya untuk dapat adsense di YouTube. Bagaimana faktanya? Postingan tersebut pertama kali diunggah akun @hanmula. Dalam unggahannya, ia turut menyematkan gambar tangkapan layar dari video Jess No Limit yang tengah menggendong bayinya. &quot;Jess no limit kerjaannya ngontenin anaknya mulu, ngepush subscribe youtube buat adsense. Lalu datang si Iqbal,&quot; cuit akun @hanmula, Senin (6/11). SCROLL TO CONTINUE WITH CONTENT Dalam tangkapan layar itu juga ada komentar dari warganet bernama Iqbal yang menyebut bahwa apa yang dilakukan Jess No Limit tidak jauh berbeda dari badut lampu merah. [Gambas:Twitter] Jess No Limit memang dikenal sebagai salah satu YouTuber dan gamer Indonesia. Pada mulanya, ia kerap mengunggah konten video mengenai game Mobile Legends. Belakangan, setelah menikah dengan Sisca Kohl dan memiliki anak, ia jadi sering mengunggah konten mengenai buah hatinya tersebut di YouTube. Sampai saat ini Jess No Limit sebetulnya masih menjadi YouTuber dengan jumlah subscribe terbanyak di Indonesia. Tercatat, sampai dengan Rabu (8/11), jumlah subscriber Jess No Limit sebanyak 42,1 juta, merujuk laman Socialblade.  Ia tercatat sudah mengunggah sebanyak 2.531 konten video di YouTube. Socialblade mencatat konten Jess No Limit sudah ditonton sebanyak 5,1 miliar kali. Menurut catatan Socialblade, dalam rentang waktu 30 hari terakhir jumlah subscriber Jess No Limit bertambah sekitar 1,5 juta. Namun, di sisi lain, jumlah video views Jess No Limit terlihat berkurang. Dari catatan laman tersebut, jumlah video Jess No Limit yang ditonton dalam 30 hari terakhir turun sekitar 37 juta views.   &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108192640-218-1021728/menkominfo-ajak-media-jaga-objektivitas-kualitas-di-masa-pemilu-2024
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108192640-218-1021728/menkominfo-ajak-media-jaga-objektivitas-kualitas-di-masa-pemilu-2024&#39;, &#39;Menkominfo Ajak Media Jaga Objektivitas &amp; Kualitas di Masa Pemilu 2024&#39;, &#39;Rabu, 08 Nov 2023 19:58 WIB&#39;, &#39;Penyelenggaraan Pemilihan Umum (Pemilu) Serentak 2024 akan segera digelar dalam hitungan bulan. Sebagai pilar keempat demokrasi, jurnalisme memiliki peran penting dalam menciptakan Pemilu Damai 2024. Dengan perkembanganzaman yang semakin cepat, teknologi sangat mempengaruhi keberlangsungan dunia jurnalisme. Karena ituMenteri Komunikasi dan Informatika (Menkominfo) Budi Arie Setiadimeminta media di Indonesia mendukung dan menyukseskan gelaran Pemilu 2024. &quot;Kami meminta dukungan untuk menyukseskan gelaran Pemilu 2024 yang sudah di depan mata. Sebagai pilar keempat demokrasi, jurnalisme memiliki peranan penting dalam menciptakan Pemilu Damai 2024,&quot; ungkap Budi Arie dalam Seminar Nasional Dewan Pers di Jakarta Selatan, Rabu (8/11). SCROLL TO CONTINUE WITH CONTENT Menkominfo mengajak insan pers menghadirkan pemberitaan terkait pemilu secara faktual, akurat, dan bermanfaat. Terutama untuk tetap menjaga objektivitas dan kualitas agar Pemilu tahun depan berlangsung aman dan damai. &quot;Saya meminta rekan-rekan untuk selalu memprioritaskan objektivitas dan kualitas pemberitaan, serta menghindari pemberitaan yang semata-mata mengedepankan sensasi,&quot; tambahnya. Budi Arie lebih lanjut mengatakan, kehadiran platform digital juga telah mengubah pola masyarakat dalam mengonsumsi berita. &quot;Perubahan tersebut memunculkan kesenjangan kepercayaan publik antara media mainstream dan media sosial yang semakin tinggi,&quot; ujarnya Menurut Menkominfo, saat ini beredar isu berkaitan dengan akses publik terhadap informasi yang berkualitas dan penurunan ketertarikan publik terhadap berita, dibanding konten media sosial yang makin aktraktif. Hal ini merupakan salah satu tantangan yang mesti dihadapi media. &quot;Ini merupakan sedikit dari berbagai tantangan kontemporer yang dihadapi dunia jurnalisme kita,&quot; tandasnya. Merespons hal itu, lanjut Budi Arie, Pemerintah bersama Dewan Pers terus berupaya menghadirkan jurnalisme berkualitas. Salah satu upaya itu dilakukan lewat Rancangan Perpres Publisher Rights. &quot;Kita semua memahami bahwa proses Rancangan Perpres Publisher Rights terus bergulir, sebagai ikhtiar kita semua untuk menjaga keberlangsungan jurnalisme yang berkualitas,&quot; ujar Menkominfo. Adapun saat ini, Kementerian Kominfo bersama Kementerian Sekretariat Negara juga terus berupaya agar Rancangan Perpres tersebut dapat segera diselesaikan. &quot;Kami mohon dukungan rekan-rekan semua agar proses yang sedang berlangsung dapat berjalan lancar dan membawa hasil positif untuk industri pers kita,&quot; pungkasnya. &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108154142-206-1021591/bakal-jadi-saingan-galaxy-fold-5-apa-keunggulan-oppo-find-n3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108154142-206-1021591/bakal-jadi-saingan-galaxy-fold-5-apa-keunggulan-oppo-find-n3&#39;, &#39;Bakal Jadi Saingan Galaxy Fold 5, Apa Keunggulan Oppo Find N3?&#39;, &#39;Rabu, 08 Nov 2023 18:31 WIB&#39;, &#39;Pabrikan smartphoneasal China, Oppo segera merilis Hp foldable pertamanya di RI, Oppo Find N3 Fold. Hp ini bakal menjadi pesaing utama Samsung Galaxy Fold 5, lalu apa keunggulanOppo Find N3 Fold? Baskoro Adiwiyono, Head of Public Relations Oppo Indonesia mengatakan salah satu keunggulan Find N3 Fold adalah Hp ini dibekali dengan kamera flagship. Oppo menggandeng manufaktur kamera, Hassleblad untuk menggarap kamera belakang Find N3 Fold. &quot;Kami luncurkan dengan fitur flagship yang sesungguhnya. Kenapa fitur flagship yg sesungguhnya? Karena kameranya flagship,&quot; kata Baskoro saat ditemui di Jakarta Selatan, Rabu (8/11). SCROLL TO CONTINUE WITH CONTENT &quot;Bahkan ada kamera telefotonya, satu-satunya smartphone foldable yang punya telefoto,&quot; imbuhnya.  Kamera utama Hp ini terdiri dari tiga kamera belakang, yakni 48 MP Ultra Sensing Wide Angle Camera, 64 MP Ultra Sensing Periscope Telephoto Camera, dan 48 MP Ultra Wide Angle Camera. Sedangkan, kamera depan dilengkapi dengan konfigurasi kamera 20 MP dan 32 MP. Menurut Baskoro dengan fitur-fitur kamera mumpuni itu, pihaknya meyakini banyak konsumen yang akan memilih Oppo Find N3 Fold. Apalagi, menurutnya Hp ini tidak hanya cocok untuk para eksekutif, tapi juga yang doyan jalan-jalan.  &quot;Itu dia kenapa tadi salah satu pilarnya, pilar travel, karena pada saat kita pergi, kalau orang yang suka outdoor, kamera telephoto-nya itu berguna banget untuk foto zoom dari jarak jauh.Bayangin dari tadinya harus bawa kamera DSLR, kita bisa travel light, packing enggak ribet-ribet,&quot; kata Baskoro. &quot;Cukup smartphone foldable, yang mungkin selama ini stigmanya adalah smartphone untuk kerja doang, produktivitas, sementara kami melihatnya enggak. Karena kami punya teknologinya untuk mendukung lebih banyak aktivitas hari-hari konsumen,&quot; tuturnya menambahkan. Oppo Find N3 segera rilis pekan depan. Hp ini mengusung desain layar lipat seperti buku, seperti Samsung Galaxy Fold.   Sampai saat ini belum ada bocoran harga untuk Oppo Find N3 Fold. Namun, diperkirakan harganya di atas Rp20 jutaan, bersaing dengan Samsung Galaxy Fold 5. Oppo Find N3 memiliki panjang 153,4 mm dan lebar 73 mm. Jika lipatan ponsel dibuka, lebar ponsel menjadi 143,1 mm dengan bobot ponsel sekitar 245 gram. Penyimpanan ponsel dibekali dengan kapasitas RAM dan ROM 16 GB + 512 GB. Dapur pacunya dibekali dengan Qualcomm Snapdragon 8 Gen 2.  Layar Oppo Find N3 dibekali dengan panel layar OLED, dengan layar utama dan layar penutup sama-sama 120 Hz. Kerapatan pixel dilayar utama tembus 426 PPI, sedangkan di layar penutup 431 PPI. Penyimpanan ponsel dibekali dengan kapasitas RAM dan ROM 16 GB + 512 GB. Dapur pacunya dibekali dengan Qualcomm Snapdragon 8 Gen 2. Layar Oppo Find N3 dibekali dengan panel layar OLED, dengan layar utama dan layar penutup sama-sama 120 Hz. Kerapatan pixel dilayar utama tembus 426 PPI, sedangkan di layar penutup 431 PPI. &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108162712-192-1021625/usai-dinyatakan-langgar-etik-anwar-usman-trending-topic-di-twitter
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108162712-192-1021625/usai-dinyatakan-langgar-etik-anwar-usman-trending-topic-di-twitter&#39;, &#39;Usai Dinyatakan Langgar Etik, Anwar Usman Trending Topic di Twitter&#39;, &#39;Rabu, 08 Nov 2023 17:01 WIB&#39;, &#39;Sosok mantan Ketua Mahkamah Konstitusi (MK) Anwar Usmanjadi sorotan warganet usai dinyatakan melanggar kode etik berat. Anwar juga dijatuhi sanksi pencopotan dari jabatannya sebagai Ketua MK. Majelis Kehormatan Mahkamah Konstitusi (MKMK) sehari sebelumnya membacakan putusan terkait pelanggaran kode etik terhadap Anwar di balik putusan MK tentang syarat usia capres-cawapres pada Selasa (7/11). Sejak kemarin, warganet di platform X (sebelumnya Twitter) riuh membahas sosok Anwar Usman. Beberapa di antaranya bahkan menyinggung soal majunya Gibran Rakabuming Raka sebagai cawapres karena putusan bermasalah. SCROLL TO CONTINUE WITH CONTENT &quot;pak @gibran_tweet sampean jadi cawapres di atas dasar pelanggaran berat penegak hukum, ketua mk, om bapak. ra isin,&quot; kata akun @saiful_mujani, Selasa (7/11). [Gambas:Twitter] Sementara itu, akun @chicohakim menilai putusan MKMK terhadap Anwar Usman adalah keputusan yang tanggung. Pasalnya, Anwar hanya dicopot sebagai Ketua MK, bukan dari jabatan hakim MK. &quot;Putusan MKMK yang hanya mencopot Anwar Usman dari jabatannya sebagai Ketua MK, namun tidak memberhentikannya sekaligus dari jabatan Hakim MK sesungguhnya adalah keputusan yang tanggung dalam upaya menebus \&#39;dosa\&#39; putusan MK soal syarat menjadi capres/cawapres. Tapi ya sudahlah,&quot; cuitnya. [Gambas:Twitter] Hal serupa disampaikan jurnalis senior Goenawan Mohammad. Dalam cuitannya, Gonawan berandai-andai, jika dirinya ada di posisi Usman akan sekaligus mengundurkan diri sebagai hakim MK. &quot;Andaikata saya Anwar Usman, yg dipecat dari kedudukan sbg Hakim Ketua Mahkamah Konstitusi, saya akan mengundurkan diri dari Mahkamah Konstitus sama sekali. Mungkin karena saya punya rasa malu....&quot; cuitnya di akun @gm_gm. [Gambas:Twitter] Sementara itu, eks politikus Partai Demokrat UlilAbsharAbdallamenyindir pernyataan Usmanmengenai &quot;jabatan milik Allah&quot; yang sempat disuarakan Anwar. Menurutnya dengan prinsip begitu, seharusnya Anwartidak menyalahgunakan jabatannya sebagai hakim MK. &quot;Sudah tahu itu jabatan milik Allah, kenapa disalah-gunakan? Kenapa, Pak Usman?&quot; cuit dia. [Gambas:Twitter] Sehari usai pembacaan putusan, Anwar menggelar konferensi pers. Ia menyebut ada upaya politisasi dan pembunuhan karakter terhadapnya terkait putusan MKMK. &quot;Sesungguhnya saya mengetahui dan telah mendapat kabar upaya melakukan politisasi dan menjadikan saya objek dalam berbagai putusan Mahkamah Konstitusi dan putusan MK terakhir maupun pembentukan MKMK, saya telah mendengar jauh sebelum MKMK terbentuk,&quot; kata Anwar dalam konferensi pers di Gedung MK, Rabu (8/11). Meski mengetahui ada upaya pembunuhan karakter terhadap dirinya, Anwar mengaku tetap berprasangka baik. Ia tetap menjalankan tugas sebagai Ketua MK dan membentuk MKMK.  &quot;Namun meski setelah saya mendengar ada skenario untuk membunuh karakter saya, saya tetap berbaik sangka karena memang seharusnya begitulah cara dan karakter seorang Muslim berpikir,&quot; ungkapnya. Ia juga menyayangkan sidang kode etik Majelis Kehormatan digelar secara terbuka. Menurutnya, sesuai dengan aturan MK, sidang seharusnya digelar tertutup. &quot;Saya menyayangkan proses peradilan etik yang seharusnya tertutup sesuai dengan Peraturan MK dilakukan secara terbuka. Hal itu secara normatif tentu menyalahi aturan dan tidak sejalan dengan dibentuknya MKMK yang ditujukan untuk menjaga keluhuran MK baik secara individual maupun institusional,&quot; paparnya. Selain itu ia merasa difitnah dalam menangani perkara nomor 90 terkait batas usia cawapres. &quot;Fitnah yang sangat keji dan tidak berdasar atas hukum dan fakta,&quot; katanya.   &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108135703-206-1021501/meluncur-tahun-depan-berikut-daftar-hp-xiaomi-dapat-hyperos
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108135703-206-1021501/meluncur-tahun-depan-berikut-daftar-hp-xiaomi-dapat-hyperos&#39;, &#39;Meluncur Tahun Depan, Berikut Daftar Hp Xiaomi Dapat HyperOS&#39;, &#39;Rabu, 08 Nov 2023 14:04 WIB&#39;, &#39;Tampilan user interface (UI) atau antarmuka baru Xiaomi, HyperOS dipastikan tidak terbatas untuk pengguna di China. Raksasa teknologi asal China itu akan membawaHyperOSke pasar global, termasuk Indonesia. Rencananya, tampilan antarmuka HyperOS ini bakal meluncur secara global pada kuartal pertama 2024. HyperOS akan menghadirkan aplikasi sistem yang disegarkan, kinerja antarmuka yang lebih baik, dan beberapa fitur tambahan. Selain itu, HyperOS akan dibangun di atas Google Android 14 dan sistem operasi baru tersebut diharapkan lebih baik dari pendahulunya, mengutip GSMChina. SCROLL TO CONTINUE WITH CONTENT Sebelumnya, Xiaomi memastikan bakal mengganti antarmuka perusahaan yang selama ini dikenal sebagai MIUImenjadi HyperOS. Perubahan ini rencananya akan mulai diterapkan di seri ponsel terbaru mereka, Xiaomi 14.  Perubahan itu terungkap dalam postingan pendiri dan CEO Xiaomi, Lei Jun di X (sebelumnya Twitter). Jun mengungkap bahwa HyperOS adalah antarmuka baru perusahaan. &quot;Hari ini menandai momen bersejarah. Setelah bertahun-tahun bekerja secara kolektif, sistem operasi baru kami, #XiaomiHyperOS, akan memulai debut resminya di #Xiaomi14Series,&quot; kata Jun dalam cuitannya, Selasa (17/10). HyperOS adalah OS smartphone terbaru yang menggabungkan Android dan sistem Vela yang dikembangkan sendiri oleh Xiaomi.  Desain yang mendasari OS ini &quot;sepenuhnya ditulis ulang,&quot; dan bahwa OS baru ini &quot;menyiapkan basis publik untuk Internet of Everything untuk puluhan miliar perangkat dan puluhan miliar koneksi di masa depan.&quot; Ponsel-ponsel Xiaomi sebelumnya menggunakan sistem operasi MiUI. Sistem operasi berbasis Android milik Xiaomi ini telah mendukung ponsel perusahaan selama 13 tahun. HyperOS 1.0 saat ini sedang diuji oleh para insinyur Xiaomi. Berikut daftar ponsel dan tablet Xiaomi dapat HyperOS versi global: 1. Xiaomi 132. Xiaomi 13 Pro3. Xiaomi 13 Ultra4. Xiaomi 13T Pro5.Xiaomi 13T6. Xiaomi 12T Pro7. Xiaomi 12T8. Xiaomi 11T9. Xiaomi Pad 6   &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108083330-192-1021345/ramai-ramai-pengguna-uninstall-aplikasi-pemblokir-iklan-youtube
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108083330-192-1021345/ramai-ramai-pengguna-uninstall-aplikasi-pemblokir-iklan-youtube&#39;, &#39;Ramai-ramai Pengguna Uninstall Aplikasi Pemblokir Iklan YouTube&#39;, &#39;Rabu, 08 Nov 2023 12:47 WIB&#39;, &#39;Ribuan pengguna ramai-ramai menghapus fitur pemblokiriklan pada platform YouTube. Ini merupakan respons dari upaya YouTube untuk menindak para pemblokir iklan di platform mereka. Beberapa aplikasi pemblokir iklan mengklaim bahwa ribuan orang telah mencopot pemasangan produk mereka sejak YouTube mulai menampilkan peringatan kepada orang-orang yang mencoba menonton video dengan pemblokir iklan yang diaktifkan. Salah satu perusahaan, AdGuard, mengatakan bahwa lebih dari 11.000 orang telah mencopot pemasangan ekstensi Chrome-nya setiap hari sejak 9 Oktober, dibandingkan dengan 6.000 pencopotan pemasangan per hari sebelum YouTube menerapkan perubahan tersebut. Pada 18 Oktober, 52.000 orang menghapus instalasi AdGuard, kata CTO perusahaan tersebut, Andrey Meshkov. SCROLL TO CONTINUE WITH CONTENT Namun, penginstalan versi berbayar AdGuard, yang tidak terpengaruh langkah tegas YouTube, justru meningkat.  Perusahaan pemblokiran iklan lainnya, Ghostery, mengatakan bahwa jumlah pemakainya stagnan di bulan Oktober, karena mengalami tiga hingga lima kali lipat jumlah penginstalan harian serta penghapusan instalasi, mengutip Engadget. Khususnya, perusahaan ini mengatakan bahwa lebih dari 90 persen penggunanya yang menyelesaikan survei tentang alasan mereka mencopot pemasangan produk mengatakan bahwa mereka melakukannya karena alat ini tidak lagi berfungsi dengan YouTube. Di sisi lain, karena langkah tegas YouTube kelihatannya hanya memengaruhi orang-orang yang mengakses situs webnya melalui Chrome di laptop dan desktop, beberapa pengguna juga mencoba menggunakan peramban lain sebagai solusi. Ghostery mengatakan bahwa penginstalan peramban Microsoft Edge meningkat 30 persen pada bulan Oktober dibandingkan dengan bulan September. Iklan YouTube semakin memberikan kontribusi yang lebih besar terhadap pendapatan Google secara keseluruhan. Perusahaan ini menjual lebih dari $22 miliar (sekitar Rp344 triliun) iklan di platform tersebut dari awal tahun ini hingga September. Namun platform streaming ini juga berusaha mendorong lebih banyak orang untuk membayar YouTube Premium, yang menghilangkan iklan, memungkinkan orang mengunduh video, streaming video dengan kualitas yang lebih tinggi, dan mengakses YouTube Music. Awal tahun ini, perusahaan menaikkan harga YouTube Premium sebesar $2 (sekitar Rp31 ribu) menjadi $14 (sekitar Rp218 ribu) per bulan. YouTube sebelumnya mengaku sudah &quot;meluncurkan upaya global&quot; untuk menindak para pemblokir iklan di platform mereka. &quot;Platform ini telah melakukan upaya dalam skala global untuk mendorong pengguna mengizinkan iklan atau mencoba YouTube Premium&quot;, kata manajer komunikasi YouTube Christopher Lawton dalam sebuah pernyataan kepada The Verge. Jika pengguna mengalami pemblokiran YouTube, Anda mungkin melihat pemberitahuan yang mengatakan &quot;pemutaran video diblokir kecuali YouTube masuk daftar yang diizinkan atau pemblokir iklan dinonaktifkan.&quot;  Ini juga termasuk permintaan untuk mengizinkan iklan atau mencoba YouTube Premium. Anda mungkin juga mendapatkan keterangan YouTube terhadap pemblokir iklan, tapi masih dapat menonton video. Menurut The Verge,YouTube sekarang melakukan pemblokiran sepenuhnya hampir setiap saat. YouTube juga mengonfirmasi mereka menonaktifkan video untuk pengguna yang memblokir iklan pada Juni. Namun, Lawton menjelaskan bahwa itu hanya sebagai &quot;eksperimen kecil secara global&quot; pada saat itu.  &#39;, &#39;Teknologi&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.cnnindonesia.com/teknologi/20231108075250-199-1021339/lubang-ozon-2023-masuk-12-besar-sepanjang-sejarah-bumi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108075250-199-1021339/lubang-ozon-2023-masuk-12-besar-sepanjang-sejarah-bumi&#39;, &#39;Lubang Ozon 2023 Masuk 12 Besar Sepanjang Sejarah Bumi&#39;, &#39;Rabu, 08 Nov 2023 11:17 WIB&#39;, &#39;Lubang ozonAntartika tahun 2023 mencapai ukuran maksimumnya sebesar 26 juta kilometer pada 21 September. Ini merupakan lubang ozon terbesar ke-12 sejak 1979, menurut pengukuran tahunan yang dilakukan oleh NOAA dan NASA. Selama puncak musim penipisan ozon pada tanggal 7 September hingga 13 Oktober, luas lubang ozon harian tahun ini rata-rata mencapai 23,1 juta kilometer persegi, setara dengan luas Amerika Utara. &quot;Ini adalah lubang ozon yang sangat kecil, penurunan kadar senyawa klorin yang diproduksi manusia, serta bantuan dari cuaca stratosfer Antartika yang aktif, sedikit meningkatkan tingkat ozon tahun ini.&quot; kata Paul Newman, seorang pemimpin tim peneliti ozon NASA dan kepala ilmuwan ilmu bumi di Pusat Penerbangan Luar Angkasa Goddard NASA di Greenbelt, Maryland. SCROLL TO CONTINUE WITH CONTENT Lapisan ozon berfungsi seperti tabir surya alami Bumi, karena bagian stratosfer ini melindungi planet kita dari radiasi ultraviolet (UV) Matahari yang berbahaya. Lapisan ozon yang menipis berarti berkurangnya perlindungan dari sinar UV yang dapat menyebabkan kulit terbakar, katarak, dan kanker kulit pada manusia.  Setiap bulan September, lapisan ozon menipis dan membentuk &quot;lubang ozon&quot; di atas benua Antartika. Para ilmuwan menggunakan istilah &quot;lubang ozon&quot; sebagai metafora untuk wilayah di mana konsentrasi ozon di atas Antartika turun jauh di bawah ambang batas historis 220 Dobson Unit. Para ilmuwan pertama kali melaporkan bukti penipisan ozon pada tahun 1985 dan telah melacak tingkat ozon Antartika setiap tahun sejak tahun 1979. Penipisan ozon di Antartika terjadi ketika bahan kimia buatan manusia yang mengandung klorin dan bromin pertama kali naik ke stratosfer. Bahan kimia ini terurai, kemudian melepaskan klorin dan bromin untuk memulai reaksi kimia yang menghancurkan molekul ozon. Bahan kimia perusak ozon, termasuk klorofluorokarbon (CFC), dulunya banyak digunakan dalam semprotan aerosol, busa, AC, alat pemadam kebakaran, dan lemari es. CFC, gas utama perusak ozon, memiliki masa hidup di atmosfer antara 50 hingga lebih dari 100 tahun. &quot;Meskipun total kolom ozon tidak pernah nol di sebagian besar tahun, kita biasanya akan melihat nol ozon pada ketinggian tertentu di stratosfer di atas Kutub Selatan,&quot; kata Ahli Kimia Riset NOAA, Bryan Johnson, pemimpin proyek kelompok ozonesonde di Laboratorium Pemantauan Global. &quot;Tahun ini, kami mengamati sekitar 95 persen penipisan di mana kita sering melihat hampir 100 persen hilangnya ozon di stratosfer.&quot; tambahnya. Protokol Montreal tahun 1987 dan amandemen terkait lainnya melarang produksi CFC dan bahan kimia perusak ozon di seluruh dunia pada tahun 2010. Pengurangan emisi yang diakibatkannya telah menyebabkan penurunan bahan kimia perusak ozon di atmosfer dan tanda-tanda pemulihan ozon di stratosfer.  Peneliti NOAA dan NASA memantau lapisan ozon di atas kutub dan secara global menggunakan instrumen di satelit Aura milik NASA, PLTN NOAA-NASA Suomi, dan satelit NOAA-20. Microwave Limb Sounder dari Aura juga memperkirakan tingkat klorin yang merusak ozon. Para ilmuwan juga melacak jumlah rata-rata penipisan dengan mengukur konsentrasi ozon di dalam lubang tersebut. Di Observatorium Atmosfer Dasar Kutub Selatan NOAA, para ilmuwan mengukur ketebalan lapisan tersebut dengan melepaskan balon cuaca yang membawa ozon dan dengan melakukan pengukuran di darat menggunakan spektrofotometer Dobson. Pengukuran NOAA menunjukkan nilai terendah sebesar 111 Satuan Dobson di Kutub Selatan pada tanggal 3 Oktober. Pengukuran NASA, yang dirata-ratakan pada wilayah yang lebih luas, mencatat nilai terendah sebesar 99 Dobson Unit pada tanggal yang sama. Pada tahun 1979, konsentrasi rata-rata di atas Antartika adalah 225 Dobson Unit; pada tahun 1989, jumlahnya anjlok menjadi 127 Dobson Unit.  Gunung berapi Hunga Tonga-Hunga Ha\&#39;apai (pernah meletus hebat pada Januari 2022 dan mengeluarkan uap air dalam jumlah besar ke stratosfer) kemungkinan besar berkontribusi terhadap penipisan ozon yang signifikan pada tahun ini. Uap air tersebut kemungkinan besar meningkatkan reaksi penipisan ozon di Antartika pada awal musim. &quot;Jika Hunga Tonga tidak meledak, lubang ozon kemungkinan akan mengecil tahun ini. Kami mengetahui letusan tersebut mencapai stratosfer Antartika, namun kami belum dapat mengukur dampak penuhnya terhadap lubang ozon.&quot; kata Newman. NASA Ozone Watch memberikan data terkait ukuran maksimum lubang ozon harian Belahan Bumi Selatan untuk setiap tahun dan tanggal terjadinya. Berikut merupakan 20 besar ukuran maksimum lubang ozon harian: 1. 9 September 2000 29.9 juta km22. 24 September 2006 29.6 juta km23. 24 September 2003 28.4 juta km24. 2 Oktober 2015 28.2 juta km25. 19 September 1998 27.9 juta km26. 11 September 2005 27.2 juta km27. 12 September 2008 27 juta km28. 7 September 1996 26.9 juta km29. 17 September 2001 26.5 juta km210. 5 Oktober 2022 26.5 juta km211. 12 September 2011 26.1juta km212. 21 September 2023 26 juta km213. 19 September 1993 25.8 juta km214. 15 September 1999 25.8 juta km215. 30 September 1994 25.2 juta km216. 13 September 2007 25.2 juta km217. 27 September 1997 25.1 juta km218. 27 September 1992 24.9 juta km219. 20 September 2018 24.8 juta km220.20 September 2020 24.8 juta km2  &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108070334-185-1021325/baidu-dan-alibaba-disebut-hapus-israel-dari-peta-digital-cek-faktanya
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108070334-185-1021325/baidu-dan-alibaba-disebut-hapus-israel-dari-peta-digital-cek-faktanya&#39;, &#39;Baidu dan Alibaba Disebut Hapus Israel dari Peta Digital, Cek Faktanya&#39;, &#39;Rabu, 08 Nov 2023 09:50 WIB&#39;, &#39;Para pengguna internet di Chinamengungkap perusahaan teknologi Cina,Alibaba dan Baidu, menghapus namaIsrael dari peta online mereka, meskipun masih menunjukkan perbatasannya yang diakui secara internasional. Peta-peta tersebut juga menunjukkan wilayah Palestina, dan kota-kota penting serta nama-nama negara terdekat termasuk Siprus, Yordania, dan Irak. Dalam sebuah pernyataan, juru bicara Baidu, Jing Meng, membantah dengan sengaja menghilangkan Israel dari peta platform tersebut. SCROLL TO CONTINUE WITH CONTENT &quot;Ketika ruang terbatas, peta kami mungkin tidak menampilkan nama atau bendera beberapa wilayah,&quot; katanya, mengutip Business Insider.  &quot;Pengguna dapat menemukan negara atau wilayah yang sesuai di Baidu Maps hanya dengan menggunakan fungsi pencarian peta,&quot; tambahnya. Pemerintah China membantah telah menghapus Israel dari layanan pemetaan yang ditawarkan oleh perusahaan teknologi Baidu dan Alibaba. &quot;Anda harus tahu bahwa Cina dan Israel memiliki hubungan diplomatik yang normal. Mengenai isu-isu relevan yang Anda sebutkan, negara-negara yang relevan ditandai dengan jelas di peta standar yang dikeluarkan oleh otoritas berwenang Tiongkok, yang dapat Anda periksa,&quot; kata juru bicara Kementerian Luar Negeri Tiongkok, Wang Wenbin, mengutip Newsweek. Sebuah investigasi independen yang dilakukan Newsweek mengklarifikasi bahwa peta-peta dari Baidu dan Alibaba tidak menampilkan nama Israel atau Gaza bahkan sebelum konflik saat ini dimulai. Newsweek melihat arsip gambar dari Baidu dan Amaps (peta Alibaba) yang menunjukkan wilayah Timur Tengah, dan menemukan bahwa keduanya berhenti menampilkan Israel atau Gaza pada layanan mereka sebelum konflik dimulai pada bulan Oktober. Investigasi terpisah yang dilakukan oleh Zichen Wang, seorang peneliti di Center for China and Globalization di Beijing, dan Jia Yuxuan menyebut bahwa halaman web yang diarsipkan dari artikel-artikel di situs web Tiongkok, Zhihu, menunjukkan Israel tidak lagi muncul di peta Baidu atau Alibaba sejak Mei 2021. China memiliki sejarah dalam mengadvokasi solusi dua negara yang memungkinkan berdirinya sebuah negara Palestina yang merdeka. Beberapa minggu setelah perang meletus, lingkaran Presiden Xi Jinping melanjutkan sikap ini, menyerukan gencatan senjata segera dan dukungan kemanusiaan untuk rakyat Palestina. Beijing menolak mengutuk Hamas, namun mengatakan bahwa mereka menentang segala bentuk serangan terhadap warga sipil.   &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231027091604-190-1016567/cara-melihat-direct-message-twitter-yang-sudah-lama-dengan-mudah
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231027091604-190-1016567/cara-melihat-direct-message-twitter-yang-sudah-lama-dengan-mudah&#39;, &#39;Cara Melihat Direct Message Twitter yang Sudah Lama dengan Mudah&#39;, &#39;Rabu, 08 Nov 2023 08:50 WIB&#39;, &#39;Pengguna dapat mencoba cara melihat direct message Twitter yang sudah lama tanpa menggunakan aplikasi tambahan. Twitteratau yang kini berganti nama menjadi X, telah menghadirkan fitur pencarian di direct message alias DM dengan lebih spesifik.  SCROLL TO CONTINUE WITH CONTENT Melalui akun @TwitterSupport atau yang kini @Support, Twitter mengatakan bahwa fitur pencarian percakapan spesifik ini memang sudah lama dinantikan penggunanya. &quot;We know you\&#39;ve been waiting for the option to search your DMs Now you can use the search bar in your inbox to find specific messages using keywords and names,&quot; tulisakun tersebut pada 24 Maret 2022. Kolom pencarian sendiri memang sudah ada tetapi pengguna hanya dapat mencari berdasarkan nama atau grup obrolan bukan jenis topiknya. Sebelumnya, pengguna perlu menggulir layar untuk mencari percakapan secara spesifik sehingga memakan waktu dan kurang efisien. Akan tetapi pembaruan ini tidak menghilangkan opsi untuk mencari obrolan berdasarkan nama pengguna lain yang diajak berbincang di DM atau grup obrolan. Sebab kedua opsi tersebut masih tersedia dan dapat digunakan seperti biasanya, seperti yang dikutip dari laman The Verge. Ada dua cara yang bisa dilakukan untuk mencari DM yang sudah lama, yakni menggunakan nama pengguna atau username yang diajak berbincang atau kata kunci atau keyword topik obrolan. Dikutip dari laman Bantuan Twitter, berikut ini cara melihat direct message Twitter yang sudah lama.   Selain mencari DM lama, pengguna juga dapat menyematkan DM yang diinginkan hingga enam percakapansekaligus. Fitur ini memungkinkan pengguna untuk menyematkan percakapan favorit ke bagian atas kotak masuk DM sehingga memudahkan pengguna untuk menemukannya. Pesan yang disematkan akan muncul di bagian atas kotak masuk dan percakapan tersemat muncul dari atas ke bawah sesuai urutan pengguna menyematkannya. Berikut langkahnya.  Demikian cara melihat direct message Twitter yang sudah lama. Semoga membantu! &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108061459-199-1021307/pakar-temukan-benua-yang-hilang-dari-indonesia
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231108061459-199-1021307/pakar-temukan-benua-yang-hilang-dari-indonesia&#39;, &#39;Pakar Temukan Benua yang Hilang dari Indonesia&#39;, &#39;Rabu, 08 Nov 2023 07:47 WIB&#39;, &#39;Misteri tentangbenua yang hilang seolah-olah lenyap 155 juta tahun lalu akhirnya terpecahkan. Simak penelitiannya. Para ilmuwan menemukan bukti daratan tersebut dan menelusuri kembali jejaknya. Ternyata benua yang hilang itu dikenal sebagai Argoland setelah terpisah dari Australia bagian barat. Hasil penelitian terbaru mengungkap benua ini hancur ketika kekuatan tektonik merentangkan daratan dan menjauhkannya dari bagian benua lain, sebelum akhirnya terpencar ke seluruh Asia Tenggara. SCROLL TO CONTINUE WITH CONTENT Para peneliti telah lama mengetahui bahwa sebuah daratan terpisah dari Australia 155 juta tahun lalu, berkat petunjuk yang tersisa dalam geologi cekungan laut dalam yang dikenal sebagai Dataran Argo Abyssal di lepas pantai barat laut negara tersebut.  Namun berbeda dengan India yang memisahkan diri dari benua super kuno Gondwana 120 juta tahun lalu dan masih merupakan daratan utuh hingga saat ini, Argoland terpecah menjadi beberapa bagian. Sampai sekarang, para ilmuwan juga masih bertanya-tanya di mana pecahan-pecahan benua itu berakhir. &quot;Kami tahu bahwa itu pasti berada di suatu tempat di utara Australia, jadi kami berharap bisa menemukannya di Asia Tenggara,&quot; ujar Eldert Advokat, seorang penulis utama studi dan seorang peneliti di departemen ilmu bumi di Universitas Utrecht di Belanda, mengutip Space. Dalam studi baru yang dipublikasikan secara online pada 19 Oktober di jurnal Gondwana Research, Advokaat dan rekan-rekannya merekonstruksi perjalanan benua yang memisahkan diri tersebut. Para peneliti menemukan fragmen-fragmen dataran kuno yang tersebar di sekitar Indonesia dan Myanmar, tapi ketika mereka mencoba merekonstruksi Argoland dari fragmen-fragmen ini &quot;tidak ada yang cocok,&quot; katanya. Tim kemudian menelusuri kembali ke belakang, mengumpulkan bukti di Asia Tenggara untuk menyusuri kembali perjalanan Argoland ke utara. Di antara pecahan-pecahan daratan kuno yang tersebar, mereka menemukan sisa-sisa samudera kecil yang berumur sekitar 200 juta tahun lalu. Menurut Advokaat, lautan ini kemungkinan besar terbentuk ketika kekuatan tektonik meregang dan membelah Argoland sebelum daratan sepanjang 3.100 mil (5.000 kilometer) itu lepas. &quot;Proses ini berlangsung selama 50 hingga 60 juta tahun dan sekitar 155 juta tahun yang lalu, seluruh kumpulan benua pita dan samudera di dalamnya mulai hanyut ke Asia Tenggara,&quot; katanya. Kita tidak kehilangan satu benua pun; benua itu sudah menjadi kumpulan yang sangat luas dan terfragmentasi.  Untuk merefleksikan hal ini, Advokaat dan rekan-rekannya menyebut Argoland sebagai &quot;Argopelago&quot;. Menurut Advokaat Rekonstruksi sejarah benua ini dapat menjelaskan iklim masa lalu di wilayah tersebut, yang mungkin akan mendingin ketika lautan terbentuk di antara serpihan Argoland. Ketika pecahan Argoland bertabrakan dengan daratan di Asia Tenggara, hal ini juga membentuk kekayaan keanekaragaman hayati kita lihat hari ini. Hal ini dapat membantu menjelaskan distribusi spesies yang tidak merata di sepanjang garis batas yang tak terlihat melintasi Indonesia. Dengan begitu Advokaat berpendapat bahwa dengan menyatukan Argoland adalah batu loncatan untuk penelitian baru.   &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231107201800-641-1021251/el-nino-tak-melulu-bikin-kekeringan-cek-beda-efek-di-banyak-negara
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231107201800-641-1021251/el-nino-tak-melulu-bikin-kekeringan-cek-beda-efek-di-banyak-negara&#39;, &#39;El Nino Tak Melulu Bikin Kekeringan, Cek Beda Efek di Banyak Negara&#39;, &#39;Rabu, 08 Nov 2023 06:40 WIB&#39;, &#39;El Ninotak cuma memicukekeringan seperti di Indonesia. Ilmuwan mengungkapanomali iklim yang berpusat di Samudera Pasifik itu bisa berdampak sebaliknya di belahan Bumi berbeda.Apa sebabnya? MenurutBadan Meteorologi, Klimatologi, dan Geofisika (BMKG), El Nino 2023 mulai terpantau muncul signifikan pada Juli dan masih terus berkembang hingga kini. Terbaru, kondisi El Ninomasih masuk level moderat meski musim hujan mulai datang di banyak wilayah RI.Southern Oscillation index (SOI) -6,9, dan Indeks NINO 3.4 +1,64. SCROLL TO CONTINUE WITH CONTENT  Hasilnya, Indonesia bagian selatan khatulistiwa dilanda kekeringan. Rote Ndao dan Sumba Timur, NTT, pun memecahkan rekor hari tanpa hujan terlama, yakni 176 hari per Oktober. Meski demikian, efek El Ninoini nyatanya tak cuma kekeringan. Lembaga Penerbangan dan Antariksa AS (NASA) menyebut El Ninomemicu iklim di sebagian AS. &quot;El Nino dapat menyebabkan kondisi yang lebih basah di wilayah barat daya AS dan kekeringan di wilayah Pasifik bagian barat, termasuk Indonesia,&quot; ungkap NASAdalam keterangannya. El Ninosendiri, bersama pasangannya La Nina, sama-sama masuk dalam El Niño-Southern Oscillation (ENSO). Yakni, pola iklim berulang yang melibatkan perubahan suhu perairan di Samudera Pasifik tropis bagian tengah dan timur.  Josh Willis, ilmuwan di proyek Sentinel-6 Michael Freilich di Jet Propulsion Laboratory NASA, California, AS,mengungkap El Nino bermula saat perairan menghangat dan memicu kenaikan air laut. &quot;Air mengembang saat memanas, sehingga permukaan laut cenderung lebih tinggi di tempat yang airnya lebih hangat,&quot; menurut keterangan NASA. &quot;El Nino ditandai dengan permukaan air laut yang lebih tinggi dari normal level lautan dan lebih hangat dari rata-rata suhu lautan sepanjang Pasifik bagian khatulistiwa.&quot; Badan Atmosfer dan Kelautan AS (NOAA) menjelaskan perbedaan efek El Ninoini terkait dengan posisi air yang lebih hangat tersebut. &quot;Ketika posisi air hangat di sepanjang khatulistiwa bergeser bolak-balik melintasi Samudra Pasifik, wilayah dengan penguapan air terbesar ke atmosfer juga ikut bergeser.&quot; Hal ini berdampak besar pada posisi rata-rata aliran udara cepat di atmosfer (jetstream) yang memengaruhi jalur yang dilalui daerah bertekanan rendah, yang disebut jalur badai.  Saat El Nino, posisi jetstream menunjukkan penurunan di Pasifik sebelah timur. Semakin kuat El Nino, semakin jauh ke timur di Pasifik Timur terjadi penurunan jetstream. Sebaliknya, selama La Nina, yang biasanya memicu hujan lebat di Indonesia, penurunan jetstream ini bergeser ke barat dari posisi normalnya menuju Pasifik Tengah. Posisi penurunan jetstream, yang disebut palung, dapat berdampak besar pada jenis cuaca yang dialami. El Nino yang sangat kuat akan menyebabkan palung bergeser lebih jauh ke selatan. Efek ini pun berbeda pada tiap periodenya.  Untuk lebih lengkapnya, NOAAmengungkap rincian beda efek El Ninodi tiap negara berdasarkan periode normal kemunculannya:    [Gambas:Video CNN]  &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231108171500-303-1021668/tcl-rayakan-pertumbuhan-bisnis-dengan-seluruh-dealer-di-bali
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-29b9050d8eaa&gt;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">scraping_cnn</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Teknologi&#39;</span><span class="p">,</span> <span class="s1">&#39;Ekonomi&#39;</span><span class="p">,</span> <span class="s1">&#39;Olahraga&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-5-f66562f904b2&gt;</span> in <span class="ni">scraping_cnn</span><span class="nt">(category, num_data)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">len_data_category</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">while</span> <span class="n">len_data_category</span> <span class="o">!=</span> <span class="n">num_data</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>       <span class="n">new_data</span><span class="p">,</span> <span class="n">next_button</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">len_data_category</span><span class="p">,</span> <span class="n">num_data</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>       <span class="n">data</span> <span class="o">+=</span> <span class="n">new_data</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>       <span class="n">len_data_category</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-4-a98d1641ac79&gt;</span> in <span class="ni">get_content</span><span class="nt">(url, len_data, target)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="k">if</span> <span class="n">len_data</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>           <span class="n">link_content</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>           <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">link_content</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>           <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>           <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">&lt;ipython-input-3-ab18a6100d47&gt;</span> in <span class="ni">get_data</span><span class="nt">(url)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>   <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>   <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">486</span><span class="s2">             resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="s2">                 method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="s2">                 url=url,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">             # Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">             response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span><span class="s2">         # Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">537</span><span class="s2">             response = conn.getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span><span class="s2">         except (BaseSSLError, OSError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="s2">         # Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">461</span><span class="s2">         httplib_response = super().getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="s2">         try:</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span><span class="s2">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span><span class="s2">                 response.begin()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span><span class="s2">             except ConnectionError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span><span class="s2">                 self.close()</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2">         # read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         while True:</span>
+<span class="ne">--&gt; </span><span class="mi">318</span><span class="s2">             version, status, reason = self._read_status()</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             if status != CONTINUE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">                 break</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2">     def _read_status(self):</span>
+<span class="ne">--&gt; </span><span class="mi">279</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
+
+<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">                 self._timeout_occurred = True</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1272</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1273</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1274</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1275</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1276</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1129</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1130</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1132</span><span class="s2">                 return self._sslobj.read(len)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Rosyihuddin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
