@@ -178,9 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">(Example) Reduksi Dimensi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Scraping%20Detik.com.html"><strong>Scraping Berita Detik.com</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Scraping%20CNBC%20Indonesia.html"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling</strong></a></li>
 </ul>
 
     </div>
@@ -410,6 +409,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="example-reduksi-dimensi">
 <h1>(Example) Reduksi Dimensi<a class="headerlink" href="#example-reduksi-dimensi" title="Permalink to this heading">#</a></h1>
 <p><a class="reference external" href="https://docs.google.com/spreadsheets/d/1M3gfGesTUuCrBbXI4e08W91YK04Fbzyf7ffdyNxsilc/edit?usp=sharing">Perhitungan Manual Spreadsheet</a></p>
+<ol class="arabic simple">
+<li><p><strong>Persiapan Data Teks</strong>: Langkah pertama adalah mempersiapkan data teks yang terdiri dari dua dokumen. Dokumen-dokumen ini akan digunakan dalam analisis.</p></li>
+<li><p><strong>Vektorisasi Teks Menggunakan CountVectorizer</strong>: Dalam langkah ini, kita menggunakan CountVectorizer, alat dari Scikit-Learn, untuk mengubah teks menjadi representasi vektor. CountVectorizer menghitung berapa kali setiap kata muncul dalam dokumen. Kita juga menghilangkan kata-kata umum dalam bahasa Inggris (stop words) dan kata-kata yang muncul terlalu sering (lebih dari 85% dari seluruh dokumen).</p></li>
+<li><p><strong>Penerapan Latent Dirichlet Allocation (LDA)</strong>: LDA adalah algoritma yang digunakan untuk mengidentifikasi topik-topik utama dalam dokumen. Dalam contoh ini, kita ingin mengidentifikasi dua topik. LDA memodelkan dokumen sebagai campuran dari topik-topik ini dan menghasilkan distribusi topik untuk setiap dokumen.</p></li>
+<li><p><strong>Menampilkan Topik dan Term</strong>: Langkah terakhir adalah menampilkan hasil LDA. Kita melihat semua topik yang telah diidentifikasi dalam setiap dokumen bersama dengan term-term yang paling relevan dalam tiap topik. Ini memberi kita wawasan tentang bagaimana dokumen-dokumen tersebut terkait dengan topik-topik yang telah diidentifikasi.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>

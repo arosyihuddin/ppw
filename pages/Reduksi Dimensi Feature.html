@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Reduksi Dimensi Feature';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Scraping Berita Detik.com" href="Scraping%20Detik.com.html" />
+    <link rel="next" title="Scraping Berita CNBC Indonesia" href="Scraping%20CNBC%20Indonesia.html" />
     <link rel="prev" title="(Example) Reduksi Dimensi" href="Example%20Reduksi%20DImensi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,9 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Scraping%20Detik.com.html"><strong>Scraping Berita Detik.com</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Scraping%20CNBC%20Indonesia.html"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling</strong></a></li>
 </ul>
 
     </div>
@@ -412,6 +411,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label">Deklarasi X dan y dengan drop fitur dokumen dan label</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-data">Splitting Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-k-alpha-dan-beta">Deklarasi K, Alpha, dan Beta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan-hasil-reduksi-dimensi">Tampilan Hasil Reduksi Dimensi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data-hasil-reduksi-dimensi">Save Data hasil reduksi dimensi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan-proporsi-kata-di-tiap-topik">Tampilan proporsi kata di tiap topik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes">Modeling Naive Bayes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predict">Predict</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
@@ -447,9 +450,27 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Kode di atas adalah impor pustaka dan modul yang diperlukan untuk melakukan analisis teks dengan Naive Bayes, termasuk penggunaan Latent Dirichlet Allocation (LDA) untuk reduksi dimensi dan ekstraksi fitur teks. Berikut penjelasan singkat tentang setiap modul yang diimpor:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.decomposition</span> <span class="pre">import</span> <span class="pre">LatentDirichletAllocation</span></code>: Ini mengimpor modul LatentDirichletAllocation dari pustaka Scikit-Learn. LDA adalah algoritma yang digunakan untuk reduksi dimensi dalam analisis teks, terutama untuk topik modeling.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.model_selection</span> <span class="pre">import</span> <span class="pre">train_test_split</span></code>: Modul <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> dari Scikit-Learn digunakan untuk membagi dataset ke dalam subset pelatihan dan pengujian. Ini adalah langkah yang umum dalam pemodelan dan evaluasi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.naive_bayes</span> <span class="pre">import</span> <span class="pre">GaussianNB</span></code>: Ini mengimpor modul <code class="docutils literal notranslate"><span class="pre">GaussianNB</span></code> dari Scikit-Learn, yang merupakan implementasi Naive Bayes dengan distribusi Gaussian. Ini adalah salah satu varian algoritma Naive Bayes yang dapat digunakan dalam klasifikasi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.metrics</span> <span class="pre">import</span> <span class="pre">accuracy_score,</span> <span class="pre">classification_report,</span> <span class="pre">confusion_matrix</span></code>: Ini mengimpor beberapa modul yang digunakan untuk mengevaluasi kinerja model klasifikasi. <code class="docutils literal notranslate"><span class="pre">accuracy_score</span></code> digunakan untuk mengukur akurasi model, <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> memberikan ringkasan berbagai metrik evaluasi, dan <code class="docutils literal notranslate"><span class="pre">confusion_matrix</span></code> digunakan untuk menganalisis hasil klasifikasi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">sklearn.feature_extraction.text</span> <span class="pre">import</span> <span class="pre">CountVectorizer</span></code>: Modul <code class="docutils literal notranslate"><span class="pre">CountVectorizer</span></code> digunakan untuk mengubah teks menjadi vektor Term Frequensi (TF), yang dapat digunakan sebagai fitur dalam pemodelan klasifikasi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">joblib</span></code>: Ini mengimpor modul <code class="docutils literal notranslate"><span class="pre">joblib</span></code>, yang dapat digunakan untuk menyimpan dan memuat model yang telah dilatih.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>: Modul <code class="docutils literal notranslate"><span class="pre">pandas</span></code> digunakan untuk manipulasi data, termasuk membaca dan menyimpan data dalam bentuk DataFrame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">warnings</span></code>: Modul <code class="docutils literal notranslate"><span class="pre">warnings</span></code> digunakan untuk mengelola dan menghilangkan peringatan yang muncul selama proses eksekusi kode.</p></li>
+</ul>
 </section>
 <section id="load-dataset-transform-to-term-frequency">
 <h2>Load Dataset (transform to Term Frequency)<a class="headerlink" href="#load-dataset-transform-to-term-frequency" title="Permalink to this heading">#</a></h2>
+<p>Dalam kode di bawah, program ini menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk membaca sebuah file CSV dari lokasi yang diberikan, dan kemudian menampilkan isi DataFrame tersebut. Ini berguna ketika Anda ingin memuat dan mengeksplorasi data dari file CSV yang sudah ada.</p>
+<p>Berikut penjelasan singkatnya:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">=</span> <span class="pre">pd.read_csv('/content/drive/MyDrive/Kuliah</span> <span class="pre">/Semester</span> <span class="pre">7/Pencarian</span> <span class="pre">Dan</span> <span class="pre">Penambangan</span> <span class="pre">Web/ppw/pages/Term</span> <span class="pre">Frequensi.csv')</span></code>: Ini adalah perintah yang menggunakan <code class="docutils literal notranslate"><span class="pre">pandas</span></code> untuk membaca data dari file CSV yang terletak pada jalur tertentu. Anda memberikan jalur lengkap ke file CSV yang ingin dibaca, dan hasilnya dimuat ke dalam variabel <code class="docutils literal notranslate"><span class="pre">df</span></code>. Variabel <code class="docutils literal notranslate"><span class="pre">df</span></code> adalah objek DataFrame yang berisi data dari file CSV.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: Setelah Anda membaca data dari file CSV ke dalam DataFrame, perintah ini akan menampilkan seluruh isi DataFrame tersebut.</p></li>
+</ul>
+<p>Jadi, dengan melakukan perintah tersebut, Anda telah memuat data dari file CSV ke dalam DataFrame dan menampilkan isi dari DataFrame tersebut di lingkungan kerja Anda, yang memungkinkan Anda untuk melihat, menganalisis, atau melakukan operasi lain pada data tersebut.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/Kuliah /Semester 7/Pencarian Dan Penambangan Web/ppw/pages/Term Frequensi.csv&#39;</span><span class="p">)</span>
@@ -459,7 +480,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3b189a9f-39c8-4bf2-b968-945a3351f681" class="colab-df-container">
+  <div id="df-2b096d4d-02bf-4bea-9705-ac2fd20f5970" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -773,7 +794,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3b189a9f-39c8-4bf2-b968-945a3351f681')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2b096d4d-02bf-4bea-9705-ac2fd20f5970')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -825,12 +846,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3b189a9f-39c8-4bf2-b968-945a3351f681 button.colab-df-convert');
+        document.querySelector('#df-2b096d4d-02bf-4bea-9705-ac2fd20f5970 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3b189a9f-39c8-4bf2-b968-945a3351f681');
+        const element = document.querySelector('#df-2b096d4d-02bf-4bea-9705-ac2fd20f5970');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -856,6 +877,7 @@ document.write(`
 </section>
 <section id="cek-null-data">
 <h2>Cek NULL Data<a class="headerlink" href="#cek-null-data" title="Permalink to this heading">#</a></h2>
+<p>Perintah <code class="docutils literal notranslate"><span class="pre">df.isnull().sum()</span></code> digunakan untuk menghitung jumlah nilai-nilai yang hilang (missing values) dalam DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code>. Ini akan memberikan jumlah nilai-nilai yang hilang untuk setiap kolom dalam DataFrame. Hasilnya akan berupa deret data yang menunjukkan berapa banyak nilai yang hilang dalam masing-masing kolom.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -882,6 +904,7 @@ Length: 9050, dtype: int64
 </section>
 <section id="drop-null-data">
 <h2>Drop NULL Data<a class="headerlink" href="#drop-null-data" title="Permalink to this heading">#</a></h2>
+<p>Perintah <code class="docutils literal notranslate"><span class="pre">df.dropna()</span></code> digunakan untuk menghapus baris (dokumen) yang mengandung setidaknya satu nilai yang hilang (NaN) dari DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code>. Ini adalah cara untuk mengatasi data yang hilang dalam dataset Anda.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
@@ -892,6 +915,11 @@ Length: 9050, dtype: int64
 </section>
 <section id="deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label">
 <h2>Deklarasi X dan y dengan drop fitur dokumen dan label<a class="headerlink" href="#deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label" title="Permalink to this heading">#</a></h2>
+<p>Dalam proses ini melakukan pemisahan antara fitur (X) dan target (y) dalam DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> untuk digunakan dalam proses pemodelan. Berikut penjelasan singkatnya:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">=</span> <span class="pre">df.drop(['Dokumen',</span> <span class="pre">'Label'],</span> <span class="pre">axis=1)</span></code>: Ini adalah perintah yang menghasilkan DataFrame <code class="docutils literal notranslate"><span class="pre">X</span></code> yang berisi fitur atau atribut dari data. Dalam hal ini, Anda sedang menghapus dua kolom, yaitu ‘Dokumen’ dan ‘Label’, dari DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> menggunakan metode <code class="docutils literal notranslate"><span class="pre">drop</span></code> dengan parameter <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>. Hasilnya adalah DataFrame <code class="docutils literal notranslate"><span class="pre">X</span></code> yang berisi semua kolom kecuali ‘Dokumen’ dan ‘Label’. Fitur-fitur ini akan digunakan dalam pemodelan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">df['Label']</span></code>: Ini adalah perintah yang menghasilkan Series <code class="docutils literal notranslate"><span class="pre">y</span></code> yang berisi target atau label yang ingin diprediksi. Dalam hal ini, Anda hanya mengambil kolom ‘Label’ dari DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> dan menyimpannya dalam Series <code class="docutils literal notranslate"><span class="pre">y</span></code>. Ini adalah variabel yang akan menjadi target dalam pemodelan klasifikasi.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">,</span> <span class="s1">&#39;Label&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -908,7 +936,7 @@ Length: 9050, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5f5bed46-ae98-4875-99a2-9ba75db8f7a1" class="colab-df-container">
+  <div id="df-4994300b-db22-44ca-9985-9d2d19c6f165" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1222,7 +1250,7 @@ Length: 9050, dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5f5bed46-ae98-4875-99a2-9ba75db8f7a1')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4994300b-db22-44ca-9985-9d2d19c6f165')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1274,12 +1302,12 @@ Length: 9050, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5f5bed46-ae98-4875-99a2-9ba75db8f7a1 button.colab-df-convert');
+        document.querySelector('#df-4994300b-db22-44ca-9985-9d2d19c6f165 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5f5bed46-ae98-4875-99a2-9ba75db8f7a1');
+        const element = document.querySelector('#df-4994300b-db22-44ca-9985-9d2d19c6f165');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1328,6 +1356,17 @@ Name: Label, Length: 792, dtype: object
 </section>
 <section id="splitting-data">
 <h2>Splitting Data<a class="headerlink" href="#splitting-data" title="Permalink to this heading">#</a></h2>
+<p>Dalam proses ini menggunakan modul <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> dari Scikit-Learn untuk membagi dataset menjadi subset pelatihan (training) dan pengujian (testing). Berikut penjelasan singkat tentang apa yang terjadi:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">X_train,</span> <span class="pre">X_test,</span> <span class="pre">y_train,</span> <span class="pre">y_test</span> <span class="pre">=</span> <span class="pre">train_test_split(X,</span> <span class="pre">y,</span> <span class="pre">test_size=0.3,</span> <span class="pre">random_state=42)</span></code>: Ini adalah perintah yang membagi data menjadi empat subset, yaitu <code class="docutils literal notranslate"><span class="pre">X_train</span></code> (fitur pelatihan), <code class="docutils literal notranslate"><span class="pre">X_test</span></code> (fitur pengujian), <code class="docutils literal notranslate"><span class="pre">y_train</span></code> (target pelatihan), dan <code class="docutils literal notranslate"><span class="pre">y_test</span></code> (target pengujian).</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">X</span></code> adalah DataFrame yang berisi fitur.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> adalah Series yang berisi target atau label.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_size=0.3</span></code> menentukan bahwa 30% dari data akan digunakan sebagai data pengujian, sementara 70% akan digunakan sebagai data pelatihan.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state=42</span></code> digunakan untuk mengatur nilai seed agar pembagian data dapat direproduksi dengan hasil yang konsisten. Anda dapat menggantinya dengan nilai lain jika diperlukan.</p></li>
+</ul>
+</li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
@@ -1347,6 +1386,13 @@ Name: Label, Length: 792, dtype: object
 </div>
 </div>
 </div>
+</section>
+<section id="lda">
+<h2>LDA<a class="headerlink" href="#lda" title="Permalink to this heading">#</a></h2>
+<p>Dalam langkah berikutnya, saya menggunakan algoritma yang disebut Latent Dirichlet Allocation atau LDA untuk mengurangi dimensi data teks. LDA adalah algoritma yang membantu saya mengidentifikasi topik-topik utama yang muncul dalam dokumen-dokumen saya. Hasil dari ini adalah representasi dokumen-dalam-topik, yang artinya kita menggambarkan setiap dokumen sebagai kombinasi dari topik-topik yang ada.</p>
+<p>Kami menerapkan LDA pada data pelatihan, yang menghasilkan matriks yang disebut <code class="docutils literal notranslate"><span class="pre">lda_x_train</span></code>. Matriks ini berisi representasi dokumen-dalam-topik untuk data pelatihan. Ini adalah cara kita menggambarkan hubungan antara dokumen dan topik dalam data pelatihan.</p>
+<p>Kemudian, saya menggunakan model LDA yang sudah kita latih pada data pelatihan untuk mengubah data pengujian menjadi representasi dokumen-dalam-topik yang saya sebut sebagai <code class="docutils literal notranslate"><span class="pre">lda_x_test</span></code>. Ini membantu saya dalam memahami bagaimana dokumen-dokumen pengujian terkait dengan topik-topik yang telah saya identifikasi sebelumnya.</p>
+<p>Dengan mengubah data teks ke dalam representasi topik-topik ini, saya memungkinkan penggunaan informasi ini dalam analisis lebih lanjut atau dalam pemodelan klasifikasi. Ini adalah salah satu cara di mana saya dapat mengolah dan memahami data teks dengan lebih baik.”</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">topic_word_prior</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
@@ -1356,6 +1402,9 @@ Name: Label, Length: 792, dtype: object
 </div>
 </div>
 </div>
+</section>
+<section id="tampilan-hasil-reduksi-dimensi">
+<h2>Tampilan Hasil Reduksi Dimensi<a class="headerlink" href="#tampilan-hasil-reduksi-dimensi" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dokumen</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Dokumen&#39;</span><span class="p">]</span>
@@ -1368,7 +1417,7 @@ Name: Label, Length: 792, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2a7a8fd5-0e81-48a4-a77d-7b8e469c20aa" class="colab-df-container">
+  <div id="df-8bc3bfcc-b7d8-41ec-b0cf-c60b076372e7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1398,9 +1447,9 @@ Name: Label, Length: 792, dtype: object
     <tr>
       <th>0</th>
       <td>sistem informasi akademik siakad sistem inform...</td>
+      <td>0.001465</td>
+      <td>0.001464</td>
       <td>0.997071</td>
-      <td>0.001464</td>
-      <td>0.001464</td>
       <td>RPL</td>
     </tr>
     <tr>
@@ -1415,24 +1464,24 @@ Name: Label, Length: 792, dtype: object
       <th>2</th>
       <td>web server perangkat lunak server berfungsi me...</td>
       <td>0.001146</td>
-      <td>0.001146</td>
       <td>0.997709</td>
+      <td>0.001146</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>3</th>
       <td>penjadwalan kuliah perguruan kompleks permasal...</td>
-      <td>0.997655</td>
       <td>0.001173</td>
-      <td>0.001172</td>
+      <td>0.001173</td>
+      <td>0.997655</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>4</th>
       <td>seiring perkembangan teknologi didunia muncul ...</td>
-      <td>0.873374</td>
-      <td>0.125565</td>
+      <td>0.934477</td>
       <td>0.001061</td>
+      <td>0.064463</td>
       <td>KK</td>
     </tr>
     <tr>
@@ -1446,41 +1495,41 @@ Name: Label, Length: 792, dtype: object
     <tr>
       <th>549</th>
       <td>audit teknologi informasi proses mengumpulkan ...</td>
+      <td>0.001108</td>
+      <td>0.001108</td>
       <td>0.997785</td>
-      <td>0.001108</td>
-      <td>0.001108</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>550</th>
       <td>tanda tangan bentuk khusus tulisan tangan meng...</td>
-      <td>0.998082</td>
+      <td>0.689161</td>
       <td>0.000959</td>
-      <td>0.000959</td>
+      <td>0.309880</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>551</th>
       <td>tanda tangan palsu keperluan mengatasi tercipt...</td>
       <td>0.001133</td>
-      <td>0.943174</td>
-      <td>0.055694</td>
+      <td>0.997735</td>
+      <td>0.001133</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>552</th>
       <td>kesehatan anak memiliki usia dibawah istilahny...</td>
       <td>0.001039</td>
-      <td>0.997923</td>
       <td>0.001039</td>
+      <td>0.997923</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>553</th>
       <td>NaN</td>
+      <td>0.000853</td>
+      <td>0.000853</td>
       <td>0.998295</td>
-      <td>0.000853</td>
-      <td>0.000853</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -1490,7 +1539,7 @@ Name: Label, Length: 792, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2a7a8fd5-0e81-48a4-a77d-7b8e469c20aa')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8bc3bfcc-b7d8-41ec-b0cf-c60b076372e7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1542,12 +1591,12 @@ Name: Label, Length: 792, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2a7a8fd5-0e81-48a4-a77d-7b8e469c20aa button.colab-df-convert');
+        document.querySelector('#df-8bc3bfcc-b7d8-41ec-b0cf-c60b076372e7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2a7a8fd5-0e81-48a4-a77d-7b8e469c20aa');
+        const element = document.querySelector('#df-8bc3bfcc-b7d8-41ec-b0cf-c60b076372e7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1570,6 +1619,9 @@ Name: Label, Length: 792, dtype: object
   </div>
   </div></div>
 </div>
+</section>
+<section id="save-data-hasil-reduksi-dimensi">
+<h2>Save Data hasil reduksi dimensi<a class="headerlink" href="#save-data-hasil-reduksi-dimensi" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;reduksi dimensi.csv&#39;</span><span class="p">)</span>
@@ -1577,13 +1629,9 @@ Name: Label, Length: 792, dtype: object
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">output_proporsi_TD</span> <span class="o">=</span> <span class="n">output_proporsi_TD</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="tampilan-proporsi-kata-di-tiap-topik">
+<h2>Tampilan proporsi kata di tiap topik<a class="headerlink" href="#tampilan-proporsi-kata-di-tiap-topik" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Output distribusi kata pada topik</span>
@@ -1594,7 +1642,7 @@ Name: Label, Length: 792, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d002cbf7-b87f-49e8-b2a0-829f776e6add" class="colab-df-container">
+  <div id="df-2e786de3-2758-4224-bf9d-c7c3acfeff15" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1642,21 +1690,21 @@ Name: Label, Length: 792, dtype: object
       <td>0.2</td>
       <td>0.2</td>
       <td>1.2</td>
-      <td>1.197969</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>3.2</td>
-      <td>1.2</td>
+      <td>0.200000</td>
+      <td>0.2</td>
+      <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>...</td>
-      <td>2.2</td>
-      <td>0.2</td>
-      <td>0.214467</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.211156</td>
-      <td>0.2108</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
@@ -1666,48 +1714,48 @@ Name: Label, Length: 792, dtype: object
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.202031</td>
+      <td>0.2</td>
       <td>2.2</td>
-      <td>1.2</td>
+      <td>0.214103</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>3.2</td>
+      <td>0.2</td>
       <td>...</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.200000</td>
+      <td>0.2</td>
       <td>9.2</td>
       <td>0.2</td>
-      <td>0.200000</td>
-      <td>0.2000</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
+      <td>1.2</td>
+      <td>1.2</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.200000</td>
+      <td>1.2</td>
       <td>0.2</td>
+      <td>1.185897</td>
+      <td>3.2</td>
+      <td>1.2</td>
       <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
+      <td>3.2</td>
       <td>...</td>
-      <td>0.2</td>
-      <td>1.2</td>
-      <td>1.185533</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>3.188844</td>
-      <td>4.1892</td>
-      <td>0.2</td>
+      <td>2.2</td>
       <td>1.2</td>
       <td>1.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>3.2</td>
+      <td>4.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
     </tr>
   </tbody>
 </table>
@@ -1716,7 +1764,7 @@ Name: Label, Length: 792, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d002cbf7-b87f-49e8-b2a0-829f776e6add')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2e786de3-2758-4224-bf9d-c7c3acfeff15')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1768,12 +1816,12 @@ Name: Label, Length: 792, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d002cbf7-b87f-49e8-b2a0-829f776e6add button.colab-df-convert');
+        document.querySelector('#df-2e786de3-2758-4224-bf9d-c7c3acfeff15 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d002cbf7-b87f-49e8-b2a0-829f776e6add');
+        const element = document.querySelector('#df-2e786de3-2758-4224-bf9d-c7c3acfeff15');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1928,11 +1976,11 @@ Confusion Matriks:
       </div>
     </a>
     <a class="right-next"
-       href="Scraping%20Detik.com.html"
+       href="Scraping%20CNBC%20Indonesia.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Scraping Berita Detik.com</strong></p>
+        <p class="prev-next-title"><strong>Scraping Berita CNBC Indonesia</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1958,6 +2006,10 @@ Confusion Matriks:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-x-dan-y-dengan-drop-fitur-dokumen-dan-label">Deklarasi X dan y dengan drop fitur dokumen dan label</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-data">Splitting Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deklarasi-k-alpha-dan-beta">Deklarasi K, Alpha, dan Beta</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan-hasil-reduksi-dimensi">Tampilan Hasil Reduksi Dimensi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-data-hasil-reduksi-dimensi">Save Data hasil reduksi dimensi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tampilan-proporsi-kata-di-tiap-topik">Tampilan proporsi kata di tiap topik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes">Modeling Naive Bayes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predict">Predict</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>

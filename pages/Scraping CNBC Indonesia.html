@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNBC Indonesia';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Preprocessing Berita (cnbcindonesia.com)" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
-    <link rel="prev" title="Scraping Berita Detik.com" href="Scraping%20Detik.com.html" />
+    <link rel="next" title="Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
+    <link rel="prev" title="Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)" href="Reduksi%20Dimensi%20Feature.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -178,9 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Scraping%20Detik.com.html"><strong>Scraping Berita Detik.com</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com)</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling</strong></a></li>
 </ul>
 
     </div>
@@ -429,6 +428,12 @@ document.write(`
 <h1><strong>Scraping Berita CNBC Indonesia</strong><a class="headerlink" href="#scraping-berita-cnbc-indonesia" title="Permalink to this heading">#</a></h1>
 <section id="importing-library">
 <h2>Importing Library<a class="headerlink" href="#importing-library" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">bs4</span> <span class="pre">import</span> <span class="pre">BeautifulSoup</span></code>: Pustaka BeautifulSoup adalah pustaka Python yang digunakan untuk melakukan web scraping. Dalam konteks ini, BeautifulSoup akan digunakan untuk mengurai atau mem-parsing data HTML yang diambil dari situs web.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">requests</span></code>: Pustaka <code class="docutils literal notranslate"><span class="pre">requests</span></code> adalah pustaka yang digunakan untuk membuat permintaan HTTP ke server web. Dalam kode ini, kita akan menggunakannya untuk mengunduh halaman web atau mengambil data dari situs web.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>: Pustaka <code class="docutils literal notranslate"><span class="pre">pandas</span></code> adalah pustaka Python yang digunakan untuk analisis data. Dalam kode ini, kita akan menggunakan pandas untuk menyimpan dan mengelola data yang diambil dari situs web ke dalam bentuk DataFrame, yang merupakan struktur data yang kuat untuk menganalisis dan memanipulasi data.</p></li>
+</ol>
+<p>Dengan mengimpor pustaka-pustaka ini, kita akan siap untuk melakukan web scraping dan menganalisis data yang diambil dari situs web. Selanjutnya, Anda akan perlu menambahkan sel-sel kode tambahan untuk melakukan langkah-langkah berikutnya, seperti mengambil data dari situs web dan memprosesnya menggunakan pustaka-pustaka ini.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
@@ -467,6 +472,13 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Kode di atas adalah definisi dari sebuah fungsi bernama <code class="docutils literal notranslate"><span class="pre">get_nav_link</span></code>. Fungsi ini dirancang untuk melakukan beberapa tugas berikut:</p>
+<ol class="arabic simple">
+<li><p>Mengambil halaman web dari situs web “<a class="reference external" href="https://www.cnbcindonesia.com">https://www.cnbcindonesia.com</a>”.</p></li>
+<li><p>Menganalisis halaman web untuk menemukan tautan navigasi (nav) ke berbagai kategori.</p></li>
+<li><p>Memperbarui tautan kategori dengan tautan ke halaman berita terkait.</p></li>
+<li><p>Mengembalikan kamus (dictionary) yang berisi tautan kategori sebagai kunci dan tautan halaman berita terkait sebagai nilainya.</p></li>
+</ol>
 </section>
 <section id="function-get-data">
 <h2>Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code><a class="headerlink" href="#function-get-data" title="Permalink to this heading">#</a></h2>
@@ -497,6 +509,25 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Kode di atas adalah definisi dari sebuah fungsi yang bernama <code class="docutils literal notranslate"><span class="pre">get_data</span></code>. Fungsi ini digunakan untuk mengambil dan menguraikan data dari halaman web berita dengan URL yang diberikan. Berikut adalah penjelasan singkat tentang apa yang dilakukan oleh fungsi ini:</p>
+<ul class="simple">
+<li><p>Nama Fungsi: <code class="docutils literal notranslate"><span class="pre">get_data</span></code></p></li>
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">url</span></code> (URL halaman web berita yang akan diambil data dari)</p></li>
+</ul>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">get_data</span></code> melakukan langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li><p>Menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">requests</span></code>, fungsi ini mengambil halaman web dari URL yang diberikan (<code class="docutils literal notranslate"><span class="pre">url</span></code>).</p></li>
+<li><p>Memeriksa apakah responsenya berhasil (status kode 200), jika ya, maka melakukan langkah selanjutnya.</p></li>
+<li><p>Menginisialisasi sebuah daftar kosong <code class="docutils literal notranslate"><span class="pre">data</span></code> yang akan digunakan untuk menyimpan data dari halaman web.</p></li>
+<li><p>Mengurai kode HTML halaman web menggunakan BeautifulSoup.</p></li>
+<li><p>Mengambil judul berita dari elemen <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> pada halaman dan membersihkan teksnya.</p></li>
+<li><p>Mengambil tanggal berita dari elemen dengan kelas CSS “date” dan membersihkan teksnya.</p></li>
+<li><p>Mengambil kategori dan penulis berita dari elemen dengan kelas CSS “author” dan memisahkan kategori dan penulis menggunakan tanda ‘-’. Kemudian membersihkan teksnya.</p></li>
+<li><p>Mengambil teks berita dari elemen dengan kelas CSS “detail_text” dan menghapus elemen-elemen yang tidak dibutuhkan seperti “SCROLL TO RESUME CONTENT” dan “ADVERTISEMENT”. Teks berita kemudian disatukan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p></li>
+<li><p>Data berita, termasuk URL, judul, tanggal, penulis, teks berita, dan kategori, ditambahkan ke dalam daftar <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p>Fungsi mengembalikan <code class="docutils literal notranslate"><span class="pre">data</span></code>, yang berisi semua informasi yang telah diambil dari halaman web.</p></li>
+</ol>
+<p>Jadi, fungsi <code class="docutils literal notranslate"><span class="pre">get_data</span></code> ini digunakan untuk mengambil dan menyajikan data yang relevan dari halaman web berita yang diberikan.</p>
 </section>
 <section id="function-get-content">
 <h2>Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code><a class="headerlink" href="#function-get-content" title="Permalink to this heading">#</a></h2>
@@ -520,7 +551,6 @@ document.write(`
           <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
           <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
           <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
-          <span class="nb">print</span><span class="p">(</span><span class="n">subjudul</span><span class="p">)</span>
           <span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
       <span class="k">else</span><span class="p">:</span>
         <span class="k">break</span>
@@ -534,6 +564,27 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Kode di atas adalah definisi dari sebuah fungsi yang bernama <code class="docutils literal notranslate"><span class="pre">get_content</span></code>. Fungsi ini digunakan untuk mengambil dan mengurai konten berita dari halaman web dengan URL yang diberikan. Berikut adalah penjelasan singkat tentang apa yang dilakukan oleh fungsi ini:</p>
+<ul class="simple">
+<li><p>Nama Fungsi: <code class="docutils literal notranslate"><span class="pre">get_content</span></code></p></li>
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">url</span></code> (URL halaman web berita), <code class="docutils literal notranslate"><span class="pre">len_data</span></code> (panjang data yang sudah diambil), <code class="docutils literal notranslate"><span class="pre">target</span></code> (target panjang data yang ingin dicapai)</p></li>
+</ul>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">get_content</span></code> melakukan langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li><p>Menginisialisasi daftar kosong <code class="docutils literal notranslate"><span class="pre">data</span></code> yang akan digunakan untuk menyimpan data konten berita.</p></li>
+<li><p>Menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">requests</span></code>, fungsi ini mengambil halaman web dari URL yang diberikan (<code class="docutils literal notranslate"><span class="pre">url</span></code>).</p></li>
+<li><p>Memeriksa apakah responsenya berhasil (status kode 200), jika ya, maka melakukan langkah selanjutnya.</p></li>
+<li><p>Mengurai kode HTML halaman web menggunakan BeautifulSoup.</p></li>
+<li><p>Mengidentifikasi elemen-elemen <code class="docutils literal notranslate"><span class="pre">&lt;article&gt;</span></code> yang mengandung konten berita pada halaman web.</p></li>
+<li><p>Mengidentifikasi tautan ke halaman berita berikutnya (jika ada) dengan mencari elemen dengan kelas CSS “paging text_center gtm_paging” dan mengambil tautan dari elemen terakhir dalam daftar tautan.</p></li>
+<li><p>Mengeksekusi loop <code class="docutils literal notranslate"><span class="pre">while</span></code> untuk mengambil data konten berita dari setiap elemen <code class="docutils literal notranslate"><span class="pre">&lt;article&gt;</span></code> dalam daftar <code class="docutils literal notranslate"><span class="pre">list_content</span></code>. Loop ini berlanjut selama <code class="docutils literal notranslate"><span class="pre">len_data</span></code> belum mencapai <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p></li>
+<li><p>Dalam setiap iterasi, fungsi memeriksa apakah ada elemen <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> dengan kelas CSS “subjudul” yang berisi teks tertentu yang perlu diabaikan. Jika tidak ada atau teksnya tidak ada dalam daftar yang perlu diabaikan, maka data berita diambil dengan memanggil fungsi <code class="docutils literal notranslate"><span class="pre">get_data</span></code> pada tautan yang ditemukan dan data tersebut ditambahkan ke dalam daftar <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p>Fungsi juga meng-update <code class="docutils literal notranslate"><span class="pre">len_data</span></code> setiap kali berhasil mengambil data berita.</p></li>
+<li><p>Fungsi menghentikan loop dan mengembalikan hasil (yaitu data berita yang telah diambil dan tautan ke halaman berita berikutnya) ketika <code class="docutils literal notranslate"><span class="pre">len_data</span></code> mencapai <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p></li>
+<li><p>Jika ada masalah dalam mengambil respons dari URL, maka akan mencetak pesan yang menyatakan kode status respons yang diterima.</p></li>
+<li><p>Fungsi mengembalikan sebuah tupel yang berisi daftar <code class="docutils literal notranslate"><span class="pre">data</span></code> dan tautan ke halaman berita berikutnya.</p></li>
+</ol>
+<p>Jadi, fungsi <code class="docutils literal notranslate"><span class="pre">get_content</span></code> ini digunakan untuk mengambil dan mengurai konten berita dari halaman web, serta menghubungkan dengan halaman berita berikutnya hingga mencapai target panjang data yang diinginkan.</p>
 </section>
 <section id="function-scraping-cnbc">
 <h2>Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code><a class="headerlink" href="#function-scraping-cnbc" title="Permalink to this heading">#</a></h2>
@@ -559,9 +610,29 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Kode di atas adalah definisi dari sebuah fungsi yang bernama <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code>. Fungsi ini adalah fungsi utama yang digunakan untuk melakukan scraping berita dari situs web “CNBC Indonesia” dengan kategori dan jumlah data yang diinginkan. Berikut adalah penjelasan singkat tentang apa yang dilakukan oleh fungsi ini:</p>
+<ul class="simple">
+<li><p>Nama Fungsi: <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code></p></li>
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">category</span></code> (kategori berita yang ingin diambil, default [‘TECH’, ‘NEWS’]), <code class="docutils literal notranslate"><span class="pre">num_data</span></code> (jumlah data berita yang ingin diambil, default 2)</p></li>
+</ul>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code> melakukan langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li><p>Memanggil fungsi <code class="docutils literal notranslate"><span class="pre">get_nav_link</span></code> untuk mendapatkan tautan kategori berita dari situs “CNBC Indonesia” dan menyimpannya dalam variabel <code class="docutils literal notranslate"><span class="pre">category_link</span></code>.</p></li>
+<li><p>Membuat daftar kosong <code class="docutils literal notranslate"><span class="pre">data</span></code> yang akan digunakan untuk menyimpan data berita yang akan diambil.</p></li>
+<li><p>Mengeksekusi loop <code class="docutils literal notranslate"><span class="pre">for</span></code> untuk setiap kategori yang diberikan dalam parameter <code class="docutils literal notranslate"><span class="pre">category</span></code>. Di dalam loop ini, fungsi akan mengambil data berita dari kategori yang sedang diproses.</p></li>
+<li><p>Di dalam loop, fungsi menginisialisasi variabel <code class="docutils literal notranslate"><span class="pre">len_data_category</span></code> yang digunakan untuk melacak jumlah data berita yang telah diambil dari kategori tertentu.</p></li>
+<li><p>Di dalam loop, fungsi memanggil <code class="docutils literal notranslate"><span class="pre">get_content</span></code> untuk mengambil data berita dari tautan kategori yang sesuai. Data berita yang baru diambil ditambahkan ke dalam daftar <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p>Variabel <code class="docutils literal notranslate"><span class="pre">len_data_category</span></code> diperbarui dengan panjang data berita yang baru diambil.</p></li>
+<li><p>Tautan ke halaman berita berikutnya (jika ada) juga diperbarui dalam variabel <code class="docutils literal notranslate"><span class="pre">category_link</span></code>.</p></li>
+<li><p>Setelah mengambil data berita sesuai dengan jumlah yang diinginkan, loop untuk kategori berakhir.</p></li>
+<li><p>Fungsi mencetak pesan yang menyatakan berapa banyak data berita yang berhasil diambil dari semua kategori.</p></li>
+<li><p>Fungsi menggunakan pandas untuk membuat DataFrame dari data berita yang telah diambil dan menyimpannya dalam file CSV dengan nama “Data Berita CNBC.csv”.</p></li>
+</ol>
+<p>Jadi, fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code> ini adalah fungsi utama yang mengorganisir scraping data berita dari situs web “CNBC Indonesia” berdasarkan kategori dan jumlah data yang diinginkan, dan kemudian menyimpan data tersebut dalam sebuah file CSV.</p>
 </section>
 <section id="pemanggilan-fungsi-scraping-cnbc">
 <h2>Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code><a class="headerlink" href="#pemanggilan-fungsi-scraping-cnbc" title="Permalink to this heading">#</a></h2>
+<p>Pemanggilan fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code> dengan parameter <code class="docutils literal notranslate"><span class="pre">category=['TECH',</span> <span class="pre">'NEWS',</span> <span class="pre">'ENTREPRENEUR']</span></code> dan <code class="docutils literal notranslate"><span class="pre">num_data=1</span></code> akan menjalankan proses scraping berita dari situs web “CNBC Indonesia” untuk tiga kategori berita: ‘TECH’, ‘NEWS’, dan ‘ENTREPRENEUR’, dan hanya mengambil satu data berita dari setiap kategori. Hasil scraping akan disimpan dalam sebuah file CSV dengan nama “Data Berita CNBC.csv”. Setelah proses selesai, fungsi akan mencetak pesan yang menyatakan berapa banyak data berita yang berhasil diambil.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTREPRENEUR&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -569,16 +640,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
-[&#39;https://www.cnbcindonesia.com/tech/20231109084246-37-487582/operator-minta-diskon-sewa-frekuensi-segini-bocorannya&#39;, &#39;Operator Minta Diskon Sewa Frekuensi, Segini Bocorannya&#39;, &#39;09 November 2023 10:25&#39;, &#39;Novina Putri Bestari, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Kementerian Kominfoberencana memberikan insentif 5G. Operator seluler telah mengutarakan beberapa permintaannya. Director &amp; Chief Business Officer PT IndosatTbk. (Indosat Ooredoo Hutchison/IOH), Muhammad Danny Buldansyah menjelaskan bentuk insentif bisa bervariasi. Namun ini juga butuh persetujuan dari berbagai pihak dan dipastikan akan ada proses tawar menawar. &quot;Saya yakin nanti ada tawar-menawar pasti, kita maunya begini. Kemarin itu salah satunya kalau spektrum lama PNBP diturunkan 20persen, yang baru kalau ada PNBP itu dikasih grace period misalnya 3-4 tahun,&quot; kata Danny ditemui di Jakarta, Rabu (8/11/2023). Saat ditanya insentif ideal dari operator, Danny mengungkapkan terkait regulatory charges yang seharusnya bisa di bawah 10 persen. Jika industri ingin tetap bertahan bisa berkisar 5-7 persen. Saat ini, beban regulatory charges adalah 11-12 persen. Namun bisa naik jika ada spektrum baru menjadi 15persen. &quot;Sekarangini angkanya secara industri yang disampaikan kepada kementerian itu di 11-12 persen. Kalau ada spektrum baru jadi tambah lagi bisa jadi 14-15 persen, sehingga diperlukan restrukturisasi PNBP supaya sustainindustrinya,&quot; jelasnya. &quot;Agar industri bertahan harusnya di bawah 10 persen. Idealnya 5 persen, apakah mengambil 7 persen, itu bisa dilihat nanti,&quot; imbuh Danny. Minggu lalu, operator seluler dan Menteri Kominfo Budi Arie telah bertemu bersama. Kedua belah pihak setuju membentuk Satgas untuk perumusan insentif tersebut. &quot;Minggu kemarin sama Pak Menteri, keputusannya itu bikin task force dari masing operator siapa. Dari Kominfo ditunjuk dua Wayan (Dirjen PPI) sama Ismail (Dirjen SDPPI) ditambah eselon 1,&quot; ujar Danny. &#39;, &#39;Tech&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/tech/20231109082651-37-487579/samsung-punya-senjata-baru-pukulan-telak-buat-apple&#39;, &#39;Samsung Punya Senjata Baru, Pukulan Telak Buat Apple&#39;, &#39;09 November 2023 11:50&#39;, &#39;Redaksi, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia -SamsungElectronics memperkenalkan model kecerdasan buatan generatif (generative AI) buatan sendiri. Produsen HP terbesar dunia tersebut sepertinya bakal mengalahkan saingan terdekatnya, produsen iPhoneyaitu Apple, sebagai brand smartphonepertama yang dilengkapi dengan teknologi AI generatif. Sejak peluncuran ChatGPT, semua perusahaan teknologi berlomba memperkenalkan teknologi generative AI. Teknologi yang dikembangkan menggunakan model bahasabesar (LLM) ini mampu menciptakan konten hingga kode pemrograman, berdasarkan perintah. Teknologi generative AI milik Samsungdiberi nama SamsungGauss. Nama ini bersumber dari seorang ahli matematika legendaris Carl Friedrich Gauss, pencetus teori distribusi normal yang menjadi dasar pengembangan teknologi pembelajaran mesin dan AI. Gauss milik Samsungpunya beberapa fitur. Fitur pertama disebut SamsungGauss Language, yaitu model bahasa yang bisa menuliskan email dan menerjemahkan konten. Selain itu, Samsungmengisyaratkan kemampuan tambahan berupa &quot;meningkatkan pengalaman konsumen dengan memberikan kendali perangkat yang lebih cerdas, jika perangkat tersebut diintegrasi dengan beragam produk.&quot; Fitur kedua adalah membantu pengembang software untuk menulis kode pemrograman lebih cepat. Fitur ketiga diberi nama Gauss Image, yang bisa digunakan untuk menciptakan gambar atau edit gambar. &quot;SamsungGauss saat ini digunakan untuk meningkatkan produktivitas pekerja, tetapi akan terus dikembangkan ke beragam aplikasi buatan Samsungyang memberikan pengalaman baru untuk pengguna,&quot; kata Samsunglewat siaran pers, Kamis (9/11/2023). MenurutCNBCInternational,bos bisnis produk HP Samsung, Daniel Araujo, sebelumnya menyatakan bahwa teknologi generatif AI Samsungakan tersedia untuk pengguna pada 2024. Samsungsepertinya akan menjadi salah satu merek HP pertama yang menyediakan teknologi generative AI untuk penggunanya. Kompetitor utama Samsung, Apple, sampai sekarang belum mengumumkan produk generative AI untuk gadget buatan mereka. CEOApple Tim Cook, menurutCNBCInternational,hanya menyatakan bahwa Apple memiliki proyek generative AI tanpa mau menjelaskan dengan lebih spesifik.  &#39;, &#39;Tech&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
-[&#39;https://www.cnbcindonesia.com/news/20231109093950-4-487605/andalkan-mahfud-ganjar-ingin-ekonomi-ri-ngebut-350-km-jam&#39;, &quot;Andalkan Mahfud, Ganjar Ingin Ekonomi RI &#39;Ngebut 350 Km/Jam&#39;&quot;, &#39;09 November 2023 10:50&#39;, &#39;Rosseno Aji Nugroho, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Tim Pemenangan Nasional (TPN) Ganjar Pranowo-Mahfud Md menyatakan dalam beberapa tahun ini pemerintah telah membangun infrastruktur secara masif. Namun, pembangunan infrastruktur itu dianggap belum bisa meningkatkan pertumbuhan ekonomi Indonesia secara signifikan. &quot;Apakah infrastruktur ini sudah bisa memutar alat produksi kita, mesin ekonomi kita? Kalau kita lihat grafik memang ada pertumbuhan ekonomi, tapi pertumbuhan ini karena pembangunan infrastruktur,&quot; kata Sekretaris Eksekutif TPN Ganjar-Mahfud, Heru Dewanto dalam acara Your Money Your Vote CNBC Indonesia, Rabu (8/11/2023). Heru menilai hal tersebut tentu salah sasaran. Sebab, pembangunan infrastruktur seharusnya tidak menjadi tujuan pembangunan, melainkan alat untuk mencapai tujuan. &quot;Tujuannya apa, menggerakkanperekonomian, menggerakkanindustri kita, ini yang belum terlihat,&quot; ujar dia. Heru menyebut Ganjar-Mahfud punya strategi untuk menyelesaikan persoalan itu. Cara pertama, kata dia, adalah memperbaiki konektivitas infrastruktur di Indonesia dengan infrastruktur global. Kesinambungan infrastruktur itu dia ibaratkan seperti membangun jalan tol.   Setelah konektivitas itu rampung, dia mengatakan Ganjar akan menyiapkan mesin perekonomian yang bisa melaju kencang. &quot;Kalau jalan tol dengan speed limitnya 350 kilometer/jam sudah selesai, kita perlu mobil dengan kemampuan berlari 350 km/jam juga, kalau hanya 100 km/jam kenapa kita bangun jalan tol dengan speed limit 350?&quot; kata dia. Heru mengatakan Ganjar akan mengandalkan Mahfud Md untuk membuat mesin perekonomian Indonesia bisa lebih ngebut. Caranya, dengan memanfaatkan pengalaman Mahfud dalam reformasi hukum dan birokrasi. Dia mengatakan reformasi tersebut amat dibutuhkan untuk memberikan kepastian hukum di Indonesia. Dengan kepastian hukum yang terjamin, maka investasi diharapkan akan mengalir deras ke dalam negeri yang pada akhirnya menjadi penopang pertumbuhan ekonomi. &quot;Bagaimana mesin ini kita bangun lebih kuat dan cepat, makanya di sini ada Pak Mahfud. Pak Mahfud sangat kita harapkan memberikan kepastian hukum, tadi ada pertanyaan investasi dari mana, kepastian hukum dan reformasi birokrasi, serta digitalisasi birokrasi adalah langkah untuk mempercepat mesin ekonomi kita,&quot; katanya.   Sebelumnya, pasangan Ganjar-Mahfud memiliki visi-misi pertumbuhan ekonomi Indonesia mencapai 7%. Direktur Eksekutif Core Indonesia Mohammad Faisal menilai target pertumbuhan pasangan ini paling ambisius ketimbang 2 calon presiden lainnya, Prabowo Subianto dan Anies Baswedan. Dia mengatakan target tersebut mungkin akan sulit dicapai tanpa strategi yang tepat. Dia mengatakan sejak 1998, Indonesia tidak pernah lagi mencapai tingkat pertumbuhan 7% per tahunnya. &quot;Saya melihat dari sisi visi-misi ekonomi di antara yang 3, ini memang Pak Ganjar yang dari sisi visi-misi target-targetnya yang paling tinggi-lah,&quot; kata Faisal. Heru menuturkan target pertumbuhan ekonomi 7% adalah keharusan agar Indonesia bisa keluar dari negara berpenghasilan menengah. Dia mengatakan waktu yang dimiliki Indonesia untuk bisa keluar dari jebakan negara berpenghasilan menengah itu sudah tak lama lagi, mengingat waktu yang dimiliki untuk memanfaatkan bonus demografi tinggal 13 tahun lagi. &quot;Peluang kita setelah 30 tahun tertahan di kelompok negara penghasilan menengah adalah memanfaatkan bonus demografi ini yang hanya datang sekali dalam siklus banyak negara di dunia ini,&quot; paparnya. &#39;, &#39;News&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/news/20231109113622-4-487642/bertemu-mendag-uea-jokowi-titip-salam-untuk-pangeran-mbz&#39;, &#39;Bertemu Mendag UEA, Jokowi Titip Salam untuk Pangeran MBZ&#39;, &#39;09 November 2023 11:55&#39;, &#39;Emir Yanwardhana, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Presiden Joko Widodo (Jokowi) menitipkan salam secara khusus untuk Presiden Uni Emirat Arab (UEA) Mohammed Bin Zayed.  Pesan itu disampaikan melalui Menteri Perdagangan Luar Negeri (UEA) Thani Bin Ahmed Al Zeyoudi, yang hadir dalam peresmian Pembangkit Listrik Tenaga Surya (PLTS) Terapung atau Floating Solar PV Cirata berkapasitas 192 megawatt peak (MWp), di Purwakarta, Jawa Barat, Kamis (9/11/2023).  &quot;Yang mulia, Indonesia dan UAE punya hubungan kerja sama bilateral yang sangat baik. Terima Kasih untuk hubungan yang sangat dekat antara dua negara kita dan terima kasih untuk investasinya ke Indonesia. Saya titip salam hangat ke yang mulia Crown Prince Mohammed Bin Zayed dan keluarga,&quot; kata Jokowi.   Seperti yang diketahui Sosok Mohammed bin Zayed Al Nahyan sangat dekat dengan Presiden Jokowi. Bahkan kedua negara saling bertukar nama jalan.  Di Abu Dhabi terdapat sebuah jalan yang dinamai Jalan Presiden Joko Widodo. Ini merupakan sebuah pengakuan dan penghargaan tinggi kepada Indonesia dari UEA.   Jalan sepanjang lebih kurang 2,5 kilometer tersebut terletak di salah satu ruas jalan utama, yang membelah Abu Dhabi National Exhibition Center (ADNEC) dengan area kedutaan. Jalan Presiden Joko Widodo sendiri diresmikan pada 19 Oktober 2020 oleh MBZ.  Untuk memberikan penghargaan yang setara, Indonesia pun memberi nama jalan tol layang Jakarta-Cikampek (Japek II elevated) menjadi jalan layang Sheikh Mohamed bin Zayed (MBZ) yang diresmikan 12 April 2021 lalu.   Sebelumnya Menteri Koordinator Bidang Kemaritiman dan Investasi, Luhut Binsar Pandjaitan juga sempat mengatakan hubungan pribadi Jokowi dan MBZ sangat dekat. Bahkan saat kunjungan Jokowi ke UEA ibunda Pangeran MBZ memasak makanan pertama waktu presiden sampai di Abu Dhabi.  Luhut juga mengatakan sangat jelas kedekatan hubungan itu yang bermula dari kunjungan putra mahkota MBZ ke Indonesia empat tahun lalu. Bahkan waktu pembentukan Sovereign Wealth Fund atau Indonesia Investment Authority (INA) sangat didukung oleh pihak Uni Emirat Arab, dengan menanamkan investasi awal sebesar US$10 miliar dollar. &#39;, &#39;News&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;subjudul&quot;&gt;Internasional&lt;/span&gt;
-[&#39;https://www.cnbcindonesia.com/entrepreneur/20231109091722-25-487598/pakar-bongkar-kunci-sukses-nomor-1-bisnis-bill-gates&#39;, &#39;Pakar Bongkar &quot;Kunci Sukses&quot; Nomor 1 Bisnis Bill Gates&#39;, &#39;09 November 2023 09:40&#39;, &#39;sef, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Seorang pakar psikologi mencoba menelusuri kunci sukses miliuner dunia. Ia adalah Mourgan Housel. Dalam tulisannya di CNBC International, ia memuat bagaimana crazy rich seperti Bill Gates sukses karena &quot;rahasia khusus&quot;. Itu adalah &quot;keseimbangan antara pesimisme dan optimisme&quot;.   Menurutnya pesimisme sebenarnya sangat penting untuk kelangsungan hidup. Hal itu, membantu seseorang bersiap menghadapi risiko sebelum risiko itu datang. Namun optimisme juga sama pentingnya. Keyakinan bahwa segala sesuatunya akan berlangsung baik, meski buktinya tidak jelas, bisa mendukung kesuksesan bahkan investasi jangka panjang.   &quot;Orang-orang sukses menemukan keseimbangan antara pesimisme dan optimisme,&quot; kata penulis buku &quot;Same as Ever: A Guide to What Never Changes&quot; tersebut, dikutip Kamis (9/11/2023). &quot;Bill Gates adalah contoh yang bagus tentang betapa efektifnya keterampilan tersembunyi ini,&quot; tambahnya. Ia menggambarkan bagaimana Bill Gates saat memulai Microsoft. Di mana pria itu bersikeras untuk selalu memiliki cukup uang tunai di bank untuk menjaga perusahaan tetap hidup selama 12 bulan tanpa ada pendapatan yang masuk. &quot;Pada tahun 1995, dia ditanya oleh Charlie Rose mengapa dia menyimpan begitu banyak uang tunai. Banyak hal berubah begitu cepat dalam teknologi sehingga bisnis di tahun depan tidak terjamin ... termasuk Microsoft,&quot; katanya menceritakan Bill Gates. Ia pun mengutip beberapa pernyataan lain dari Bill Gates yang merujuk kematangan psikologisnya. &quot;Saya selalu khawatir karena orang-orang yang bekerja untuk saya lebih tua dari saya dan mempunyai anak, dan saya selalu berpikir, Bagaimana jika kami tidak dibayar? Apakah saya dapat memenuhi gaji tersebut?,&quot; jelasnya lagi mengungkap wawancara Bill Gates, tahun 2007. Menurutnya, potongan wawancara itu, menunjukan bahwa ada optimisme dan kepercayaan diri bercampur dengan pesimisme yang berat. Secara sederhana, katanya, Bill Gates menyakini &quot;seseorang bisa menjadi optimis dalam jangka panjang jika cukup pesimis untuk bertahan dalam jangka pendek&quot;. &quot;Hal penting yang perlu diperhatikan di sini adalah optimisme dan pesimisme ada dalam satu spektrum,&quot; tambahnya lagi. &quot;Saya sebut optimis rasional,&quot; ujarnya. Dikatakannya jika selalu optimis, menganggap segala sesuatu baik-baik saja dan membuang hal buruk, akan muncul sikap &quot;tidak dapat memahami apa pun yang salah&quot;. Di sisi lain, mika benar-benar pesimis, berpikir segala sesuatunya buruk, akan muncul rasa tak percaya diri sehingga tidak bisa membayangkan segala sesuatunya akan berjalan dengan baik. &quot;Yang berada di tengah-tengah adalah titik manis,&quot; katanya lagi. &quot;Mereka yang mengakui bahwa sejarah adalah rangkaian masalah, kekecewaan, dan kemunduran yang terus-menerus terjadi, namun tetap optimis karena mereka tahu bahwa kemunduran tidak menghalangi kemajuan pada akhirnya,&quot; ujar Housel. &quot;Mereka terdengar seperti orang munafik dan orang yang suka berjungkir balik, namun sering kali mereka hanya melihat lebih jauh ke depan dibandingkan orang lain,&quot; tegasnya.  &#39;, &#39;Entrepreneur&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/entrepreneur/20231109091722-25-487598/pakar-bongkar-kunci-sukses-nomor-1-bisnis-bill-gates&#39;, &#39;Pakar Bongkar &quot;Kunci Sukses&quot; Nomor 1 Bisnis Bill Gates&#39;, &#39;09 November 2023 09:40&#39;, &#39;sef, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Seorang pakar psikologi mencoba menelusuri kunci sukses miliuner dunia. Ia adalah Mourgan Housel. Dalam tulisannya di CNBC International, ia memuat bagaimana crazy rich seperti Bill Gates sukses karena &quot;rahasia khusus&quot;. Itu adalah &quot;keseimbangan antara pesimisme dan optimisme&quot;.   Menurutnya pesimisme sebenarnya sangat penting untuk kelangsungan hidup. Hal itu, membantu seseorang bersiap menghadapi risiko sebelum risiko itu datang. Namun optimisme juga sama pentingnya. Keyakinan bahwa segala sesuatunya akan berlangsung baik, meski buktinya tidak jelas, bisa mendukung kesuksesan bahkan investasi jangka panjang.   &quot;Orang-orang sukses menemukan keseimbangan antara pesimisme dan optimisme,&quot; kata penulis buku &quot;Same as Ever: A Guide to What Never Changes&quot; tersebut, dikutip Kamis (9/11/2023). &quot;Bill Gates adalah contoh yang bagus tentang betapa efektifnya keterampilan tersembunyi ini,&quot; tambahnya. Ia menggambarkan bagaimana Bill Gates saat memulai Microsoft. Di mana pria itu bersikeras untuk selalu memiliki cukup uang tunai di bank untuk menjaga perusahaan tetap hidup selama 12 bulan tanpa ada pendapatan yang masuk. &quot;Pada tahun 1995, dia ditanya oleh Charlie Rose mengapa dia menyimpan begitu banyak uang tunai. Banyak hal berubah begitu cepat dalam teknologi sehingga bisnis di tahun depan tidak terjamin ... termasuk Microsoft,&quot; katanya menceritakan Bill Gates. Ia pun mengutip beberapa pernyataan lain dari Bill Gates yang merujuk kematangan psikologisnya. &quot;Saya selalu khawatir karena orang-orang yang bekerja untuk saya lebih tua dari saya dan mempunyai anak, dan saya selalu berpikir, Bagaimana jika kami tidak dibayar? Apakah saya dapat memenuhi gaji tersebut?,&quot; jelasnya lagi mengungkap wawancara Bill Gates, tahun 2007. Menurutnya, potongan wawancara itu, menunjukan bahwa ada optimisme dan kepercayaan diri bercampur dengan pesimisme yang berat. Secara sederhana, katanya, Bill Gates menyakini &quot;seseorang bisa menjadi optimis dalam jangka panjang jika cukup pesimis untuk bertahan dalam jangka pendek&quot;. &quot;Hal penting yang perlu diperhatikan di sini adalah optimisme dan pesimisme ada dalam satu spektrum,&quot; tambahnya lagi. &quot;Saya sebut optimis rasional,&quot; ujarnya. Dikatakannya jika selalu optimis, menganggap segala sesuatu baik-baik saja dan membuang hal buruk, akan muncul sikap &quot;tidak dapat memahami apa pun yang salah&quot;. Di sisi lain, mika benar-benar pesimis, berpikir segala sesuatunya buruk, akan muncul rasa tak percaya diri sehingga tidak bisa membayangkan segala sesuatunya akan berjalan dengan baik. &quot;Yang berada di tengah-tengah adalah titik manis,&quot; katanya lagi. &quot;Mereka yang mengakui bahwa sejarah adalah rangkaian masalah, kekecewaan, dan kemunduran yang terus-menerus terjadi, namun tetap optimis karena mereka tahu bahwa kemunduran tidak menghalangi kemajuan pada akhirnya,&quot; ujar Housel. &quot;Mereka terdengar seperti orang munafik dan orang yang suka berjungkir balik, namun sering kali mereka hanya melihat lebih jauh ke depan dibandingkan orang lain,&quot; tegasnya.  &#39;, &#39;Entrepreneur&#39;]
 Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </pre></div>
 </div>
@@ -587,6 +655,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </section>
 <section id="load-data-hasil-scraping">
 <h2>Load Data Hasil Scraping<a class="headerlink" href="#load-data-hasil-scraping" title="Permalink to this heading">#</a></h2>
+<p>menggunakan pustaka pandas untuk membaca file CSV yang telah dihasilkan oleh fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code>. Setelah membaca file CSV, Anda menyimpan data tersebut dalam DataFrame yang dinamai <code class="docutils literal notranslate"><span class="pre">df</span></code>. Kemudian, Anda menampilkan DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> dengan perintah <code class="docutils literal notranslate"><span class="pre">df</span></code>. Ini akan menampilkan data berita yang telah diambil dari situs web “CNBC Indonesia” dalam bentuk DataFrame di lingkungan kerja Anda. Anda dapat melakukan berbagai operasi dan analisis data lebih lanjut menggunakan DataFrame ini.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNBC.csv&#39;</span><span class="p">)</span>
@@ -596,7 +665,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-586de24a-fa94-43e3-a086-2e84a770303f" class="colab-df-container">
+  <div id="df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -626,20 +695,20 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
   <tbody>
     <tr>
       <th>0</th>
-      <td>https://www.cnbcindonesia.com/tech/20231109084...</td>
-      <td>Operator Minta Diskon Sewa Frekuensi, Segini B...</td>
-      <td>09 November 2023 10:25</td>
-      <td>Novina Putri Bestari, CNBC Indonesia</td>
-      <td>Jakarta, CNBC Indonesia - Kementerian Kominfob...</td>
+      <td>https://www.cnbcindonesia.com/tech/20231109082...</td>
+      <td>Samsung Punya Senjata Baru, Pukulan Telak Buat...</td>
+      <td>09 November 2023 11:50</td>
+      <td>Redaksi, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia -SamsungElectronics me...</td>
       <td>Tech</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>https://www.cnbcindonesia.com/news/20231109093...</td>
-      <td>Andalkan Mahfud, Ganjar Ingin Ekonomi RI 'Ngeb...</td>
-      <td>09 November 2023 10:50</td>
-      <td>Rosseno Aji Nugroho, CNBC Indonesia</td>
-      <td>Jakarta, CNBC Indonesia - Tim Pemenangan Nasio...</td>
+      <td>https://www.cnbcindonesia.com/news/20231109113...</td>
+      <td>Bertemu Mendag UEA, Jokowi Titip Salam untuk P...</td>
+      <td>09 November 2023 11:55</td>
+      <td>Emir Yanwardhana, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Presiden Joko Widodo...</td>
       <td>News</td>
     </tr>
     <tr>
@@ -657,7 +726,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-586de24a-fa94-43e3-a086-2e84a770303f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -709,12 +778,12 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 
     <script>
       const buttonEl =
-        document.querySelector('#df-586de24a-fa94-43e3-a086-2e84a770303f button.colab-df-convert');
+        document.querySelector('#df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-586de24a-fa94-43e3-a086-2e84a770303f');
+        const element = document.querySelector('#df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -807,12 +876,12 @@ dtype: int64
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Scraping%20Detik.com.html"
+       href="Reduksi%20Dimensi%20Feature.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><strong>Scraping Berita Detik.com</strong></p>
+        <p class="prev-next-title">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</p>
       </div>
     </a>
     <a class="right-next"
@@ -820,7 +889,7 @@ dtype: int64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Preprocessing Berita (cnbcindonesia.com)</strong></p>
+        <p class="prev-next-title"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
