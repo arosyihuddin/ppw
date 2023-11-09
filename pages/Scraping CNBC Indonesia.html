@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Pencarian &amp; Penambangan Web</title>
+    <title>Scraping Berita CNBC Indonesia &#8212; Pencarian &amp; Penambangan Web</title>
   
   
   
@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNBC Indonesia';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Preprocessing Berita (Detik.com)" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
+    <link rel="next" title="Preprocessing Berita (cnbcindonesia.com)" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
     <link rel="prev" title="Scraping Berita Detik.com" href="Scraping%20Detik.com.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -172,14 +172,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Setup%20Jupyter%20Notebook.html">Setup Jupyter Notebook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20Trunojoyo.html">Crawling Website PTA Trunojoyo</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Scraping%20Detik.com.html"><strong>Scraping Berita Detik.com</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (Detik.com)</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com)</strong></a></li>
 </ul>
 
     </div>
@@ -394,7 +395,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Scraping Berita CNBC Indonesia</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -403,9 +404,17 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-library">Importing Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-nav-link">Function <code class="docutils literal notranslate"><span class="pre">get_nav_link()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-data">Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-content">Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-scraping-cnbc">Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemanggilan-fungsi-scraping-cnbc">Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-hasil-scraping">Load Data Hasil Scraping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-jumlah-data">Cek Jumlah Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-null">Cek Data NULL</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -416,7 +425,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="scraping-berita-cnbc-indonesia">
+<h1><strong>Scraping Berita CNBC Indonesia</strong><a class="headerlink" href="#scraping-berita-cnbc-indonesia" title="Permalink to this heading">#</a></h1>
+<section id="importing-library">
+<h2>Importing Library<a class="headerlink" href="#importing-library" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -425,6 +438,9 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="function-get-nav-link">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">get_nav_link()</span></code><a class="headerlink" href="#function-get-nav-link" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_nav_link</span><span class="p">():</span>
@@ -451,6 +467,9 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="function-get-data">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code><a class="headerlink" href="#function-get-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
@@ -478,6 +497,9 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="function-get-content">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code><a class="headerlink" href="#function-get-content" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">len_data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
@@ -508,8 +530,16 @@ document.write(`
   <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
   <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-scraping-cnbc">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code><a class="headerlink" href="#function-scraping-cnbc" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
   <span class="n">category_link</span> <span class="o">=</span> <span class="n">get_nav_link</span><span class="p">()</span>
   <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
 
@@ -529,6 +559,9 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="pemanggilan-fungsi-scraping-cnbc">
+<h2>Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code><a class="headerlink" href="#pemanggilan-fungsi-scraping-cnbc" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTREPRENEUR&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -541,7 +574,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
-[&#39;https://www.cnbcindonesia.com/news/20231109090458-4-487594/menguak-arti-di-balik-gerak-cepat-ganjar-mahfud&#39;, &quot;Menguak Arti di Balik &#39;Gerak Cepat&#39; Ganjar-Mahfud&quot;, &#39;09 November 2023 10:35&#39;, &#39;Rosseno Aji Nugroho, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Chief Economist CNBC Indonesia Anggito Abimanyu mencatat terdapat frasa yang paling sering disebutkan oleh pasangan capres-cawapres Ganjar Pranowo dan Mahfud Md dalam visi-misinya. Dari 33 halaman visi-misi pasangan itu, Anggito mencatat frasa yang paling sering muncul adalah \&#39;gerak cepat\&#39; dan \&#39;mempercepat\&#39;. &quot;Kalau saya baca visi-misi Ganjar-Mahfud ada 33 halaman dan kata yang paling banyak adalah gerak cepat atau mempercepat,&quot; kata Anggito dalam acara Your Money Your Vote di CNBC Indonesia Rabu (8/11/2023). Anggito merasa tergelitik untuk bertanya apakah Ganjar-Mahfud menilai laju ekonomi di era Presiden Joko Widodo masih lambat. &quot;Apakah Anda atau timnya Pak Ganjar-Mahfud menilai yang sekarang ini kurang cepat? Apakah Anda merasakan yang dilakukan sekarang masih lambat? Mohon disebutkan mana-mana yang kurang cepat dan apa engine yang akan digunakan untuk mempercepat,&quot; tanya Anggito. Sekretaris Eksekutif Tim Pemenangan Nasional (TPN) Ganjar-Mahfud, Heru Dewanto yang hadir sebagai narasumber mengatakan gerak cepat harus dilakukan bukan tanpa alasan. Dia mengatakan Ganjar-Mahfud mengusung gerak cepat menjadi tema visi-misi karena waktu Indonesia untuk keluar dari negara berpenghasilan menengah tidak lama lagi.   Dia mengatakan Indonesia masuk menjadi kelompok negara menengah sejak 1993 dan terus bertahan pada posisi itu hingga hampir 30 tahun. &quot;Memang meningkat dari menengah bawah ke menengah atas, tapi masih di bawah ambang batas,&quot; ujarnya. Heru mengatakan pendapatan per kapita di Indonesia masih di bawah US$ 4.700 per tahun. Artinya, kata dia, Indonesia masih perlu menggenjot pendapatan per kapita warganya hingga US$ 13 ribu untuk bisa menjadi negara maju. Dia bilang cara satu-satunya untuk mencapai target itu adalah memanfaatkan bonus demografi. Sayangnya, kata dia, bonus demografi Indonesia sudah tidak lama lagi. Dia memperkirakan hanya tersisa waktu 13 tahun hingga potensi jumlah penduduk Indonesia bisa dimanfaatkan untuk pembangunan ekonomi. &quot;Tidak ada acara lain, selain kita bergegas. Kenapa bergegas, waktu kita tinggal 13 tahun, peluang kita setelah 30 tahun tertahan di negara berpenghasilan menengah adalah memanfaatkan bonus demografi yang hanya datang sekali dalam siklus banyak negara di dunia ini,&quot; katanya. &#39;, &#39;News&#39;]
+[&#39;https://www.cnbcindonesia.com/news/20231109093950-4-487605/andalkan-mahfud-ganjar-ingin-ekonomi-ri-ngebut-350-km-jam&#39;, &quot;Andalkan Mahfud, Ganjar Ingin Ekonomi RI &#39;Ngebut 350 Km/Jam&#39;&quot;, &#39;09 November 2023 10:50&#39;, &#39;Rosseno Aji Nugroho, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Tim Pemenangan Nasional (TPN) Ganjar Pranowo-Mahfud Md menyatakan dalam beberapa tahun ini pemerintah telah membangun infrastruktur secara masif. Namun, pembangunan infrastruktur itu dianggap belum bisa meningkatkan pertumbuhan ekonomi Indonesia secara signifikan. &quot;Apakah infrastruktur ini sudah bisa memutar alat produksi kita, mesin ekonomi kita? Kalau kita lihat grafik memang ada pertumbuhan ekonomi, tapi pertumbuhan ini karena pembangunan infrastruktur,&quot; kata Sekretaris Eksekutif TPN Ganjar-Mahfud, Heru Dewanto dalam acara Your Money Your Vote CNBC Indonesia, Rabu (8/11/2023). Heru menilai hal tersebut tentu salah sasaran. Sebab, pembangunan infrastruktur seharusnya tidak menjadi tujuan pembangunan, melainkan alat untuk mencapai tujuan. &quot;Tujuannya apa, menggerakkanperekonomian, menggerakkanindustri kita, ini yang belum terlihat,&quot; ujar dia. Heru menyebut Ganjar-Mahfud punya strategi untuk menyelesaikan persoalan itu. Cara pertama, kata dia, adalah memperbaiki konektivitas infrastruktur di Indonesia dengan infrastruktur global. Kesinambungan infrastruktur itu dia ibaratkan seperti membangun jalan tol.   Setelah konektivitas itu rampung, dia mengatakan Ganjar akan menyiapkan mesin perekonomian yang bisa melaju kencang. &quot;Kalau jalan tol dengan speed limitnya 350 kilometer/jam sudah selesai, kita perlu mobil dengan kemampuan berlari 350 km/jam juga, kalau hanya 100 km/jam kenapa kita bangun jalan tol dengan speed limit 350?&quot; kata dia. Heru mengatakan Ganjar akan mengandalkan Mahfud Md untuk membuat mesin perekonomian Indonesia bisa lebih ngebut. Caranya, dengan memanfaatkan pengalaman Mahfud dalam reformasi hukum dan birokrasi. Dia mengatakan reformasi tersebut amat dibutuhkan untuk memberikan kepastian hukum di Indonesia. Dengan kepastian hukum yang terjamin, maka investasi diharapkan akan mengalir deras ke dalam negeri yang pada akhirnya menjadi penopang pertumbuhan ekonomi. &quot;Bagaimana mesin ini kita bangun lebih kuat dan cepat, makanya di sini ada Pak Mahfud. Pak Mahfud sangat kita harapkan memberikan kepastian hukum, tadi ada pertanyaan investasi dari mana, kepastian hukum dan reformasi birokrasi, serta digitalisasi birokrasi adalah langkah untuk mempercepat mesin ekonomi kita,&quot; katanya.   Sebelumnya, pasangan Ganjar-Mahfud memiliki visi-misi pertumbuhan ekonomi Indonesia mencapai 7%. Direktur Eksekutif Core Indonesia Mohammad Faisal menilai target pertumbuhan pasangan ini paling ambisius ketimbang 2 calon presiden lainnya, Prabowo Subianto dan Anies Baswedan. Dia mengatakan target tersebut mungkin akan sulit dicapai tanpa strategi yang tepat. Dia mengatakan sejak 1998, Indonesia tidak pernah lagi mencapai tingkat pertumbuhan 7% per tahunnya. &quot;Saya melihat dari sisi visi-misi ekonomi di antara yang 3, ini memang Pak Ganjar yang dari sisi visi-misi target-targetnya yang paling tinggi-lah,&quot; kata Faisal. Heru menuturkan target pertumbuhan ekonomi 7% adalah keharusan agar Indonesia bisa keluar dari negara berpenghasilan menengah. Dia mengatakan waktu yang dimiliki Indonesia untuk bisa keluar dari jebakan negara berpenghasilan menengah itu sudah tak lama lagi, mengingat waktu yang dimiliki untuk memanfaatkan bonus demografi tinggal 13 tahun lagi. &quot;Peluang kita setelah 30 tahun tertahan di kelompok negara penghasilan menengah adalah memanfaatkan bonus demografi ini yang hanya datang sekali dalam siklus banyak negara di dunia ini,&quot; paparnya. &#39;, &#39;News&#39;]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;span class=&quot;subjudul&quot;&gt;Internasional&lt;/span&gt;
@@ -551,6 +584,9 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </div>
 </div>
 </div>
+</section>
+<section id="load-data-hasil-scraping">
+<h2>Load Data Hasil Scraping<a class="headerlink" href="#load-data-hasil-scraping" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNBC.csv&#39;</span><span class="p">)</span>
@@ -560,7 +596,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5" class="colab-df-container">
+  <div id="df-586de24a-fa94-43e3-a086-2e84a770303f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -599,11 +635,11 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
     </tr>
     <tr>
       <th>1</th>
-      <td>https://www.cnbcindonesia.com/news/20231109090...</td>
-      <td>Menguak Arti di Balik 'Gerak Cepat' Ganjar-Mahfud</td>
-      <td>09 November 2023 10:35</td>
+      <td>https://www.cnbcindonesia.com/news/20231109093...</td>
+      <td>Andalkan Mahfud, Ganjar Ingin Ekonomi RI 'Ngeb...</td>
+      <td>09 November 2023 10:50</td>
       <td>Rosseno Aji Nugroho, CNBC Indonesia</td>
-      <td>Jakarta, CNBC Indonesia - Chief Economist CNBC...</td>
+      <td>Jakarta, CNBC Indonesia - Tim Pemenangan Nasio...</td>
       <td>News</td>
     </tr>
     <tr>
@@ -621,7 +657,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-586de24a-fa94-43e3-a086-2e84a770303f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -673,12 +709,12 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 
     <script>
       const buttonEl =
-        document.querySelector('#df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5 button.colab-df-convert');
+        document.querySelector('#df-586de24a-fa94-43e3-a086-2e84a770303f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-deae82c8-7015-44e9-8e72-b1a3e0dbfcb5');
+        const element = document.querySelector('#df-586de24a-fa94-43e3-a086-2e84a770303f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -701,6 +737,9 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
   </div>
   </div></div>
 </div>
+</section>
+<section id="cek-jumlah-data">
+<h2>Cek Jumlah Data<a class="headerlink" href="#cek-jumlah-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -713,6 +752,9 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </div>
 </div>
 </div>
+</section>
+<section id="cek-data-null">
+<h2>Cek Data NULL<a class="headerlink" href="#cek-data-null" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -731,6 +773,8 @@ dtype: int64
 </div>
 </div>
 </div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -776,7 +820,7 @@ dtype: int64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Preprocessing Berita (Detik.com)</strong></p>
+        <p class="prev-next-title"><strong>Preprocessing Berita (cnbcindonesia.com)</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -794,9 +838,17 @@ dtype: int64
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-library">Importing Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-nav-link">Function <code class="docutils literal notranslate"><span class="pre">get_nav_link()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-data">Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-content">Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-scraping-cnbc">Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemanggilan-fungsi-scraping-cnbc">Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-hasil-scraping">Load Data Hasil Scraping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-jumlah-data">Cek Jumlah Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-null">Cek Data NULL</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
