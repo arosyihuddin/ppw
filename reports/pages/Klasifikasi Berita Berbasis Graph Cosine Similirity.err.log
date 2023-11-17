@@ -31,12 +31,12 @@ The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
 # Inisialisasi model Naive Bayes Gaussian
-svm = SVC()
+svm_summary = SVC()
 
 # Melatih model menggunakan data latih
-svm.fit(X_train, y_train)
+svm_summary.fit(X_train_summary, y_train_summary)
 
 # Membuat prediksi pada data uji
-y_pred = svm.predict(X_test)
+y_pred_svm_summary = svm_summary.predict(X_test_summary)
 -------------------
 
