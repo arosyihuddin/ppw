@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -137,6 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -175,10 +176,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html"><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Scraping%20CNBC%20Indonesia.html"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling With Graph Cosine Similirity and Closeness Centrality</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Co-occurence%20dan%20Text%20Rank.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling With Graph Co-occurence Matrix and Text Rank</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ekstraksi%20Kata%20Kunci.html"><strong>Ekstraksi Kata Kunci Berita</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="%28Text%20Rank%20Manual%29%20Ekstraksi%20Kata%20Kunci.html"><strong>(Manual Code) Ekstraksi Kata Kunci Dengan Text Rank</strong></a></li>
 </ul>
 
     </div>
@@ -363,6 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -372,6 +375,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -552,46 +556,55 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7027086/50-twibbon-hari-pahlawan-2023-simbol-penghormatan-untuk-pahlawan-bangsa
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7064370/25-twibbon-gratis-hari-aids-sedunia-2023-dan-sejarahnya-ayo-bagikan-di-medsos
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7027030/sosok-kh-abdul-chalim-tokoh-agama-yang-dapat-anugerah-pahlawan-nasional-2023
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7064404/20-contoh-soal-pas-ipa-kelas-7-smp-semester-ganjil-kurikulum-merdeka-belajar-yuk
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7027057/40-ucapan-hari-pahlawan-2023-singkat-dan-bisa-jadi-inspirasi-caption
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7064324/hari-aids-sedunia-1-desember-2023-tema-peringatan-hingga-sejarahnya
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7027004/penerima-gelar-pahlawan-nasional-inilah-ida-dewa-agung-jambe-raja-klungkung-kedua
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7064306/tren-bicara-gado-gado-indonesia-inggris-pada-anak-muda-begini-kata-pakar-unesa
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7026420/rambut-jadi-indra-peraba-manusia-yang-baru-begini-kata-para-ilmuwan
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/perguruan-tinggi/d-7064393/cetak-lulusan-unggul-umn-capai-akreditasi-institusi-unggul-dan-nasional
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/edutainment/d-7026412/mahasiswa-politeknik-caltex-riau-buat-robot-penjinak-bom-pakai-bahan-dalam-negeri
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/perguruan-tinggi/d-7064249/cara-ikut-seleksi-bangkit-2024-ayo-mahasiswa-cek-infonya
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7026886/6-tokoh-ini-dapat-gelar-pahlawan-nasional-dari-jokowi-siapa-saja
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7064136/20-contoh-soal-pas-ipa-kelas-9-semester-1-kurikulum-merdeka-plus-jawaban
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/edutainment/d-7026016/5-mahasiswa-ini-buat-aplikasi-penghitung-emisi-karbon-kendaraan-didanai-rp-140-juta
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/beasiswa/d-7064133/cara-daftar-beasiswa-kjmu-2024-dapat-bantuan-kuliah-sampai-9-juta-per-semester
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7026415/wow-ternyata-kucing-memiliki-276-ekspresi-kamu-pernah-lihat-yang-mana
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/edutainment/d-7064124/cerita-mahasiswa-magang-kampus-merdeka-simulasi-sidang-di-dpr-ri
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/perguruan-tinggi/d-7026151/cara-mendaftar-lowongan-magang-di-program-msib-batch-6-ditutup-31-desember
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/edutainment/d-7064111/tina-toon-wali-kota-madiun-jadi-wisudawan-kehormatan-universitas-terbuka
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7025862/kilas-balik-hari-pahlawan-10-november-sejarah-singkat-tokoh-tokoh-pentingnya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/sekolah/d-7063990/kjp-plus-tahap-ii-2023-bulan-november-cair-intip-besaran-dananya
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7026417/metronome-pengertian-fungsi-dan-cara-menggunakannya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7063560/4-hewan-ini-terancam-lenyap-dari-bumi-sebelum-tahun-2050-ada-lumba-lumba
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7026720/contoh-teks-sambutan-hari-pahlawan-2023-untuk-amanat-pembina-upacara
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7063505/kisah-whale-52-paus-paling-kesepian-di-dunia
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7025783/pengertian-uang-kartal-contoh-dan-perbedaan-dengan-uang-giral
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7063504/robot-ai-ini-bisa-buat-oksigen-di-mars-astronaut-tak-perlu-khawatir-lagi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7063496/6-cara-buat-konten-berkualitas-ramai-engagement-mahasiswa-kreator-konten-cek-nih
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/detikpedia/d-7063424/studi-anak-ogah-ambil-risiko-untuk-belajar-jika-ortu-kurang-dapat-diandalkan
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.detik.com/edu/perguruan-tinggi/d-7063404/politeknik-keuangan-negara-stan-pilihan-prodi-hingga-gaji-lulusannya
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -614,88 +627,95 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">16</span> 
 
 <span class="nn">&lt;ipython-input-2-70b220c0da20&gt;</span> in <span class="ni">get_data</span><span class="nt">(url, category)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>   <span class="n">data_page</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>   <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="k">if</span> <span class="n">data_page</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">data_berita</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">container</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">data_page</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">container_page</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__body-text itp_bodycontent&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">container_page</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">__init__</span><span class="nt">(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>             <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">initialize_soup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">333</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_feed</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">334</span>                 <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span>                 <span class="k">break</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
-<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">_feed</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span> 
+<span class="ne">--&gt; </span><span class="mi">452</span>         <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="c1"># Close out any unfinished strings and close all the open tags.</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="bp">self</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
-<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
-<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
-<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/builder/_htmlparser.py</span> in <span class="ni">feed</span><span class="nt">(self, markup)</span>
+<span class="g g-Whitespace">    </span><span class="mi">360</span>         <span class="n">parser</span> <span class="o">=</span> <span class="n">BeautifulSoupHTMLParser</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span>         <span class="n">parser</span><span class="o">.</span><span class="n">soup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">soup</span>
+<span class="ne">--&gt; </span><span class="mi">362</span>         <span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">markup</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">363</span>         <span class="n">parser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span>         <span class="n">parser</span><span class="o">.</span><span class="n">already_closed_empty_element</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
-<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+<span class="nn">/usr/lib/python3.10/html/parser.py</span> in <span class="ni">feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="sd">         self.rawdata = self.rawdata + data</span>
+<span class="ne">--&gt; </span><span class="mi">110</span><span class="sd">         self.goahead(0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="sd">     def close(self):</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
-<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">486</span><span class="s2">             resp = conn.urlopen(</span>
-<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="s2">                 method=request.method,</span>
-<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="s2">                 url=url,</span>
+<span class="nn">/usr/lib/python3.10/html/parser.py</span> in <span class="ni">goahead</span><span class="nt">(self, end)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span><span class="sd">             if startswith(&#39;&lt;&#39;, i):</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span><span class="sd">                 if starttagopen.match(rawdata, i): # &lt; + letter</span>
+<span class="ne">--&gt; </span><span class="mi">170</span><span class="sd">                     k = self.parse_starttag(i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span><span class="sd">                 elif startswith(&quot;&lt;/&quot;, i):</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span><span class="sd">                     k = self.parse_endtag(i)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
-<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">             # Make the request on the HTTPConnection object</span>
-<span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">             response = self._make_request(</span>
-<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 conn,</span>
-<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
+<span class="nn">/usr/lib/python3.10/html/parser.py</span> in <span class="ni">parse_starttag</span><span class="nt">(self, i)</span>
+<span class="g g-Whitespace">    </span><span class="mi">340</span><span class="sd">         if end.endswith(&#39;/&gt;&#39;):</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span><span class="sd">             # XHTML-style empty tag: &lt;span attr=&quot;value&quot; /&gt;</span>
+<span class="ne">--&gt; </span><span class="mi">342</span><span class="sd">             self.handle_startendtag(tag, attrs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span><span class="sd">         else:</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span><span class="sd">             self.handle_starttag(tag, attrs)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
-<span class="g g-Whitespace">    </span><span class="mi">466</span><span class="s2">             # Trigger any extra validation we need to do.</span>
-<span class="g g-Whitespace">    </span><span class="mi">467</span><span class="s2">             try:</span>
-<span class="ne">--&gt; </span><span class="mi">468</span><span class="s2">                 self._validate_conn(conn)</span>
-<span class="g g-Whitespace">    </span><span class="mi">469</span><span class="s2">             except (SocketTimeout, BaseSSLError) as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">470</span><span class="s2">                 self._raise_timeout(err=e, url=url, timeout_value=conn.timeout)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/builder/_htmlparser.py</span> in <span class="ni">handle_startendtag</span><span class="nt">(self, name, attrs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd">         # know that this is an empty-element tag and we want to call</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="sd">         # handle_endtag ourselves.</span>
+<span class="ne">---&gt; </span><span class="mi">85</span><span class="sd">         tag = self.handle_starttag(name, attrs, handle_empty_element=False)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="sd">         self.handle_endtag(name)</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="sd"> </span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1095</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1096</span><span class="s2">         if conn.is_closed:</span>
-<span class="ne">-&gt; </span><span class="mi">1097</span><span class="s2">             conn.connect()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1098</span><span class="s2"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span><span class="s2">         if not conn.is_verified:</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/builder/_htmlparser.py</span> in <span class="ni">handle_starttag</span><span class="nt">(self, name, attrs, handle_empty_element)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span><span class="sd">         #print(&quot;START&quot;, name)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span><span class="sd">         sourceline, sourcepos = self.getpos()</span>
+<span class="ne">--&gt; </span><span class="mi">120</span><span class="sd">         tag = self.soup.handle_starttag(</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span><span class="sd">             name, None, None, attr_dict, sourceline=sourceline,</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span><span class="sd">             sourcepos=sourcepos</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">640</span><span class="s2">             )</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">642</span><span class="s2">         sock_and_verified = _ssl_wrap_socket_and_match_hostname(</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2">             sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">             cert_reqs=self.cert_reqs,</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">handle_starttag</span><span class="nt">(self, name, namespace, nsprefix, attrs, sourceline, sourcepos, namespaces)</span>
+<span class="g g-Whitespace">    </span><span class="mi">713</span><span class="sd">         &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">714</span>         <span class="c1"># print(&quot;Start tag %s: %s&quot; % (name, attrs))</span>
+<span class="ne">--&gt; </span><span class="mi">715</span>         <span class="bp">self</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">716</span> 
+<span class="g g-Whitespace">    </span><span class="mi">717</span>         <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parse_only</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tagStack</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">_ssl_wrap_socket_and_match_hostname</span><span class="nt">(sock, cert_reqs, ssl_version, ssl_minimum_version, ssl_maximum_version, cert_file, key_file, key_password, ca_certs, ca_cert_dir, ca_cert_data, assert_hostname, assert_fingerprint, server_hostname, ssl_context, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span><span class="s2">             server_hostname = normalized</span>
-<span class="g g-Whitespace">    </span><span class="mi">782</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">783</span><span class="s2">     ssl_sock = ssl_wrap_socket(</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span><span class="s2">         sock=sock,</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span><span class="s2">         keyfile=key_file,</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">endData</span><span class="nt">(self, containerClass)</span>
+<span class="g g-Whitespace">    </span><span class="mi">589</span>             <span class="n">containerClass</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">string_container</span><span class="p">(</span><span class="n">containerClass</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span>             <span class="n">o</span> <span class="o">=</span> <span class="n">containerClass</span><span class="p">(</span><span class="n">current_data</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">591</span>             <span class="bp">self</span><span class="o">.</span><span class="n">object_was_parsed</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span> 
+<span class="g g-Whitespace">    </span><span class="mi">593</span>     <span class="k">def</span> <span class="nf">object_was_parsed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">most_recent_element</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir, key_password, ca_cert_data, tls_in_tls)</span>
-<span class="g g-Whitespace">    </span><span class="mi">444</span><span class="s2">     if ca_certs or ca_cert_dir or ca_cert_data:</span>
-<span class="g g-Whitespace">    </span><span class="mi">445</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">446</span><span class="s2">             context.load_verify_locations(ca_certs, ca_cert_dir, ca_cert_data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">447</span><span class="s2">         except OSError as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">448</span><span class="s2">             raise SSLError(e) from e</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">object_was_parsed</span><span class="nt">(self, o, parent, most_recent_element)</span>
+<span class="g g-Whitespace">    </span><span class="mi">610</span>         <span class="n">fix</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">next_element</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">611</span> 
+<span class="ne">--&gt; </span><span class="mi">612</span>         <span class="n">o</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">previous_element</span><span class="p">,</span> <span class="n">next_element</span><span class="p">,</span> <span class="n">previous_sibling</span><span class="p">,</span> <span class="n">next_sibling</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span> 
+<span class="g g-Whitespace">    </span><span class="mi">614</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_most_recent_element</span> <span class="o">=</span> <span class="n">o</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/element.py</span> in <span class="ni">setup</span><span class="nt">(self, parent, previous_element, next_element, previous_sibling, next_sibling)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span><span class="sd"> </span>
+<span class="ne">--&gt; </span><span class="mi">157</span><span class="sd">     def setup(self, parent=None, previous_element=None, next_element=None,</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span><span class="sd">               previous_sibling=None, next_sibling=None):</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Sets</span> <span class="n">up</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">relations</span> <span class="n">between</span> <span class="n">this</span> <span class="n">element</span> <span class="ow">and</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -733,7 +753,7 @@ document.write(`
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
 </div>
                 </footer>
@@ -776,6 +796,7 @@ By Ahmad Rosyihuddin
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -802,8 +823,8 @@ By Ahmad Rosyihuddin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>

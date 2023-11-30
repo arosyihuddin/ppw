@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNBC Indonesia';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling With Graph Cosine Similirity and Closeness Centrality" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
-    <link rel="prev" title="Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)" href="Reduksi%20Dimensi%20Feature.html" />
+    <link rel="next" title="Klasifikasi Berita Berbasis Graph Cosine Similirity" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
+    <link rel="prev" title="Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi" href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -139,6 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../intro.html">
@@ -177,10 +178,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Reduksi%20Dimensi%20Feature.html">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html"><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling With Graph Cosine Similirity and Closeness Centrality</strong></a></li>
-<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Co-occurence%20dan%20Text%20Rank.html"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling With Graph Co-occurence Matrix and Text Rank</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ekstraksi%20Kata%20Kunci.html"><strong>Ekstraksi Kata Kunci Berita</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="%28Text%20Rank%20Manual%29%20Ekstraksi%20Kata%20Kunci.html"><strong>(Manual Code) Ekstraksi Kata Kunci Dengan Text Rank</strong></a></li>
 </ul>
 
     </div>
@@ -365,6 +367,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -374,6 +377,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -641,13 +645,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/tech/20231109082651-37-487579/samsung-punya-senjata-baru-pukulan-telak-buat-apple&#39;, &#39;Samsung Punya Senjata Baru, Pukulan Telak Buat Apple&#39;, &#39;09 November 2023 11:50&#39;, &#39;Redaksi, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia -SamsungElectronics memperkenalkan model kecerdasan buatan generatif (generative AI) buatan sendiri. Produsen HP terbesar dunia tersebut sepertinya bakal mengalahkan saingan terdekatnya, produsen iPhoneyaitu Apple, sebagai brand smartphonepertama yang dilengkapi dengan teknologi AI generatif. Sejak peluncuran ChatGPT, semua perusahaan teknologi berlomba memperkenalkan teknologi generative AI. Teknologi yang dikembangkan menggunakan model bahasabesar (LLM) ini mampu menciptakan konten hingga kode pemrograman, berdasarkan perintah. Teknologi generative AI milik Samsungdiberi nama SamsungGauss. Nama ini bersumber dari seorang ahli matematika legendaris Carl Friedrich Gauss, pencetus teori distribusi normal yang menjadi dasar pengembangan teknologi pembelajaran mesin dan AI. Gauss milik Samsungpunya beberapa fitur. Fitur pertama disebut SamsungGauss Language, yaitu model bahasa yang bisa menuliskan email dan menerjemahkan konten. Selain itu, Samsungmengisyaratkan kemampuan tambahan berupa &quot;meningkatkan pengalaman konsumen dengan memberikan kendali perangkat yang lebih cerdas, jika perangkat tersebut diintegrasi dengan beragam produk.&quot; Fitur kedua adalah membantu pengembang software untuk menulis kode pemrograman lebih cepat. Fitur ketiga diberi nama Gauss Image, yang bisa digunakan untuk menciptakan gambar atau edit gambar. &quot;SamsungGauss saat ini digunakan untuk meningkatkan produktivitas pekerja, tetapi akan terus dikembangkan ke beragam aplikasi buatan Samsungyang memberikan pengalaman baru untuk pengguna,&quot; kata Samsunglewat siaran pers, Kamis (9/11/2023). MenurutCNBCInternational,bos bisnis produk HP Samsung, Daniel Araujo, sebelumnya menyatakan bahwa teknologi generatif AI Samsungakan tersedia untuk pengguna pada 2024. Samsungsepertinya akan menjadi salah satu merek HP pertama yang menyediakan teknologi generative AI untuk penggunanya. Kompetitor utama Samsung, Apple, sampai sekarang belum mengumumkan produk generative AI untuk gadget buatan mereka. CEOApple Tim Cook, menurutCNBCInternational,hanya menyatakan bahwa Apple memiliki proyek generative AI tanpa mau menjelaskan dengan lebih spesifik.  &#39;, &#39;Tech&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/tech/20231130115017-37-493315/raja-baru-ecommerce-china-bikin-alibaba-keok-sudah-ada-di-ri&#39;, &#39;Raja Baru Ecommerce China Bikin Alibaba Keok, Sudah Ada di RI&#39;, &#39;30 November 2023 14:40&#39;, &#39;Redaksi, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Warga China berebut diskon di e-commerce. Karakter itu dimanfaatkan oleh raksasa e-commerce Pinduoduo untuk meraup transaksi besar-besaran sepanjang Q3 2023.  Dalam laporannya, Pinduoduo mencatat pertumbuhan pendapatan 94% pada Q3 2023 secara tahun-ke-tahun (YoY). Pertumbuhan itu jauh mengalahkan Alibaba yang cuma mencatat pertumbuhan 9% pada periode yang sama.  Pinduoduo dikenal kencang menjalankan strategi potongan harga pada platformnya. Nilai pendapatan yang naik hampir 100% tersebut mencapai US$ 9,44 miliar atau jauh di atas ramalan analis. Dikuitp dari CNBC International, Kamis (30/11/2023), pendapatan dari transaksi Pinduoduo melonjak hingga 315% pada Q3 2023 sebesar US$ 4 miliar.  Saham Pinduoduo langsung melambung lebih dari 18% pada perdagangan di AS awal pekan ini, menyusul laporan yang diumbar ke investor.  Pinduoduo merupakan induk layanan e-commerce Temu yang mendulang popularitas dalam beberapa tahun terakhir. Dalam laporannya, Pinduoduo mengatakan kini telah menjangkau para pembeli online di 40 negara.  &quot;Namun, kami masih dalam tahap awal,&quot; kata perwakilan Pinduoduo dalam transkrip yang diakses lewat FactSet.  &quot;Ini akan jadi proses yang dinamis dan menantang, tetapi juga menarik,&quot; ia menambahkan.  Pada Oktober lalu, JPMOrgam memprediksi Temu akan meraup nilai transaksi (GMV) sebesar 70 miliar yuan (Rp 151 triliun) sepanjang 2023. Angka itu diramalkan akan naik dua kali lipat pada 2024 mendatang.  Temu mulai menjangkau pasar global pada September 2023. Negara pertama yang disasar adalah Amerika Serikat (AS). E-commerce tersebut langsung mendapat antusiasme tinggi lantaran penawaran harga murah yang bombastis. Selanjutnya, Temu melebarkan sayap ke negara-negara lain seperti Australia, Selandia Baru, Prancis, Italia, Jerman, Belanda, Spanyol, dan Inggris. Bahkan, baru-baru ini aplikasi Temu sudah tersedia di Google Play Store dan Apple App Store Tanah Air.  Pendapatan gila-gilaan Pinduoduo berbanding terbalik dengan para pesaingnnya, seperti Alibaba dan JD. Kedua perusahaan e-commerce yang lebih dulu melalang buana itu cenderung menjual produk dengan harga lebih mahal.  Alibaba melaporkan pertumbuhan pendapatan hanya 9% YoY senilai US$ 31 miliar. Sementara itu, JD hanya mampu meraup pertumbuhan 1,7% setara US$ 34 miliar. &#39;, &#39;Tech&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/news/20231109113622-4-487642/bertemu-mendag-uea-jokowi-titip-salam-untuk-pangeran-mbz&#39;, &#39;Bertemu Mendag UEA, Jokowi Titip Salam untuk Pangeran MBZ&#39;, &#39;09 November 2023 11:55&#39;, &#39;Emir Yanwardhana, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Presiden Joko Widodo (Jokowi) menitipkan salam secara khusus untuk Presiden Uni Emirat Arab (UEA) Mohammed Bin Zayed.  Pesan itu disampaikan melalui Menteri Perdagangan Luar Negeri (UEA) Thani Bin Ahmed Al Zeyoudi, yang hadir dalam peresmian Pembangkit Listrik Tenaga Surya (PLTS) Terapung atau Floating Solar PV Cirata berkapasitas 192 megawatt peak (MWp), di Purwakarta, Jawa Barat, Kamis (9/11/2023).  &quot;Yang mulia, Indonesia dan UAE punya hubungan kerja sama bilateral yang sangat baik. Terima Kasih untuk hubungan yang sangat dekat antara dua negara kita dan terima kasih untuk investasinya ke Indonesia. Saya titip salam hangat ke yang mulia Crown Prince Mohammed Bin Zayed dan keluarga,&quot; kata Jokowi.   Seperti yang diketahui Sosok Mohammed bin Zayed Al Nahyan sangat dekat dengan Presiden Jokowi. Bahkan kedua negara saling bertukar nama jalan.  Di Abu Dhabi terdapat sebuah jalan yang dinamai Jalan Presiden Joko Widodo. Ini merupakan sebuah pengakuan dan penghargaan tinggi kepada Indonesia dari UEA.   Jalan sepanjang lebih kurang 2,5 kilometer tersebut terletak di salah satu ruas jalan utama, yang membelah Abu Dhabi National Exhibition Center (ADNEC) dengan area kedutaan. Jalan Presiden Joko Widodo sendiri diresmikan pada 19 Oktober 2020 oleh MBZ.  Untuk memberikan penghargaan yang setara, Indonesia pun memberi nama jalan tol layang Jakarta-Cikampek (Japek II elevated) menjadi jalan layang Sheikh Mohamed bin Zayed (MBZ) yang diresmikan 12 April 2021 lalu.   Sebelumnya Menteri Koordinator Bidang Kemaritiman dan Investasi, Luhut Binsar Pandjaitan juga sempat mengatakan hubungan pribadi Jokowi dan MBZ sangat dekat. Bahkan saat kunjungan Jokowi ke UEA ibunda Pangeran MBZ memasak makanan pertama waktu presiden sampai di Abu Dhabi.  Luhut juga mengatakan sangat jelas kedekatan hubungan itu yang bermula dari kunjungan putra mahkota MBZ ke Indonesia empat tahun lalu. Bahkan waktu pembentukan Sovereign Wealth Fund atau Indonesia Investment Authority (INA) sangat didukung oleh pihak Uni Emirat Arab, dengan menanamkan investasi awal sebesar US$10 miliar dollar. &#39;, &#39;News&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/news/20231130131443-4-493347/sri-mulyani-bagikan-cerita-perjuangan-retno-marsudi-di-dk-pbb&#39;, &#39;Sri Mulyani Bagikan Cerita Perjuangan Retno Marsudi di DK PBB&#39;, &#39;30 November 2023 14:55&#39;, &#39;Rosseno Aji Nugroho, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Menteri Keuangan Sri Mulyani menceritakan upaya Menteri Luar Negeri Retno Marsudi membela Palestina di PBB. Cerita soal perjuangan Retno itu, disampaikan Sri Mulyani di hadapan pengusaha-pengusaha dari Eropa. &quot;Rekan saya, sahabat saya Bu Retno, sekarang terbang dan ada di sana untuk melakukan itu,&quot; kata Sri Mulyani berpidato di acara Indonesia-Europe Investment Summit 2023 di St. Regis Jakarta, Kamis (30/11/2023). Sri Mulyani menceritakan kiprah koleganya itu dalam konteks peran ganda yang diambil Indonesia terhadap konflik geopolitik yang memanas. Dia mengatakan konflik-konflik yang terjadi di dunia ini tentu berpengaruh terhadap kondisi perekonomian dalam negeri Indonesia. Setelah berhasil melewati fase pandemi Covid-19, dia mengatakan kini Indonesia dihadapkan oleh konflik geopolitik yang berpengaruh ke perekonomian. Di tengah situasi dunia yang tidak pasti itu, Sri Mulyani mengatakan Indonesia sejauh ini bisa menghadapinya dengan baik. &quot;Kami terus tumbuh kuat dan tangguh,&quot; ujar dia.   Sri Mulyani mengatakan di tengah upaya Indonesia menanggulangi dampak konflik tersebut, pemerintahnya juga tetap berupaya mengambil peran mewujudkan dunia yang damai. Dalam upaya itulah, Menteri Retno Marsudi terbang ke PBB guna mendiskusikan sikap Indonesia terhadap derita yang dialami warga Gaza, Palestina. Menlu Retno diketahui dalam beberapa hari ini terbang ke markas PBB di New York untuk bertemu dengan menteri luar negeri Organisasi Kerjasama Islam (OKI), Sekretaris Jenderal PBB, dan Menteri Luar Negeri Cina. Cina saat ini memegang presidensi Dewan Keamanan PBB. Pertemuan dilakukan untuk membahas tentang kondisi Jalur Gaza. &quot;Saya kira ini adalah salah satu contoh bagaimana Indonesia, meski dalam kapasitasnya yang masih terbatas, akan terus berkontribusi menjadi warga global yang membangun tatanan dunia yang damai,&quot; kata Sri Mulyani.   &#39;, &#39;News&#39;]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/entrepreneur/20231109091722-25-487598/pakar-bongkar-kunci-sukses-nomor-1-bisnis-bill-gates&#39;, &#39;Pakar Bongkar &quot;Kunci Sukses&quot; Nomor 1 Bisnis Bill Gates&#39;, &#39;09 November 2023 09:40&#39;, &#39;sef, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Seorang pakar psikologi mencoba menelusuri kunci sukses miliuner dunia. Ia adalah Mourgan Housel. Dalam tulisannya di CNBC International, ia memuat bagaimana crazy rich seperti Bill Gates sukses karena &quot;rahasia khusus&quot;. Itu adalah &quot;keseimbangan antara pesimisme dan optimisme&quot;.   Menurutnya pesimisme sebenarnya sangat penting untuk kelangsungan hidup. Hal itu, membantu seseorang bersiap menghadapi risiko sebelum risiko itu datang. Namun optimisme juga sama pentingnya. Keyakinan bahwa segala sesuatunya akan berlangsung baik, meski buktinya tidak jelas, bisa mendukung kesuksesan bahkan investasi jangka panjang.   &quot;Orang-orang sukses menemukan keseimbangan antara pesimisme dan optimisme,&quot; kata penulis buku &quot;Same as Ever: A Guide to What Never Changes&quot; tersebut, dikutip Kamis (9/11/2023). &quot;Bill Gates adalah contoh yang bagus tentang betapa efektifnya keterampilan tersembunyi ini,&quot; tambahnya. Ia menggambarkan bagaimana Bill Gates saat memulai Microsoft. Di mana pria itu bersikeras untuk selalu memiliki cukup uang tunai di bank untuk menjaga perusahaan tetap hidup selama 12 bulan tanpa ada pendapatan yang masuk. &quot;Pada tahun 1995, dia ditanya oleh Charlie Rose mengapa dia menyimpan begitu banyak uang tunai. Banyak hal berubah begitu cepat dalam teknologi sehingga bisnis di tahun depan tidak terjamin ... termasuk Microsoft,&quot; katanya menceritakan Bill Gates. Ia pun mengutip beberapa pernyataan lain dari Bill Gates yang merujuk kematangan psikologisnya. &quot;Saya selalu khawatir karena orang-orang yang bekerja untuk saya lebih tua dari saya dan mempunyai anak, dan saya selalu berpikir, Bagaimana jika kami tidak dibayar? Apakah saya dapat memenuhi gaji tersebut?,&quot; jelasnya lagi mengungkap wawancara Bill Gates, tahun 2007. Menurutnya, potongan wawancara itu, menunjukan bahwa ada optimisme dan kepercayaan diri bercampur dengan pesimisme yang berat. Secara sederhana, katanya, Bill Gates menyakini &quot;seseorang bisa menjadi optimis dalam jangka panjang jika cukup pesimis untuk bertahan dalam jangka pendek&quot;. &quot;Hal penting yang perlu diperhatikan di sini adalah optimisme dan pesimisme ada dalam satu spektrum,&quot; tambahnya lagi. &quot;Saya sebut optimis rasional,&quot; ujarnya. Dikatakannya jika selalu optimis, menganggap segala sesuatu baik-baik saja dan membuang hal buruk, akan muncul sikap &quot;tidak dapat memahami apa pun yang salah&quot;. Di sisi lain, mika benar-benar pesimis, berpikir segala sesuatunya buruk, akan muncul rasa tak percaya diri sehingga tidak bisa membayangkan segala sesuatunya akan berjalan dengan baik. &quot;Yang berada di tengah-tengah adalah titik manis,&quot; katanya lagi. &quot;Mereka yang mengakui bahwa sejarah adalah rangkaian masalah, kekecewaan, dan kemunduran yang terus-menerus terjadi, namun tetap optimis karena mereka tahu bahwa kemunduran tidak menghalangi kemajuan pada akhirnya,&quot; ujar Housel. &quot;Mereka terdengar seperti orang munafik dan orang yang suka berjungkir balik, namun sering kali mereka hanya melihat lebih jauh ke depan dibandingkan orang lain,&quot; tegasnya.  &#39;, &#39;Entrepreneur&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/entrepreneur/20231129150843-25-493023/kisah-robert-kiyosaki-suhu-finansial-yang-sering-bangkrut&#39;, &#39;Kisah Robert Kiyosaki, &quot;Suhu&quot; Finansial yang Sering Bangkrut&#39;, &#39;30 November 2023 12:00&#39;, &#39;Muhammad Fakhriansyah, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Robert Kiyosaki selalu menjadi pembicaraan bagi setiap orang yang ingin memiliki kemapanan finansial yang baik. Bisa dibilang, ia &quot;suhu&quot; dalam bidang ini. Berbagai bukunya selalu menjadi rujukan dan inspirasi finansial. Sebut salah yang terkenal Rich Dad Poor Dad (1997) dan Why The Rich Getting Richer (2008), . Kedua buku itu berisi pengalaman pribadi Kiyosaki dan berupaya mengarahkan pembaca. Ia ingin mendorong masyarakat mengembangkan aset, berinvestasi, dan memperoleh pemasukan pasif sedini mungkin.  Para pengikut Kiyosaki pun kerap menanti wejangannya di Twitter tentang kabar finansial. Lalu, siapa Robert Kiyosaki? Robert Kiyosaki lahir di Hawaii pada 1947. Dia adalah keturunan Jepang yang tumbuh besar di Amerika Serikat, mulai dari bersekolah sampai bekerja. Melansir laman Finbold, setelah lulus dari SMA pada 1965, dia menempuh pendidikan di United States Merchant Marine Academy (USMMA) di New York. Sesuai namanya, sekolah tersebut adalah sekolah militer selevel sarjana untuk melatih warga sipil dalam upaya pertempuran membantu Angkatan Bersenjata Amerika Serikat. Setelah lulus pada 1969, dia menjadi sukarelawan tentara Angkatan Udara dan resmi menjadi tentara. Mengutip laman U.S. Marine Corps Forces, Kiyosaki ditugaskan dalam Perang Vietnam sebagai penembak senjata helikopter pada 1972-1973, meski berakhir dengan kekalahan. Setelah kalah dan pulang kampung ke AS, dia banting setir menjadi sales di Xerox Corporation. Berkat profesi itulah dia belajar banyak tentang bisnis dan finansial. Dari sini juga jiwa kewirausahaanya terbentuk hingga berani mendirikan perusahaan sendiri bernama Rippers pada 1970-an. Rippers menjual dompet nilon dan alat peselancar. Namun, bisnis itu tak lama bangkrut. Takmenyerah,Kiyosaki mendirikan lagi perusahaan pada tahun 1980. Kali ini bergerak pada pembuatan kaos untuk band rock. Awalnya laris-manis, tetapi berakhir kebangkrutan pada 1985. Kegagalan dua perusahaan itu jelas membuat Kiyosaki merugi. Namun, dari situ dia belajar banyak tentang bisnis dan berupaya untuk menghindarinya. Sejak membangun bisnis kembali, dia juga berupaya mendidik orang-orang tentang keuangan. Melansir The College Investor, dia mulai mengisi seminar-seminar di AS kepada anak muda untuk memotivasi agar memiliki literasi finansial yang baik. Dari sinilah namanya naik daun. Pada 1994, tepat di usia 47 tahun, dia pensiun dari berbisnis. Setelahnya, dia mantap untuk menjadi investor di real estate dan pasar saham. Sejak saat itulah dia mulai rajin menulis. Tiap kali menulis, bukunya laku di pasaran. Bahkan, lewat buku Why We Want You to Be Rich (2006), dia berkolaborasi dengan pebisnis Donald Trump untuk mencerdaskan masyarakat tentang finansial. Kini, Robert Kiyosakipun aktif memberi motivasi dan ramalan terkait sektor keuangan, baik itu di akunX pribadi atau melalui berbagai media. Terbaru, dia meramalkan ekonomi AS bakal menjadi negara termiskin. &quot;(Di bawah kepemimpinan Biden) Amerika akan menjadi negara termiskin di dunia, mulai sekarang,&quot; katanya ke salah satu podcast, dikutip Selasa (28/11/2023). Ramalan ini, seperti ucapan-ucapannya yang lain, disertai tips-tips keuangan. Dari pernyataan tersebut, Kiyosakimenyarankan masyarakat supaya selamat dengan menguasai beberapa aset berikut, seperti emas, perak dan properti.  &#39;, &#39;Entrepreneur&#39;]
 Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </pre></div>
 </div>
@@ -666,7 +670,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1" class="colab-df-container">
+  <div id="df-256a601a-a612-4093-875d-8918a913a941" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -696,29 +700,29 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
   <tbody>
     <tr>
       <th>0</th>
-      <td>https://www.cnbcindonesia.com/tech/20231109082...</td>
-      <td>Samsung Punya Senjata Baru, Pukulan Telak Buat...</td>
-      <td>09 November 2023 11:50</td>
+      <td>https://www.cnbcindonesia.com/tech/20231130115...</td>
+      <td>Raja Baru Ecommerce China Bikin Alibaba Keok, ...</td>
+      <td>30 November 2023 14:40</td>
       <td>Redaksi, CNBC Indonesia</td>
-      <td>Jakarta, CNBC Indonesia -SamsungElectronics me...</td>
+      <td>Jakarta, CNBC Indonesia - Warga China berebut ...</td>
       <td>Tech</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>https://www.cnbcindonesia.com/news/20231109113...</td>
-      <td>Bertemu Mendag UEA, Jokowi Titip Salam untuk P...</td>
-      <td>09 November 2023 11:55</td>
-      <td>Emir Yanwardhana, CNBC Indonesia</td>
-      <td>Jakarta, CNBC Indonesia - Presiden Joko Widodo...</td>
+      <td>https://www.cnbcindonesia.com/news/20231130131...</td>
+      <td>Sri Mulyani Bagikan Cerita Perjuangan Retno Ma...</td>
+      <td>30 November 2023 14:55</td>
+      <td>Rosseno Aji Nugroho, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Menteri Keuangan Sri...</td>
       <td>News</td>
     </tr>
     <tr>
       <th>2</th>
       <td>https://www.cnbcindonesia.com/entrepreneur/202...</td>
-      <td>Pakar Bongkar "Kunci Sukses" Nomor 1 Bisnis Bi...</td>
-      <td>09 November 2023 09:40</td>
-      <td>sef, CNBC Indonesia</td>
-      <td>Jakarta, CNBC Indonesia - Seorang pakar psikol...</td>
+      <td>Kisah Robert Kiyosaki, "Suhu" Finansial yang S...</td>
+      <td>30 November 2023 12:00</td>
+      <td>Muhammad Fakhriansyah, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Robert Kiyosaki sela...</td>
       <td>Entrepreneur</td>
     </tr>
   </tbody>
@@ -727,7 +731,7 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-256a601a-a612-4093-875d-8918a913a941')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -779,12 +783,12 @@ Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
 
     <script>
       const buttonEl =
-        document.querySelector('#df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1 button.colab-df-convert');
+        document.querySelector('#df-256a601a-a612-4093-875d-8918a913a941 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-fca948fd-8c9c-46da-95a4-c0cd23f8d4b1');
+        const element = document.querySelector('#df-256a601a-a612-4093-875d-8918a913a941');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -874,15 +878,15 @@ dtype: int64
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Reduksi%20Dimensi%20Feature.html"
+       href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Naive Bayes Dengan Reduksi Dimensi &amp; Modeling (Term Frequensi)</p>
+        <p class="prev-next-title"><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong></p>
       </div>
     </a>
     <a class="right-next"
@@ -890,7 +894,7 @@ dtype: int64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><strong>Preprocessing Berita (cnbcindonesia.com), Summarization &amp; Modeling With Graph Cosine Similirity and Closeness Centrality</strong></p>
+        <p class="prev-next-title"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -939,6 +943,7 @@ By Ahmad Rosyihuddin
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -965,8 +970,8 @@ By Ahmad Rosyihuddin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
