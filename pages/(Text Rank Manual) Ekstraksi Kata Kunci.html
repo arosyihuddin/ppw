@@ -412,6 +412,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-spreadsheet">Perhitungan Manual (Spreadsheet)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords-removal">Stopwords Removal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-plot-graph">Fungsi Plot Graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-membuat-graph-dengan-co-occurence-matriks">Fungsi Membuat Graph dengan Co-occurence Matriks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-text-rank-manual">Fungsi Text Rank Manual</a></li>
@@ -492,9 +493,61 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Kode tersebut adalah pengaturan awal untuk analisis teks menggunakan Python. Pustaka yang diimpor antara lain NLTK untuk tokenisasi dan stopwords, Scikit-learn untuk ekstraksi fitur teks, NetworkX untuk analisis jaringan, Seaborn dan Matplotlib untuk visualisasi, serta beberapa pustaka lainnya. Warnings diatur untuk diabaikan agar tidak mengganggu keluaran. Download dilakukan untuk model stopword dan tokenizer dari NLTK.</p>
+</section>
+<section id="stopwords-removal">
+<h2>Stopwords Removal<a class="headerlink" href="#stopwords-removal" title="Permalink to this heading">#</a></h2>
+<p>Fungsi bernama <code class="docutils literal notranslate"><span class="pre">stopwords</span></code> yang mengambil teks sebagai input dan mengembalikan teks yang telah dihilangkan kata-kata stopwords dalam bahasa Indonesia. Fungsi ini menggunakan daftar kata-kata stopwords yang sudah diambil dari NLTK. Jika ada hal lain yang ingin ditanyakan atau dijelaskan, silakan beri tahu!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corpus</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">stopwords</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+  <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="fungsi-plot-graph">
 <h2>Fungsi Plot Graph<a class="headerlink" href="#fungsi-plot-graph" title="Permalink to this heading">#</a></h2>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">plot_graph</span></code> digunakan untuk menggambar graf yang diberikan dengan menggunakan pustaka NetworkX dan Matplotlib. Berikut adalah penjelasan singkat setiap bagian kode:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">plot_graph(G,</span> <span class="pre">figsize=(35,</span> <span class="pre">30),</span> <span class="pre">node_size=700,</span> <span class="pre">node_color='skyblue'):</span></code></p>
+<ul class="simple">
+<li><p>Mendefinisikan fungsi <code class="docutils literal notranslate"><span class="pre">plot_graph</span></code> yang mengambil graf <code class="docutils literal notranslate"><span class="pre">G</span></code> sebagai parameter dan memiliki beberapa parameter opsional seperti <code class="docutils literal notranslate"><span class="pre">figsize</span></code> (ukuran gambar), <code class="docutils literal notranslate"><span class="pre">node_size</span></code> (ukuran simpul), dan <code class="docutils literal notranslate"><span class="pre">node_color</span></code> (warna simpul).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos</span> <span class="pre">=</span> <span class="pre">nx.spring_layout(G)</span>&#160; <span class="pre">#</span> <span class="pre">Menentukan</span> <span class="pre">posisi</span> <span class="pre">simpul</span></code></p>
+<ul class="simple">
+<li><p>Menentukan posisi simpul menggunakan layout spring (metode penataan simpul). Layout spring digunakan untuk merencanakan simpul secara visual dengan mempertimbangkan gaya pegas antara simpul-simpul.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labels</span> <span class="pre">=</span> <span class="pre">nx.get_edge_attributes(G,</span> <span class="pre">'weight')</span></code></p>
+<ul class="simple">
+<li><p>Mendapatkan atribut berat (weight) dari setiap sisi (edge) di graf. Atribut ini kemungkinan digunakan untuk memberikan bobot pada sisi-sisi graf.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.figure(figsize=figsize)</span></code></p>
+<ul class="simple">
+<li><p>Menentukan ukuran canvas untuk gambar graf menggunakan Matplotlib.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx.draw(G,</span> <span class="pre">pos,</span> <span class="pre">with_labels=True,</span> <span class="pre">node_size=node_size,</span> <span class="pre">node_color=node_color)</span></code></p>
+<ul class="simple">
+<li><p>Menggambar graf dengan menggunakan NetworkX. <code class="docutils literal notranslate"><span class="pre">pos</span></code> adalah posisi simpul yang telah ditentukan sebelumnya, <code class="docutils literal notranslate"><span class="pre">with_labels=True</span></code> mengaktifkan label simpul, <code class="docutils literal notranslate"><span class="pre">node_size</span></code> adalah ukuran simpul, dan <code class="docutils literal notranslate"><span class="pre">node_color</span></code> adalah warna simpul.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nx.draw_networkx_edge_labels(G,</span> <span class="pre">pos,</span> <span class="pre">edge_labels=labels,</span> <span class="pre">font_color='red')</span></code></p>
+<ul class="simple">
+<li><p>Menambahkan label pada setiap sisi graf dengan menggunakan atribut berat (<code class="docutils literal notranslate"><span class="pre">labels</span></code>). Warna teks label diatur menjadi merah (<code class="docutils literal notranslate"><span class="pre">font_color='red'</span></code>).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plt.show()</span></code></p>
+<ul class="simple">
+<li><p>Menampilkan gambar graf.</p></li>
+</ul>
+</li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">):</span>
@@ -516,6 +569,18 @@ document.write(`
 </section>
 <section id="fungsi-membuat-graph-dengan-co-occurence-matriks">
 <h2>Fungsi Membuat Graph dengan Co-occurence Matriks<a class="headerlink" href="#fungsi-membuat-graph-dengan-co-occurence-matriks" title="Permalink to this heading">#</a></h2>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">graph_co_occurrence</span></code> pada kode tersebut digunakan untuk membuat graf berdasarkan matriks co-occurrence dari teks yang diberikan. Berikut adalah penjelasan singkatnya:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vectorizer</span> <span class="pre">=</span> <span class="pre">CountVectorizer()</span></code>: Membuat objek CountVectorizer untuk menghitung frekuensi kemunculan kata-kata.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tfidf_matrics</span> <span class="pre">=</span> <span class="pre">vectorizer.fit_transform(x)</span></code>: Mengubah teks menjadi matriks TF-IDF (Term Frequency-Inverse Document Frequency).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">co_occurrence_matrix</span> <span class="pre">=</span> <span class="pre">tfidf_matrics.T.dot(tfidf_matrics).toarray()</span></code>: Menghitung matriks co-occurrence dari matriks TF-IDF.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df_co_occurrence</span> <span class="pre">=</span> <span class="pre">pd.DataFrame(co_occurrence_matrix,</span> <span class="pre">columns=vectorizer.get_feature_names_out())</span></code>: Membuat DataFrame dari matriks co-occurrence.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">show_matrics:</span> <span class="pre">display(df_co_occurrence)</span></code>: Jika <code class="docutils literal notranslate"><span class="pre">show_matrics</span></code> bernilai <code class="docutils literal notranslate"><span class="pre">True</span></code>, maka tampilkan matriks co-occurrence.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">=</span> <span class="pre">nx.DiGraph()</span></code>: Membuat objek graf yang merupakan directed graph (graf berarah) menggunakan NetworkX.</p></li>
+<li><p>Looping untuk menambahkan edge ke graf berdasarkan matriks co-occurrence dengan bobot di atas ambang batas (<code class="docutils literal notranslate"><span class="pre">threshold</span></code>).</p></li>
+<li><p>Mengembalikan objek graf (<code class="docutils literal notranslate"><span class="pre">G</span></code>).</p></li>
+</ul>
+<p>Fungsi ini berguna untuk membentuk graf berdasarkan hubungan co-occurrence antar-kata dalam teks, dengan memanfaatkan matriks co-occurrence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">graph_co_occurrence</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">show_matrics</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -548,6 +613,49 @@ document.write(`
 </section>
 <section id="fungsi-text-rank-manual">
 <h2>Fungsi Text Rank Manual<a class="headerlink" href="#fungsi-text-rank-manual" title="Permalink to this heading">#</a></h2>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">text_rank</span></code> ini mengimplementasikan algoritma TextRank untuk menghitung skor peringkat (ranks) pada setiap node dalam suatu graf. Berikut adalah penjelasan langkah-langkahnya:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">initial_value</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">/</span> <span class="pre">graph.number_of_nodes()</span></code>: Menentukan nilai awal TextRank untuk setiap node sebagai kebalikan dari jumlah total node dalam graf.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ranks</span> <span class="pre">=</span> <span class="pre">{node:</span> <span class="pre">initial_value</span> <span class="pre">for</span> <span class="pre">node</span> <span class="pre">in</span> <span class="pre">graph.nodes()}</span></code>: Menginisialisasi dictionary <code class="docutils literal notranslate"><span class="pre">ranks</span></code> yang menyimpan skor peringkat awal untuk setiap node dalam graf.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">range(max_iter):</span></code>: Memulai iterasi sebanyak <code class="docutils literal notranslate"><span class="pre">max_iter</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_ranks</span> <span class="pre">=</span> <span class="pre">{}</span></code>: Membuat dictionary baru untuk menyimpan skor peringkat yang baru dihitung pada setiap iterasi.</p></li>
+<li><p>Iterasi pada setiap node dalam graf:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">node</span> <span class="pre">in</span> <span class="pre">graph.nodes():</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">rank_sum</span> <span class="pre">=</span> <span class="pre">0</span></code>: Menyimpan jumlah dari kontribusi peringkat dari tetangga setiap node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operasi</span> <span class="pre">=</span> <span class="pre">''</span></code>: Menyimpan informasi operasi matematika yang dijalankan pada setiap node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_sums_info</span> <span class="pre">=</span> <span class="pre">{}</span></code>: Menyimpan informasi out_sum (jumlah bobot sisi keluar) dan bobot untuk setiap tetangga node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win</span> <span class="pre">=</span> <span class="pre">graph.in_degree(node,</span> <span class="pre">weight=&quot;weight&quot;)</span></code>: Menghitung jumlah bobot sisi masuk ke node (in_degree).</p></li>
+</ul>
+</li>
+<li><p>Iterasi pada setiap tetangga node:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">neighbor</span> <span class="pre">in</span> <span class="pre">graph.predecessors(node):</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">edge_weight</span> <span class="pre">=</span> <span class="pre">graph[neighbor][node][&quot;weight&quot;]</span></code>: Mengambil bobot sisi antara node dan tetangganya.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_sum</span> <span class="pre">=</span> <span class="pre">sum(graph[neighbor][out_neighbor][&quot;weight&quot;]</span> <span class="pre">for</span> <span class="pre">out_neighbor</span> <span class="pre">in</span> <span class="pre">graph.successors(neighbor))</span></code>: Menghitung out_sum, yaitu jumlah bobot sisi keluar dari tetangga node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rank_sum</span> <span class="pre">+=</span> <span class="pre">(edge_weight</span> <span class="pre">/</span> <span class="pre">out_sum)</span> <span class="pre">*</span> <span class="pre">ranks[neighbor]</span></code>: Menambahkan kontribusi peringkat dari tetangga node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operasi</span> <span class="pre">+=</span> <span class="pre">f&quot;({edge_weight}/{out_sum})</span> <span class="pre">*</span> <span class="pre">{ranks[neighbor]}</span> <span class="pre">+</span> <span class="pre">&quot;</span></code>: Membuat string operasi yang dijalankan pada setiap tetangga node.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_sums_info[neighbor]</span> <span class="pre">=</span> <span class="pre">{out_neighbor:</span> <span class="pre">graph[neighbor][out_neighbor][&quot;weight&quot;]</span> <span class="pre">for</span> <span class="pre">out_neighbor</span> <span class="pre">in</span> <span class="pre">graph.successors(neighbor)}</span></code>: Menambahkan informasi out_sum untuk setiap tetangga node.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operasi</span> <span class="pre">=</span> <span class="pre">operasi[:-3]</span> <span class="pre">if</span> <span class="pre">operasi</span> <span class="pre">else</span> <span class="pre">'0'</span></code>: Jika operasi kosong, atur nilai operasi menjadi 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_rank</span> <span class="pre">=</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">damping_factor)</span> <span class="pre">+</span> <span class="pre">damping_factor</span> <span class="pre">*</span> <span class="pre">rank_sum</span></code>: Menghitung skor peringkat baru untuk node berdasarkan kontribusi dari tetangga-tetangganya.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_ranks[node]</span> <span class="pre">=</span> <span class="pre">new_rank</span></code>: Menyimpan skor peringkat baru untuk node dalam dictionary <code class="docutils literal notranslate"><span class="pre">new_ranks</span></code>.</p></li>
+<li><p>Menampilkan informasi out_sum dan win untuk setiap node dan tetangganya.</p></li>
+<li><p>Menampilkan operasi matematika yang dijalankan pada setiap node.</p></li>
+<li><p>Menampilkan skor peringkat baru untuk setiap node.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">convergence</span> <span class="pre">=</span> <span class="pre">all(abs(new_ranks[node]</span> <span class="pre">-</span> <span class="pre">ranks[node])</span> <span class="pre">&lt;</span> <span class="pre">tol</span> <span class="pre">for</span> <span class="pre">node</span> <span class="pre">in</span> <span class="pre">graph.nodes())</span></code>: Mengecek apakah terjadi konvergensi dengan memeriksa apakah peringkat node pada iterasi sebelumnya dan iterasi sekarang sudah konvergen dengan toleransi <code class="docutils literal notranslate"><span class="pre">tol</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ranks</span> <span class="pre">=</span> <span class="pre">new_ranks</span></code>: Memperbarui dictionary <code class="docutils literal notranslate"><span class="pre">ranks</span></code> dengan skor peringkat yang baru dihitung.</p></li>
+<li><p>Menampilkan skor peringkat yang baru dihitung.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">convergence:</span> <span class="pre">...</span></code>: Jika terjadi konvergensi, menghentikan iterasi dan menampilkan pesan konvergensi tercapai.</p></li>
+<li><p>Mengembalikan dictionary <code class="docutils literal notranslate"><span class="pre">ranks</span></code> yang berisi skor peringkat terakhir untuk setiap node dalam graf.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">text_rank</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">damping_factor</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">):</span>
@@ -610,10 +718,36 @@ document.write(`
 </section>
 <section id="fungsi-ekstrak-kata-kunci-teratas">
 <h2>Fungsi Ekstrak Kata Kunci Teratas<a class="headerlink" href="#fungsi-ekstrak-kata-kunci-teratas" title="Permalink to this heading">#</a></h2>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">extract_top_words</span></code> ini mengambil teks (<code class="docutils literal notranslate"><span class="pre">x</span></code>) dan melakukan beberapa langkah pemrosesan untuk mengekstrak kata kunci berdasarkan skor TextRank. Berikut adalah penjelasan singkat langkah-langkahnya:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">full_text</span> <span class="pre">=</span> <span class="pre">'</span> <span class="pre">'.join(word</span> <span class="pre">for</span> <span class="pre">word</span> <span class="pre">in</span> <span class="pre">x)</span></code>: Menggabungkan kata-kata dalam teks menjadi satu string <code class="docutils literal notranslate"><span class="pre">full_text</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">[stopwords(full_text)]</span></code>: Menghilangkan kata-kata stopwords dari <code class="docutils literal notranslate"><span class="pre">full_text</span></code> menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">=</span> <span class="pre">graph_co_occurrence(x,</span> <span class="pre">show_matrics)</span></code>: Membuat graf co-occurrence menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">graph_co_occurrence</span></code> dengan teks yang sudah dihilangkan stopwords (<code class="docutils literal notranslate"><span class="pre">x</span></code>). Graf ini akan digunakan untuk menghitung skor TextRank.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scores</span> <span class="pre">=</span> <span class="pre">text_rank(G)</span></code>: Menghitung skor TextRank menggunakan fungsi <code class="docutils literal notranslate"><span class="pre">text_rank</span></code> pada graf co-occurrence yang dibuat.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ranked_words_dict</span> <span class="pre">=</span> <span class="pre">{}</span></code>: Membuat dictionary untuk menyimpan skor tertinggi setiap kata.</p></li>
+<li><p>Iterasi pada setiap kata dalam teks yang sudah dihilangkan stopwords:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">word</span> <span class="pre">in</span> <span class="pre">'</span> <span class="pre">'.join(x).split():</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_score</span> <span class="pre">=</span> <span class="pre">scores.get(word,</span> <span class="pre">0)</span></code>: Mendapatkan skor TextRank untuk kata saat ini.</p></li>
+<li><p>Memperbarui dictionary <code class="docutils literal notranslate"><span class="pre">ranked_words_dict</span></code> dengan skor tertinggi untuk setiap kata.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ranked_words</span> <span class="pre">=</span> <span class="pre">sorted(((score,</span> <span class="pre">word)</span> <span class="pre">for</span> <span class="pre">word,</span> <span class="pre">score</span> <span class="pre">in</span> <span class="pre">ranked_words_dict.items()),</span> <span class="pre">key=lambda</span> <span class="pre">x:</span> <span class="pre">(x[0],</span> <span class="pre">x[1]),</span> <span class="pre">reverse=True)</span></code>: Mengurutkan kata-kata berdasarkan skor tertinggi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">selected_words</span> <span class="pre">=</span> <span class="pre">[word</span> <span class="pre">for</span> <span class="pre">_,</span> <span class="pre">word</span> <span class="pre">in</span> <span class="pre">ranked_words[:w]]</span> <span class="pre">if</span> <span class="pre">w</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">None</span> <span class="pre">else</span> <span class="pre">None</span></code>: Memilih sejumlah w kata tertinggi.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">keywords</span> <span class="pre">=</span> <span class="pre">',</span> <span class="pre">'.join(selected_words)</span> <span class="pre">if</span> <span class="pre">selected_words</span> <span class="pre">else</span> <span class="pre">''</span></code>: Menggabungkan kata-kata terpilih menjadi satu string terpisah dengan koma.</p></li>
+<li><p>Jika <code class="docutils literal notranslate"><span class="pre">show_scores</span></code> diatur sebagai True, mencetak teks dokumen, kata kunci, dan skor TextRank untuk setiap kata.</p></li>
+<li><p>Mengembalikan tuple berisi graf co-occurrence (<code class="docutils literal notranslate"><span class="pre">G</span></code>) dan kata kunci terpilih (<code class="docutils literal notranslate"><span class="pre">selected_words</span></code>).</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_top_words</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">show_matrics</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show_scores</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">full_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># Stopwords removal</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">stopwords</span><span class="p">(</span><span class="n">full_text</span><span class="p">)]</span>
 
     <span class="n">G</span> <span class="o">=</span> <span class="n">graph_co_occurrence</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">show_matrics</span><span class="p">)</span>
 
@@ -652,10 +786,11 @@ document.write(`
 </section>
 <section id="uji-coba-dengan-data">
 <h2>Uji Coba dengan data<a class="headerlink" href="#uji-coba-dengan-data" title="Permalink to this heading">#</a></h2>
+<p>melakukan uji coba dengan kalimat dan menampilkan tabel co-occurence serta proses perhitungan nya</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;saya makan nasi&#39;</span><span class="p">]</span>
-<span class="n">G</span><span class="p">,</span> <span class="n">keywords</span> <span class="o">=</span> <span class="n">extract_top_words</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">show_matrics</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">G</span><span class="p">,</span> <span class="n">keywords</span> <span class="o">=</span> <span class="n">extract_top_words</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">show_matrics</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -664,7 +799,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-d480139e-77cb-4ef6-a24e-737049a37232" class="colab-df-container">
+  <div id="df-f74d693e-ec13-48e3-abcf-8d63062b982a" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -686,7 +821,6 @@ document.write(`
       <th>Word</th>
       <th>makan</th>
       <th>nasi</th>
-      <th>saya</th>
     </tr>
   </thead>
   <tbody>
@@ -695,19 +829,10 @@ document.write(`
       <td>makan</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
       <td>nasi</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>saya</td>
-      <td>1</td>
       <td>1</td>
       <td>1</td>
     </tr>
@@ -717,7 +842,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d480139e-77cb-4ef6-a24e-737049a37232')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f74d693e-ec13-48e3-abcf-8d63062b982a')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -769,12 +894,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d480139e-77cb-4ef6-a24e-737049a37232 button.colab-df-convert');
+        document.querySelector('#df-f74d693e-ec13-48e3-abcf-8d63062b982a button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d480139e-77cb-4ef6-a24e-737049a37232');
+        const element = document.querySelector('#df-f74d693e-ec13-48e3-abcf-8d63062b982a');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -795,8 +920,8 @@ document.write(`
   
     </div>
   </div>
-  </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inisialisasi Score Awal : {&#39;makan&#39;: 0.3333333333333333, &#39;nasi&#39;: 0.3333333333333333, &#39;saya&#39;: 0.3333333333333333}
-Edges : [(&#39;makan&#39;, &#39;nasi&#39;), (&#39;makan&#39;, &#39;saya&#39;), (&#39;nasi&#39;, &#39;saya&#39;)]
+  </div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inisialisasi Score Awal : {&#39;makan&#39;: 0.5, &#39;nasi&#39;: 0.5}
+Edges : [(&#39;makan&#39;, &#39;nasi&#39;)]
 
 ========== Iterasi Ke - 0 ==========
 Win(makan): 0
@@ -804,14 +929,10 @@ Out_sums_info(makan): {}
 W(makan) = (1 - 0.85) + 0.85 * (0) = 0.15000000000000002
 
 Win(nasi): 1
-Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}}
-W(nasi) = (1 - 0.85) + 0.85 * ((1/2) * 0.3333333333333333) = 0.2916666666666667
+Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1}}
+W(nasi) = (1 - 0.85) + 0.85 * ((1/1) * 0.5) = 0.575
 
-Win(saya): 2
-Out_sums_info(saya): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}, &#39;nasi&#39;: {&#39;saya&#39;: 1}}
-W(saya) = (1 - 0.85) + 0.85 * ((1/2) * 0.3333333333333333 + (1/1) * 0.3333333333333333) = 0.575
-
-New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.2916666666666667, &#39;saya&#39;: 0.575}
+New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.575}
 
 ========== Iterasi Ke - 1 ==========
 Win(makan): 0
@@ -819,14 +940,10 @@ Out_sums_info(makan): {}
 W(makan) = (1 - 0.85) + 0.85 * (0) = 0.15000000000000002
 
 Win(nasi): 1
-Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}}
-W(nasi) = (1 - 0.85) + 0.85 * ((1/2) * 0.15000000000000002) = 0.21375000000000002
+Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1}}
+W(nasi) = (1 - 0.85) + 0.85 * ((1/1) * 0.15000000000000002) = 0.2775
 
-Win(saya): 2
-Out_sums_info(saya): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}, &#39;nasi&#39;: {&#39;saya&#39;: 1}}
-W(saya) = (1 - 0.85) + 0.85 * ((1/2) * 0.15000000000000002 + (1/1) * 0.2916666666666667) = 0.4616666666666667
-
-New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.21375000000000002, &#39;saya&#39;: 0.4616666666666667}
+New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.2775}
 
 ========== Iterasi Ke - 2 ==========
 Win(makan): 0
@@ -834,31 +951,12 @@ Out_sums_info(makan): {}
 W(makan) = (1 - 0.85) + 0.85 * (0) = 0.15000000000000002
 
 Win(nasi): 1
-Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}}
-W(nasi) = (1 - 0.85) + 0.85 * ((1/2) * 0.15000000000000002) = 0.21375000000000002
+Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1}}
+W(nasi) = (1 - 0.85) + 0.85 * ((1/1) * 0.15000000000000002) = 0.2775
 
-Win(saya): 2
-Out_sums_info(saya): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}, &#39;nasi&#39;: {&#39;saya&#39;: 1}}
-W(saya) = (1 - 0.85) + 0.85 * ((1/2) * 0.15000000000000002 + (1/1) * 0.21375000000000002) = 0.3954375000000001
+New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.2775}
 
-New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.21375000000000002, &#39;saya&#39;: 0.3954375000000001}
-
-========== Iterasi Ke - 3 ==========
-Win(makan): 0
-Out_sums_info(makan): {}
-W(makan) = (1 - 0.85) + 0.85 * (0) = 0.15000000000000002
-
-Win(nasi): 1
-Out_sums_info(nasi): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}}
-W(nasi) = (1 - 0.85) + 0.85 * ((1/2) * 0.15000000000000002) = 0.21375000000000002
-
-Win(saya): 2
-Out_sums_info(saya): {&#39;makan&#39;: {&#39;nasi&#39;: 1, &#39;saya&#39;: 1}, &#39;nasi&#39;: {&#39;saya&#39;: 1}}
-W(saya) = (1 - 0.85) + 0.85 * ((1/2) * 0.15000000000000002 + (1/1) * 0.21375000000000002) = 0.3954375000000001
-
-New Score : {&#39;makan&#39;: 0.15000000000000002, &#39;nasi&#39;: 0.21375000000000002, &#39;saya&#39;: 0.3954375000000001}
-
-Konvergensi tercapai pada iterasi ke-3
+Konvergensi tercapai pada iterasi ke-2
 </pre></div>
 </div>
 </div>
@@ -866,6 +964,7 @@ Konvergensi tercapai pada iterasi ke-3
 </section>
 <section id="graph-yang-di-hasilkan">
 <h2>Graph yang di hasilkan<a class="headerlink" href="#graph-yang-di-hasilkan" title="Permalink to this heading">#</a></h2>
+<p>menampilkan hasil graphnya</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_graph</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">700</span><span class="p">,)</span>
@@ -873,12 +972,13 @@ Konvergensi tercapai pada iterasi ke-3
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5ba39e32764460de1c0638a0a5164fa0c28735554f28119a136ff39b14693cdd.png" src="../_images/5ba39e32764460de1c0638a0a5164fa0c28735554f28119a136ff39b14693cdd.png" />
+<img alt="../_images/58a0edcde641cb6cb4476867173dbcd8bb86b6a1c2a75825e67bd86f9d7e49a1.png" src="../_images/58a0edcde641cb6cb4476867173dbcd8bb86b6a1c2a75825e67bd86f9d7e49a1.png" />
 </div>
 </div>
 </section>
 <section id="keywoards-yang-di-hasilkan">
 <h2>Keywoards Yang di hasilkan<a class="headerlink" href="#keywoards-yang-di-hasilkan" title="Permalink to this heading">#</a></h2>
+<p>menghasilkan keywords</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">keywords</span>
@@ -886,7 +986,7 @@ Konvergensi tercapai pada iterasi ke-3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;saya&#39;, &#39;nasi&#39;, &#39;makan&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;nasi&#39;, &#39;makan&#39;]
 </pre></div>
 </div>
 </div>
@@ -950,6 +1050,7 @@ Konvergensi tercapai pada iterasi ke-3
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-spreadsheet">Perhitungan Manual (Spreadsheet)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords-removal">Stopwords Removal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-plot-graph">Fungsi Plot Graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-membuat-graph-dengan-co-occurence-matriks">Fungsi Membuat Graph dengan Co-occurence Matriks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fungsi-text-rank-manual">Fungsi Text Rank Manual</a></li>
