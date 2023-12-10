@@ -32,6 +32,6 @@ Here is a preview of the cell contents:
 -------------------
 ['def find_best_lda(Xtrain, Xtest, n_components, alpha, beta):', '  looping = 1', "  best = {'k' : 0, 'alpha' : 0, 'beta' : 0, 'accuracy' : 0, 'model': '', 'lda' : '', 'lda_Xtrain' : '', 'lda_Xtest' : ''}", '  history = pd.DataFrame(columns=["Pengujian Ke", "K", "Alpha", "Beta", "Accuracy"])', '']
 ...
-['', 'k = [3, 4, 5, 10, 11, 12, 13, 14, 15, 23, 28, 29, 30, 40, 50, 51, 52, 53, 54]', 'alpha = [0.3, 0.4]', 'beta = [0.1, 0.2]', 'best_param, history = find_best_lda(X_train, X_test, k, alpha, beta)']
+['', 'k = [3, 4, 5]', 'alpha = [0.3, 0.4]', 'beta = [0.1, 0.2]', 'best_param, history = find_best_lda(X_train, X_test, k, alpha, beta)']
 -------------------
 
