@@ -183,6 +183,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="Ekstraksi%20Kata%20Kunci.html"><strong>Ekstraksi Kata Kunci Berita</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="%28Text%20Rank%20Manual%29%20Ekstraksi%20Kata%20Kunci.html"><strong>(Manual Code) Ekstraksi Kata Kunci Dengan Text Rank</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proyek%20Akhir%20Pencarian%20Dan%20Penambangan%20WEB.html"><strong>Proyek Akhir Pencarian Dan Penambangan WEB (Klasifikasi Berita dengan Reduksi Dimensi Latent Dirichlet Allocation (LDA) menggunakan Metode Naive Bayes)</strong></a></li>
 </ul>
 
     </div>
@@ -409,6 +410,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset-transform-to-term-frequency">Load Dataset (transform to Term Frequency)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-null-data">Cek NULL Data</a></li>
@@ -423,7 +425,6 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes">Modeling Naive Bayes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predict">Predict</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 </ul>
             </nav>
         </div>
@@ -437,6 +438,10 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="klasifikasi-abstrak-pta-trunojoyo-menggunakan-metode-naive-bayes-dengan-reduksi-dimensi">
 <h1><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong><a class="headerlink" href="#klasifikasi-abstrak-pta-trunojoyo-menggunakan-metode-naive-bayes-dengan-reduksi-dimensi" title="Permalink to this heading">#</a></h1>
+<section id="deployment">
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this heading">#</a></h2>
+<p><a class="reference external" href="https://app-pta-trunojoyo.streamlit.app/">Link Deployment Streamlit</a></p>
+</section>
 <section id="import-library">
 <h2>Import Library<a class="headerlink" href="#import-library" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -485,7 +490,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-aa353026-d7fa-4fb0-96c4-5313457b6f77" class="colab-df-container">
+  <div id="df-9c03e5fb-f632-4228-aae1-2ded51139742" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -799,7 +804,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-aa353026-d7fa-4fb0-96c4-5313457b6f77')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-9c03e5fb-f632-4228-aae1-2ded51139742')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -851,12 +856,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-aa353026-d7fa-4fb0-96c4-5313457b6f77 button.colab-df-convert');
+        document.querySelector('#df-9c03e5fb-f632-4228-aae1-2ded51139742 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-aa353026-d7fa-4fb0-96c4-5313457b6f77');
+        const element = document.querySelector('#df-9c03e5fb-f632-4228-aae1-2ded51139742');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -941,7 +946,7 @@ Length: 9050, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-260d5613-4753-4d1b-844a-c4f83be2cd05" class="colab-df-container">
+  <div id="df-646df015-6b64-4b8e-bc1e-f4f58e5562e5" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1255,7 +1260,7 @@ Length: 9050, dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-260d5613-4753-4d1b-844a-c4f83be2cd05')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-646df015-6b64-4b8e-bc1e-f4f58e5562e5')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1307,12 +1312,12 @@ Length: 9050, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-260d5613-4753-4d1b-844a-c4f83be2cd05 button.colab-df-convert');
+        document.querySelector('#df-646df015-6b64-4b8e-bc1e-f4f58e5562e5 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-260d5613-4753-4d1b-844a-c4f83be2cd05');
+        const element = document.querySelector('#df-646df015-6b64-4b8e-bc1e-f4f58e5562e5');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1422,7 +1427,7 @@ Name: Label, Length: 792, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-3cdd2ca5-21bf-49fe-8000-28bdc5425787" class="colab-df-container">
+  <div id="df-dc8ff086-4924-4b71-8183-4ae0fcdab301" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1452,24 +1457,24 @@ Name: Label, Length: 792, dtype: object
     <tr>
       <th>0</th>
       <td>sistem informasi akademik siakad sistem inform...</td>
-      <td>0.194931</td>
-      <td>0.803605</td>
-      <td>0.001465</td>
+      <td>0.001464</td>
+      <td>0.001464</td>
+      <td>0.997071</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>1</th>
       <td>berjalannya koneksi jaringan komputer lancar g...</td>
       <td>0.000875</td>
-      <td>0.966249</td>
-      <td>0.032876</td>
+      <td>0.454692</td>
+      <td>0.544433</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>2</th>
       <td>web server perangkat lunak server berfungsi me...</td>
-      <td>0.001146</td>
-      <td>0.997709</td>
+      <td>0.826430</td>
+      <td>0.172424</td>
       <td>0.001146</td>
       <td>RPL</td>
     </tr>
@@ -1477,16 +1482,16 @@ Name: Label, Length: 792, dtype: object
       <th>3</th>
       <td>penjadwalan kuliah perguruan kompleks permasal...</td>
       <td>0.001173</td>
-      <td>0.997655</td>
       <td>0.001173</td>
+      <td>0.997655</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>4</th>
       <td>seiring perkembangan teknologi didunia muncul ...</td>
+      <td>0.338070</td>
+      <td>0.660870</td>
       <td>0.001061</td>
-      <td>0.001061</td>
-      <td>0.997879</td>
       <td>KK</td>
     </tr>
     <tr>
@@ -1501,24 +1506,24 @@ Name: Label, Length: 792, dtype: object
       <th>549</th>
       <td>audit teknologi informasi proses mengumpulkan ...</td>
       <td>0.001108</td>
-      <td>0.997785</td>
-      <td>0.001108</td>
+      <td>0.066604</td>
+      <td>0.932288</td>
       <td>RPL</td>
     </tr>
     <tr>
       <th>550</th>
       <td>tanda tangan bentuk khusus tulisan tangan meng...</td>
-      <td>0.998082</td>
+      <td>0.115792</td>
       <td>0.000959</td>
-      <td>0.000959</td>
+      <td>0.883249</td>
       <td>KK</td>
     </tr>
     <tr>
       <th>551</th>
       <td>tanda tangan palsu keperluan mengatasi tercipt...</td>
       <td>0.001133</td>
-      <td>0.997734</td>
       <td>0.001133</td>
+      <td>0.997735</td>
       <td>KK</td>
     </tr>
     <tr>
@@ -1532,9 +1537,9 @@ Name: Label, Length: 792, dtype: object
     <tr>
       <th>553</th>
       <td>NaN</td>
-      <td>0.998295</td>
+      <td>0.378280</td>
       <td>0.000853</td>
-      <td>0.000853</td>
+      <td>0.620867</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -1544,7 +1549,7 @@ Name: Label, Length: 792, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-3cdd2ca5-21bf-49fe-8000-28bdc5425787')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-dc8ff086-4924-4b71-8183-4ae0fcdab301')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1596,12 +1601,12 @@ Name: Label, Length: 792, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-3cdd2ca5-21bf-49fe-8000-28bdc5425787 button.colab-df-convert');
+        document.querySelector('#df-dc8ff086-4924-4b71-8183-4ae0fcdab301 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-3cdd2ca5-21bf-49fe-8000-28bdc5425787');
+        const element = document.querySelector('#df-dc8ff086-4924-4b71-8183-4ae0fcdab301');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1647,7 +1652,7 @@ Name: Label, Length: 792, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f21c138a-0345-42b7-998e-0c5b0daae71e" class="colab-df-container">
+  <div id="df-4e29222d-ea0a-446b-92e9-cea6b7948dff" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1696,44 +1701,44 @@ Name: Label, Length: 792, dtype: object
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
+      <td>2.2</td>
+      <td>0.200000</td>
+      <td>0.200000</td>
+      <td>0.333364</td>
       <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
+      <td>0.200000</td>
       <td>...</td>
-      <td>2.19914</td>
+      <td>0.2</td>
+      <td>1.197068</td>
+      <td>0.2</td>
+      <td>9.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.2</td>
-      <td>1.2</td>
-      <td>1.2</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.2</td>
       <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>2.2</td>
       <td>1.2</td>
-      <td>3.2</td>
       <td>1.2</td>
       <td>0.2</td>
+      <td>0.204809</td>
+      <td>0.200504</td>
+      <td>0.200000</td>
       <td>0.2</td>
+      <td>1.866831</td>
       <td>...</td>
-      <td>0.20000</td>
-      <td>1.2</td>
-      <td>1.2</td>
-      <td>9.2</td>
+      <td>2.2</td>
+      <td>0.200000</td>
       <td>0.2</td>
-      <td>3.2</td>
-      <td>4.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
@@ -1742,25 +1747,25 @@ Name: Label, Length: 792, dtype: object
       <th>2</th>
       <td>0.2</td>
       <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>0.2</td>
+      <td>1.195191</td>
+      <td>3.199496</td>
+      <td>1.066636</td>
+      <td>0.2</td>
+      <td>1.533169</td>
+      <td>...</td>
+      <td>0.2</td>
+      <td>0.202932</td>
       <td>1.2</td>
-      <td>1.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
       <td>0.2</td>
       <td>0.2</td>
       <td>3.2</td>
-      <td>...</td>
-      <td>0.20086</td>
+      <td>4.2</td>
       <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
-      <td>0.2</td>
+      <td>1.2</td>
+      <td>1.2</td>
     </tr>
   </tbody>
 </table>
@@ -1769,7 +1774,7 @@ Name: Label, Length: 792, dtype: object
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f21c138a-0345-42b7-998e-0c5b0daae71e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4e29222d-ea0a-446b-92e9-cea6b7948dff')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1821,12 +1826,12 @@ Name: Label, Length: 792, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f21c138a-0345-42b7-998e-0c5b0daae71e button.colab-df-convert');
+        document.querySelector('#df-4e29222d-ea0a-446b-92e9-cea6b7948dff button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f21c138a-0345-42b7-998e-0c5b0daae71e');
+        const element = document.querySelector('#df-4e29222d-ea0a-446b-92e9-cea6b7948dff');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1935,10 +1940,6 @@ Confusion Matriks:
 </div>
 </div>
 </section>
-<section id="deployment">
-<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://app-pta-trunojoyo.streamlit.app/">Link Deployment Streamlit</a></p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2004,6 +2005,7 @@ Confusion Matriks:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset-transform-to-term-frequency">Load Dataset (transform to Term Frequency)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-null-data">Cek NULL Data</a></li>
@@ -2018,7 +2020,6 @@ Confusion Matriks:
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-naive-bayes">Modeling Naive Bayes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#predict">Predict</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deployment">Deployment</a></li>
 </ul>
   </nav></div>
 
