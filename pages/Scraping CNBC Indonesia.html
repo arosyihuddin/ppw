@@ -1,0 +1,980 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Scraping Berita CNBC Indonesia &#8212; Pencarian &amp; Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNBC Indonesia';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Klasifikasi Berita Berbasis Graph Cosine Similirity" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html" />
+    <link rel="prev" title="Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi" href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Pencarian & Penambangan Web - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Pencarian & Penambangan Web - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Home Page
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Create Jupyter Notebook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Setup%20Jupyter%20Notebook.html">Setup Jupyter Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20Trunojoyo.html">Crawling Website PTA Trunojoyo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html"><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ekstraksi%20Kata%20Kunci.html"><strong>Ekstraksi Kata Kunci Berita</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="%28Text%20Rank%20Manual%29%20Ekstraksi%20Kata%20Kunci.html"><strong>(Manual Code) Ekstraksi Kata Kunci Dengan Text Rank</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proyek%20Akhir%20Pencarian%20Dan%20Penambangan%20WEB.html"><strong>Proyek Akhir Pencarian Dan Penambangan WEB (Klasifikasi Berita dengan Reduksi Dimensi Latent Dirichlet Allocation (LDA) menggunakan Metode Naive Bayes)</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/arosyihuddin/ppw/blob/gh-pages/_sources/pages/Scraping CNBC Indonesia.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw/issues/new?title=Issue%20on%20page%20%2Fpages/Scraping CNBC Indonesia.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pages/Scraping CNBC Indonesia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Scraping Berita CNBC Indonesia</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-library">Importing Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-nav-link">Function <code class="docutils literal notranslate"><span class="pre">get_nav_link()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-data">Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-content">Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-scraping-cnbc">Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemanggilan-fungsi-scraping-cnbc">Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-hasil-scraping">Load Data Hasil Scraping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-jumlah-data">Cek Jumlah Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-null">Cek Data NULL</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="scraping-berita-cnbc-indonesia">
+<h1><strong>Scraping Berita CNBC Indonesia</strong><a class="headerlink" href="#scraping-berita-cnbc-indonesia" title="Permalink to this heading">#</a></h1>
+<section id="importing-library">
+<h2>Importing Library<a class="headerlink" href="#importing-library" title="Permalink to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">bs4</span> <span class="pre">import</span> <span class="pre">BeautifulSoup</span></code>: Pustaka BeautifulSoup adalah pustaka Python yang digunakan untuk melakukan web scraping. Dalam konteks ini, BeautifulSoup akan digunakan untuk mengurai atau mem-parsing data HTML yang diambil dari situs web.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">requests</span></code>: Pustaka <code class="docutils literal notranslate"><span class="pre">requests</span></code> adalah pustaka yang digunakan untuk membuat permintaan HTTP ke server web. Dalam kode ini, kita akan menggunakannya untuk mengunduh halaman web atau mengambil data dari situs web.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>: Pustaka <code class="docutils literal notranslate"><span class="pre">pandas</span></code> adalah pustaka Python yang digunakan untuk analisis data. Dalam kode ini, kita akan menggunakan pandas untuk menyimpan dan mengelola data yang diambil dari situs web ke dalam bentuk DataFrame, yang merupakan struktur data yang kuat untuk menganalisis dan memanipulasi data.</p></li>
+</ol>
+<p>Dengan mengimpor pustaka-pustaka ini, kita akan siap untuk melakukan web scraping dan menganalisis data yang diambil dari situs web. Selanjutnya, Anda akan perlu menambahkan sel-sel kode tambahan untuk melakukan langkah-langkah berikutnya, seperti mengambil data dari situs web dan memprosesnya menggunakan pustaka-pustaka ini.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-get-nav-link">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">get_nav_link()</span></code><a class="headerlink" href="#function-get-nav-link" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_nav_link</span><span class="p">():</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.cnbcindonesia.com&#39;</span><span class="p">)</span>
+
+  <span class="c1"># Untuk mengecek respon url dan mencari menu sidebar</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c1"># Get Nav</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">nav</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="n">value</span> <span class="ow">and</span> <span class="s1">&#39;gtm_navbar&#39;</span> <span class="ow">in</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">nav_link</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nav</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;HOME&#39;</span><span class="p">,</span> <span class="s1">&#39;CUAP CUAP CUAN&#39;</span><span class="p">,</span> <span class="s1">&#39;RESEARCH&#39;</span><span class="p">,</span> <span class="s1">&#39;OPINI&#39;</span><span class="p">,</span> <span class="s1">&#39;FOTO&#39;</span><span class="p">,</span> <span class="s1">&#39;VIDEO&#39;</span><span class="p">,</span> <span class="s1">&#39;INFOGRAFIS&#39;</span><span class="p">,</span> <span class="s1">&#39;BERBUATBAIK.ID&#39;</span><span class="p">]}</span>
+
+    <span class="c1"># Update Nav Link</span>
+    <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">nav_link</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="n">nav_content</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+      <span class="n">new_link</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">nav_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;btn btn_inline gtm_button_indeks_newsfeed&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+      <span class="n">nav_link</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_link</span>
+
+    <span class="k">return</span> <span class="n">nav_link</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response https://www.cnbcindonesia.com : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kode di atas adalah definisi dari sebuah fungsi bernama <code class="docutils literal notranslate"><span class="pre">get_nav_link</span></code>. Fungsi ini dirancang untuk melakukan beberapa tugas berikut:</p>
+<ol class="arabic simple">
+<li><p>Mengambil halaman web dari situs web “<a class="reference external" href="https://www.cnbcindonesia.com">https://www.cnbcindonesia.com</a>”.</p></li>
+<li><p>Menganalisis halaman web untuk menemukan tautan navigasi (nav) ke berbagai kategori.</p></li>
+<li><p>Memperbarui tautan kategori dengan tautan ke halaman berita terkait.</p></li>
+<li><p>Mengembalikan kamus (dictionary) yang berisi tautan kategori sebagai kunci dan tautan halaman berita terkait sebagai nilainya.</p></li>
+</ol>
+</section>
+<section id="function-get-data">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code><a class="headerlink" href="#function-get-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">judul</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">category</span><span class="p">,</span> <span class="n">author</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;author&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">article</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail_text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">article</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SCROLL TO RESUME CONTENT&#39;</span><span class="p">,</span> <span class="s1">&#39;ADVERTISEMENT&#39;</span><span class="p">]:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">author</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kode di atas adalah definisi dari sebuah fungsi yang bernama <code class="docutils literal notranslate"><span class="pre">get_data</span></code>. Fungsi ini digunakan untuk mengambil dan menguraikan data dari halaman web berita dengan URL yang diberikan. Berikut adalah penjelasan singkat tentang apa yang dilakukan oleh fungsi ini:</p>
+<ul class="simple">
+<li><p>Nama Fungsi: <code class="docutils literal notranslate"><span class="pre">get_data</span></code></p></li>
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">url</span></code> (URL halaman web berita yang akan diambil data dari)</p></li>
+</ul>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">get_data</span></code> melakukan langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li><p>Menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">requests</span></code>, fungsi ini mengambil halaman web dari URL yang diberikan (<code class="docutils literal notranslate"><span class="pre">url</span></code>).</p></li>
+<li><p>Memeriksa apakah responsenya berhasil (status kode 200), jika ya, maka melakukan langkah selanjutnya.</p></li>
+<li><p>Menginisialisasi sebuah daftar kosong <code class="docutils literal notranslate"><span class="pre">data</span></code> yang akan digunakan untuk menyimpan data dari halaman web.</p></li>
+<li><p>Mengurai kode HTML halaman web menggunakan BeautifulSoup.</p></li>
+<li><p>Mengambil judul berita dari elemen <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code> pada halaman dan membersihkan teksnya.</p></li>
+<li><p>Mengambil tanggal berita dari elemen dengan kelas CSS “date” dan membersihkan teksnya.</p></li>
+<li><p>Mengambil kategori dan penulis berita dari elemen dengan kelas CSS “author” dan memisahkan kategori dan penulis menggunakan tanda ‘-’. Kemudian membersihkan teksnya.</p></li>
+<li><p>Mengambil teks berita dari elemen dengan kelas CSS “detail_text” dan menghapus elemen-elemen yang tidak dibutuhkan seperti “SCROLL TO RESUME CONTENT” dan “ADVERTISEMENT”. Teks berita kemudian disatukan ke dalam variabel <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p></li>
+<li><p>Data berita, termasuk URL, judul, tanggal, penulis, teks berita, dan kategori, ditambahkan ke dalam daftar <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p>Fungsi mengembalikan <code class="docutils literal notranslate"><span class="pre">data</span></code>, yang berisi semua informasi yang telah diambil dari halaman web.</p></li>
+</ol>
+<p>Jadi, fungsi <code class="docutils literal notranslate"><span class="pre">get_data</span></code> ini digunakan untuk mengambil dan menyajikan data yang relevan dari halaman web berita yang diberikan.</p>
+</section>
+<section id="function-get-content">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code><a class="headerlink" href="#function-get-content" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">len_data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">list_content</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">)</span>
+    <span class="n">next_button</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;paging text_center gtm_paging&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># for content in list_content:</span>
+    <span class="k">while</span> <span class="n">idx</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_content</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">len_data</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+        <span class="n">subjudul</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;subjudul&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subjudul</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">subjudul</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;video&quot;</span><span class="p">,</span><span class="s2">&quot;Breaking News&quot;</span><span class="p">,</span><span class="s2">&quot;Techzone&quot;</span><span class="p">,</span> <span class="s2">&quot;Video&quot;</span><span class="p">,</span> <span class="s2">&quot;Editor&#39;s View&quot;</span><span class="p">,</span><span class="s2">&quot;Foto Internasional&quot;</span> <span class="p">,</span> <span class="s2">&quot;FOTO Internasional&quot;</span><span class="p">,</span> <span class="s2">&quot;FOTO&quot;</span><span class="p">,</span> <span class="s2">&quot;Video Breaking News&quot;</span><span class="p">,</span> <span class="s2">&quot;Transmart Full Day Sale&quot;</span><span class="p">,</span> <span class="s2">&quot;Tech A Look&quot;</span><span class="p">]:</span>
+          <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+          <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+          <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+      <span class="k">else</span><span class="p">:</span>
+        <span class="k">break</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+      <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kode di atas adalah definisi dari sebuah fungsi yang bernama <code class="docutils literal notranslate"><span class="pre">get_content</span></code>. Fungsi ini digunakan untuk mengambil dan mengurai konten berita dari halaman web dengan URL yang diberikan. Berikut adalah penjelasan singkat tentang apa yang dilakukan oleh fungsi ini:</p>
+<ul class="simple">
+<li><p>Nama Fungsi: <code class="docutils literal notranslate"><span class="pre">get_content</span></code></p></li>
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">url</span></code> (URL halaman web berita), <code class="docutils literal notranslate"><span class="pre">len_data</span></code> (panjang data yang sudah diambil), <code class="docutils literal notranslate"><span class="pre">target</span></code> (target panjang data yang ingin dicapai)</p></li>
+</ul>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">get_content</span></code> melakukan langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li><p>Menginisialisasi daftar kosong <code class="docutils literal notranslate"><span class="pre">data</span></code> yang akan digunakan untuk menyimpan data konten berita.</p></li>
+<li><p>Menggunakan pustaka <code class="docutils literal notranslate"><span class="pre">requests</span></code>, fungsi ini mengambil halaman web dari URL yang diberikan (<code class="docutils literal notranslate"><span class="pre">url</span></code>).</p></li>
+<li><p>Memeriksa apakah responsenya berhasil (status kode 200), jika ya, maka melakukan langkah selanjutnya.</p></li>
+<li><p>Mengurai kode HTML halaman web menggunakan BeautifulSoup.</p></li>
+<li><p>Mengidentifikasi elemen-elemen <code class="docutils literal notranslate"><span class="pre">&lt;article&gt;</span></code> yang mengandung konten berita pada halaman web.</p></li>
+<li><p>Mengidentifikasi tautan ke halaman berita berikutnya (jika ada) dengan mencari elemen dengan kelas CSS “paging text_center gtm_paging” dan mengambil tautan dari elemen terakhir dalam daftar tautan.</p></li>
+<li><p>Mengeksekusi loop <code class="docutils literal notranslate"><span class="pre">while</span></code> untuk mengambil data konten berita dari setiap elemen <code class="docutils literal notranslate"><span class="pre">&lt;article&gt;</span></code> dalam daftar <code class="docutils literal notranslate"><span class="pre">list_content</span></code>. Loop ini berlanjut selama <code class="docutils literal notranslate"><span class="pre">len_data</span></code> belum mencapai <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p></li>
+<li><p>Dalam setiap iterasi, fungsi memeriksa apakah ada elemen <code class="docutils literal notranslate"><span class="pre">&lt;span&gt;</span></code> dengan kelas CSS “subjudul” yang berisi teks tertentu yang perlu diabaikan. Jika tidak ada atau teksnya tidak ada dalam daftar yang perlu diabaikan, maka data berita diambil dengan memanggil fungsi <code class="docutils literal notranslate"><span class="pre">get_data</span></code> pada tautan yang ditemukan dan data tersebut ditambahkan ke dalam daftar <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p>Fungsi juga meng-update <code class="docutils literal notranslate"><span class="pre">len_data</span></code> setiap kali berhasil mengambil data berita.</p></li>
+<li><p>Fungsi menghentikan loop dan mengembalikan hasil (yaitu data berita yang telah diambil dan tautan ke halaman berita berikutnya) ketika <code class="docutils literal notranslate"><span class="pre">len_data</span></code> mencapai <code class="docutils literal notranslate"><span class="pre">target</span></code>.</p></li>
+<li><p>Jika ada masalah dalam mengambil respons dari URL, maka akan mencetak pesan yang menyatakan kode status respons yang diterima.</p></li>
+<li><p>Fungsi mengembalikan sebuah tupel yang berisi daftar <code class="docutils literal notranslate"><span class="pre">data</span></code> dan tautan ke halaman berita berikutnya.</p></li>
+</ol>
+<p>Jadi, fungsi <code class="docutils literal notranslate"><span class="pre">get_content</span></code> ini digunakan untuk mengambil dan mengurai konten berita dari halaman web, serta menghubungkan dengan halaman berita berikutnya hingga mencapai target panjang data yang diinginkan.</p>
+</section>
+<section id="function-scraping-cnbc">
+<h2>Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code><a class="headerlink" href="#function-scraping-cnbc" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+  <span class="n">category_link</span> <span class="o">=</span> <span class="n">get_nav_link</span><span class="p">()</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">category</span><span class="p">:</span>
+    <span class="n">len_data_category</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">len_data_category</span> <span class="o">!=</span> <span class="n">num_data</span><span class="p">:</span>
+      <span class="n">new_data</span><span class="p">,</span> <span class="n">next_button</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">len_data_category</span><span class="p">,</span> <span class="n">num_data</span><span class="p">)</span>
+      <span class="n">data</span> <span class="o">+=</span> <span class="n">new_data</span>
+      <span class="n">len_data_category</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+      <span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_button</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Berhasil Mengambil data sebanyak </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> berita dengan </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">)</span><span class="si">}</span><span class="s1"> Category&#39;</span><span class="p">)</span>
+
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Url&#39;</span><span class="p">,</span> <span class="s1">&#39;Judul&#39;</span><span class="p">,</span> <span class="s1">&#39;Tanggal&#39;</span><span class="p">,</span> <span class="s1">&#39;Author&#39;</span><span class="p">,</span> <span class="s1">&#39;Artikel&#39;</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">])</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNBC.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kode di atas adalah definisi dari sebuah fungsi yang bernama <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code>. Fungsi ini adalah fungsi utama yang digunakan untuk melakukan scraping berita dari situs web “CNBC Indonesia” dengan kategori dan jumlah data yang diinginkan. Berikut adalah penjelasan singkat tentang apa yang dilakukan oleh fungsi ini:</p>
+<ul class="simple">
+<li><p>Nama Fungsi: <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code></p></li>
+<li><p>Parameter: <code class="docutils literal notranslate"><span class="pre">category</span></code> (kategori berita yang ingin diambil, default [‘TECH’, ‘NEWS’]), <code class="docutils literal notranslate"><span class="pre">num_data</span></code> (jumlah data berita yang ingin diambil, default 2)</p></li>
+</ul>
+<p>Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code> melakukan langkah-langkah berikut:</p>
+<ol class="arabic simple">
+<li><p>Memanggil fungsi <code class="docutils literal notranslate"><span class="pre">get_nav_link</span></code> untuk mendapatkan tautan kategori berita dari situs “CNBC Indonesia” dan menyimpannya dalam variabel <code class="docutils literal notranslate"><span class="pre">category_link</span></code>.</p></li>
+<li><p>Membuat daftar kosong <code class="docutils literal notranslate"><span class="pre">data</span></code> yang akan digunakan untuk menyimpan data berita yang akan diambil.</p></li>
+<li><p>Mengeksekusi loop <code class="docutils literal notranslate"><span class="pre">for</span></code> untuk setiap kategori yang diberikan dalam parameter <code class="docutils literal notranslate"><span class="pre">category</span></code>. Di dalam loop ini, fungsi akan mengambil data berita dari kategori yang sedang diproses.</p></li>
+<li><p>Di dalam loop, fungsi menginisialisasi variabel <code class="docutils literal notranslate"><span class="pre">len_data_category</span></code> yang digunakan untuk melacak jumlah data berita yang telah diambil dari kategori tertentu.</p></li>
+<li><p>Di dalam loop, fungsi memanggil <code class="docutils literal notranslate"><span class="pre">get_content</span></code> untuk mengambil data berita dari tautan kategori yang sesuai. Data berita yang baru diambil ditambahkan ke dalam daftar <code class="docutils literal notranslate"><span class="pre">data</span></code>.</p></li>
+<li><p>Variabel <code class="docutils literal notranslate"><span class="pre">len_data_category</span></code> diperbarui dengan panjang data berita yang baru diambil.</p></li>
+<li><p>Tautan ke halaman berita berikutnya (jika ada) juga diperbarui dalam variabel <code class="docutils literal notranslate"><span class="pre">category_link</span></code>.</p></li>
+<li><p>Setelah mengambil data berita sesuai dengan jumlah yang diinginkan, loop untuk kategori berakhir.</p></li>
+<li><p>Fungsi mencetak pesan yang menyatakan berapa banyak data berita yang berhasil diambil dari semua kategori.</p></li>
+<li><p>Fungsi menggunakan pandas untuk membuat DataFrame dari data berita yang telah diambil dan menyimpannya dalam file CSV dengan nama “Data Berita CNBC.csv”.</p></li>
+</ol>
+<p>Jadi, fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code> ini adalah fungsi utama yang mengorganisir scraping data berita dari situs web “CNBC Indonesia” berdasarkan kategori dan jumlah data yang diinginkan, dan kemudian menyimpan data tersebut dalam sebuah file CSV.</p>
+</section>
+<section id="pemanggilan-fungsi-scraping-cnbc">
+<h2>Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code><a class="headerlink" href="#pemanggilan-fungsi-scraping-cnbc" title="Permalink to this heading">#</a></h2>
+<p>Pemanggilan fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code> dengan parameter <code class="docutils literal notranslate"><span class="pre">category=['TECH',</span> <span class="pre">'NEWS',</span> <span class="pre">'ENTREPRENEUR']</span></code> dan <code class="docutils literal notranslate"><span class="pre">num_data=1</span></code> akan menjalankan proses scraping berita dari situs web “CNBC Indonesia” untuk tiga kategori berita: ‘TECH’, ‘NEWS’, dan ‘ENTREPRENEUR’, dan hanya mengambil satu data berita dari setiap kategori. Hasil scraping akan disimpan dalam sebuah file CSV dengan nama “Data Berita CNBC.csv”. Setelah proses selesai, fungsi akan mencetak pesan yang menyatakan berapa banyak data berita yang berhasil diambil.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraping_cnbc</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;TECH&#39;</span><span class="p">,</span> <span class="s1">&#39;NEWS&#39;</span><span class="p">,</span> <span class="s1">&#39;ENTREPRENEUR&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/tech/20231210100024-37-495932/google-sikat-17-pinjol-berbahaya-ada-yang-beroperasi-di-ri&#39;, &#39;Google Sikat 17 Pinjol Berbahaya, Ada yang Beroperasi di RI&#39;, &#39;10 December 2023 10:30&#39;, &#39;Tommy Patrio Sorongan, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Google memutuskan untuk menghapus 17 aplikasi pinjaman online (pinjol) berbahaya dari platform Google Play Store. Seluruh aplikasi itu diketahui menawarkan bunga pinjaman yang tinggi dan resiko pencurian data pribadi. Mengutip Detikinet, peneliti keamanan siber dari ESET Research mengatakan ada 18 aplikasi pinjol berbahaya yang beredar di Google Play Store. Belasan aplikasi ini sudah diunduh lebih dari 12 juta kali sejak tahun 2020. ESET tidak menyebutkan nama masing-masing aplikasi pinjol, namun mereka menggolongkan aplikasi nakal ini sebagai \&#39;SpyLoan\&#39; karena menggunakan teknik spyware. Aplikasi-aplikasi ini biasanya dipromosikan via SMS dan media sosial seperti Twitter/X, Facebook, dan YouTube. Menurut data ESET, deteksi aplikasi SpyLoan mulai meningkat sepanjang tahun 2023. Korban aplikasi berbahaya ini tersebar di banyak negara, seperti Meksiko, India, Indonesia, Thailand, Nigeria, Filipina, Mesir, Vietnam, Singapura, Kolombia, dan Peru.   Sebagian dari aplikasi pinjol berbahaya ini juga meniru nama dan branding dari penyedia layanan pinjaman dan institusi keuangan yang resmi. Bahkan ada satu penyedia layanan pinjol di Kolombia yang memperingatkan pengguna agar tidak tertipu aplikasi abal-abal yang meniru namanya. Setelah diinstal, aplikasi SpyLoan langsung meminta pengguna memberikan informasi pribadi seperti alamat, informasi kontak, bukti penghasilan, informasi rekening bank, serta foto kartu identitas bagian depan dan belakang. Selanjutnya aplikasi itu menyedot data sensitif yang ada di perangkat korban seperti log panggilan, event kalender, informasi perangkat, daftar aplikasi yang diinstal, informasi jaringan Wi-Fi lokal, hingga metadata foto. Selain itu, mereka juga mengincar daftar kontak, data lokasi pengguna, dan SMS.   &quot;Setelah itu, operator aplikasi pinjol berbahaya akan memeras dan mengancam pengguna untuk segera membayar pinjaman, bahkan ketika pengguna tidak meminjam uang atau pinjamannya ditolak. Bahkan ada attacker yang mengancam akan membunuh keluarga pengguna,&quot; seperti dikutip dari Gizmodo, Sabtu (9/12/2023). ESET langsung melaporkan temuannya ke Google. Saat ini, 17 aplikasi pinjaman online berbahaya sudah dihapus dari Play Store. Satu lagi bisa lolos karena sudah mengubah izin akses dan fungsinya sehingga tidak terdeteksi sebagai aplikasi SpyLoan. &#39;, &#39;Tech&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/news/20231210102940-4-495934/alamak-ac-tv-kulkas-diskon-gede-gedean-di-transmart&#39;, &#39;Alamak! AC, TV, Kulkas Diskon Gede-gedean di Transmart&#39;, &#39;10 December 2023 12:45&#39;, &#39;Teti Purwanti, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia- Kabar gembira datang bagi para pelanggan setia Transmart. Pasalnya, Transmart kembali menggelar program promo diskon gede-gedean bertajuk Transmart Full Day Sale pada hari Minggu (10/12/2023). Diskon tersebut mulai berlaku sejak toko buka hingga tutup pukul 22.00 atau jam 10 malam. Di Transmart Full Day Sale, para pelanggan bisa mendapatkan diskon hingga 50% plus tambahan diskon 20% jika bertransaksi menggunakan Allo Prime, Allo Paylater, kartu kredit Bank Mega, atau kartu kredit Bank Mega Syariah. Diskon ini berlaku untuk banyak barang, mulai dari produk segar, daging ayam, kebutuhan rumah tangga, furniture, pakaian, sepeda listrik, hingga barang elektronik. Misalnya AC Split 1/2 PK dari berbagai merek seperti LG, Polytron, Panasonic, Sharp, dan Samsung dari harga normal Rp 4,1 juta jadi harga promo Rp 3.374.000, dan harga sale Transmart Full Day Sale Rp 2.699.200. Ada juga kulkas dari side by side dari LG, Polytron, Panasonic, Sharp, dan Samsung dari Rp 12.040.000 dan harga promo Rp 10 juta, jadi harga sale Rp 8.799.200. Selain itu, LED TV 50 inch UHD Smart merek LG, Polytron, Panasonic, Sony, Sharp, Samsung, Hisense dan Akari juga diskon menjadi Rp 4.799.200 dari harga normal Rp 6.960.000 dan harga promo Rp 5.999.000.   Sementara LED TV 65 inch UHD Smart merek LG, Polytron, Panasonic, Sony, Sharp, Samsung,Hisense dan Akari diskon menjadi Rp 7.679.200 dari harga normal Rp 11,2 juta dan harga promo Rp 9.599.000. Adapun, diskon tambahan akan berlaku bagi pelanggan yang menggunakan kartu kredit Bank Mega, kartu kredit Bank Mega Syariah, dan aplikasi Allo Bank Allo Prime termasuk layanan Allo Paylater. Selanjutnya khusus untuk elektronik maksimal pembelian 2 Pcs per kategori (TV, AC, Kulkas, Mesin Cuci) Small Appliance tanpa pembatasan Yuk belanja di Transmart sekarang juga. Diskon gede-gedean ini hanya berlaku seharian lho.  &#39;, &#39;News&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnbcindonesia.com/entrepreneur/20231210114238-25-495940/presiden-puji-produk-umkm-expo-rt--brilianpreneur-2023&#39;, &#39;Presiden Puji Produk UMKM EXPO(RT) BRILIANPRENEUR 2023&#39;, &#39;10 December 2023 12:00&#39;, &#39;Teti Purwanti, CNBC Indonesia&#39;, &#39;Jakarta, CNBC Indonesia - Presiden RI Joko Widodo mengapresiasi gelaran pameran UMKM EXPO(RT) BRILIANPRENEUR karena dinilai telah mendukung UMKM nasional naik kelas dan berdaya saing di panggung internasional. Presiden Joko Widodo menegaskan bahwa UMKM Indonesia perlu untuk terus naik kelas, go digital, dan go internasional. Ia juga mengingatkan bahwa meskipun UMKM nasional mampu menguasai pasar lokal, tetapi juga jangan melupakan potensi pasar ekspor atau pasar global. Dia pun menilai bahwa gelaran expo yang dilakukan oleh BRI memiliki kualitas yang sangat baik, baik dari segi produk yang ditampilkan maupun dari sisi interaksi antara para pelaku UMKM peserta expo dengan para buyers. &quot;Saya sangat menghargai, mengapresiasi UMKM EXPO(RT) BRILIANPRENEUR 2023 ini, yang saya lihat tadi di depan produk-produk yang ditampilkan, betul-betul dikurasi sangat baik, kemasan juga saya lihat bagus-bagus, branding-nya juga bagus-bagus, dan yang paling penting memang bagaimana mempertemukan dengan buyers dengan para pelaku UMKM,&quot; ujar Jokowi saat membuka gelaran UMKM EXPO(RT) BRILIANPRENEUR 2023 yang digelar oleh PT Bank Rakyat Indonesia (Persero) Tbk. atau BRI di Jakarta Convention Center (JCC), Jakarta, pada Rabu (7/12/2023). Presiden menjelaskan bahwa kontribusi produk UMKM lokal dalam negeri ke pasar global masih terbatas, bahkan masih rendah dibandingkan sejumlah negara tetangga. Sebagai gambaran, lanjutnya, produk UMKM Indonesia yang masuk ke pasar ekspor baru 15,7%. Bandingkan dengan Singapura yang berkisar 41% dan Thailand 29%. &quot;Kalau kita lihat memang masih belum besar. Ini yang menjadi pekerjaan besar kita,&quot; ujarnya.   Kepada para pelaku UMKM, Jokowi juga tak bosan mengingatkan bahwa produk UMKM harus selalu melihat permintaan pasar, trend dan selera pasar yang sedang berkembang, juga senantiasa melakukan perbaikan-perbaikan produk agar tetap up to date dan mampu memenuhi pasar yang ada. Senada dengan Jokowi, Menteri BUMN RI Erick Thohir yang turut hadir dalam acara tersebut menuturkan bahwa UMKM adalah prioritas bagi pertumbuhan perekonomian nasional. BRI sebagai bank dengan portofolio terbesar di segmen UMKM yang konsisten menyelenggarakan gelaran UMKM EXPO(RT) BRILIANPRENEUR, diharapkan dapat terus aktif membangun ekosistem yang baik bagi pelaku UMKM untuk tumbuh dan naik kelas. Lebih lanjut, Erick menegaskan bahwa slogan &quot;Rawat yang Kecil Menjaga UMKM&quot; merupakan bukti nyata pemerintah hadir dan bekerja nyata untuk masyarakat Indonesia. &quot;4 tahun lalu, di acara yang sama [BRILIANPRENEUR], ketika itu bapak Presiden selalu memberi dorongan kepada kami di Himbara, terutama di BRI, untuk memastikan bahwa kita membangun ekosistem untuk UMKM di mana ada pendanaan, ada akses pasar, dan pendampingan, itu menjadi kunci yang memang kita selalu jaga sampai hari ini. Tahun 2019 lalu, kita sudah berhasil mendorong. Sekarang ada 700 UMKM, dan bisa dilihat sekarang mereka makin juga bersinar seperti Brilian,&quot; ucap Erick. Direktur Utama BRI Sunarso menegaskan bahwa UMKM harus banyak mendapatkan kesempatan ekspor dan masuk pasar internasional. Terlebih apabila mengingat posisi UMKM yang merupakan tulang punggung perekonomian nasional. &quot;Program UMKM EXPO(RT) BRILIANPRENEUR menjadi salah satu langkah konkret BRI sebagai lembaga keuangan yang turut bertanggung jawab memajukan UMKM Indonesia. BRI melihat adanya peluang besar bagi produk-produk Indonesia untuk masuk ke pasar global. Hasil karya anak bangsa dinilai memiliki kualitas yang dapat bersaing dengan produk dari negara-negara lain\&#39;, ungkap Sunarso.   Pada tahun ini untuk kelima kalinya BRI kembali menyelenggarakan pameran BRI UMKM EXPO(RT) BRILIANPRENEUR. Hal ini dilakukan untuk mendorong pelaku usaha Indonesia mengembangkan pasar dan Go Global. Ajang UMKM EXPO(RT) BRILIANPRENEUR diselenggarakan sebagai sarana business matching antara UMKM Indonesia dengan konsumen luar negeri, sehingga diharapkan mampu menumbuhkembangkan pelaku UMKM dan meningkatkan ekspor nasional. BRI UMKM EXPO(RT) BRILIANPRENEUR 2023 mengusung tema &quot;Crafting Global Connection&quot; atau merakit koneksi global. Dalam UMKM EXPO(RT) BRILIANPRENEUR 2023 ini, BRI mengajak 700 UMKM terkurasi. Sebanyak 378 UMKM di antaranya adalah pendaftar baru, 122 UMKM alumni UMKM EXPO(RT) BRILIANPRENEUR, 6 UMKM binaan Perusahaan Anak seperti Pegadaian, PNM dan BRI Ventures. Selain itu juga 153 UMKM Local Heroes yang telah menjadi market leader dengan harapan dapat memperluas impact bisnis dan terkoneksi untuk berkolaborasi kepada UMKM lainnya. Kemudian 32 UMKM merupakan member SCAI (Specialty Coffee Association of Indonesia) dan 9 UMKM SMExcellence binaan Kementerian Koperasi &amp; UKM. UKM tersebut berasal dari berbagai daerah yang akan menampilkan produk-produk terbaru dan terbaik mereka.  &#39;, &#39;Entrepreneur&#39;]
+Berhasil Mengambil data sebanyak 3 berita dengan 3 Category
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-data-hasil-scraping">
+<h2>Load Data Hasil Scraping<a class="headerlink" href="#load-data-hasil-scraping" title="Permalink to this heading">#</a></h2>
+<p>menggunakan pustaka pandas untuk membaca file CSV yang telah dihasilkan oleh fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc</span></code>. Setelah membaca file CSV, Anda menyimpan data tersebut dalam DataFrame yang dinamai <code class="docutils literal notranslate"><span class="pre">df</span></code>. Kemudian, Anda menampilkan DataFrame <code class="docutils literal notranslate"><span class="pre">df</span></code> dengan perintah <code class="docutils literal notranslate"><span class="pre">df</span></code>. Ini akan menampilkan data berita yang telah diambil dari situs web “CNBC Indonesia” dalam bentuk DataFrame di lingkungan kerja Anda. Anda dapat melakukan berbagai operasi dan analisis data lebih lanjut menggunakan DataFrame ini.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNBC.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-31ba0611-1aa6-4009-b3f0-003c3883b8e4" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Url</th>
+      <th>Judul</th>
+      <th>Tanggal</th>
+      <th>Author</th>
+      <th>Artikel</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>https://www.cnbcindonesia.com/tech/20231210100...</td>
+      <td>Google Sikat 17 Pinjol Berbahaya, Ada yang Ber...</td>
+      <td>10 December 2023 10:30</td>
+      <td>Tommy Patrio Sorongan, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Google memutuskan un...</td>
+      <td>Tech</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>https://www.cnbcindonesia.com/news/20231210102...</td>
+      <td>Alamak! AC, TV, Kulkas Diskon Gede-gedean di T...</td>
+      <td>10 December 2023 12:45</td>
+      <td>Teti Purwanti, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia- Kabar gembira datang ...</td>
+      <td>News</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>https://www.cnbcindonesia.com/entrepreneur/202...</td>
+      <td>Presiden Puji Produk UMKM EXPO(RT) BRILIANPREN...</td>
+      <td>10 December 2023 12:00</td>
+      <td>Teti Purwanti, CNBC Indonesia</td>
+      <td>Jakarta, CNBC Indonesia - Presiden RI Joko Wid...</td>
+      <td>Entrepreneur</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-31ba0611-1aa6-4009-b3f0-003c3883b8e4')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-31ba0611-1aa6-4009-b3f0-003c3883b8e4 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-31ba0611-1aa6-4009-b3f0-003c3883b8e4');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+</section>
+<section id="cek-jumlah-data">
+<h2>Cek Jumlah Data<a class="headerlink" href="#cek-jumlah-data" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 6)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="cek-data-null">
+<h2>Cek Data NULL<a class="headerlink" href="#cek-data-null" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Url         0
+Judul       0
+Tanggal     0
+Author      0
+Artikel     0
+Category    0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-library">Importing Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-nav-link">Function <code class="docutils literal notranslate"><span class="pre">get_nav_link()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-data">Function <code class="docutils literal notranslate"><span class="pre">get_data()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-get-content">Function <code class="docutils literal notranslate"><span class="pre">get_content()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-scraping-cnbc">Function <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pemanggilan-fungsi-scraping-cnbc">Pemanggilan Fungsi <code class="docutils literal notranslate"><span class="pre">scraping_cnbc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data-hasil-scraping">Load Data Hasil Scraping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-jumlah-data">Cek Jumlah Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-null">Cek Data NULL</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Rosyihuddin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

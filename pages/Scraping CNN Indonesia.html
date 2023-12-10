@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; Pencarian &amp; Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'pages/Scraping CNN Indonesia';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Pencarian & Penambangan Web - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Pencarian & Penambangan Web - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Home Page
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Create Jupyter Notebook</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Setup%20Jupyter%20Notebook.html">Setup Jupyter Notebook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">TUGAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Crawling%20PTA%20Trunojoyo.html">Crawling Website PTA Trunojoyo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Preprocessing%20Hasil%20Crawling.html">Preprocessing Data Text</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Example%20Reduksi%20DImensi.html">(Example) Reduksi Dimensi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Abstrak%20PTA%20Trunojoyo%20Menggunakan%20metode%20Naive%20Bayes%20Dengan%20Reduksi%20Dimensi.html"><strong>Klasifikasi Abstrak PTA Trunojoyo Menggunakan metode Naive Bayes Dengan Reduksi Dimensi</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Scraping%20CNBC%20Indonesia.html"><strong>Scraping Berita CNBC Indonesia</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Klasifikasi%20Berita%20Berbasis%20Graph%20Cosine%20Similirity.html"><strong>Klasifikasi Berita Berbasis Graph Cosine Similirity</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ekstraksi%20Kata%20Kunci.html"><strong>Ekstraksi Kata Kunci Berita</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="%28Text%20Rank%20Manual%29%20Ekstraksi%20Kata%20Kunci.html"><strong>(Manual Code) Ekstraksi Kata Kunci Dengan Text Rank</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Proyek%20Akhir%20Pencarian%20Dan%20Penambangan%20WEB.html"><strong>Proyek Akhir Pencarian Dan Penambangan WEB (Klasifikasi Berita dengan Reduksi Dimensi Latent Dirichlet Allocation (LDA) menggunakan Metode Naive Bayes)</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/arosyihuddin/ppw/blob/gh-pages/_sources/pages/Scraping CNN Indonesia.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/arosyihuddin/ppw/issues/new?title=Issue%20on%20page%20%2Fpages/Scraping CNN Indonesia.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/pages/Scraping CNN Indonesia.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><no title></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_nav_link</span><span class="p">():</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.cnnindonesia.com&#39;</span><span class="p">)</span>
+
+  <span class="c1"># Untuk mengecek respon url dan mencari menu sidebar</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="c1"># Get Nav</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">nav</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;navbar__item&#39;</span><span class="p">)</span>
+    <span class="n">nav_link</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nav</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Home&#39;</span><span class="p">]}</span>
+
+    <span class="c1"># Update Nav Link</span>
+    <span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">nav_link</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="n">nav_content</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span><span class="o">.</span><span class="n">content</span>
+      <span class="n">new_link</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">nav_content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;dtr-act&#39;</span> <span class="p">:</span> <span class="s1">&#39;button indeks berita&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+      <span class="n">nav_link</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_link</span>
+
+    <span class="k">return</span> <span class="n">nav_link</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response https://www.cnnindonesia.com : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">judul</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;mb-2 text-[28px] leading-9 text-cnn_black&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;text-cnn_grey text-sm mb-4&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;dtr-evt&#39;</span> <span class="p">:</span> <span class="s1">&#39;breadcrumb&#39;</span><span class="p">})[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">article</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail-text text-cnn_black text-sm grow min-w-0&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">article</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;SCROLL TO RESUME CONTENT&#39;</span><span class="p">,</span> <span class="s1">&#39;ADVERTISEMENT&#39;</span><span class="p">]:</span>
+        <span class="n">text</span> <span class="o">+=</span> <span class="n">i</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\xa0</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">))</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">category</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_content</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">len_data</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">content</span>
+    <span class="n">container</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+    <span class="n">list_content</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;flex flex-col gap-5&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;article&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;flex-grow&#39;</span><span class="p">)</span>
+    <span class="n">next_button</span> <span class="o">=</span> <span class="n">container</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;dtr-act&#39;</span> <span class="p">:</span> <span class="s1">&#39;halaman selanjutnya&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">while</span> <span class="n">idx</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_content</span><span class="p">):</span>
+      <span class="n">subjudul</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;text-cnn_red block subjudul mb-1&#39;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">subjudul</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">len_data</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+          <span class="n">link_content</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+          <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">link_content</span><span class="p">)</span>
+          <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+          <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="k">break</span>
+          <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+
+      <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Response </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">next_button</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scraping_cnn</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Nasional&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+  <span class="n">category_link</span> <span class="o">=</span> <span class="n">get_nav_link</span><span class="p">()</span>
+  <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">category</span><span class="p">:</span>
+    <span class="n">len_data_category</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">len_data_category</span> <span class="o">!=</span> <span class="n">num_data</span><span class="p">:</span>
+      <span class="n">new_data</span><span class="p">,</span> <span class="n">next_button</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">len_data_category</span><span class="p">,</span> <span class="n">num_data</span><span class="p">)</span>
+      <span class="n">data</span> <span class="o">+=</span> <span class="n">new_data</span>
+      <span class="n">len_data_category</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+      <span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">next_button</span>
+
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Berhasil Mengambil data sebanyak </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s1"> berita dengan </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">category</span><span class="p">)</span><span class="si">}</span><span class="s1"> Category&#39;</span><span class="p">)</span>
+
+  <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Url&#39;</span><span class="p">,</span> <span class="s1">&#39;Judul&#39;</span><span class="p">,</span> <span class="s1">&#39;Tanggal&#39;</span><span class="p">,</span> <span class="s1">&#39;Artikel&#39;</span><span class="p">,</span> <span class="s1">&#39;Category&#39;</span><span class="p">])</span>
+  <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Data Berita CNN.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraping_cnn</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Teknologi&#39;</span><span class="p">,</span> <span class="s1">&#39;Ekonomi&#39;</span><span class="p">,</span> <span class="s1">&#39;Olahraga&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>https://www.cnnindonesia.com/teknologi/20231210114724-218-1035274/bakti-kominfo-atourin-dorong-digitalisasi-kampung-wisata-di-ternate
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231210114724-218-1035274/bakti-kominfo-atourin-dorong-digitalisasi-kampung-wisata-di-ternate&#39;, &#39;BAKTI Kominfo-Atourin Dorong Digitalisasi Kampung Wisata di Ternate&#39;, &#39;Minggu, 10 Des 2023 12:02 WIB&#39;, &#39;Badan Aksesibilitas Telekomunikasi dan Informasi (BAKTI) Kementerian Komunikasi dan Informatika (Kominfo) menggandeng Atourin, perusahaan teknologi sektor pariwisata, untuk mendorong digitalisasi 15 kampung wisata di Kota Ternate, Maluku Utara. Direktur Layanan TI untuk Masyarakat dan Pemerintah BAKTI Kominfo, Bambang Noegroho, menyampaikan kerja sama ini bertujuan untuk meningkatkan optimalisasi pemanfaatan infrastruktur TIK BAKTI yang telah dibangun di Ternate. &quot;Serta mendorong para penggiat wisata untuk memahami hospitality, serta digital branding dan marketing,&quot; ujarnya seperti dikutip dari ANTARA, Minggu (10/12). SCROLL TO CONTINUE WITH CONTENT Dengan menggandeng Atourin, BAKTI menyelenggarakan program pelatihan digitalisasi bagi pelaku pariwisata di wilayah pembangunan infrastruktur BAKTI. Sebanyak 30 penggiat pariwisata dari 15 kampung wisata mengikuti pelatihan dan pendampinganbeberapa waktu lalu di Kota Ternate. Adapun, 15 kampung wisata tersebut adalah Sulamadaha, Kulaba, Takome, Kastela, Tubo, Gura Bala, Tobololo, Loto, Foramadiahi, Taduma, Rua, Tongole, Togafo, Ngade, dan Moya. Pelatihan dibuka oleh Staf Direktorat Layanan TI untuk Masyarakat dan Pemerintah Bakti Kominfo, Rama Mulyana, dan Wali Kota Ternate yang diwakili oleh Asisten Administrasi Umum Sekretariat Daerah Kota Ternate, Anwar Hasjim. Rama menjelaskan bahwa BAKTI Kominfo setiap tahun rutin memiliki program untuk meningkatkan akses internet dan kapasitas sumber daya manusia di Ternate serta berharap dukungan ini dapat dimanfaatkan dengan baik oleh pelaku pariwisata yang ada di Ternate. &quot;BAKTI Kominfo setiap tahun rutin memiliki program untuk meningkatkan akses internet dan kapasitas sumber daya manusia di Ternate serta berharap dukungan ini dapat dimanfaatkan dengan baik oleh pelaku pariwisata yang ada di Ternate,&quot; ucap dia. Di sisi lain, Anwar mengharapkan pelatihan untuk penggiat kampung wisata tersebut bisa membantu mereka untuk melek teknologi serta mampu menggunakannya untuk mempromosikan dan memasarkan produk-produk wisatanya. &quot;Pemerintah Kota Ternate memberikan apresiasi kepada BAKTI, Atourin, dan seluruh penggiat kampung wisata yang berpartisipasi dalam kegiatan ini,&quot; ucapnya. Sementara itu, Chief Operating Officer (COO) Atourin, sekaligus project manager dari program tersebut, Reza Permadi, mengatakan selain pemahaman informasi sesuai modul pelatihan, peserta juga dibekali dengan keahlian teknis tepat guna seperti fotografi dan hospitality yang bisa langsung diterapkan oleh mereka. Ia mengungkapkan mayoritas peserta belum pernah mengikuti pelatihan pariwisata serupa sehingga mereka terlihat antusias dan semangat mengikuti jalannya pelatihan dari awal sampai akhir. BAKTI secara konsisten mendukung kemajuan ekosistem digital di Indonesia melalui berbagai program strategis sehingga dapat meningkatkan indeks masyarakat digital Indonesia. Diharapkan terjadi pemerataan dan peningkatan indeks masyarakat digital Indonesia di seluruh penjuru negeri. Pelatihan digitalisasi kampung wisata ini merupakan bagian dari upaya BAKTI untuk meningkatkan indeks masyarakat digital Indonesia. BAKTI berharap kegiatan ini dapat mendorong kemajuan ekosistem digital di Indonesia, khususnya di sektor pariwisata. Sebagai informasi, pada 2023 program ini diselenggarakan di tiga daerah yang telah terlayani infrastruktur base transceiver station (BTS), artificial intelligence (AI), dan interkoneksi Palapa Ring BAKTI. Tiga daerah tersebut antara lain, Kabupaten Agam di Sumatera Barat, Kabupaten Sumba Timur di Nusa Tenggara Timur; dan Kota Ternate di Maluku Utara. Pelatihan edisi ketiga dilaksanakan di Kota Ternate yang identik dengan rempah. Selain itu, Ternate memiliki berbagai potensi pariwisata yang sangat indah dan menarik. Mulai dari Gunung Gamalama, aneka pantai berpasir hitam dan putih, dunia bawah laut, perkebunan cengkeh, ragam seni dan budaya yang mempesona, berbagai benteng bersejarah, kuliner serta penduduk yang ramah. &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231208103013-199-1034512/pakar-bongkar-rahasia-cara-bikin-senjata-laser-ala-star-wars
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231208103013-199-1034512/pakar-bongkar-rahasia-cara-bikin-senjata-laser-ala-star-wars&#39;, &#39;Pakar Bongkar Rahasia Cara Bikin Senjata Laser ala Star Wars&#39;, &#39;Minggu, 10 Des 2023 09:54 WIB&#39;, &#39;Para peneliti berhasil mengungkap cara membuat senjatalaserberkekuatan tinggi seperti di semesta Star Wars. Karya fiksi George Lucas itusejak lama menampilkan ragam senjatalaser, mulai dari pedang laser alias lightsaberyang digunakan para jedi dan lawannya, paradarth;hingga tembakan laserkelas penghancur planet seperti yang dimiliki Death Star. Militer di beberapa negara sebetulnya telah menggunakan senjata bertenaga laser, seperti yang dipopulerkan Star Wars. Namun, senjata tersebut jauh lebih lemah dibandingkan yang terlihat di layar kaca dan hanya dapat melumpuhkan target kecil di udara. SCROLL TO CONTINUE WITH CONTENT Cahaya pada senjata saat ini, yang tidak terlihat dengan mata telanjang, berasal dari serat optik mode tunggal yang mentransmisikan satu panjang gelombang cahaya, atau mode, melalui inti serat dan menghasilkan sinar terfokus. Namun sulit untuk meningkatkan daya karena cahaya terbatas pada area yang kecil. Serat optik multimode--yang mentransmisikan beberapa mode cahaya-- jauh lebih beragam dan dapat meningkatkan kekuatan cahaya inframerah yang dipancarkan antara tiga hingga sembilan kali lipat. Masalahnya,teknologi ini menghasilkan sinar yang kurang rapi dan tidak fokus, karena terpencar-pencar. Itu berarti, kekuatannya menghilang dengan cepat dalam jarak jauh. Dalam makalah baru yang diterbitkan pada 19 November di jurnal Nature Communications, para ilmuwan menemukan solusi yang membatasi seberapa banyak cahaya yang tersebar dari serat multimode. Secara teori, hal ini berarti militer dapat merancang laser yang berkekuatan cukup tinggi untuk membuat kerusakan signifikan dan cukup fokus untuk membentuk sinar yang halus dan sempit. Penelitian ini didanai oleh Angkatan Udara AS. &quot;Sinar laser berkualitas buruk akan berpencar dengan sangat cepat saat merambat. Oleh karena itu tidak dapat menyalurkan energi dalam jumlah terkonsentrasi ke target,&quot; kata penulis utama Stephen Warren-Smith dan Linh Nguyen, peneliti di Future Industries Institute di Universitas South Australia, mengutip LiveScience. &quot;Kami memiliki cara untuk mengontrol sifat cahaya dalam serat tersebut sehingga muncul sebagai titik fokus yang dapat dideteksi dan berubah menjadi sinar sempit berkualitas tinggi,&quot; lanjutnya. Industri pertahanan telah mengembangkan laser tingkat militer selama bertahun-tahun dan berlomba-lomba untuk menerapkannya di dunia nyata. Lockheed Martin, misalnya, mengumumkan rencananya membuat laser kelas 500 kilowatt yang dapat digunakan untuk sistem senjata energi terarah guna mempertahankan diri dari ancaman. Tim di balik penelitian baru ini belum mengembangkan prototipe untuk senjata semacam itu.   Namun, laser apa pun yang dibuat dengan menggunakan cetak biru mereka mungkin cukup kuat untuk mengacaukan sistem navigasi musuh atau menyebabkan kerusakan termal yang signifikan pada kendaraan atau mesin. Teknologi saat ini dapat menyerang sasaran kecil di udara dalam jarak dekat. Namun teknologi baru ini dapat digunakan pada target yang lebih luas. &quot;Sinar laser difokuskan pada target yang jauh selama beberapa detik, menyebabkan target meleleh atau terbakar. Sinar laser ini mungkin paling efektif untuk target kecil seperti drone dan mortir, namun berpotensi menargetkan sasaran yang lebih besar jika sistem kritis tertentu rusak, seperti sebagai sensor onboard atau elektronik,&quot; tulis para peneliti. Namun, ini tidak berarti teknologi tersebut dapat digunakan untuk menghasilkan Death Star dalam waktu dekat. Sebaliknya, kemungkinan besar teknologi tersebut akan digunakan untuk menonaktifkan drone otomatis.  &quot;Menghabiskan amunisi untuk menjatuhkan drone memerlukan biaya yang sangat mahal namun senjata laser menawarkan &quot;peluru&quot; yang hampir tidak terbatas, dengan listrik sebagai satu-satunya sumber energi masukan.&quot; jelas para peneliti. Selain digunakan dalam persenjataan, para peneliti berpendapat bahwa laser sekuat itu juga dapat digunakan dalam penginderaan jauh. Laser berkekuatan tinggi, misalnya, dapat menentukan kecepatan angin pada jarak yang lebih jauh dibandingkan metode konvensional. Laser bertenaga tinggi juga penting untuk penelitian deteksi gelombang gravitasi dan peneliti berharap penemuan mereka dapat berperan dalam upaya penelitian di masa depan.  [Gambas:Video CNN]  &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231207144930-185-1034222/ai-diduga-rasis-gambar-warga-kulit-putih-lebih-manusiawi
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231207144930-185-1034222/ai-diduga-rasis-gambar-warga-kulit-putih-lebih-manusiawi&#39;, &#39;AI Diduga Rasis, Gambar Warga Kulit Putih Lebih Manusiawi&#39;, &#39;Minggu, 10 Des 2023 08:54 WIB&#39;, &#39;Studiterbaru yang dipimpin para ahli di Australian National University (ANU) menemukan wajah orang berkulit putih yang dihasilkan teknologi kecerdasan buatan (AI) terlihat lebihriilketimbang orang kulit berwarna. Amy Dawel, salah satu peneliti studi tersebut menjelaskan perbedaan ini disebabkan algoritma AI dilatih secara tidak proporsional pada wajah-wajah berkulit putih. &quot;Jika wajah AI berkulit putih secara konsisten dianggap lebih realistis, teknologi ini dapat memiliki implikasi serius bagi orang kulit berwarna dengan memperkuat bias rasial secara online,&quot; kata Dawel, mengutip Science Daily, Kamis (7/12). SCROLL TO CONTINUE WITH CONTENT &quot;Masalah ini sudah terlihat dalam teknologi AI saat ini yang digunakan untuk membuat foto wajah yang terlihat profesional. Ketika digunakan untuk orang kulit berwarna, AI mengubah warna kulit dan mata mereka menjadi warna kulit orang kulit putih.&quot; Para peneliti menemukan salah satu masalah dengan \&#39;hiper-realisme\&#39; AI adalah bahwa orang sering tidak menyadari bahwa mereka sedang dibodohi. &quot;Yang memprihatinkan, orang-orang yang paling sering berpikir bahwa wajah AI itu nyata adalah mereka yang paling percaya diri bahwa penilaian mereka benar,&quot; kata Elizabeth Miller, penulis lainnya dalam studi tersebut. &quot;Ini berarti orang-orang yang salah mengira peniru AI sebagai orang sungguhan tidak tahu bahwa mereka sedang ditipu.&quot; Para peneliti juga dapat menemukan mengapa wajah AI menipu orang. &quot;Ternyata masih ada perbedaan fisik antara wajah AI dan wajah manusia, tetapi orang cenderung salah mengartikannya. Sebagai contoh, wajah AI yang berwarna kulit putih cenderung lebih proporsional dan orang-orang salah mengartikannya sebagai tanda kemanusiaan,&quot; kata Dawel. &quot;Namun, kita tidak bisa mengandalkan isyarat fisik ini untuk waktu yang lama. Teknologi AI berkembang sangat cepat sehingga perbedaan antara AI dan wajah manusia mungkin akan segera hilang.&quot; Para peneliti berpendapat bahwa tren ini dapat berimplikasi serius terhadap penyebaran informasi yang salah dan pencurian identitas, dan tindakan harus dilakukan. &quot;Teknologi AI tidak dapat dipisahkan sehingga hanya perusahaan teknologi yang tahu apa yang terjadi di balik layar. Perlu ada transparansi yang lebih besar di sekitar AI sehingga para peneliti dan masyarakat sipil dapat mengidentifikasi masalah sebelum menjadi masalah besar,&quot; kataDawel.  Meningkatkan kesadaran masyarakat juga dapat memainkan peran penting dalam mengurangi risiko yang ditimbulkan oleh teknologi ini, menurut para peneliti. &quot;Mengingat bahwa manusia tidak lagi dapat mendeteksi wajah AI, masyarakat membutuhkan alat yang dapat secara akurat mengidentifikasi penipu AI,&quot; ujar Dawel. &quot;Mengedukasi masyarakat tentang realisme yang dirasakan dari wajah AI dapat membantu membuat masyarakat lebih skeptis terhadap gambar yang mereka lihat secara online.&quot; &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231208180021-199-1034844/simpanse-curi-makanan-elang-ahli-sebut-gambaran-masa-lalu-manusia
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231208180021-199-1034844/simpanse-curi-makanan-elang-ahli-sebut-gambaran-masa-lalu-manusia&#39;, &#39;Simpanse Curi Makanan Elang, Ahli Sebut Gambaran Masa Lalu Manusia&#39;, &#39;Minggu, 10 Des 2023 07:54 WIB&#39;, &#39;Seorangilmuwan berhasil menangkap momen langka ketika seekorsimpanse jantan mencuri santapan elang di Lembah Issa, Tanzania Barat. Simpanse (Pan Troglodytes) merupakan hewan vegetarian namun mereka juga memakan daging atau produk hewani lainnya. Pada beberapa kesempatan, Simpanse ini juga memakan bangkai hewan. Studi baru yang diterbitkan pada 31 Oktober di jurnal Primates, menyoroti kemampuan simpanse untuk menghadapi predator lain dan mengambil makanan mereka dalam perilaku memulung sembarangan. SCROLL TO CONTINUE WITH CONTENT Penulis utama Sam Baker, Koordinator Penelitian Proyek Konservasi Primata Bugoma di Uganda, sedang mengikuti simpanse bersama Kidosi Raulent Mfaume, asisten lapangan setempat, ketika mereka melihat Imba, simpanse jantan alfa, berlari kelapangan rumput. Seekor elang bermahkota (Stephanoaetus coronatus) kemudian langsung terbang. Beberapa saat kemudian, Imba muncul bersama seekor rusa muda yang tidak bergerak yang menurut penulis penelitian baru saja ditangkap oleh elang tersebut. &quot;Seperti kebanyakan pengalaman baru, terutama pengalaman langka, momen ini terasa nyata dan menggembirakan,&quot; kata Baker, mengutip LiveScience. &quot;Konfrontasi ini jarang terjadi dalam literatur, sebagian besar disimpulkan, sehingga pengamatan peristiwa yang hampir lengkap adalah hal yang unik.&quot; tambahnya. Simpanse lain mencoba mencuri bangkai tersebut dan memohon kepada Imba untuk membagikannya selama sekitar satu jam. Dia memberikan sebagian kepada simpanse betina dan memakan sebagian besar dari mangsa itu sendiri. Setelah membuang bangkainya, simpanse lain kemudian pergi dan mengambil sendiri sisa-sisanya. Pada akhirnya, hanya tengkorak lah yang tersisa. Dokumentasi ini merupakan contoh kedua dari sifat \&#39;memulung secara konfrontatif\&#39; (confrontational scavenging) simpansedengan jalan mencuri makanan dari hewan lain. Sebuah studi 2019 yang diterbitkan dalam Journal of Human Evolution menemukan bahwa simpanse juga mencuri dari macan tutul (Panthera pardus). Padahal, simpanse merupakan salah satu mangsa macan tutul. Menurut Baker, simpanse merupakan salah satu kerabat terdekat kita yang masih hidup. Mereka, katanya, memberikan gambaran akan kehidupan nenek moyang kita yang terakhir yang hidup sekitar 6 hingga 8 juta tahun lalu dan terjadinya evolusi perilaku manusia.  Mengais-ais makanan bisa menyebabkan perilaku sosial yang semakin kompleks pada manusia purba. Hal ini, kata Baker, &quot;seperti batu loncatan evolusioner, pasif ke memulung secara konfrontatif,menjadi perburuan kooperatif.&quot; Mfaume, asisten lapangan yang juga menyaksikan kejadian tersebut, namun tidak disebutkan namanya dalam penelitian tersebut, meninggal karena sakit pada tahun 2022 pada usia 29 tahun. Baker mengatakan dia ingin mendedikasikan penelitiannya untuk mengenang Mfaume. &quot;Dia adalah sosok yang cantik dan memiliki jiwa yang tak terhapuskan, penuh gairah terhadap hutan dan simpanse di sana,&quot; tambah Baker.  [Gambas:Video CNN] &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231208174947-185-1034838/cara-agar-whatsapp-terlihat-offline-padahal-online
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231208174947-185-1034838/cara-agar-whatsapp-terlihat-offline-padahal-online&#39;, &#39;Cara Agar WhatsApp Terlihat Offline Padahal Online&#39;, &#39;Minggu, 10 Des 2023 06:54 WIB&#39;, &quot;WhatsAppmemiliki fitur yang memungkinkan untuk menyamarkankondisionlineAnda demi ketenangan saat chat. Berikut cara mudahnya. Status online tersebut menjadi tanda bahwa pengguna sedang aktif atau membuka aplikasi WA. Fitur agar WA tidak ada tulisan online menjadi fitur penunjang untuk menjaga privasi penggunabaik di Android maupun iOS. SCROLL TO CONTINUE WITH CONTENT Cara kerjanyaadalahdengan menyembunyikan status online yang muncul di ruang obrolan. Kendati statusnya tidak terlihat online oleh pengguna lain, pengguna sebenarnya tetap aktif atau online dan dapat mengirim pesan kepada siapa saja. Lewat fitur ini, pengguna juga bisa memilih siapa saja daftar kontak yang mendapat izin untuk melihat akunnya ketika sedang online. WA sendiri sebelumnya hanya menambahkan opsi &#39;Kontak Saya Kecuali&#39; atau &#39;My Contact Except&#39; pada kolom Last Seen. Opsi ini memberikan kontrol kepada pengguna agar dapat memilih daftar pengguna WA lain yang bisa melihat status online mereka. Namun menu Last Seen berganti menjadi Last Seen dan Online sehingga kontrol pengguna terhadap status online lebih lengkap. Berikut cara agar WA tidak ada tulisan online tapi tetap aktif: - Buka aplikasi WhatsApp di HP, Android atau iOS.- Klik lainnya ikon titik tiga di bagian kanan atas.- Pilih Settings (Setelan).-Klik Account (Akun).- Pilih Privacy (Privasi).- Pilih menu Last Seen (Terakhir Dilihat) and Online.-klik Nobody di bagian Last Seen dan Same as Last Seen di bagian online. Supaya bisa memakai fitur ini, pastikan aplikasi WhatsApp di smartphone Anda telah diperbarui. Sebab menu Last Seen and Online bisa saja tidak muncul apabila aplikasi belum diperbarui. [Gambas:Video CNN] &quot;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231209175159-192-1035140/medsos-bupati-bogor-diserang-netizen-buntut-konflik-di-parung-panjang
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231209175159-192-1035140/medsos-bupati-bogor-diserang-netizen-buntut-konflik-di-parung-panjang&#39;, &#39;Medsos Bupati Bogor Diserang Netizen Buntut Konflik di Parung Panjang&#39;, &#39;Sabtu, 09 Des 2023 18:17 WIB&#39;, &#39;AkunInstagram Bupati Bogor Iwan Setiawandiserang netizen buntut aksi demo yang dilakukan sejumlah sopir truk tambang di Parung Panjang, Kabupaten Bogor. Netizen ramai-ramai menyerbu kolom komentar Iwanpadaunggahan peresmian Skybridge Bojonggede yang dilakukan bersama Menteri Perhubungan Budi Karya Sumadi hingga Wali Kota Bogor Bima Arya.  SCROLL TO CONTINUE WITH CONTENT Sejumlah netizen menuntut penyelesaian konflik yang meliputi para sopir truk yang berdemo sejak Jumat (8/12) malam. Ditambah demo yang dilakukan para sopir dengan memarkirkan truknya telah menelan korban jiwa. Mereka menuding Iwan telah cuek dengan permasalahan tersebut. &quot;Parung Panjang belum beres pak, kalau enggak sanggup coba koordinasi sama PJ Provinsi, terus update perkembangannya, please atuhlah jangan gini-gini mulu, capek warga,&quot; tulis akun g*****n. &quot;Rakyat lu noh demo. Lu kemana Pak Bup? Coba selesaikan masalah di Parung Panjang. Mau sampai kapan konfliknya? Sebagai bupati apa langkah konkretnya? Datangi, evaluasi dan turun ke Parung Panjang dong. Coba jadi perhatian Provinsi Jabar,&quot; bunyi komentar akun @r**********n. &quot;Pak tengok Parung Panjang pak. Nunggu berapa nyawa lagi pak masalah truk ini?&quot; ucap yang lainnya. &quot;Pak Parung Panjang coba pikirin,&quot; tulis akun @y************h.  Sejumlah sopir truk tambang melakukan aksi unjuk rasa dengan memarkirkan truknya di Jalan Parung Panjang. Aksi ini dilakukan mereka pada Jumat (8/12) malam hingga Sabtu (9/12) pagi. &quot;Demonya demo kendaraannya diberhentiin di jalan,&quot; ujar Kapolsek Parung Panjang Kompol Suharto saat dihubungi, Sabtu (9/12). Imbas aksi tutup jalan itu, arus lalu lintas di lokasi sempat mengalami kemacetan parah. Suharto mengungkap para sopir truk menuntut kejelasan soal Peraturan Bupati Nomor 56 Tahun 2023 tentang jam operasional truk kepada Dinas Perhubungan (Dishub). Suharto memastikan arus lalu lintas di Jalan Parung Panjang sudah berangsur-angsur lancar usai berakhirnya aksi unjuk rasa para sopir truk.    Sejumlah video yang diunggah Instagram @kabarparungpanjang menampakkan puluhan sopir truk tampak memenuhi kawasan depan dan sekitar kantor kecamatan. Para sopir bahkan dilaporkan melakukan aksi bakar ban pada dini hari tadi. Pembatasan ini ditetapkan pemerintah Kabupaten Bogor usai warga setempat mengeluhkan jalan Parung Panjang yang kerap dipadati truk, bahkan saat pagi hari ketika waktu sekolah. Kondisi lalu lintas ini membahayakan warga. Ketentuan baru terkait jam operasional angkutan khusus tambang ini diatur melalui Peraturan Bupati (Perbup) Bogor Nomor 160 Tahun 2023 yang menggantikan Perbup Nomor 120 Tahun 2021. Iwan sebelumnya menjelaskan perubahan ini menyesuaikan dengan aturan di Tangerang. Ia menyebut selama ini terdapat perbedaan waktu yang terlalu jauh antara jam operasional truk tambang di Kabupaten Tangerang dan Kabupaten Bogor. Kondisi ini menjadi salah satu penyebab terjadinya penumpukan kendaraan. &quot;Makanya hasil diskusi, kajian dan melihat kondisi langsung, kami mengambil langkah samakan jam operasionalnya. Di kami mulai dibuka jam 22.00, di Tangerang diterima juga jam 22.00 jadi diharapkan tidak ada penumpukan,&quot; ujar Iwan, seperti dikutip ANTARA. &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231209153224-185-1035103/pertama-di-dunia-uni-eropa-sepakati-uu-tentang-kecerdasan-buatan
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://www.cnnindonesia.com/teknologi/20231209153224-185-1035103/pertama-di-dunia-uni-eropa-sepakati-uu-tentang-kecerdasan-buatan&#39;, &#39;Pertama di Dunia, Uni Eropa Sepakati UU tentang Kecerdasan Buatan&#39;, &#39;Sabtu, 09 Des 2023 17:10 WIB&#39;, &#39;Uni Eropa(UE) menyepakati undang-undang pertama yang mengatur tentang kecerdasan buatan (artificial intelligence/AI). Negosiator dari Parlemen Eropa dan 27 negara anggota blok itu pada Jumat (8/12) mencapai kesepakatan sementara tentang regulasi yang mengatur kecerdasan buatan, termasuk penggunaan AI oleh pemerintah dalam pengawasan biometrik serta aturan sistem AI seperti ChatGPT. &quot;Eropa telah memposisikan dirinya sebagai pelopor, memahami pentingnya peran mereka sebagai penentu standar global. Saya percaya ini hari yang bersejarah,&quot; kata Komisioner Eropa Thierry Breton dalam konferensi pers, seperti dikutip Reuters, Sabtu (9/12). SCROLL TO CONTINUE WITH CONTENT Regulasi itu nantinya mewajibkan model fondasi seperti ChatGPT dan sistem AI bertujuan umum (GPAI) untuk mematuhi kewajiban transparansi sebelum dipasarkan.  Aturan ini termasuk menyusun dokumentasi teknis, mematuhi undang-undang hak cipta UE, dan menyebarluaskan ringkasan rinci tentang konten yang digunakan untuk pelatihan. Sementara itu, model dasar berdampak tinggi dengan risiko sistemik harus melakukan evaluasi model, menilai dan memitigasi risiko sistemik, melakukan pengujian tentang kerugian, melaporkan kepada Komisi Eropa mengenai insiden serius, memastikan keamanan siber, serta melaporkan efisiensi energinya. GPAI dengan risiko sistemik bisa mengandalkan kode praktik untuk mematuhi peraturan baru ini. Dalam regulasi ini, pemerintah nantinya hanya bisa menggunakan pengawasan biometrik real-time di ruang publik dalam kasus korban kejahatan tertentu, pencegahan terhadap ancaman seperti serangan teroris, dan pencarian orang-orang yang dicurigai melakukan kejahatan serius. Regulasi itu juga melarang manipulasi perilaku kognitif, penghapusan gambar wajah yang tidak ditargetkan dari internet atau rekaman CCTV, serta penilaian sosial dan sistem kategorisasi biometrik untuk mengetahui keyakinan politik, agama, filosofi, orientasi seksual, dan ras.  Konsumen nantinya memiliki hak untuk menyampaikan keluhan dan menerima penjelasan terperinci dengan adanya aturan ini. Sementara itu, mereka yang melanggar aturan akan didenda berkisar dari 7,5 juta euro atau 1,5 persen dari omset, hingga 35 juta euro atau 7 persen dari omset global. Regulasi baru ini pun dikritik oleh kelompok bisnis Digital Europe. Kelompok ini menyebut aturan tersebut merupakan beban baru bagi perusahaan. &quot;Kami sudah sepakat, tapi berapa biayanya? Kami sepenuhnya mendukung pendekatan berbasis risiko yang didasarkan pada penggunaan AI, bukan teknologi itu sendiri. Namun upaya terakhir untuk mengatur model dasar telah mengubah hal ini,&quot; kata Direktur Jenderal Digital Europe, Cecilia Bonefeld-Dahl. Kelompok hak privasi, European Digital Rights, juga melontarkan kritikan senada.  &quot;Sulit untuk merasa senang dengan undang-undang yang, untuk pertama kalinya di UE, mengambil langkah-langkah untuk melegalkan pengenalan wajah publik secara langsung di seluruh negara anggota blok,&quot; kata penasihat kebijakan senior UE, Ella Jakubowska. Undang-undang ini diperkirakan mulai berlaku pada awal 2024 setelah semua pihak secara resmi meratifikasinya, dan akan berlaku dua tahun setelahnya. &#39;, &#39;Teknologi&#39;]
+https://www.cnnindonesia.com/teknologi/20231209135034-218-1035072/kominfo-ungkap-se-pedoman-ai-untuk-mencegah-penyalahgunaan
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-6-29b9050d8eaa&gt;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">scraping_cnn</span><span class="p">(</span><span class="n">category</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Teknologi&#39;</span><span class="p">,</span> <span class="s1">&#39;Ekonomi&#39;</span><span class="p">,</span> <span class="s1">&#39;Olahraga&#39;</span><span class="p">],</span> <span class="n">num_data</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-5-f66562f904b2&gt;</span> in <span class="ni">scraping_cnn</span><span class="nt">(category, num_data)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">len_data_category</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">while</span> <span class="n">len_data_category</span> <span class="o">!=</span> <span class="n">num_data</span><span class="p">:</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>       <span class="n">new_data</span><span class="p">,</span> <span class="n">next_button</span> <span class="o">=</span> <span class="n">get_content</span><span class="p">(</span><span class="n">category_link</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">len_data_category</span><span class="p">,</span> <span class="n">num_data</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>       <span class="n">data</span> <span class="o">+=</span> <span class="n">new_data</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>       <span class="n">len_data_category</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-4-a98d1641ac79&gt;</span> in <span class="ni">get_content</span><span class="nt">(url, len_data, target)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>         <span class="k">if</span> <span class="n">len_data</span> <span class="o">!=</span> <span class="n">target</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>           <span class="n">link_content</span> <span class="o">=</span> <span class="n">list_content</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">16</span>           <span class="n">data_berita</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">link_content</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>           <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_berita</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>           <span class="n">len_data</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nn">&lt;ipython-input-3-ab18a6100d47&gt;</span> in <span class="ni">get_data</span><span class="nt">(url)</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>   <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>   <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>   <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">486</span><span class="s2">             resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="s2">                 method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="s2">                 url=url,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">             # Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">             response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span><span class="s2">         # Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">537</span><span class="s2">             response = conn.getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span><span class="s2">         except (BaseSSLError, OSError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="s2">         # Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">461</span><span class="s2">         httplib_response = super().getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="s2">         try:</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span><span class="s2">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span><span class="s2">                 response.begin()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span><span class="s2">             except ConnectionError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span><span class="s2">                 self.close()</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2">         # read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         while True:</span>
+<span class="ne">--&gt; </span><span class="mi">318</span><span class="s2">             version, status, reason = self._read_status()</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             if status != CONTINUE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">                 break</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2">     def _read_status(self):</span>
+<span class="ne">--&gt; </span><span class="mi">279</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
+
+<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">                 self._timeout_occurred = True</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1303</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1305</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1157</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1158</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1159</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1160</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1161</span><span class="s2">                 return self._sslobj.read(len)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./pages"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Ahmad Rosyihuddin
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
